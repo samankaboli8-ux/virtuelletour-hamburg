@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seite nicht gefunden – Virtuelle Touren Hamburg</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#4E7B53">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=8">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+      </span>
+      <span>Virtuelle Touren<small>Hamburg &amp; Umgebung</small></span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html" data-page="index.html">Start</a></li>
+      <li><a href="leistungen.html" data-page="leistungen.html">Leistungen &amp; Preise</a></li>
+      <li class="nav__has-sub">
+        <a href="index.html#branchen" data-page="branchen">Branchen <svg class="nav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+        <ul class="nav__sub">
+          <li><a href="gastronomie.html" data-page="gastronomie.html">Gastronomie</a></li>
+          <li><a href="eventlocations.html" data-page="eventlocations.html">Eventlocations &amp; Hotels</a></li>
+          <li><a href="immobilien.html" data-page="immobilien.html">Immobilien &amp; Wohnen</a></li>
+          <li><a href="gewerbe.html" data-page="gewerbe.html">Gewerbe &amp; Showrooms</a></li>
+          <li><a href="freizeit.html" data-page="freizeit.html">Freizeit &amp; Entertainment</a></li>
+          <li><a href="baubranche.html" data-page="baubranche.html">Baubranche</a></li>
+        </ul>
+      </li>
+      <li><a href="referenzen.html" data-page="referenzen.html">Referenzen</a></li>
+      <li><a href="kontakt.html" data-page="kontakt.html">Kontakt</a></li>
+      <li class="nav__cta"><a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <section class="section" style="text-align:center;padding:120px 0">
+    <div class="wrap">
+      <span class="eyebrow">Fehler 404</span>
+      <h1 style="font-size:clamp(30px,6vw,52px);margin-bottom:16px">Diese Seite gibt es nicht</h1>
+      <p style="color:var(--muted);font-size:18px;max-width:480px;margin:0 auto 30px">Die aufgerufene Seite wurde nicht gefunden. Vielleicht möchtest du eine der virtuellen Touren entdecken?</p>
+      <div class="hero__cta" style="justify-content:center">
+        <a class="btn btn--primary btn--lg" href="index.html">Zur Startseite</a>
+        <a class="btn btn--ghost btn--lg" href="referenzen.html">Touren ansehen</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:0;padding-top:0">
+      <span>© <span id="year"></span> Virtuelle Touren Hamburg · Erstellt mit Matterport</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js?v=3"></script>
+</body>
+</html>

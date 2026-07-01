@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://virtuelletour-hamburg.de/sitemap.xml
