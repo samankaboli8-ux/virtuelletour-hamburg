@@ -36,13 +36,32 @@ const TOURS = [
   { id:"KNbB5EPAmre", title:"Wohnungseinheit Lessingstraße 7, Hamburg", cat:"gewerbe" },
 ];
 
+/* Vom Sortiermodus (sort-mode.js) gespeicherte Reihenfolge als Vorschau anwenden.
+   Wirkt nur im Browser des Betreibers – für alle Besucher wird die Reihenfolge
+   erst durch Anpassen des TOURS-Arrays oben live. */
+(function () {
+  try {
+    var saved = JSON.parse(localStorage.getItem('tourOrder') || 'null');
+    if (Array.isArray(saved) && saved.length) {
+      var rank = {};
+      saved.forEach(function (id, i) { rank[id] = i; });
+      TOURS.sort(function (a, b) {
+        var ra = (a.id in rank) ? rank[a.id] : 1e9;
+        var rb = (b.id in rank) ? rank[b.id] : 1e9;
+        return ra - rb;
+      });
+    }
+  } catch (e) {}
+})();
+
+/* file = schlanke Grid-Vorschau (1920px), full = echtes 4K (3840px) für die Lightbox */
 const GALLERY = [
-  { file:"images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936.jpg", title:"Vecchio Amore – Festsaal & Eventfläche" },
-  { file:"images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048.jpg", title:"Vecchio Amore – Terrasse an der Speicherstadt" },
-  { file:"images/Living-Room-2.jpg", title:"Living Room – Restaurant & Eventfläche" },
-  { file:"images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", title:"New City Smash Burger – Hamburg" },
-  { file:"images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", title:"Golden Bean Winterhude – Café" },
-  { file:"images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", title:"Golden Bean Eimsbüttel – Barista-Kurse" },
+  { file:"images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936.jpg", full:"images/full/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936.jpg", title:"Vecchio Amore – Festsaal & Eventfläche" },
+  { file:"images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048.jpg", full:"images/full/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048.jpg", title:"Vecchio Amore – Terrasse an der Speicherstadt" },
+  { file:"images/Living-Room-2.jpg", full:"images/full/Living-Room-2.jpg", title:"Living Room – Restaurant & Eventfläche" },
+  { file:"images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", full:"images/full/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", title:"New City Smash Burger – Hamburg" },
+  { file:"images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", full:"images/full/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", title:"Golden Bean Winterhude – Café" },
+  { file:"images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", full:"images/full/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", title:"Golden Bean Eimsbüttel – Barista-Kurse" },
 ];
 
 const grid = document.getElementById('grid');
@@ -229,7 +248,7 @@ function renderGallery(){
 
 function openLightbox(i){
   lbIndex = i;
-  lbImg.src = GALLERY[i].file;
+  lbImg.src = GALLERY[i].full || GALLERY[i].file;
   lbImg.alt = GALLERY[i].title;
   lbCap.textContent = GALLERY[i].title;
   lightbox.classList.add('show');
@@ -243,7 +262,7 @@ function closeLightbox(){
 }
 function navLightbox(dir){
   lbIndex = (lbIndex + dir + GALLERY.length) % GALLERY.length;
-  lbImg.src = GALLERY[lbIndex].file;
+  lbImg.src = GALLERY[lbIndex].full || GALLERY[lbIndex].file;
   lbImg.alt = GALLERY[lbIndex].title;
   lbCap.textContent = GALLERY[lbIndex].title;
 }
