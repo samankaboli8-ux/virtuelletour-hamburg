@@ -12,18 +12,18 @@ const CATEGORIES = [
 const TOURS = [
   // Bars, Restaurants & Eventlocations
   { id:"2JgeWuujp21", title:"StrandPauli", cat:"event" },
-  { id:"1kCCq3heNPJ", title:"StrandPauli – Winter", cat:"event" },
   { id:"7CpYpsEXAhs", title:"Die MachBar Lübeck – Workshops, Tagungen & Teamevents", cat:"event" },
+  { id:"1kCCq3heNPJ", title:"StrandPauli – Winter", cat:"event" },
+  { id:"m52qjE1sm2e", title:"Vecchio Amore – Italienischer Flair für Ihre Veranstaltung", cat:"event" },
   { id:"HMV7RcycNR2", title:"DECK 10 – Über den Dächern Hamburgs", cat:"event" },
   { id:"R2wMMZ31NfV", title:"Eventlocation ElbHof – Hamburg HafenCity", cat:"event" },
-  { id:"m52qjE1sm2e", title:"Vecchio Amore – Italienischer Flair für Ihre Veranstaltung", cat:"event" },
   { id:"qDN2mxB522G", title:"Tunici Team – Hotel & Eventlocation Hamburg", cat:"event" },
   // Gastronomie & Cafés
-  { id:"e43gx9VXfzg", title:"Tandoori Flame – Indisches Restaurant Winterhude", cat:"gastro" },
   { id:"NsvWLbUKDEX", title:"Restaurant Caspari", cat:"gastro" },
-  { id:"yQSGoSj83NT", title:"Restaurant Aspera", cat:"gastro" },
   { id:"uDdPTJRfy2R", title:"Doro Ristorante – Italienisches Restaurant", cat:"gastro" },
+  { id:"e43gx9VXfzg", title:"Tandoori Flame – Indisches Restaurant Winterhude", cat:"gastro" },
   { id:"C6A8Zt3dq5K", title:"New City Smash Burger – Hamburg", cat:"gastro" },
+  { id:"yQSGoSj83NT", title:"Restaurant Aspera", cat:"gastro" },
   { id:"d6EKByVzyrT", title:"Golden Bean Winterhude – Café in der Gertigstraße", cat:"gastro" },
   // Sport & Freizeit
   { id:"t4sME6NCR3Y", title:"WE ARE PADEL – Berlin", cat:"sport" },
@@ -31,8 +31,8 @@ const TOURS = [
   { id:"W76rohTnCso", title:"Flipperwelten Bad Schwartau", cat:"sport" },
   { id:"Wm9g9K5ebNR", title:"Flipperhalle – Berlin", cat:"sport" },
   // Gewerbe & Wohnen
-  { id:"vq4xfBEHq3V", title:"DEVK Versicherungen – Torsten Schalber", cat:"gewerbe" },
   { id:"jW4ha2PrbZB", title:"DEVK Versicherung Völklingen – Christoph Horbach", cat:"gewerbe" },
+  { id:"vq4xfBEHq3V", title:"DEVK Versicherungen – Torsten Schalber", cat:"gewerbe" },
   { id:"KNbB5EPAmre", title:"Wohnungseinheit Lessingstraße 7, Hamburg", cat:"gewerbe" },
 ];
 
