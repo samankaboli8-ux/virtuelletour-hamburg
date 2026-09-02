@@ -2,68 +2,104 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://virtuelletour-hamburg.de/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/leistungen.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/referenzen.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/gastronomie.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/eventlocations.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/immobilien.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/gewerbe.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/freizeit.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/baubranche.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://virtuelletour-hamburg.de/ratgeber.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://virtuelletour-hamburg.de/ratgeber-matterport-kosten.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://virtuelletour-hamburg.de/ratgeber-google-street-view.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://virtuelletour-hamburg.de/ratgeber-location-vorbereiten.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://virtuelletour-hamburg.de/kontakt.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://virtuelletour-hamburg.de/virtuelle-tour-berlin.html</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://virtuelletour-hamburg.de/impressum.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://virtuelletour-hamburg.de/datenschutz.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
