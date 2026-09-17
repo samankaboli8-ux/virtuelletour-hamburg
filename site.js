@@ -22,6 +22,22 @@
     if (a.getAttribute('data-page') === page) a.setAttribute('aria-current', 'page');
   });
 
+
+  /* ---- Google Street View: erst nach Klick laden (Datenschutz) ---- */
+  document.querySelectorAll('.sv-embed[data-src]').forEach(function (box) {
+    var btn = box.querySelector('.sv-embed__btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = box.getAttribute('data-src');
+      f.title = box.getAttribute('data-title') || 'Google Street View';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      box.querySelectorAll('picture, img, .sv-embed__btn').forEach(function (el) { el.remove(); });
+      box.appendChild(f);
+    });
+  });
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 

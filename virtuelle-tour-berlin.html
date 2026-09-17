@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
 <title>Virtuelle Tour Berlin – 3D-Rundgang & 4K-Fotos | Matterport</title>
-<meta name="description" content="Virtuelle 3D-Touren & 4K-Bilder für Berlin – mit echten Referenzen aus der Hauptstadt. Matterport-Rundgänge für Gastronomie, Events, Immobilien, Freizeit & Gewerbe.">
+<meta name="description" content="Virtuelle 3D-Touren &amp; 4K-Bilder in Berlin – mit echten Referenzen aus der Hauptstadt. Matterport-Rundgänge für Gastronomie, Events, Immobilien &amp; Gewerbe.">
 <meta name="keywords" content="virtuelle Tour Berlin, 3D-Rundgang Berlin, Matterport Berlin, 360 Grad Tour Berlin, virtuelle Besichtigung Berlin">
 <link rel="canonical" href="https://virtuelletour-hamburg.de/virtuelle-tour-berlin.html">
 <meta name="robots" content="index, follow">
@@ -16,19 +17,29 @@
 <meta property="og:description" content="Virtuelle 3D-Touren & 4K-Bilder für Berlin – mit echten Referenzen aus der Hauptstadt. Für Sport, Gastronomie, Events & Gewerbe.">
 <meta property="og:url" content="https://virtuelletour-hamburg.de/virtuelle-tour-berlin.html">
 <meta property="og:image" content="https://virtuelletour-hamburg.de/images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Virtuelle Tour Berlin – 3D-Rundgang & 4K-Fotos | Matterport">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=10">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://my.matterport.com">
+<link rel="dns-prefetch" href="https://my.matterport.com">
+<link rel="stylesheet" href="styles.css?v=11">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
+  "url": "https://virtuelletour-hamburg.de/virtuelle-tour-berlin.html",
   "serviceType": "Virtuelle 3D-Tour & 4K-Fotografie",
   "provider": {
     "@type": "ProfessionalService",
+    "@id": "https://virtuelletour-hamburg.de/#business",
     "name": "Virtuelle Touren Hamburg",
     "telephone": "+4917660953701",
     "url": "https://virtuelletour-hamburg.de/",
@@ -74,7 +85,7 @@
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M32 13 49 22.5v19L32 51 15 41.5v-19Z"/><path d="M15 22.5 32 32l17-9.5M32 32v19"/><ellipse cx="32" cy="22.5" rx="8" ry="4" stroke-width="2.4"/><circle cx="32" cy="22.5" r="2.4" fill="currentColor" stroke="none"/></svg>
       </span>
       <span>Virtuelle Touren<small>Hamburg &amp; Umgebung</small></span>
     </a>
@@ -274,8 +285,8 @@
         <p>Auf Wunsch entferne ich Möbel und Deko aus Ihren Aufnahmen. Ideal für Immobilien und Vermietung: Interessenten sehen den Raum neutral und können ihn sich selbst einrichten. Ziehen Sie den Regler und sehen Sie den Unterschied.</p>
       </div>
       <div class="ba" id="baSlider" role="slider" tabindex="0" aria-label="Vorher-Nachher-Vergleich: möblierter und leerer Raum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-reveal>
-        <img class="ba__img ba__img--after" src="images/defurnish-nachher-flur.jpg" alt="Leerer, per KI von Möbeln befreiter Altbau-Flur aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'">
-        <img class="ba__img ba__img--before" src="images/defurnish-vorher-flur.jpg" alt="Möblierter Altbau-Flur mit Teppich, Garderobe und Antikmöbeln aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'">
+        <picture><source type="image/webp" srcset="images/opt/defurnish-nachher-flur-640.webp 640w, images/opt/defurnish-nachher-flur-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img class="ba__img ba__img--after" src="images/defurnish-nachher-flur.jpg" alt="Leerer, per KI von Möbeln befreiter Altbau-Flur aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
+        <picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img class="ba__img ba__img--before" src="images/defurnish-vorher-flur.jpg" alt="Möblierter Altbau-Flur mit Teppich, Garderobe und Antikmöbeln aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
         <span class="ba__label ba__label--before">Möbliert</span>
         <span class="ba__label ba__label--after">Leer · per KI entfernt</span>
         <div class="ba__handle"><span class="ba__grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg></span></div>
@@ -359,32 +370,32 @@
       </div>
       <div class="gallery" data-reveal>
         <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen">
-          <img src="images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936.jpg" alt="4K-Foto eines Festsaals einer Eventlocation aus einer virtuellen Tour" loading="lazy" width="800" height="450">
+          <picture><source type="image/webp" srcset="images/opt/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936-640.webp 640w, images/opt/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936.jpg" alt="4K-Foto eines Festsaals einer Eventlocation aus einer virtuellen Tour" loading="lazy" width="800" height="450"></picture>
           <span class="tag badge-4k">4K</span>
           <div class="overlay"><span class="name">Festsaal &amp; Eventfläche</span></div>
         </a>
         <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen">
-          <img src="images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048.jpg" alt="4K-Aufnahme einer Terrasse einer Eventlocation aus einer virtuellen Tour" loading="lazy" width="800" height="450">
+          <picture><source type="image/webp" srcset="images/opt/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048-640.webp 640w, images/opt/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048.jpg" alt="4K-Aufnahme einer Terrasse einer Eventlocation aus einer virtuellen Tour" loading="lazy" width="800" height="450"></picture>
           <span class="tag badge-4k">4K</span>
           <div class="overlay"><span class="name">Terrasse &amp; Außenbereich</span></div>
         </a>
         <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen">
-          <img src="images/Living-Room-2.jpg" alt="4K-Innenaufnahme einer Restaurant- und Eventfläche aus einer virtuellen Tour" loading="lazy" width="800" height="450">
+          <picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/Living-Room-2.jpg" alt="4K-Innenaufnahme einer Restaurant- und Eventfläche aus einer virtuellen Tour" loading="lazy" width="800" height="450"></picture>
           <span class="tag badge-4k">4K</span>
           <div class="overlay"><span class="name">Restaurant &amp; Eventfläche</span></div>
         </a>
         <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen">
-          <img src="images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg" alt="4K-Foto eines Gastraums in einem Restaurant aus einer virtuellen Tour" loading="lazy" width="800" height="450">
+          <picture><source type="image/webp" srcset="images/opt/New-City-Smash-Burger-Hamburg--12052024_121200-640.webp 640w, images/opt/New-City-Smash-Burger-Hamburg--12052024_121200-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg" alt="4K-Foto eines Gastraums in einem Restaurant aus einer virtuellen Tour" loading="lazy" width="800" height="450"></picture>
           <span class="tag badge-4k">4K</span>
           <div class="overlay"><span class="name">Restaurant – Gastraum</span></div>
         </a>
         <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen">
-          <img src="images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg" alt="4K-Foto eines Cafés aus einer virtuellen Tour" loading="lazy" width="800" height="450">
+          <picture><source type="image/webp" srcset="images/opt/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150-640.webp 640w, images/opt/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg" alt="4K-Foto eines Cafés aus einer virtuellen Tour" loading="lazy" width="800" height="450"></picture>
           <span class="tag badge-4k">4K</span>
           <div class="overlay"><span class="name">Café &amp; Barista-Bereich</span></div>
         </a>
         <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen">
-          <img src="images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg" alt="4K-Aufnahme eines Cafés mit Barista-Bereich aus einer virtuellen Tour" loading="lazy" width="800" height="450">
+          <picture><source type="image/webp" srcset="images/opt/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046-640.webp 640w, images/opt/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg" alt="4K-Aufnahme eines Cafés mit Barista-Bereich aus einer virtuellen Tour" loading="lazy" width="800" height="450"></picture>
           <span class="tag badge-4k">4K</span>
           <div class="overlay"><span class="name">Café – Theke &amp; Sitzbereich</span></div>
         </a>
@@ -461,7 +472,7 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+          <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M32 13 49 22.5v19L32 51 15 41.5v-19Z"/><path d="M15 22.5 32 32l17-9.5M32 32v19"/><ellipse cx="32" cy="22.5" rx="8" ry="4" stroke-width="2.4"/><circle cx="32" cy="22.5" r="2.4" fill="currentColor" stroke="none"/></svg></span>
           <span>Virtuelle Touren<small>Hamburg &amp; Umgebung</small></span>
         </a>
         <p>Virtuelle 3D-Touren mit Matterport inkl. hochwertiger 4K-Bilder für Gastronomie, Immobilien und Gewerbe im Großraum Hamburg.</p>
@@ -499,7 +510,7 @@
   </div>
 </footer>
 
-<script src="site.js?v=3"></script>
+<script src="site.js?v=4"></script>
 <script>
 /* Hero-Tour inline starten */
 (function(){

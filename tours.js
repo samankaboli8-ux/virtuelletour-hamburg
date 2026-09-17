@@ -229,13 +229,14 @@ const lbCap = document.getElementById('lbCap');
 const ICON_ZOOM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>';
 let lbIndex = 0;
 
+function webp(file, w){ return file.replace(/^images\//, 'images/opt/').replace(/\.(jpg|png)$/, '-' + w + '.webp'); }
 function renderGallery(){
   galleryEl.innerHTML = '';
   GALLERY.forEach((g, i) => {
     const el = document.createElement('div');
     el.className = 'shot';
     el.innerHTML = `
-      <img src="${g.file}" alt="4K-Foto aus virtueller Tour: ${g.title}" loading="lazy">
+      <picture><source type="image/webp" srcset="${webp(g.file,640)} 640w, ${webp(g.file,1200)} 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="${g.file}" alt="4K-Foto aus virtueller Tour: ${g.title}" loading="lazy" decoding="async" width="1920" height="1080"></picture>
       <span class="tag badge-4k">4K</span>
       <div class="overlay">
         <span class="name">${g.title}</span>

@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Virtuelle Tour für Freizeit &amp; Entertainment in Hamburg | 3D-Rundgang</title>
+<script>document.documentElement.classList.add("js")</script>
+<title>Virtuelle Tour Freizeit &amp; Entertainment Hamburg | 3D-Rundgang</title>
 <meta name="description" content="Virtuelle 3D-Touren für Fitnessstudios, Sport- & Freizeitanlagen in Hamburg. Gäste vorab begeistern – rund um die Uhr begehbar. 4K-Bilder ab 430 €.">
 <meta name="keywords" content="virtuelle Tour Fitnessstudio, 3D-Rundgang Freizeit Hamburg, Matterport Sportanlage, virtueller Rundgang Erlebnislocation, Indoor-Aktivitäten 360 Grad, Freizeitpark virtuelle Tour">
 <link rel="canonical" href="https://virtuelletour-hamburg.de/freizeit.html">
@@ -16,19 +17,29 @@
 <meta property="og:description" content="Fitnessstudio, Sportanlage, Indoor-Spielwelt oder Erlebnislocation in 3D begehbar – begeistert Gäste schon vor dem Besuch. Inkl. 4K-Bilder ab 430 €.">
 <meta property="og:url" content="https://virtuelletour-hamburg.de/freizeit.html">
 <meta property="og:image" content="https://virtuelletour-hamburg.de/images/Living-Room-2.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Virtuelle Tour für Freizeit & Entertainment in Hamburg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=10">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://my.matterport.com">
+<link rel="dns-prefetch" href="https://my.matterport.com">
+<link rel="stylesheet" href="styles.css?v=11">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
+  "url": "https://virtuelletour-hamburg.de/freizeit.html",
   "serviceType": "Virtuelle 3D-Tour für Freizeit & Entertainment",
   "provider": {
     "@type": "ProfessionalService",
+    "@id": "https://virtuelletour-hamburg.de/#business",
     "name": "Virtuelle Touren Hamburg",
     "telephone": "+4917660953701",
     "url": "https://virtuelletour-hamburg.de/",
@@ -90,7 +101,7 @@
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M32 13 49 22.5v19L32 51 15 41.5v-19Z"/><path d="M15 22.5 32 32l17-9.5M32 32v19"/><ellipse cx="32" cy="22.5" rx="8" ry="4" stroke-width="2.4"/><circle cx="32" cy="22.5" r="2.4" fill="currentColor" stroke="none"/></svg>
       </span>
       <span>Virtuelle Touren<small>Hamburg &amp; Umgebung</small></span>
     </a>
@@ -236,8 +247,9 @@
       <div data-reveal style="margin-top:48px;max-width:880px;margin-left:auto;margin-right:auto">
         <h3 style="text-align:center;font-size:21px;margin-bottom:8px">Live-Beispiel: Google Street View</h3>
         <p style="text-align:center;color:var(--muted);font-size:15px;margin-bottom:22px">Mit Maus oder Finger drehen und umsehen – genau so wird Ihre Location direkt bei Google begehbar.</p>
-        <div class="sv-embed">
-          <iframe src="https://www.google.com/maps/embed?pb=!4v1781543164854!6m8!1m7!1sCAoSHENJQUJJaENxalpFVmNZZEJuZFJKQkFjTTRCcXA.!2m2!1d53.32844701814087!2d9.881719061251252!3f53.16805274187883!4f-5.875990873472773!5f0.7820865974627469" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Beispiel einer Google-Street-View-Aufnahme"></iframe>
+        <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1781543164854!6m8!1m7!1sCAoSHENJQUJJaENxalpFVmNZZEJuZFJKQkFjTTRCcXA.!2m2!1d53.32844701814087!2d9.881719061251252!3f53.16805274187883!4f-5.875990873472773!5f0.7820865974627469" data-title="Beispiel einer Google-Street-View-Aufnahme">
+          <picture><source type="image/webp" srcset="images/opt/streetview-beispiel-640.webp 640w, images/opt/streetview-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 900px"><img class="sv-embed__poster" src="images/streetview-beispiel.jpg" alt="" width="1280" height="640" loading="lazy" decoding="async"></picture>
+          <button type="button" class="sv-embed__btn">Street View laden<small>Beim Laden werden Daten an Google übertragen.</small></button>
         </div>
       </div>
     </div>
@@ -380,7 +392,7 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+          <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M32 13 49 22.5v19L32 51 15 41.5v-19Z"/><path d="M15 22.5 32 32l17-9.5M32 32v19"/><ellipse cx="32" cy="22.5" rx="8" ry="4" stroke-width="2.4"/><circle cx="32" cy="22.5" r="2.4" fill="currentColor" stroke="none"/></svg></span>
           <span>Virtuelle Touren<small>Hamburg &amp; Umgebung</small></span>
         </a>
         <p>Virtuelle 3D-Touren mit Matterport inkl. hochwertiger 4K-Bilder für Gastronomie, Immobilien und Gewerbe im Großraum Hamburg.</p>
@@ -417,7 +429,7 @@
   </div>
 </footer>
 
-<script src="site.js?v=3"></script>
+<script src="site.js?v=4"></script>
 <script>
 /* Hero-Tour inline starten */
 (function(){
