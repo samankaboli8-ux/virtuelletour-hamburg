@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leistungen & Preise – Virtuelle Touren Hamburg | ab 430 €</title>
-<meta name="description" content="Virtuelle 3D-Tour inkl. 4K-Bilder ab 430 € netto. Transparente Preise nach Fläche, Preisrechner und alle Leistungen im Überblick – für Hamburg & Umgebung.">
+<meta name="description" content="Virtuelle 3D-Tour inkl. 4K-Bilder ab 430 €. Transparente Preise nach Fläche, Preisrechner und alle Leistungen im Überblick – für Hamburg & Umgebung.">
 <meta name="keywords" content="virtuelle Tour Preise, Matterport Kosten Hamburg, 3D-Rundgang Preis, Immobilienfotografie Hamburg">
 <link rel="canonical" href="https://virtuelletour-hamburg.de/leistungen.html">
 <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="Virtuelle Touren Hamburg">
 <meta property="og:title" content="Leistungen & Preise – Virtuelle Touren Hamburg">
-<meta property="og:description" content="Virtuelle 3D-Tour inkl. 4K-Bilder ab 430 € netto. Transparente Preise nach Fläche und Preisrechner.">
+<meta property="og:description" content="Virtuelle 3D-Tour inkl. 4K-Bilder ab 430 €. Transparente Preise nach Fläche und Preisrechner.">
 <meta property="og:url" content="https://virtuelletour-hamburg.de/leistungen.html">
 <meta property="og:image" content="https://virtuelletour-hamburg.de/images/Living-Room-2.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -160,11 +160,11 @@
       <div class="section__head">
         <span class="eyebrow">Preise</span>
         <h2>Fairer All-in-Preis nach Fläche</h2>
-        <p>Alle Preise netto zzgl. 19 % MwSt. Tour <strong>und</strong> 4K-Bilder immer enthalten.</p>
+        <p>Alle Preise sind Endpreise. Tour <strong>und</strong> 4K-Bilder immer enthalten.</p>
       </div>
       <table class="price-table">
         <thead>
-          <tr><th scope="col">Fläche</th><th scope="col">Preis (netto)</th></tr>
+          <tr><th scope="col">Fläche</th><th scope="col">Preis</th></tr>
         </thead>
         <tbody>
           <tr><td>bis 80 m²</td><td>430 €</td></tr>
@@ -207,7 +207,6 @@
           <div id="vtrPriceBox">
             <div class="vtr__rlabel">Dein Richtpreis</div>
             <div class="vtr__price" id="vtrPrice" aria-live="polite">430 €</div>
-            <div class="vtr__gross" id="vtrGross">entspricht 512 € brutto</div>
           </div>
           <div id="vtrCustomBox" style="display:none;">
             <div class="vtr__rlabel">Über 500 m²</div>
@@ -227,7 +226,7 @@
         </ul>
 
         <p class="vtr__note">
-          Alle Preise netto zzgl. 19 % MwSt. · Anfahrt im Großraum Hamburg (bis 30 km) inklusive ·
+          Alle Preise sind Endpreise · Anfahrt im Großraum Hamburg (bis 30 km) inklusive ·
           Richtpreis – bei besonders aufwändigen Objekten erstelle ich ein individuelles Angebot.
         </p>
       </div>
@@ -317,7 +316,6 @@
   var num = document.getElementById('vtrNum');
   var slider = document.getElementById('vtrSlider');
   var priceEl = document.getElementById('vtrPrice');
-  var grossEl = document.getElementById('vtrGross');
   var priceBox = document.getElementById('vtrPriceBox');
   var customBox = document.getElementById('vtrCustomBox');
   var fmt = new Intl.NumberFormat('de-DE');
@@ -333,7 +331,6 @@
       priceEl.style.opacity='0';
       setTimeout(function(){
         priceEl.textContent = fmt.format(t.price)+' €';
-        grossEl.textContent = 'entspricht '+fmt.format(Math.round(t.price*1.19))+' € brutto';
         priceEl.style.opacity='1';
       },80);
     } else {
