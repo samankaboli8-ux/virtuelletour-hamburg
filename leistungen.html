@@ -29,7 +29,7 @@
 <link rel="preload" href="fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="styles.css?v=14">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,64 +111,48 @@
 
 <main>
 
-  <!-- Intro -->
-  <section class="section section--green" style="padding-bottom:60px">
-    <div class="wrap">
-      <div class="section__head" style="margin-bottom:0">
+  <!-- Hero mit eingebetteter Tour (wie Startseite) -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div>
         <span class="eyebrow">Leistungen &amp; Preise</span>
         <h1>Eine Tour, alles inklusive</h1>
-        <p>Tour und hochwertige 4K-Bilder sind immer im Preis enthalten – du bekommst alles aus einer Hand. Transparent nach Fläche und ohne versteckte Kosten.</p>
+        <p class="lead">Tour und hochwertige 4K-Bilder sind immer im Preis enthalten – du bekommst alles aus einer Hand. Transparent nach Fläche und ohne versteckte Kosten.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
+          <a class="btn btn--ghost btn--lg" href="#preisrechner">Preis berechnen</a>
+        </div>
+        <div class="hero__trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tour &amp; 4K-Bilder inklusive</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Transparente Preise nach Fläche</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Anfahrt Hamburg inklusive</span>
+        </div>
       </div>
-      <p class="top-tours__hint">So sieht das Ergebnis aus – Tour anklicken, sie öffnet sich direkt hier:</p>
-      <div class="tour-grid" id="tourGrid">
-        <article class="card" data-m="2JgeWuujp21">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: StrandPauli">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/2JgeWuujp21/thumb?width=960&dpr=1&disable=upscale" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" loading="lazy" onerror="this.style.display='none'">
-            <div class="scrim"></div>
-            <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
+      <div>
+        <div class="hero__visual" id="heroTour" data-m="2JgeWuujp21">
+          <div class="hero__frame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli starten">
+            <img src="https://my.matterport.com/api/v1/player/models/2JgeWuujp21/thumb?width=1280&dpr=1&disable=upscale" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="800" height="600" fetchpriority="high" onerror="this.style.display='none'">
+            <span class="hero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           </div>
-          <div class="meta">
-            <div><h4>StrandPauli</h4><div class="sub">Bar &amp; Eventlocation · Hamburg</div></div>
-            <div class="actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=2JgeWuujp21" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=2JgeWuujp21"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
-              <button class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-m="HMV7RcycNR2">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: DECK 10 – Über den Dächern Hamburgs">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/HMV7RcycNR2/thumb?width=960&dpr=1&disable=upscale" alt="360-Grad-Rundgang der Rooftop-Eventlocation DECK 10 über den Dächern Hamburgs" loading="lazy" onerror="this.style.display='none'">
-            <div class="scrim"></div>
-            <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
-          </div>
-          <div class="meta">
-            <div><h4>DECK 10 – Über den Dächern Hamburgs</h4><div class="sub">Rooftop-Eventlocation · Hamburg</div></div>
-            <div class="actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=HMV7RcycNR2" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=HMV7RcycNR2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
-              <button class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-m="R2wMMZ31NfV">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Eventlocation ElbHof">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/R2wMMZ31NfV/thumb?width=960&dpr=1&disable=upscale" alt="Virtueller Rundgang der Eventlocation ElbHof in der Hamburger HafenCity" loading="lazy" onerror="this.style.display='none'">
-            <div class="scrim"></div>
-            <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
-          </div>
-          <div class="meta">
-            <div><h4>Eventlocation ElbHof</h4><div class="sub">Eventlocation · HafenCity Hamburg</div></div>
-            <div class="actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=R2wMMZ31NfV" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=R2wMMZ31NfV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
-              <button class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
+          <span class="hero__badge"><span class="dot"></span><span><span class="hero__badge-name">StrandPauli</span> · Begehbar in 3D</span></span>
+        </div>
+        <div class="hero-switch" role="group" aria-label="Beispiel-Tour auswählen">
+          <button type="button" class="hero-switch__btn" data-m="2JgeWuujp21" data-name="StrandPauli" data-alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" aria-pressed="true">
+            <img src="https://my.matterport.com/api/v1/player/models/2JgeWuujp21/thumb?width=320&dpr=1&disable=upscale" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span>StrandPauli</span>
+          </button>
+          <button type="button" class="hero-switch__btn" data-m="HMV7RcycNR2" data-name="DECK 10" data-alt="360-Grad-Rundgang der Rooftop-Eventlocation DECK 10 über den Dächern Hamburgs" aria-pressed="false">
+            <img src="https://my.matterport.com/api/v1/player/models/HMV7RcycNR2/thumb?width=320&dpr=1&disable=upscale" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span>DECK 10</span>
+          </button>
+          <button type="button" class="hero-switch__btn" data-m="R2wMMZ31NfV" data-name="ElbHof" data-alt="Virtueller Rundgang der Eventlocation ElbHof in der Hamburger HafenCity" aria-pressed="false">
+            <img src="https://my.matterport.com/api/v1/player/models/R2wMMZ31NfV/thumb?width=320&dpr=1&disable=upscale" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span>ElbHof</span>
+          </button>
+        </div>
       </div>
-      <p class="top-tours__more"><a href="referenzen.html">Alle Touren ansehen &rarr;</a></p>
     </div>
+    <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#FFFFFF" d="M0,40 C360,0 1080,80 1440,30 L1440,60 L0,60 Z"></path></svg></div>
   </section>
 
   <!-- Alles inklusive -->
@@ -409,76 +393,50 @@
 })();
 </script>
 <script>
-/* Touren-Grid – identisches Verhalten wie auf der Referenzen-Seite */
+/* Hero-Tour inline starten + zwischen den Top-Touren umschalten */
 (function(){
-  var grid = document.getElementById('tourGrid');
-  if(!grid) return;
-
-  function openTour(card){
-    if(card.classList.contains('is-open')) return;
-    var frame = card.querySelector('.frame');
-    card.classList.add('is-open');
-    frame.querySelector('.play').style.display = 'none';
+  var hero = document.getElementById('heroTour');
+  if(!hero) return;
+  var frame = hero.querySelector('.hero__frame');
+  var img = frame.querySelector('img');
+  var badge = hero.querySelector('.hero__badge-name');
+  function src(){ return 'https://my.matterport.com/show/?m=' + hero.dataset.m + '&play=1'; }
+  function openHero(){
+    if(hero.classList.contains('is-open')) return;
+    hero.classList.add('is-open');
     var spin = document.createElement('div');
     spin.className = 'spinner';
     frame.appendChild(spin);
     var iframe = document.createElement('iframe');
-    iframe.src = 'https://my.matterport.com/show/?m=' + card.dataset.m + '&play=1';
-    iframe.title = 'Virtuelle Tour: ' + (card.querySelector('h4')||{}).textContent;
+    iframe.src = src();
+    iframe.title = 'Virtuelle Tour: ' + badge.textContent;
     iframe.allow = 'autoplay; fullscreen; web-share; xr-spatial-tracking;';
     iframe.allowFullscreen = true;
-    iframe.loading = 'lazy';
     iframe.addEventListener('load', function(){ spin.remove(); });
     frame.appendChild(iframe);
-    card.scrollIntoView({behavior:'smooth', block:'center'});
   }
-  function closeTour(card){
-    var frame = card.querySelector('.frame');
-    card.classList.remove('is-open');
-    frame.querySelectorAll('iframe,.spinner').forEach(function(el){ el.remove(); });
-    frame.querySelector('.play').style.display = '';
-  }
+  frame.addEventListener('click', openHero);
+  frame.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openHero(); }
+  });
 
-  var toastTimer;
-  function showToast(){
-    var toast = document.getElementById('toast');
-    if(!toast){
-      toast = document.createElement('div');
-      toast.id = 'toast';
-      toast.textContent = 'Link kopiert';
-      toast.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#4E7B53;color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 10px 40px rgba(22,36,46,.18);opacity:0;pointer-events:none;transition:all .25s;z-index:300';
-      document.body.appendChild(toast);
-    }
-    requestAnimationFrame(function(){
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateX(-50%) translateY(0)';
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.hero-switch__btn'));
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(btn.getAttribute('aria-pressed') === 'true') return;
+      btns.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      hero.dataset.m = btn.dataset.m;
+      badge.textContent = btn.dataset.name;
+      frame.setAttribute('aria-label', 'Virtuelle Tour ' + btn.dataset.name + ' starten');
+      img.style.display = '';
+      img.src = 'https://my.matterport.com/api/v1/player/models/' + btn.dataset.m + '/thumb?width=1280&dpr=1&disable=upscale';
+      img.alt = btn.dataset.alt;
+      var iframe = frame.querySelector('iframe');
+      if(iframe){
+        iframe.src = src();
+        iframe.title = 'Virtuelle Tour: ' + btn.dataset.name;
+      }
     });
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function(){
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateX(-50%) translateY(20px)';
-    }, 1800);
-  }
-  function copyLink(url){
-    if(navigator.clipboard){
-      navigator.clipboard.writeText(url).then(showToast).catch(fallback);
-    } else { fallback(); }
-    function fallback(){
-      var ta = document.createElement('textarea');
-      ta.value = url; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); }catch(e){}
-      ta.remove(); showToast();
-    }
-  }
-
-  grid.querySelectorAll('.card').forEach(function(card){
-    var frame = card.querySelector('.frame');
-    frame.addEventListener('click', function(){ openTour(card); });
-    frame.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openTour(card); }
-    });
-    card.querySelector('.close').addEventListener('click', function(){ closeTour(card); });
-    card.querySelector('.copy').addEventListener('click', function(e){ copyLink(e.currentTarget.dataset.url); });
   });
 })();
 </script>

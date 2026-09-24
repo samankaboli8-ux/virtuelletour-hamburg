@@ -339,9 +339,18 @@ h1,h2,h3{font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--navy
 .shot .zoom{width:38px;height:38px;border-radius:10px;flex-shrink:0;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center}
 .shot .zoom svg{width:18px;height:18px;color:#fff}
 
-/* ---------- Top-Touren im Seiteneinstieg (Leistungen) ---------- */
-.top-tours__hint{text-align:center;color:var(--navy);font-weight:600;font-size:15px;margin:40px 0 20px}
-.top-tours__more{text-align:center;margin-top:24px;font-weight:600;font-size:15px}
+/* ---------- Tour-Umschalter unter der Hero-Tour (Leistungen) ---------- */
+.hero-switch{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.hero-switch__btn{
+  display:flex;flex-direction:column;gap:7px;padding:6px 6px 9px;background:#fff;border:2px solid var(--line);
+  border-radius:12px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:var(--navy);
+  text-align:center;transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.hero-switch__btn img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:7px;display:block;background:var(--green-lt)}
+.hero-switch__btn:hover{border-color:var(--green2);transform:translateY(-2px)}
+.hero-switch__btn[aria-pressed="true"]{border-color:var(--green);box-shadow:0 0 0 3px var(--green-lt)}
+.hero-switch__btn[aria-pressed="true"] span{color:var(--green)}
+@media(max-width:480px){.hero-switch{gap:8px}.hero-switch__btn{font-size:12px;padding:4px 4px 7px}}
 
 /* ---------- Tour + Exposébilder (Immobilien) ---------- */
 .tour-plus{
