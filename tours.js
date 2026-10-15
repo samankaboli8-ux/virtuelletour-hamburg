@@ -14,9 +14,6 @@ const TOURS = [
   { id:"2JgeWuujp21", title:"StrandPauli", cat:"event" },
   { id:"7CpYpsEXAhs", title:"Die MachBar Lübeck – Workshops, Tagungen & Teamevents", cat:"event" },
   { id:"1kCCq3heNPJ", title:"StrandPauli – Winter", cat:"event" },
-  { id:"m52qjE1sm2e", title:"Vecchio Amore – Italienischer Flair für Ihre Veranstaltung", cat:"event" },
-  { id:"HMV7RcycNR2", title:"DECK 10 – Über den Dächern Hamburgs", cat:"event" },
-  { id:"R2wMMZ31NfV", title:"Eventlocation ElbHof – Hamburg HafenCity", cat:"event" },
   { id:"qDN2mxB522G", title:"Tunici Team – Hotel & Eventlocation Hamburg", cat:"event" },
   // Gastronomie & Cafés
   { id:"NsvWLbUKDEX", title:"Restaurant Caspari", cat:"gastro" },
@@ -29,7 +26,7 @@ const TOURS = [
   { id:"t4sME6NCR3Y", title:"WE ARE PADEL – Berlin", cat:"sport" },
   { id:"MbKADxZgAGB", title:"Caprice Fitness Club", cat:"sport" },
   { id:"W76rohTnCso", title:"Flipperwelten Bad Schwartau", cat:"sport" },
-  { id:"Wm9g9K5ebNR", title:"Flipperhalle – Berlin", cat:"sport" },
+  { id:"ot6rttoEU96", title:"Flipperhalle – Berlin", cat:"sport" },
   // Gewerbe & Wohnen
   { id:"jW4ha2PrbZB", title:"DEVK Versicherung Völklingen – Christoph Horbach", cat:"gewerbe" },
   { id:"vq4xfBEHq3V", title:"DEVK Versicherungen – Torsten Schalber", cat:"gewerbe" },
@@ -158,7 +155,7 @@ function render(list){
   grid.innerHTML = '';
   CATEGORIES.forEach(c => {
     const items = list.filter(t => t.cat === c.key);
-    if(items.length) addCategory(c.label, items);
+    if(items.length) addCategory(c.label, items, grid.children.length === 0);
   });
   const rest = list.filter(t => !CATEGORIES.some(c => c.key === t.cat));
   if(rest.length) addCategory('Weitere Touren', rest);
