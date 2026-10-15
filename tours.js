@@ -53,8 +53,6 @@ const TOURS = [
 
 /* file = schlanke Grid-Vorschau (1920px), full = echtes 4K (3840px) für die Lightbox */
 const GALLERY = [
-  { file:"images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936.jpg", full:"images/full/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_104936.jpg", title:"Vecchio Amore – Festsaal & Eventfläche" },
-  { file:"images/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048.jpg", full:"images/full/Vecchio-Amore-Italienischer-Flair-fur-Ihre-Veranstaltung-01092026_110048.jpg", title:"Vecchio Amore – Terrasse an der Speicherstadt" },
   { file:"images/Living-Room-2.jpg", full:"images/full/Living-Room-2.jpg", title:"Living Room – Restaurant & Eventfläche" },
   { file:"images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", full:"images/full/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", title:"New City Smash Burger – Hamburg" },
   { file:"images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", full:"images/full/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", title:"Golden Bean Winterhude – Café" },

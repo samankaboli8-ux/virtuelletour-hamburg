@@ -330,6 +330,7 @@ h1,h2,h3{text-wrap:balance}
 
 /* ---------- 4K Galerie ---------- */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px}
+.gallery--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:980px;margin-left:auto;margin-right:auto;gap:20px}
 .shot{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#fff;aspect-ratio:16/9;cursor:zoom-in;box-shadow:var(--shadow)}
 .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .shot:hover img{transform:scale(1.06)}
