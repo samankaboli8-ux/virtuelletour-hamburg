@@ -167,7 +167,7 @@
         <li>2D-Grundriss *<small>Maßstäblicher Grundriss aus den Aufnahmen</small></li>
         <li>Google Street View-Integration<small>Auf Wunsch direkt bei Google sichtbar</small></li>
         <li>Professionelle Nachbearbeitung<small>Aufnahmen werden sorgfältig optimiert</small></li>
-        <li>Objekte &amp; Möbel digital entfernen<small>Auf Wunsch, für einen aufgeräumten Eindruck</small></li>
+        <li>Objekte &amp; Möbel digital entfernen<small>Auf Wunsch, für einen aufgeräumten Eindruck – <a href="#defurnishing">Beispiel ansehen</a></small></li>
         <li>Einbindung der fertigen Tour<small>Auf deiner Wunsch-Plattform oder Website</small></li>
         <li>Anfahrt im Großraum Hamburg inklusive<small>Bis 30 km ohne Aufpreis</small></li>
         <li>Volle Nutzungsrechte an allen Fotos<small>Du darfst alle Bilder frei verwenden</small></li>
@@ -196,8 +196,27 @@
     </div>
   </section>
 
+  <!-- Defurnishing: Vorher/Nachher-Slider -->
+  <section class="section section--soft" id="defurnishing">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow">Im Paket enthalten · Möbliert oder leer</span>
+        <h2>Defurnishing per KI – Räume auf Wunsch leeren</h2>
+        <p>Auf Wunsch entferne ich Möbel und Deko aus deinen Aufnahmen – ohne Aufpreis, als Teil jedes Pakets. Ideal für Immobilien und Vermietung: Interessenten sehen den Raum neutral und können ihn sich selbst einrichten. Zieh den Regler und sieh den Unterschied.</p>
+      </div>
+      <div class="ba" id="baSlider" role="slider" tabindex="0" aria-label="Vorher-Nachher-Vergleich: möblierter und leerer Raum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-reveal>
+        <picture><source type="image/webp" srcset="images/opt/defurnish-nachher-flur-640.webp 640w, images/opt/defurnish-nachher-flur-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img class="ba__img ba__img--after" src="images/defurnish-nachher-flur.jpg" alt="Leerer, per KI von Möbeln befreiter Altbau-Flur in Hamburg aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
+        <picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img class="ba__img ba__img--before" src="images/defurnish-vorher-flur.jpg" alt="Möblierter Altbau-Flur in Hamburg mit Teppich, Garderobe und Antikmöbeln aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
+        <span class="ba__label ba__label--before">Möbliert</span>
+        <span class="ba__label ba__label--after">Leer · per KI entfernt</span>
+        <div class="ba__handle"><span class="ba__grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg></span></div>
+      </div>
+      <p class="ba__hint" data-reveal>Regler ziehen oder mit den Pfeiltasten ← → verschieben</p>
+    </div>
+  </section>
+
   <!-- Preistabelle -->
-  <section class="section section--soft">
+  <section class="section">
     <div class="wrap">
       <div class="section__head">
         <span class="eyebrow">Preise</span>
@@ -222,7 +241,7 @@
   </section>
 
   <!-- Preisrechner -->
-  <section class="section">
+  <section class="section section--soft">
     <div class="wrap">
       <div class="section__head">
         <span class="eyebrow">Direkt kalkulieren</span>
@@ -280,7 +299,7 @@
   </section>
 
   <!-- Extras -->
-  <section class="section section--soft">
+  <section class="section">
     <div class="wrap">
       <div class="section__head">
         <span class="eyebrow">Optional</span>
@@ -348,7 +367,7 @@
   </div>
 </footer>
 
-<script src="site.js?v=4"></script>
+<script src="site.js?v=5"></script>
 <script>
 (function(){
   var tiers = [

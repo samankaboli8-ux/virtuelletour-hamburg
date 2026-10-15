@@ -71,25 +71,25 @@
   if (reduce || !('IntersectionObserver' in window)) {
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
     counters.forEach(setFinal);
-    return;
-  }
+  } else {
 
-  var io = new IntersectionObserver(function (entries, obs) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      var el = entry.target;
-      el.classList.add('is-visible');
-      el.querySelectorAll && el.querySelectorAll('.stat__num[data-count]').forEach(runCount);
-      if (el.matches('.stat__num[data-count]')) runCount(el);
-      obs.unobserve(el);
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add('is-visible');
+        el.querySelectorAll && el.querySelectorAll('.stat__num[data-count]').forEach(runCount);
+        if (el.matches('.stat__num[data-count]')) runCount(el);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(function (el) { io.observe(el); });
+    // Zähler, die nicht selbst data-reveal sind, separat beobachten
+    counters.forEach(function (el) {
+      if (!el.hasAttribute('data-reveal') && !el.closest('[data-reveal]')) io.observe(el);
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-  reveals.forEach(function (el) { io.observe(el); });
-  // Zähler, die nicht selbst data-reveal sind, separat beobachten
-  counters.forEach(function (el) {
-    if (!el.hasAttribute('data-reveal') && !el.closest('[data-reveal]')) io.observe(el);
-  });
+  }
 
   /* ---- Vorher/Nachher-Slider (Defurnishing) ---- */
   var ba = document.getElementById('baSlider');
