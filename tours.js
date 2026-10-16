@@ -12,29 +12,29 @@ const CATEGORIES = [
 const TOURS = [
   // Bars, Restaurants & Eventlocations
   { id:"2JgeWuujp21", title:"StrandPauli", cat:"event" },
-  { id:"7CpYpsEXAhs", title:"Die MachBar Lübeck – Workshops, Tagungen & Teamevents", cat:"event" },
-  { id:"1kCCq3heNPJ", title:"StrandPauli – Winter", cat:"event" },
-  { id:"qDN2mxB522G", title:"Tunici Team – Hotel & Eventlocation Hamburg", cat:"event" },
+  { id:"7CpYpsEXAhs", title:"Die MachBar Lübeck: Workshops, Tagungen & Teamevents", cat:"event" },
+  { id:"1kCCq3heNPJ", title:"StrandPauli Winter", cat:"event" },
+  { id:"zgWUkeHqJUr", title:"Tunici Team, Hotel & Eventlocation Hamburg", cat:"event" },
   // Gastronomie & Cafés
   { id:"NsvWLbUKDEX", title:"Restaurant Caspari", cat:"gastro" },
-  { id:"uDdPTJRfy2R", title:"Doro Ristorante – Italienisches Restaurant", cat:"gastro" },
-  { id:"e43gx9VXfzg", title:"Tandoori Flame – Indisches Restaurant Winterhude", cat:"gastro" },
-  { id:"C6A8Zt3dq5K", title:"New City Smash Burger – Hamburg", cat:"gastro" },
+  { id:"uDdPTJRfy2R", title:"Doro Ristorante, Italienisches Restaurant", cat:"gastro" },
+  { id:"e43gx9VXfzg", title:"Tandoori Flame, Indisches Restaurant Winterhude", cat:"gastro" },
+  { id:"C6A8Zt3dq5K", title:"New City Smash Burger Hamburg", cat:"gastro" },
   { id:"yQSGoSj83NT", title:"Restaurant Aspera", cat:"gastro" },
-  { id:"d6EKByVzyrT", title:"Golden Bean Winterhude – Café in der Gertigstraße", cat:"gastro" },
+  { id:"d6EKByVzyrT", title:"Golden Bean Winterhude, Café in der Gertigstraße", cat:"gastro" },
   // Sport & Freizeit
-  { id:"t4sME6NCR3Y", title:"WE ARE PADEL – Berlin", cat:"sport" },
+  { id:"t4sME6NCR3Y", title:"WE ARE PADEL Berlin", cat:"sport" },
   { id:"MbKADxZgAGB", title:"Caprice Fitness Club", cat:"sport" },
   { id:"W76rohTnCso", title:"Flipperwelten Bad Schwartau", cat:"sport" },
-  { id:"ot6rttoEU96", title:"Flipperhalle – Berlin", cat:"sport" },
+  { id:"ot6rttoEU96", title:"Flipperhalle Berlin", cat:"sport" },
   // Gewerbe & Wohnen
-  { id:"jW4ha2PrbZB", title:"DEVK Versicherung Völklingen – Christoph Horbach", cat:"gewerbe" },
-  { id:"vq4xfBEHq3V", title:"DEVK Versicherungen – Torsten Schalber", cat:"gewerbe" },
+  { id:"jW4ha2PrbZB", title:"DEVK Versicherung Völklingen, Christoph Horbach", cat:"gewerbe" },
+  { id:"vq4xfBEHq3V", title:"DEVK Versicherungen, Torsten Schalber", cat:"gewerbe" },
   { id:"KNbB5EPAmre", title:"Wohnungseinheit Lessingstraße 7, Hamburg", cat:"gewerbe" },
 ];
 
 /* Vom Sortiermodus (sort-mode.js) gespeicherte Reihenfolge als Vorschau anwenden.
-   Wirkt nur im Browser des Betreibers – für alle Besucher wird die Reihenfolge
+   Wirkt nur im Browser des Betreibers, für alle Besucher wird die Reihenfolge
    erst durch Anpassen des TOURS-Arrays oben live. */
 (function () {
   try {
@@ -53,10 +53,10 @@ const TOURS = [
 
 /* file = schlanke Grid-Vorschau (1920px), full = echtes 4K (3840px) für die Lightbox */
 const GALLERY = [
-  { file:"images/Living-Room-2.jpg", full:"images/full/Living-Room-2.jpg", title:"Living Room – Restaurant & Eventfläche" },
-  { file:"images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", full:"images/full/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", title:"New City Smash Burger – Hamburg" },
-  { file:"images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", full:"images/full/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", title:"Golden Bean Winterhude – Café" },
-  { file:"images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", full:"images/full/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", title:"Golden Bean Eimsbüttel – Barista-Kurse" },
+  { file:"images/Living-Room-2.jpg", full:"images/full/Living-Room-2.jpg", title:"Living Room, Restaurant & Eventfläche" },
+  { file:"images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", full:"images/full/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", title:"New City Smash Burger Hamburg" },
+  { file:"images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", full:"images/full/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", title:"Golden Bean Winterhude, Café" },
+  { file:"images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", full:"images/full/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", title:"Golden Bean Eimsbüttel, Barista-Kurse" },
 ];
 
 const grid = document.getElementById('grid');
