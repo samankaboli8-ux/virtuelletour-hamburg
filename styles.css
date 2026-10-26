@@ -514,7 +514,7 @@ h1,h2,h3{text-wrap:balance}
   #referenzen-teaser .tour-grid .card:nth-child(n+7){display:none}
   /* Größere Tap-Ziele im Footer, etwas größere Hinweistexte */
   .footer-col a{padding:8px 0}
-  .vtr__note,.stats-band__note{font-size:12.5px}
+  .stats-band__note{font-size:12.5px}
   .sv-embed__btn{font-size:14px;padding:10px 16px;white-space:nowrap}
   .sv-embed__btn small{font-size:11px;white-space:normal}
   .wrap{padding-left:18px;padding-right:18px}
@@ -576,41 +576,3 @@ h1,h2,h3{text-wrap:balance}
   *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   [data-reveal]{opacity:1!important;transform:none!important}
 }
-
-/* =====================================================================
-   Preisrechner-Widget (geprefixt, aus Briefing – Grün-Theme)
-   ===================================================================== */
-.vtr{
-  --vt-navy:#16242E;--vt-green:#4E7B53;--vt-green2:#6FA06F;--vt-green-lt:#EAF1E8;--vt-line:#E0E5E1;--vt-muted:#5F6D69;
-  box-sizing:border-box;max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--vt-line);
-  border-radius:18px;padding:32px 30px 26px;color:var(--vt-navy);
-  font-family:'Urbanist',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-shadow:0 10px 40px rgba(22,36,46,.06);
-}
-.vtr *{box-sizing:border-box}
-.vtr__eyebrow{font-size:13px;letter-spacing:2px;font-weight:600;color:var(--vt-green);text-transform:uppercase}
-.vtr__title{font-size:26px;font-weight:700;line-height:1.15;margin:6px 0 22px}
-.vtr__inputrow{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
-.vtr__field{flex:1;min-width:170px}
-.vtr__label{display:block;font-size:13px;color:var(--vt-muted);margin-bottom:6px}
-.vtr__numwrap{position:relative}
-.vtr__num{width:100%;font-family:inherit;font-size:22px;font-weight:600;color:var(--vt-navy);padding:12px 46px 12px 14px;border:1px solid var(--vt-line);border-radius:11px;background:#fff}
-.vtr__num:focus{outline:none;border-color:var(--vt-green2);box-shadow:0 0 0 3px var(--vt-green-lt)}
-.vtr__unit{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--vt-muted);font-size:15px;font-weight:500;pointer-events:none}
-.vtr__slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;background:var(--vt-line);margin-top:18px}
-.vtr__slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--vt-green);cursor:pointer;border:3px solid #fff;box-shadow:0 1px 5px rgba(22,36,46,.25)}
-.vtr__slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--vt-green);cursor:pointer;border:3px solid #fff}
-.vtr__slider:focus{outline:none}
-.vtr__slider:focus::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--vt-green-lt)}
-.vtr__result{margin-top:24px;padding:22px;border-radius:14px;background:var(--vt-green-lt);text-align:center}
-.vtr__rlabel{font-size:13px;color:var(--vt-muted)}
-.vtr__price{font-size:46px;font-weight:700;line-height:1;margin:6px 0 2px;color:var(--vt-navy);transition:opacity .15s}
-.vtr__gross{font-size:13px;color:var(--vt-muted)}
-.vtr__custom{font-size:21px;font-weight:700;color:var(--vt-navy);margin:4px 0 12px}
-.vtr__cta{display:inline-block;margin-top:6px;background:var(--vt-green);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 26px;border-radius:11px;transition:background .2s}
-.vtr__cta:hover{background:#3f6644;color:#fff}
-.vtr__incl{margin:22px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 18px}
-.vtr__incl li{font-size:13.5px;color:var(--vt-navy);padding-left:20px;position:relative;line-height:1.4}
-.vtr__incl li::before{content:"";position:absolute;left:2px;top:6px;width:8px;height:8px;background:var(--vt-green2);transform:rotate(45deg)}
-.vtr__note{margin-top:20px;font-size:11.5px;color:var(--vt-muted);line-height:1.5}
-@media (max-width:480px){.vtr{padding:26px 20px 22px}.vtr__title{font-size:22px}.vtr__price{font-size:38px}.vtr__incl{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){.vtr__price{transition:none}}
