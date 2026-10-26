@@ -90,25 +90,27 @@ h1,h2,h3{text-wrap:balance}
 }
 .brand__mark svg{width:34px;height:34px;color:#fff;display:block}
 .brand small{display:block;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-top:-2px}
-.nav__links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav__links{display:flex;align-items:center;gap:2px;list-style:none}
 .nav__links a{
-  color:var(--navy);font-weight:500;font-size:15px;padding:9px 14px;border-radius:9px;
+  color:var(--navy);font-weight:500;font-size:15px;padding:9px 10px;border-radius:9px;
   transition:background .15s,color .15s;
 }
 .nav__links a:hover{background:var(--green-lt);color:var(--green-dark)}
 .nav__links a[aria-current="page"]{color:var(--green);font-weight:600}
-.nav__cta{margin-left:8px}
+.nav__cta{margin-left:6px}
 .nav__cta .btn{padding:10px 20px;font-size:15px}
 .nav__has-sub{position:relative}
+.nav__has-sub::after{content:"";position:absolute;left:0;right:0;top:100%;height:12px}
 .nav__has-sub>a{display:inline-flex;align-items:center;gap:5px}
 .nav__chev{width:15px;height:15px;transition:transform .2s}
-.nav__has-sub:hover .nav__chev,.nav__has-sub:focus-within .nav__chev{transform:rotate(180deg)}
+.nav__has-sub:hover .nav__chev,.nav__has-sub.is-open .nav__chev,.nav__has-sub:focus-within .nav__chev{transform:rotate(180deg)}
+.nav__has-sub:hover>a,.nav__has-sub.is-open>a{background:var(--green-lt);color:var(--green-dark)}
 .nav__sub{
   position:absolute;top:calc(100% + 6px);left:0;min-width:236px;list-style:none;
   background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-md,var(--shadow));
   padding:8px;display:none;z-index:60;
 }
-.nav__has-sub:hover .nav__sub,.nav__has-sub:focus-within .nav__sub{display:block}
+.nav__has-sub:hover .nav__sub,.nav__has-sub.is-open .nav__sub,.nav__has-sub:focus-within .nav__sub{display:block}
 .nav__sub li{margin:0}
 .nav__sub a{display:block;padding:10px 12px;border-radius:9px;font-size:14px;white-space:nowrap}
 .burger{
@@ -130,6 +132,7 @@ h1,h2,h3{text-wrap:balance}
   .nav__links.open{display:flex}
   .nav__links a{padding:13px 14px;font-size:16px}
   .nav__has-sub .nav__chev{display:none}
+  .nav__has-sub::after{display:none}
   .nav__sub{
     position:static;display:block;border:none;box-shadow:none;border-radius:0;
     padding:0 0 4px 10px;min-width:0;margin-top:2px;
@@ -474,6 +477,8 @@ h1,h2,h3{text-wrap:balance}
 
 /* ---------- Ansprechpartner-Block (Startseite) ---------- */
 .contact-grid--center{align-items:center}
+.about__photo--sm{max-width:440px;margin-left:auto}
+@media(max-width:820px){.about__photo--sm{margin:0 auto}}
 .about__text h2{font-size:clamp(24px,3.5vw,34px);margin-bottom:16px}
 .about__text p{color:var(--muted);font-size:17px;margin-bottom:18px}
 .about__text p:last-child{margin-bottom:0}
