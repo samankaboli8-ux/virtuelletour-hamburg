@@ -242,8 +242,6 @@ h1,h2,h3{text-wrap:balance}
 .price-table td:last-child{text-align:right;font-weight:600;white-space:nowrap}
 .price-table th:last-child{text-align:right}
 .price-table tr:hover td{background:var(--bg-soft)}
-.price-table tr.is-featured td{background:var(--green-lt)}
-.price-table tr.is-featured td:first-child{box-shadow:inset 4px 0 0 var(--green)}
 .price-table tr.is-featured td:last-child{color:var(--green-dark)}
 .price-badge{margin-left:8px;color:var(--green-dark);font-weight:600}
 .price-note{max-width:620px;margin:16px auto 0;font-size:13px;color:var(--muted);text-align:center}
