@@ -27,7 +27,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=18">
+<link rel="stylesheet" href="styles.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,13 +113,13 @@
       <div>
         <span class="eyebrow">Leistungen &amp; Preise</span>
         <h1>Eine Tour, alles inklusive</h1>
-        <p class="lead">Tour und 4K-Bilder immer im Preis enthalten. Transparent nach Fläche, ohne versteckte Kosten.</p>
+        <p class="lead">Ein Preis nach Fläche, alles drin. Du weißt vorher, was es kostet.</p>
         <div class="hero__cta">
           <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
           <a class="btn btn--ghost btn--lg" href="#preise">Preise ansehen</a>
         </div>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 24px;margin-top:28px">
-          <img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Dollhouse-Modell einer Immobilie aus dem Matterport-Scan" width="1200" height="800" decoding="async" style="flex:0 0 180px;width:180px;height:auto;border-radius:12px;box-shadow:var(--shadow);background:#0f1417;display:block">
+        <div class="hero__extra">
+          <img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Dollhouse-Modell einer Immobilie aus dem Matterport-Scan" width="1200" height="800" decoding="async">
           <div class="hero__trust hero__trust--stack">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tour &amp; 4K-Bilder inklusive</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Transparente Preise nach Fläche</span>
@@ -168,7 +168,6 @@
         <li>Dollhouse- &amp; 3D-Modell *</li>
         <li>2D-Grundriss *</li>
         <li>Google Street View-Integration</li>
-        <li>Professionelle Nachbearbeitung</li>
         <li>Objekte &amp; Möbel digital entfernen</li>
         <li>Einbindung der fertigen Tour</li>
         <li>12 Monate Hosting inklusive</li>
@@ -184,23 +183,23 @@
   <section class="section section--soft" id="defurnishing">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Im Paket enthalten</span>
-        <h2>Zwei Extras zum Ausprobieren</h2>
-        <p>Beides ohne Aufpreis in jedem Paket.</p>
+        <span class="eyebrow">Zum Ausprobieren</span>
+        <h2>Zwei Extras, beide inklusive</h2>
+        <p>Google Street View und Defurnishing per KI, ohne Aufpreis in jedem Paket.</p>
       </div>
-      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:36px 32px;align-items:stretch">
-        <div style="display:flex;flex-direction:column">
-          <h3 style="font-size:19px;margin:0 0 6px">Google Street View</h3>
-          <p style="color:var(--muted);font-size:15px;margin:0 0 16px">Restaurant Caspari. Mit Maus oder Finger umsehen, so sieht deine Location bei Google aus.</p>
-          <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1781543164854!6m8!1m7!1sCAoSHENJQUJJaENxalpFVmNZZEJuZFJKQkFjTTRCcXA.!2m2!1d53.32844701814087!2d9.881719061251252!3f53.16805274187883!4f-5.875990873472773!5f0.7820865974627469" data-title="Google Street View: Restaurant Caspari" style="aspect-ratio:16/10;margin-top:auto">
+      <div class="demo-grid" data-reveal>
+        <div class="demo-col">
+          <h3>Google Street View</h3>
+          <p>Restaurant Caspari. Mit Maus oder Finger umsehen, so sieht deine Location bei Google aus.</p>
+          <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1781543164854!6m8!1m7!1sCAoSHENJQUJJaENxalpFVmNZZEJuZFJKQkFjTTRCcXA.!2m2!1d53.32844701814087!2d9.881719061251252!3f53.16805274187883!4f-5.875990873472773!5f0.7820865974627469" data-title="Google Street View: Restaurant Caspari">
             <picture><source type="image/webp" srcset="images/opt/streetview-beispiel-640.webp 640w, images/opt/streetview-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 560px"><img class="sv-embed__poster" src="images/streetview-beispiel.jpg" alt="" width="1280" height="640" loading="lazy" decoding="async"></picture>
             <button type="button" class="sv-embed__btn">Street View laden<small>Beim Laden werden Daten an Google übertragen.</small></button>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column">
-          <h3 style="font-size:19px;margin:0 0 6px">Defurnishing per KI</h3>
-          <p style="color:var(--muted);font-size:15px;margin:0 0 16px">Möbel und Deko auf Wunsch entfernt. Zieh den Regler oder nutze die Pfeiltasten.</p>
-          <div class="ba" id="baSlider" role="slider" tabindex="0" aria-label="Vorher-Nachher-Vergleich: möblierter und leerer Raum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="max-width:none;aspect-ratio:16/10;border-radius:var(--radius);margin:auto 0 0">
+        <div class="demo-col">
+          <h3>Defurnishing per KI</h3>
+          <p>Möbel und Deko auf Wunsch entfernt. Zieh den Regler oder nutze die Pfeiltasten.</p>
+          <div class="ba" id="baSlider" role="slider" tabindex="0" aria-label="Vorher-Nachher-Vergleich: möblierter und leerer Raum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
             <picture><source type="image/webp" srcset="images/opt/defurnish-nachher-flur-640.webp 640w, images/opt/defurnish-nachher-flur-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 560px"><img class="ba__img ba__img--after" src="images/defurnish-nachher-flur.jpg" alt="Leerer, per KI von Möbeln befreiter Altbau-Flur in Hamburg aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
             <picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 560px"><img class="ba__img ba__img--before" src="images/defurnish-vorher-flur.jpg" alt="Möblierter Altbau-Flur in Hamburg mit Teppich, Garderobe und Antikmöbeln aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
             <span class="ba__label ba__label--before">Möbliert</span>
@@ -235,7 +234,7 @@
       </table>
       <p class="price-note">Individuelles Angebot bei über 500 m² oder besonders aufwändigen Objekten. Anfahrt bis 30 km inklusive. Hosting nach 12 Monaten optional 4,99 € / Monat, monatlich kündbar.</p>
       <div style="text-align:center;margin-top:36px">
-        <a class="btn btn--primary btn--lg" href="kontakt.html#kontakt">Jetzt unverbindlich anfragen</a>
+        <a class="btn btn--primary btn--lg" href="kontakt.html#kontakt">Unverbindlich anfragen</a>
       </div>
     </div>
   </section>
@@ -247,8 +246,8 @@
         <div class="about__text">
           <span class="eyebrow">Persönlich vor Ort</span>
           <h2>Ein Ansprechpartner, von der Anfrage bis zur fertigen Tour</h2>
-          <p>Du hast von der ersten Anfrage bis zur fertigen Tour einen festen Ansprechpartner. Ich komme zu dir, scanne dein Objekt in einem Termin und liefere Tour und 4K-Bilder meist wenige Tage später.</p>
-          <p>Innerhalb von 24 Stunden an Werktagen bekommst du Richtpreis und Terminvorschlag.</p>
+          <p>Ich komme zu dir, scanne dein Objekt in einem Termin und liefere Tour und 4K-Bilder meist wenige Tage später.</p>
+          <p>Richtpreis und Terminvorschlag bekommst du innerhalb von 24 Stunden an Werktagen.</p>
         </div>
         <div class="hero__visual about__photo--sm" style="aspect-ratio:3/2">
           <picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 440px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der Matterport-Pro-Kamera" width="1600" height="1067" loading="lazy"></picture>
@@ -276,7 +275,7 @@
           <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M32 13 49 22.5v19L32 51 15 41.5v-19Z"/><path d="M15 22.5 32 32l17-9.5M32 32v19"/><ellipse cx="32" cy="22.5" rx="8" ry="4" stroke-width="2.4"/><circle cx="32" cy="22.5" r="2.4" fill="currentColor" stroke="none"/></svg></span>
           <span>Virtuelle Touren<small>Hamburg &amp; Umgebung</small></span>
         </a>
-        <p>Virtuelle 3D-Touren mit Matterport inkl. hochwertiger 4K-Bilder für Gastronomie, Immobilien und Gewerbe im Großraum Hamburg.</p>
+        <p>Virtuelle 3D-Touren mit Matterport inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe im Großraum Hamburg, auf Anfrage auch in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
