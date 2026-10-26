@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.00 64.00" width="64.00" height="64.00" role="img" aria-labelledby="t">
-  <title id="t">Virtuelle Touren Hamburg – Logo</title>
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4E7B53"/><stop offset="1" stop-color="#6FA06F"/></linearGradient></defs>
-  <rect x="0" y="0" width="64" height="64" rx="14.00" fill="url(#g)"/>
-  <path d="M32.00 13.00 L49.00 22.50 L49.00 41.50 L32.00 51.00 L15.00 41.50 L15.00 22.50 Z M15.00 22.50 L32.00 32.00 L49.00 22.50 M32.00 32.00 L32.00 51.00" fill="none" stroke="#FFFFFF" stroke-width="3.20" stroke-linejoin="round" stroke-linecap="round"/>
-  <ellipse cx="32.00" cy="22.50" rx="8.00" ry="4.00" fill="none" stroke="#FFFFFF" stroke-width="2.10"/>
-  <circle cx="32.00" cy="22.50" r="2.40" fill="#FFFFFF"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 8 64 64" role="img" aria-label="Logo Virtuelle Touren"><path d="M14 51L40 36L40 24L14 39Z" fill="#4E7B53"/><path d="M40 36L66 51L66 39L40 24Z" fill="#3f6644"/><path d="M40 36L66 51L40 66L14 51Z" fill="#6FA06F"/><path d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z" fill="#16242E"/><path d="M34.8 57L38.27 59L38.27 49L34.8 47Z" fill="#16242E"/><path d="M24.4 33L50.4 48L50.4 50L24.4 35Z" fill="#3f6644"/><path d="M50.4 48L66 39L66 41L50.4 50Z" fill="#3f6644"/><path d="M40 24L66 39L50.4 48L24.4 33Z" fill="#6FA06F"/><path d="M24.4 33L40 24L40 12L24.4 21Z" fill="#4E7B53"/><path d="M40 24L66 39L66 27L40 12Z" fill="#3f6644"/><path d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z" fill="#16242E"/></svg>

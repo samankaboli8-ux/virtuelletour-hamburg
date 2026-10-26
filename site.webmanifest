@@ -1,7 +1,7 @@
 {
   "name": "Virtuelle Touren Hamburg",
   "short_name": "Virtuelle Touren",
-  "description": "Virtuelle 3D-Touren mit Matterport inkl. 4K-Bilder für Hamburg & Umgebung",
+  "description": "Virtuelle 3D-Touren mit Matterport inkl. 4K-Bilder. Aus Hamburg, deutschlandweit im Einsatz.",
   "icons": [
     {
       "src": "/favicon-192.png",
@@ -12,6 +12,12 @@
       "src": "/favicon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/favicon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "theme_color": "#4E7B53",
