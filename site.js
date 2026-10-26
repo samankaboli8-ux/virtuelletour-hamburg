@@ -15,6 +15,20 @@
     });
   }
 
+  // Branchen-Dropdown: beim Verlassen erst nach kurzer Verzögerung schließen,
+  // damit der Mauszeiger in Ruhe nach unten ins Untermenü wandern kann
+  document.querySelectorAll('.nav__has-sub').forEach(function (item) {
+    var timer = null;
+    item.addEventListener('mouseenter', function () {
+      clearTimeout(timer);
+      item.classList.add('is-open');
+    });
+    item.addEventListener('mouseleave', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { item.classList.remove('is-open'); }, 350);
+    });
+  });
+
   // Aktiven Menüpunkt anhand des Dateinamens markieren
   var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   if (page === '') page = 'index.html';
