@@ -152,6 +152,7 @@ h1,h2,h3{text-wrap:balance}
 .hero__trust{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:28px;color:var(--muted);font-size:13.5px}
 .hero__trust span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
 .hero__trust svg{width:18px;height:18px;color:var(--green)}
+.hero__trust--stack{margin-top:0;flex:1 1 240px;flex-direction:column;align-items:flex-start;gap:10px}
 @media(min-width:881px){.hero__trust{flex-direction:column;align-items:flex-start;gap:9px}}
 .hero__visual{
   position:relative;border-radius:var(--radius-lg);overflow:hidden;
@@ -180,6 +181,7 @@ h1,h2,h3{text-wrap:balance}
   .hero__inner{grid-template-columns:1fr;gap:36px;padding:56px 0 64px;text-align:center}
   .hero p.lead{margin-left:auto;margin-right:auto}
   .hero__cta,.hero__trust{justify-content:center}
+  .hero__trust--stack{flex-direction:row;align-items:center}
 }
 
 /* ---------- Wave divider ---------- */

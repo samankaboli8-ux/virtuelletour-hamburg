@@ -27,7 +27,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=16">
+<link rel="stylesheet" href="styles.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -118,11 +118,17 @@
           <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
           <a class="btn btn--ghost btn--lg" href="#preise">Preise ansehen</a>
         </div>
-        <div class="hero__trust">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 28px;margin-top:28px">
+          <div class="hero__trust hero__trust--stack">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tour &amp; 4K-Bilder inklusive</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Transparente Preise nach Fläche</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Anfahrt Hamburg inklusive</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>12 Monate Hosting inklusive</span>
+          </div>
+          <figure style="margin:0;flex:0 0 180px">
+            <img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Dollhouse-Modell einer Immobilie aus dem Matterport-Scan" width="1200" height="800" decoding="async" style="width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow);background:#0f1417;display:block">
+            <figcaption style="margin-top:6px;font-size:12px;color:var(--muted);text-align:center">Dollhouse-Modell inklusive</figcaption>
+          </figure>
         </div>
       </div>
       <div>
@@ -174,10 +180,6 @@
       </ul>
       <p class="price-note" style="margin-top:26px">* sofern für das jeweilige Objekt technisch sinnvoll umsetzbar</p>
 
-      <figure data-reveal style="margin:44px auto 0;max-width:440px">
-        <img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Dollhouse-Modell einer Immobilie aus dem Matterport-Scan" width="1200" height="800" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);background:#0f1417;display:block">
-        <figcaption style="margin-top:12px;font-size:14px;color:var(--muted);text-align:center">Dollhouse-Modell: das ganze Objekt als begehbares 3D-Puppenhaus</figcaption>
-      </figure>
     </div>
   </section>
 
