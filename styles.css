@@ -242,6 +242,10 @@ h1,h2,h3{text-wrap:balance}
 .price-table td:last-child{text-align:right;font-weight:600;white-space:nowrap}
 .price-table th:last-child{text-align:right}
 .price-table tr:hover td{background:var(--bg-soft)}
+.price-table tr.is-featured td{background:var(--green-lt)}
+.price-table tr.is-featured td:first-child{box-shadow:inset 4px 0 0 var(--green)}
+.price-table tr.is-featured td:last-child{color:var(--green-dark)}
+.price-badge{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;line-height:1.5}
 .price-note{max-width:620px;margin:16px auto 0;font-size:13px;color:var(--muted);text-align:center}
 
 /* ---------- Extras table ---------- */
@@ -515,6 +519,7 @@ h1,h2,h3{text-wrap:balance}
   .field input,.field select,.field textarea,.search input{font-size:16px}
   /* Preistabelle kompakter, damit sie auf schmalen Displays sauber passt */
   .price-table th,.price-table td{padding:14px 16px;font-size:15px}
+  .price-badge{display:block;width:max-content;margin:6px 0 0}
   .section__head{margin-bottom:38px}
   /* Karten mit Icon kompakt: Icon links, Text rechts */
   .card-feat:has(>.ico){display:grid;grid-template-columns:44px 1fr;column-gap:16px;align-items:start;padding:20px 18px}
