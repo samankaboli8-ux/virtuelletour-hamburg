@@ -105,7 +105,7 @@
     });
   }
 
-  /* ---- Vorher/Nachher-Slider (Defurnishing) ---- */
+  /* ---- Vorher/Nachher-Slider (Möbel entfernen per KI) ---- */
   var ba = document.getElementById('baSlider');
   if (ba) {
     var dragging = false;

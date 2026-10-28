@@ -227,7 +227,7 @@ h1,h2,h3{text-wrap:balance}
 .live h3{text-align:center;font-size:21px;margin-bottom:8px}
 .live>p{text-align:center;color:var(--muted);font-size:15px;margin-bottom:22px}
 
-/* ---------- Zwei Live-Beispiele nebeneinander (Street View, Defurnishing) ---------- */
+/* ---------- Zwei Live-Beispiele nebeneinander (Street View, Möbel entfernen per KI) ---------- */
 .demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:36px 32px;align-items:stretch}
 .demo-col{display:flex;flex-direction:column}
 .demo-col h3{font-size:19px;margin:0 0 6px}
@@ -535,7 +535,7 @@ h1,h2,h3{text-wrap:balance}
 .stat__src{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
 .stats-band__note{margin-top:30px;text-align:center;font-size:12.5px;color:var(--muted);max-width:760px;margin-left:auto;margin-right:auto;line-height:1.55}
 
-/* Vorher/Nachher-Slider (Defurnishing) */
+/* Vorher/Nachher-Slider (Möbel entfernen per KI) */
 .ba{position:relative;max-width:980px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:16/9;background:var(--green-lt);touch-action:none;user-select:none;-webkit-user-select:none;cursor:ew-resize;--pos:50%}
 .ba:focus-visible{outline:3px solid var(--green);outline-offset:3px}
 .ba__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
