@@ -105,7 +105,7 @@
     });
   }
 
-  /* ---- Vorher/Nachher-Slider (Möbel entfernen per KI) ---- */
+  /* ---- Vorher/Nachher-Slider (Möbel digital entfernen) ---- */
   var ba = document.getElementById('baSlider');
   if (ba) {
     var dragging = false;
