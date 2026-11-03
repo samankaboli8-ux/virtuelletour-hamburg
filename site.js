@@ -6,6 +6,7 @@
   var lenis = null;
   if (!reduce && typeof Lenis === 'function') {
     lenis = new Lenis({
+      lerp: 0.18,              // Dämpfung: höher = straffer (Standard 0.1 war zu weich)
       autoRaf: true,           // eigene Animationsschleife
       anchors: true,           // Sprungmarken (#id) weich anfahren, scroll-padding-top wird beachtet
       allowNestedScroll: true  // scrollbare Bereiche (z. B. Mobile-Menü) scrollen weiter für sich
