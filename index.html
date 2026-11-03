@@ -31,7 +31,7 @@
 <link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=22">
+<link rel="stylesheet" href="styles.css?v=23">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -636,7 +636,8 @@
   </div>
 </footer>
 
-<script src="site.js?v=8"></script>
+<script src="lenis.min.js?v=1"></script>
+<script src="site.js?v=9"></script>
 <script>
 /* Hero-Tour (StrandPauli) inline starten */
 (function(){
@@ -684,7 +685,7 @@
     iframe.loading = 'lazy';
     iframe.addEventListener('load', function(){ spin.remove(); });
     frame.appendChild(iframe);
-    card.scrollIntoView({behavior:'smooth', block:'center'});
+    window.scrollToCenter(card);
   }
   function closeTour(card){
     var frame = card.querySelector('.frame');

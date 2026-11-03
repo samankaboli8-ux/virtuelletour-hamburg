@@ -552,3 +552,10 @@ h1,h2,h3{text-wrap:balance}
   *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   [data-reveal]{opacity:1!important;transform:none!important}
 }
+
+/* Lenis Smooth Scroll (lenis.min.js, lokal gehostet); Basis-Regeln aus lenis.css */
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto}
+.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+.lenis [data-lenis-prevent],.lenis [data-lenis-prevent-wheel],.lenis [data-lenis-prevent-touch],.lenis [data-lenis-prevent-vertical],.lenis [data-lenis-prevent-horizontal]{overscroll-behavior:contain}
+.lenis.lenis-smooth iframe{pointer-events:none}

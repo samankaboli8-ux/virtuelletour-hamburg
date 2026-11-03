@@ -175,7 +175,7 @@ function openTour(card, t){
   iframe.loading = 'lazy';
   iframe.addEventListener('load', () => spin.remove());
   frame.appendChild(iframe);
-  card.scrollIntoView({behavior:'smooth', block:'center'});
+  window.scrollToCenter(card);
 }
 
 function closeTour(card){
@@ -250,11 +250,13 @@ function openLightbox(i){
   lightbox.classList.add('show');
   lightbox.setAttribute('aria-hidden','false');
   document.body.style.overflow = 'hidden';
+  if(window.lenis) window.lenis.stop();
 }
 function closeLightbox(){
   lightbox.classList.remove('show');
   lightbox.setAttribute('aria-hidden','true');
   document.body.style.overflow = '';
+  if(window.lenis) window.lenis.start();
 }
 function navLightbox(dir){
   lbIndex = (lbIndex + dir + GALLERY.length) % GALLERY.length;

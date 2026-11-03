@@ -1,5 +1,26 @@
-/* Globale Seitenlogik: Mobile-Menü, aktiver Menüpunkt, Footer-Jahr */
+/* Globale Seitenlogik: Smooth Scroll, Mobile-Menü, aktiver Menüpunkt, Footer-Jahr */
 (function () {
+  /* ---- Smooth Scroll mit Lenis (lenis.min.js, lokal gehostet) ----
+     Bei "Bewegung reduzieren" bleibt Lenis aus, dann scrollt alles nativ. */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lenis = null;
+  if (!reduce && typeof Lenis === 'function') {
+    lenis = new Lenis({
+      autoRaf: true,           // eigene Animationsschleife
+      anchors: true,           // Sprungmarken (#id) weich anfahren, scroll-padding-top wird beachtet
+      allowNestedScroll: true  // scrollbare Bereiche (z. B. Mobile-Menü) scrollen weiter für sich
+    });
+    window.lenis = lenis;
+  }
+
+  /* Element mittig in den Viewport scrollen: per Lenis, ohne Lenis nativ */
+  window.scrollToCenter = function (el) {
+    if (!el) return;
+    if (!lenis) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+    var rect = el.getBoundingClientRect();
+    lenis.scrollTo(rect.top + window.pageYOffset - Math.max(0, (window.innerHeight - rect.height) / 2));
+  };
+
   var burger = document.querySelector('.burger');
   var links = document.getElementById('navLinks');
   if (burger && links) {
@@ -58,7 +79,6 @@
   /* ---- Scroll-Reveal + Count-up (dezent) ---- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
   var counters = Array.prototype.slice.call(document.querySelectorAll('.stat__num[data-count]'));
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function setFinal(el) {
     var target = parseFloat(el.getAttribute('data-count')) || 0;
