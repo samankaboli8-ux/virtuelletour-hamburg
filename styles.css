@@ -97,7 +97,8 @@ h1,h2,h3{text-wrap:balance}
 .nav__links a:hover{background:var(--green-lt);color:var(--green-dark)}
 .nav__links a[aria-current="page"]{color:var(--green);font-weight:600}
 .nav__cta{margin-left:6px}
-.nav__cta .btn{padding:10px 20px;font-size:15px}
+.nav__cta .btn{padding:10px 20px;font-size:15px;color:#fff}
+.nav__cta .btn:hover{background:var(--green-dark);color:#fff}
 .nav__has-sub{position:relative}
 .nav__has-sub::after{content:"";position:absolute;left:0;right:0;top:100%;height:12px}
 .nav__has-sub>a{display:inline-flex;align-items:center;gap:5px}
