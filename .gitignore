@@ -2,3 +2,8 @@
 *.log
 node_modules/
 .claude/
+
+# Impeccable-Kontext bleibt lokal: Netlify liefert den Repo-Stamm aus, sonst wäre PRODUCT.md öffentlich
+PRODUCT.md
+DESIGN.md
+.impeccable/
