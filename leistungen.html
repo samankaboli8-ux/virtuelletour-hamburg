@@ -110,7 +110,6 @@
   <section class="hero">
     <div class="wrap hero__inner">
       <div>
-        <span class="eyebrow">Leistungen &amp; Preise</span>
         <h1>Eine Tour, alles inklusive</h1>
         <p class="lead">Ein Preis nach Fläche, alles drin.</p>
         <div class="hero__cta">
@@ -130,22 +129,22 @@
       <div>
         <div class="hero__visual" id="heroTour" data-m="2JgeWuujp21">
           <div class="hero__frame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli starten">
-            <img src="https://my.matterport.com/api/v1/player/models/2JgeWuujp21/thumb?width=1280&dpr=1&disable=upscale" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="800" height="600" fetchpriority="high" onerror="this.style.display='none'">
+            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-1280.webp"><img src="images/tours/2JgeWuujp21-1280.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="1280" height="720" fetchpriority="high" onerror="this.style.display='none'"></picture>
             <span class="hero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
           </div>
           <span class="hero__badge"><span class="dot"></span><span><span class="hero__badge-name">StrandPauli</span> · Begehbar in 3D</span></span>
         </div>
         <div class="hero-switch" role="group" aria-label="Beispiel-Tour auswählen">
           <button type="button" class="hero-switch__btn" data-m="2JgeWuujp21" data-name="StrandPauli" data-alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" aria-pressed="true">
-            <img src="https://my.matterport.com/api/v1/player/models/2JgeWuujp21/thumb?width=320&dpr=1&disable=upscale" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'">
+            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp"><img src="images/tours/2JgeWuujp21-960.jpg" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'"></picture>
             <span>StrandPauli</span>
           </button>
           <button type="button" class="hero-switch__btn" data-m="t4sME6NCR3Y" data-name="WE ARE PADEL" data-alt="Virtuelle 3D-Tour der Padel-Anlage WE ARE PADEL in Berlin" aria-pressed="false">
-            <img src="https://my.matterport.com/api/v1/player/models/t4sME6NCR3Y/thumb?width=320&dpr=1&disable=upscale" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'">
+            <picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'"></picture>
             <span>WE ARE PADEL</span>
           </button>
           <button type="button" class="hero-switch__btn" data-m="jW4ha2PrbZB" data-name="DEVK, Christoph Horbach" data-alt="Virtuelle 3D-Tour der DEVK-Versicherung Völklingen von Christoph Horbach" aria-pressed="false">
-            <img src="https://my.matterport.com/api/v1/player/models/jW4ha2PrbZB/thumb?width=320&dpr=1&disable=upscale" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'">
+            <picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'"></picture>
             <span>DEVK Horbach</span>
           </button>
         </div>
@@ -158,7 +157,6 @@
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <span class="eyebrow">In jedem Paket enthalten</span>
         <h2>Das ist immer dabei</h2>
       </div>
       <ul class="incl-grid">
@@ -182,7 +180,6 @@
   <section class="section section--soft" id="defurnishing">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Zum Ausprobieren</span>
         <h2>Zwei Extras, beide inklusive</h2>
         <p>Google Street View und Möbel entfernen per Klick, ohne Aufpreis in jedem Paket.</p>
       </div>
@@ -214,7 +211,6 @@
   <section class="section" id="preise">
     <div class="wrap">
       <div class="section__head">
-        <span class="eyebrow">Preise</span>
         <h2>All-in-Preis nach Fläche</h2>
         <p>Alle Preise sind Endpreise. Tour <strong>und</strong> 4K-Bilder immer enthalten, dazu 12 Monate Hosting.</p>
       </div>
@@ -243,7 +239,6 @@
     <div class="wrap">
       <div class="contact-grid contact-grid--center" data-reveal>
         <div class="about__text">
-          <span class="eyebrow">Persönlich vor Ort</span>
           <h2>Ein Ansprechpartner, von der Anfrage bis zur fertigen Tour</h2>
           <p>Ich komme zu dir, in Hamburg oder überall sonst in Deutschland, scanne dein Objekt in einem Termin und liefere Tour und 4K-Bilder meist wenige Tage später.</p>
           <p>Richtpreis und Terminvorschlag bekommst du innerhalb von 24 Stunden an Werktagen.</p>
@@ -347,7 +342,9 @@
       badge.textContent = btn.dataset.name;
       frame.setAttribute('aria-label', 'Virtuelle Tour ' + btn.dataset.name + ' starten');
       img.style.display = '';
-      img.src = 'https://my.matterport.com/api/v1/player/models/' + btn.dataset.m + '/thumb?width=1280&dpr=1&disable=upscale';
+      var pic = img.closest('picture'), webp = pic && pic.querySelector('source');
+      if (webp) webp.srcset = 'images/tours/' + btn.dataset.m + '-1280.webp';
+      img.src = 'images/tours/' + btn.dataset.m + '-1280.jpg';
       img.alt = btn.dataset.alt;
       var iframe = frame.querySelector('iframe');
       if(iframe){
