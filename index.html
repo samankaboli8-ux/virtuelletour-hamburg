@@ -31,7 +31,7 @@
 <link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=24">
+<link rel="stylesheet" href="styles.css?v=25">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -190,25 +190,24 @@
 <main>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero--tourfirst">
     <div class="wrap hero__inner">
       <div>
-        <span class="eyebrow">Aus Hamburg · Deutschlandweit im Einsatz</span>
         <h1>Virtuelle <span class="nb">3D-Touren</span> in Hamburg</h1>
         <p class="lead">Professionelle 360°-Rundgänge inklusive 4K-Bilder, für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz.</p>
         <div class="hero__cta">
           <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
-          <a class="btn btn--ghost btn--lg" href="referenzen.html">Touren ansehen</a>
+          <a class="btn btn--ghost btn--lg" href="#referenzen-teaser">Touren ansehen</a>
         </div>
         <div class="hero__trust">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Deutschlandweit im Einsatz</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>4K-Bilder immer inklusive</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Alles inklusive zum Festpreis, <strong>ab 430 €</strong></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>4K-Bilder immer dabei</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Anfahrt Hamburg inklusive</span>
         </div>
       </div>
       <div class="hero__visual" id="heroTour" data-m="2JgeWuujp21">
-        <div class="hero__frame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli Hamburg starten">
-          <img src="https://my.matterport.com/api/v1/player/models/2JgeWuujp21/thumb?width=1280&dpr=1&disable=upscale" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="800" height="600" fetchpriority="high" onerror="this.style.display='none'">
+        <div class="hero__frame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli Hamburg starten" data-title="StrandPauli">
+          <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-1280.webp"><img src="images/tours/2JgeWuujp21-1280.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="1280" height="720" fetchpriority="high" onerror="this.style.display='none'"></picture>
           <span class="hero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
         <span class="hero__badge"><span class="dot"></span>StrandPauli · Begehbar in 3D</span>
@@ -221,7 +220,6 @@
   <section class="section">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Warum eine virtuelle Tour?</span>
         <h2>Interessenten erkunden deinen Raum, bevor sie kommen</h2>
         <p>Ein interaktiver 360°-Rundgang, frei begehbar am Desktop, auf dem Handy oder direkt bei Google. So überzeugt deine Location rund um die Uhr.</p>
       </div>
@@ -276,7 +274,6 @@
   <section class="section section--soft" id="branchen">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Für deine Branche</span>
         <h2>Virtuelle Touren, passend zu dir</h2>
         <p>Wähle deine Branche und sieh, wie ein 3D-Rundgang dort wirkt.</p>
       </div>
@@ -325,7 +322,6 @@
   <section class="section stats-band">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Zahlen, die überzeugen</span>
         <h2>Was eine virtuelle Tour bringt</h2>
         <p>Wer Räume online begehbar macht, gewinnt mehr Aufmerksamkeit und Anfragen.</p>
       </div>
@@ -356,10 +352,9 @@
   </section>
 
   <!-- So funktioniert's -->
-  <section class="section section--soft">
+  <section class="section">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Ablauf</span>
         <h2>In drei Schritten zur fertigen Tour</h2>
       </div>
       <div class="steps" data-reveal>
@@ -374,19 +369,18 @@
   <section class="section section--soft" id="referenzen-teaser">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Referenzen</span>
         <h2>Ausgewählte virtuelle Touren aus Hamburg</h2>
         <p>Realisierte Rundgänge aus Gastronomie, Events, Gewerbe und Wohnen. Tour anklicken, sie startet direkt hier.</p>
       </div>
       <div class="tour-grid" id="tourGrid" data-reveal>
         <article class="card" data-m="2JgeWuujp21">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: StrandPauli">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/2JgeWuujp21/thumb?width=960&dpr=1&disable=upscale" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" loading="lazy" onerror="this.style.display='none'">
+          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: StrandPauli" data-title="StrandPauli">
+            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp 640w, images/tours/2JgeWuujp21-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="images/tours/2JgeWuujp21-960.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="960" height="540" loading="lazy" onerror="this.style.display='none'"></picture>
             <div class="scrim"></div>
             <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
           </div>
           <div class="meta">
-            <div><h4>StrandPauli</h4><div class="sub">Bar &amp; Eventlocation · Hamburg</div></div>
+            <div><h3>StrandPauli</h3><div class="sub">Bar &amp; Eventlocation · Hamburg</div></div>
             <div class="actions">
               <a class="iconbtn" href="https://my.matterport.com/show/?m=2JgeWuujp21" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
               <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=2JgeWuujp21"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
@@ -395,13 +389,13 @@
           </div>
         </article>
         <article class="card" data-m="7CpYpsEXAhs">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Die MachBar Lübeck">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/7CpYpsEXAhs/thumb?width=960&dpr=1&disable=upscale" alt="3D-Rundgang der MachBar Lübeck für Workshops, Tagungen und Teamevents" loading="lazy" onerror="this.style.display='none'">
+          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Die MachBar Lübeck" data-title="Die MachBar Lübeck">
+            <picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="images/tours/7CpYpsEXAhs-960.jpg" alt="3D-Rundgang der MachBar Lübeck für Workshops, Tagungen und Teamevents" width="960" height="540" loading="lazy" onerror="this.style.display='none'"></picture>
             <div class="scrim"></div>
             <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
           </div>
           <div class="meta">
-            <div><h4>Die MachBar Lübeck</h4><div class="sub">Workshops &amp; Events · Lübeck</div></div>
+            <div><h3>Die MachBar Lübeck</h3><div class="sub">Workshops &amp; Events · Lübeck</div></div>
             <div class="actions">
               <a class="iconbtn" href="https://my.matterport.com/show/?m=7CpYpsEXAhs" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
               <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=7CpYpsEXAhs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
@@ -410,13 +404,13 @@
           </div>
         </article>
         <article class="card" data-m="t4sME6NCR3Y">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: WE ARE PADEL Berlin">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/t4sME6NCR3Y/thumb?width=960&dpr=1&disable=upscale" alt="Virtuelle 3D-Tour der Padel-Anlage WE ARE PADEL in Berlin" loading="lazy" onerror="this.style.display='none'">
+          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: WE ARE PADEL Berlin" data-title="WE ARE PADEL Berlin">
+            <picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp 640w, images/tours/t4sME6NCR3Y-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="images/tours/t4sME6NCR3Y-960.jpg" alt="Virtuelle 3D-Tour der Padel-Anlage WE ARE PADEL in Berlin" width="960" height="540" loading="lazy" onerror="this.style.display='none'"></picture>
             <div class="scrim"></div>
             <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
           </div>
           <div class="meta">
-            <div><h4>WE ARE PADEL Berlin</h4><div class="sub">Sport- &amp; Freizeitanlage · Berlin</div></div>
+            <div><h3>WE ARE PADEL Berlin</h3><div class="sub">Sport- &amp; Freizeitanlage · Berlin</div></div>
             <div class="actions">
               <a class="iconbtn" href="https://my.matterport.com/show/?m=t4sME6NCR3Y" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
               <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=t4sME6NCR3Y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
@@ -425,13 +419,13 @@
           </div>
         </article>
         <article class="card" data-m="C6A8Zt3dq5K">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: New City Smash Burger">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/C6A8Zt3dq5K/thumb?width=960&dpr=1&disable=upscale" alt="3D-Tour des Restaurants New City Smash Burger in Hamburg" loading="lazy" onerror="this.style.display='none'">
+          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: New City Smash Burger" data-title="New City Smash Burger">
+            <picture><source type="image/webp" srcset="images/tours/C6A8Zt3dq5K-640.webp 640w, images/tours/C6A8Zt3dq5K-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="images/tours/C6A8Zt3dq5K-960.jpg" alt="3D-Tour des Restaurants New City Smash Burger in Hamburg" width="960" height="540" loading="lazy" onerror="this.style.display='none'"></picture>
             <div class="scrim"></div>
             <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
           </div>
           <div class="meta">
-            <div><h4>New City Smash Burger</h4><div class="sub">Restaurant · Hamburg</div></div>
+            <div><h3>New City Smash Burger</h3><div class="sub">Restaurant · Hamburg</div></div>
             <div class="actions">
               <a class="iconbtn" href="https://my.matterport.com/show/?m=C6A8Zt3dq5K" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
               <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=C6A8Zt3dq5K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
@@ -440,13 +434,13 @@
           </div>
         </article>
         <article class="card" data-m="d6EKByVzyrT">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Golden Bean">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/d6EKByVzyrT/thumb?width=960&dpr=1&disable=upscale" alt="Virtuelle Tour des Cafés Golden Bean in der Gertigstraße in Hamburg-Winterhude" loading="lazy" onerror="this.style.display='none'">
+          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Golden Bean" data-title="Golden Bean">
+            <picture><source type="image/webp" srcset="images/tours/d6EKByVzyrT-640.webp 640w, images/tours/d6EKByVzyrT-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="images/tours/d6EKByVzyrT-960.jpg" alt="Virtuelle Tour des Cafés Golden Bean in der Gertigstraße in Hamburg-Winterhude" width="960" height="540" loading="lazy" onerror="this.style.display='none'"></picture>
             <div class="scrim"></div>
             <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
           </div>
           <div class="meta">
-            <div><h4>Golden Bean</h4><div class="sub">Café · Hamburg-Winterhude</div></div>
+            <div><h3>Golden Bean</h3><div class="sub">Café · Hamburg-Winterhude</div></div>
             <div class="actions">
               <a class="iconbtn" href="https://my.matterport.com/show/?m=d6EKByVzyrT" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
               <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=d6EKByVzyrT"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
@@ -455,13 +449,13 @@
           </div>
         </article>
         <article class="card" data-m="e43gx9VXfzg">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Tandoori Flame">
-            <img class="thumb" src="https://my.matterport.com/api/v1/player/models/e43gx9VXfzg/thumb?width=960&dpr=1&disable=upscale" alt="3D-Rundgang des indischen Restaurants Tandoori Flame in Hamburg-Winterhude" loading="lazy" onerror="this.style.display='none'">
+          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Tandoori Flame" data-title="Tandoori Flame">
+            <picture><source type="image/webp" srcset="images/tours/e43gx9VXfzg-640.webp 640w, images/tours/e43gx9VXfzg-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="images/tours/e43gx9VXfzg-960.jpg" alt="3D-Rundgang des indischen Restaurants Tandoori Flame in Hamburg-Winterhude" width="960" height="540" loading="lazy" onerror="this.style.display='none'"></picture>
             <div class="scrim"></div>
             <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
           </div>
           <div class="meta">
-            <div><h4>Tandoori Flame</h4><div class="sub">Indisches Restaurant · Hamburg-Winterhude</div></div>
+            <div><h3>Tandoori Flame</h3><div class="sub">Indisches Restaurant · Hamburg-Winterhude</div></div>
             <div class="actions">
               <a class="iconbtn" href="https://my.matterport.com/show/?m=e43gx9VXfzg" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
               <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=e43gx9VXfzg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
@@ -480,7 +474,6 @@
   <section class="section">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">4K-Bilder inklusive</span>
         <h2>Hochwertige <span class="nb">4K-Fotos</span>, bei jeder Tour dabei</h2>
         <p>Aus jedem Scan entstehen scharfe 4K-Bilder für Website, Google, Social Media und Speisekarte, mit vollen Nutzungsrechten.</p>
       </div>
@@ -516,7 +509,6 @@
   <section class="section section--green">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Transparente Preise</span>
         <h2>Tour &amp; <span class="nb">4K-Bilder</span>: alles inklusive ab 430 €</h2>
         <p>Ein All-in-Preis nach Fläche. Tour, 4K-Bilder und 12 Monate Hosting immer enthalten, keine versteckten Kosten.</p>
       </div>
@@ -539,7 +531,6 @@
     <div class="wrap">
       <div class="contact-grid contact-grid--center" data-reveal>
         <div class="about__text">
-          <span class="eyebrow">Aus Hamburg, deutschlandweit</span>
           <h2>Dein Ansprechpartner aus Hamburg, im Einsatz in ganz Deutschland</h2>
           <p>Ob Hamburg, Lübeck, Berlin oder Völklingen: Ich scanne dort, wo dein Objekt steht. Anfahrt bis 30 km um Hamburg inklusive.</p>
           <p>3D-Rundgang und 4K-Fotos aus einer Hand, persönlich und zuverlässig.</p>
@@ -552,10 +543,9 @@
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section section--soft">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <span class="eyebrow">Häufige Fragen</span>
         <h2>Virtuelle Touren in Hamburg: häufige Fragen</h2>
       </div>
       <div class="faq" data-reveal>
@@ -594,6 +584,11 @@
 
 </main>
 
+  <!-- Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
+  <div class="mobile-cta" id="mobileCta" aria-hidden="true">
+    <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a>
+    <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  </div>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
@@ -605,7 +600,7 @@
         <p>Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h3>Navigation</h3>
         <a href="index.html">Start</a>
         <a href="leistungen.html">Leistungen &amp; Preise</a>
         <a href="referenzen.html">Referenzen</a>
@@ -613,7 +608,7 @@
         <a href="kontakt.html">Kontakt</a>
       </div>
       <div class="footer-col">
-        <h4>Branchen</h4>
+        <h3>Branchen</h3>
         <a href="gastronomie.html">Gastronomie</a>
         <a href="eventlocations.html">Eventlocations &amp; Hotels</a>
         <a href="immobilien.html">Immobilien &amp; Wohnen</a>
@@ -622,7 +617,7 @@
         <a href="baubranche.html">Baubranche</a>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
@@ -637,7 +632,7 @@
 </footer>
 
 <script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=10"></script>
+<script src="site.js?v=11"></script>
 <script>
 /* Hero-Tour (StrandPauli) inline starten */
 (function(){

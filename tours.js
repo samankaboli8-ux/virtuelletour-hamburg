@@ -70,7 +70,7 @@ const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 const ICON_CHEV  = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>';
 
 function tourUrl(id){ return 'https://my.matterport.com/show/?m=' + id; }
-function thumbUrl(id){ return 'https://my.matterport.com/api/v1/player/models/' + id + '/thumb?width=960&dpr=1&disable=upscale'; }
+function thumbBase(id){ return 'images/tours/' + id; }
 
 const DEFAULT_OPEN = false;
 
@@ -79,9 +79,9 @@ function makeCard(t){
   card.className = 'card';
   card.dataset.id = t.id;
   card.innerHTML = `
-    <div class="frame" role="button" tabindex="0" aria-label="Tour starten: ${t.title}">
-      <img class="thumb" src="${thumbUrl(t.id)}" alt="Vorschau der virtuellen Tour: ${t.title}" loading="lazy"
-           onerror="this.style.display='none'">
+    <div class="frame" role="button" tabindex="0" aria-label="Tour starten: ${t.title}" data-title="${t.title}">
+      <picture><source type="image/webp" srcset="${thumbBase(t.id)}-640.webp 640w, ${thumbBase(t.id)}-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="${thumbBase(t.id)}-960.jpg" alt="Vorschau der virtuellen Tour: ${t.title}" width="960" height="540" loading="lazy"
+           onerror="this.style.display='none'"></picture>
       <div class="scrim"></div>
       <div class="play">
         <div class="btn-play">${ICON_PLAY}</div>
@@ -90,7 +90,7 @@ function makeCard(t){
     </div>
     <div class="meta">
       <div>
-        <h4>${t.title}</h4>
+        <h3>${t.title}</h3>
         <div class="sub">Virtueller Rundgang</div>
       </div>
       <div class="actions">

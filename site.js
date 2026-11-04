@@ -157,4 +157,22 @@
       else if (e.key === 'End') { setPos(100); e.preventDefault(); }
     });
   }
+  /* ---- Mobiler Anfrage-Balken: sichtbar zwischen Hero und CTA-Band ---- */
+  var mobileCta = document.getElementById('mobileCta');
+  if (mobileCta && 'IntersectionObserver' in window) {
+    var heroEl = document.querySelector('.hero');
+    var ctaBand = document.querySelector('.cta-band');
+    var heroGone = false, ctaNear = false;
+    var updateCta = function () {
+      var show = heroGone && !ctaNear;
+      mobileCta.classList.toggle('is-visible', show);
+      mobileCta.setAttribute('aria-hidden', show ? 'false' : 'true');
+    };
+    if (heroEl) new IntersectionObserver(function (en) {
+      heroGone = !en[0].isIntersecting && en[0].boundingClientRect.bottom < 0; updateCta();
+    }, { threshold: 0 }).observe(heroEl);
+    if (ctaBand) new IntersectionObserver(function (en) {
+      ctaNear = en[0].isIntersecting; updateCta();
+    }, { rootMargin: '0px 0px 80px 0px' }).observe(ctaBand);
+  }
 })();
