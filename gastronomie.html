@@ -28,7 +28,7 @@
 <link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=27">
+<link rel="stylesheet" href="styles.css?v=28">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,17 +129,17 @@
 <main>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero--tourfirst">
     <div class="wrap hero__inner">
       <div>
         <h1>Virtuelle Touren für Restaurants, Cafés &amp; Bars</h1>
         <p class="lead">Gäste erleben dein Lokal, bevor sie kommen: Ambiente, Bar und Eventflächen im begehbaren 360°-Rundgang. Für mehr Reservierungen, Eventanfragen und Sichtbarkeit bei Google.</p>
         <div class="hero__cta">
           <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
-          <a class="btn btn--ghost btn--lg" href="#gastro-touren">Beispiel-Touren ansehen</a>
+          <a class="btn btn--ghost btn--lg" href="#preise">Preise ansehen</a>
         </div>
         <div class="hero__trust">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Erfahrung mit Restaurants &amp; Cafés</span>
+          <span class="is-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Alles inklusive zum Festpreis, <strong>ab 430 €</strong></span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>4K-Bilder für Speisekarte &amp; Social Media</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Direkt bei Google sichtbar</span>
         </div>
@@ -162,30 +162,80 @@
         <h2>Gäste entscheiden mit den Augen, schon vor der Reservierung</h2>
         <p>Bevor Gäste buchen, schauen sie online. Eine virtuelle Tour zeigt Atmosphäre, Sitzplätze und Eventflächen so echt wie ein Besuch, rund um die Uhr.</p>
       </div>
-      <div class="cards" data-reveal>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 11v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h10v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8"/></svg></div>
-          <h3>Ambiente verkauft mit</h3>
-          <p>Gastraum, Bar, Terrasse: Gäste spüren die Atmosphäre vorab und entscheiden sich leichter für deinen Tisch.</p>
+      <div class="cards cards--media" data-reveal>
+        <article class="card-media">
+          <div class="card-media__img"><picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp 640w, images/tours/uDdPTJRfy2R-960.webp 960w" sizes="(max-width: 640px) 40vw, 280px"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Gastraum des Doro Ristorante in der virtuellen 3D-Tour" width="960" height="540" loading="lazy"></picture></div>
+          <div class="card-media__body">
+            <h3>Ambiente verkauft mit</h3>
+            <p>Gastraum, Bar, Terrasse: Gäste spüren die Atmosphäre vorab und entscheiden sich leichter für deinen Tisch.</p>
+          </div>
         </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h3>Mehr Event- &amp; Feieranfragen</h3>
-          <p>Wer eine Feier plant, will Räume vorab sehen. Das spart Rückfragen und bringt Buchungen.</p>
+        <article class="card-media">
+          <div class="card-media__img"><picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 640px) 40vw, 280px"><img src="images/Living-Room-2.jpg" alt="4K-Foto der Restaurant- und Eventfläche Living Room" width="1920" height="1080" loading="lazy"></picture></div>
+          <div class="card-media__body">
+            <h3>Mehr Event- &amp; Feieranfragen</h3>
+            <p>Wer eine Feier plant, will Räume vorab sehen. Das spart Rückfragen und bringt Buchungen.</p>
+          </div>
         </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20Z"/></svg></div>
-          <h3>Sichtbar bei Google</h3>
-          <p>Die Tour läuft in deinem Google-Unternehmensprofil und Street View. Gäste starten den Rundgang direkt aus der Suche.</p>
+        <article class="card-media">
+          <div class="card-media__img"><picture><source type="image/webp" srcset="images/opt/streetview-goldenbean-640.webp 640w, images/opt/streetview-goldenbean-1200.webp 1200w" sizes="(max-width: 640px) 40vw, 280px"><img src="images/streetview-goldenbean.jpg" alt="Street-View-Ansicht des Cafés Golden Bean in Hamburg-Winterhude" width="1280" height="800" loading="lazy"></picture></div>
+          <div class="card-media__body">
+            <h3>Sichtbar bei Google</h3>
+            <p>Die Tour läuft in deinem Google-Unternehmensprofil und Street View. Gäste starten den Rundgang direkt aus der Suche.</p>
+          </div>
         </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-          <h3>Content für alle Kanäle</h3>
-          <p>4K-Bilder aus der Tour, einsatzfertig für Speisekarte, Website, Lieferdienste, Instagram und Reservierungsplattformen.</p>
+        <article class="card-media">
+          <div class="card-media__img"><picture><source type="image/webp" srcset="images/opt/New-City-Smash-Burger-Hamburg--12052024_121200-640.webp 640w, images/opt/New-City-Smash-Burger-Hamburg--12052024_121200-1200.webp 1200w" sizes="(max-width: 640px) 40vw, 280px"><img src="images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg" alt="4K-Foto aus dem Restaurant New City Smash Burger in Hamburg" width="1920" height="1080" loading="lazy"></picture></div>
+          <div class="card-media__body">
+            <h3>Content für alle Kanäle</h3>
+            <p>4K-Bilder aus der Tour, einsatzfertig für Speisekarte, Website, Lieferdienste, Instagram und Reservierungsplattformen.</p>
+          </div>
         </article>
       </div>
     </div>
   </section>
+
+  <!-- Preise -->
+  <section class="section section--green" id="preise">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <h2>Tour &amp; <span class="nb">4K-Bilder</span>: alles inklusive ab 430 €</h2>
+        <p>Ein Festpreis nach Fläche. Tour, 4K-Bilder und 12 Monate Hosting immer enthalten, keine versteckten Kosten.</p>
+      </div>
+      <div class="price-teaser" data-reveal>
+        <div class="price-teaser__table">
+          <table class="price-table">
+            <thead>
+              <tr><th scope="col">Fläche</th><th scope="col">Festpreis</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>bis 80 m²<small>z. B. Café, Bar, Imbiss</small></td><td>430 €</td></tr>
+              <tr class="is-featured"><td>bis 150 m² <span class="price-badge">Meistgebucht</span><small>z. B. Restaurant mit Gastraum</small></td><td>540 €</td></tr>
+              <tr><td>bis 250 m²<small>z. B. Restaurant mit Nebenraum oder Terrasse</small></td><td>690 €</td></tr>
+              <tr><td>bis 350 m²<small>z. B. Große Gastronomie mit Eventfläche</small></td><td>810 €</td></tr>
+            </tbody>
+          </table>
+          <p class="price-note">Bis 500 m² 950 €, darüber individuelles Angebot. Anfahrt bis 30 km um Hamburg inklusive.</p>
+        </div>
+        <div class="price-teaser__incl">
+          <h3>Immer dabei</h3>
+          <ul class="incl-grid incl-grid--1">
+            <li>360°-Rundgang in 4K</li>
+            <li>Hochwertige 4K-Bilder mit vollen Nutzungsrechten</li>
+            <li>Dollhouse- &amp; 3D-Modell</li>
+            <li>2D-Grundriss</li>
+            <li>Google Street View-Integration</li>
+            <li>Möbel digital entfernen</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price-cta" data-reveal>
+        <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
+        <p class="price-cta__note">Richtpreis und Terminvorschlag innerhalb von 24 Stunden an Werktagen. Details zu allen Leistungen: <a href="leistungen.html#preise">Leistungen &amp; Preise</a></p>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Besonders gefragt -->
   <section class="section section--soft">
@@ -217,7 +267,7 @@
     <div class="wrap">
       <div class="section__head" data-reveal>
         <h2>Virtuelle Touren aus Restaurants, Cafés &amp; Bars</h2>
-        <p>Realisierte Rundgänge aus der Hamburger Gastronomie. Tour anklicken, sie startet direkt hier.</p>
+        <p>Rundgänge aus Restaurants, Cafés und Bars. Tour anklicken, sie startet direkt hier.</p>
       </div>
       <div class="tour-grid" id="tourGrid" data-reveal>
         <article class="card" data-m="e43gx9VXfzg">
@@ -363,6 +413,10 @@
   <!-- CTA-Band -->
   <section class="cta-band">
     <div class="wrap">
+      <div class="cta-band__person" data-reveal>
+        <img class="cta-band__photo" src="images/opt/saman-portrait-240.jpg" alt="Saman Kaboli, Inhaber von Virtuelle Touren Hamburg" width="240" height="240" loading="lazy">
+        <p class="cta-band__quote">„Ich scanne selbst vor Ort. Tour und Bilder bekommst du meist wenige Tage später.“<span>Saman Kaboli, Inhaber</span></p>
+      </div>
       <h2>Bereit, dein Lokal online begehbar zu machen?</h2>
       <p>Schreib mir kurz Art und Größe deines Lokals, du bekommst zeitnah einen Richtpreis. Tour und 4K-Bilder inklusive, ab 430 €.</p>
       <a class="btn btn--light btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
@@ -370,6 +424,12 @@
   </section>
 
 </main>
+
+  <!-- Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
+  <div class="mobile-cta" id="mobileCta" aria-hidden="true">
+    <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a>
+    <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  </div>
 
 <footer class="site-footer">
   <div class="wrap">
