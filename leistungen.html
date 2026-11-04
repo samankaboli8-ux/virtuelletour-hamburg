@@ -27,7 +27,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=26">
+<link rel="stylesheet" href="styles.css?v=27">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,6 +58,34 @@
       { "@type": "Offer", "name": "bis 500 m²", "price": "950", "priceCurrency": "EUR" }
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie schnell bekomme ich einen Richtpreis?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Innerhalb von 24 Stunden an Werktagen. Du nennst mir Objektart und ungefähre Fläche, ich antworte mit Richtpreis und Terminvorschlag." }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet die Anfahrt außerhalb von Hamburg?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Bis 30 km um Hamburg ist die Anfahrt im Preis enthalten. Darüber hinaus berechne ich 0,45 € pro Kilometer, deutschlandweit." }
+    },
+    {
+      "@type": "Question",
+      "name": "Was passiert nach den 12 Monaten Hosting?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Die Tour bleibt online, wenn du möchtest: Hosting kostet danach 4,99 € pro Monat und ist monatlich kündbar." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kosten Info-Hotspots extra?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nein. Hotspots mit Texten, Links oder Bildern an Punkten in der Tour bekommst du auf Wunsch dazu, ohne Aufpreis." }
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -107,26 +135,22 @@
 <main>
 
   <!-- Hero mit eingebetteter Tour (wie Startseite) -->
-  <section class="hero">
+  <section class="hero hero--tourfirst">
     <div class="wrap hero__inner">
       <div>
         <h1>Eine Tour, alles inklusive</h1>
-        <p class="lead">Ein Preis nach Fläche, alles drin.</p>
+        <p class="lead">Tour, 4K-Bilder, 3D-Modell, Grundriss und 12 Monate Hosting immer dabei. Keine Extras, keine Aufpreise.</p>
         <div class="hero__cta">
           <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
           <a class="btn btn--ghost btn--lg" href="#preise">Preise ansehen</a>
         </div>
-        <div class="hero__extra">
-          <img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Dollhouse-Modell einer Immobilie aus dem 3D-Scan" width="1200" height="800" decoding="async">
-          <div class="hero__trust hero__trust--stack">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tour &amp; 4K-Bilder inklusive</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Transparente Preise nach Fläche</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Anfahrt Hamburg inklusive</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>12 Monate Hosting inklusive</span>
-          </div>
+        <div class="hero__trust">
+          <span class="is-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Festpreis nach Fläche, <strong>ab 430 €</strong></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Richtpreis innerhalb von 24 Stunden an Werktagen</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Anfahrt bis 30 km um Hamburg inklusive</span>
         </div>
       </div>
-      <div>
+      <div class="hero__media">
         <div class="hero__visual" id="heroTour" data-m="2JgeWuujp21">
           <div class="hero__frame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli starten">
             <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-1280.webp"><img src="images/tours/2JgeWuujp21-1280.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="1280" height="720" fetchpriority="high" onerror="this.style.display='none'"></picture>
@@ -138,6 +162,10 @@
           <button type="button" class="hero-switch__btn" data-m="2JgeWuujp21" data-name="StrandPauli" data-alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" aria-pressed="true">
             <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp"><img src="images/tours/2JgeWuujp21-960.jpg" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'"></picture>
             <span>StrandPauli</span>
+          </button>
+          <button type="button" class="hero-switch__btn" data-m="uDdPTJRfy2R" data-name="Doro Ristorante" data-alt="Virtuelle 3D-Tour des Doro Ristorante, italienisches Restaurant" aria-pressed="false">
+            <picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'"></picture>
+            <span>Doro Ristorante</span>
           </button>
           <button type="button" class="hero-switch__btn" data-m="t4sME6NCR3Y" data-name="WE ARE PADEL" data-alt="Virtuelle 3D-Tour der Padel-Anlage WE ARE PADEL in Berlin" aria-pressed="false">
             <picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="" width="160" height="90" loading="lazy" onerror="this.style.visibility='hidden'"></picture>
@@ -153,35 +181,58 @@
     <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#FFFFFF" d="M0,40 C360,0 1080,80 1440,30 L1440,60 L0,60 Z"></path></svg></div>
   </section>
 
-  <!-- Alles inklusive -->
-  <section class="section">
+  <section class="section section--soft" id="preise">
     <div class="wrap">
-      <div class="section__head">
-        <h2>Das ist immer dabei</h2>
+      <div class="section__head" data-reveal>
+        <h2>Festpreis nach Fläche, alles inklusive</h2>
+        <p>Alle Preise sind Endpreise. Tour <strong>und</strong> 4K-Bilder immer enthalten, dazu 12 Monate Hosting.</p>
       </div>
-      <ul class="incl-grid">
-        <li>360°-Rundgang in 4K</li>
-        <li>Hochwertige 4K-Bilder aus der Tour</li>
-        <li>Dollhouse- &amp; 3D-Modell *</li>
-        <li>2D-Grundriss *</li>
-        <li>Google Street View-Integration</li>
-        <li>Objekte &amp; Möbel digital entfernen</li>
-        <li>Einbindung der fertigen Tour</li>
-        <li>12 Monate Hosting inklusive</li>
-        <li>Anfahrt bis 30 km um Hamburg inklusive</li>
-        <li>Volle Nutzungsrechte an allen Fotos</li>
-      </ul>
-      <p class="price-note" style="margin-top:26px">* sofern für das jeweilige Objekt technisch sinnvoll umsetzbar</p>
-
+      <div class="price-teaser price-teaser--full" data-reveal>
+        <div class="price-teaser__table">
+          <table class="price-table price-table--big">
+            <thead>
+              <tr><th scope="col">Fläche</th><th scope="col">Festpreis</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>bis 80 m²<small>z. B. Café, Praxis, kleines Büro</small></td><td>430 €</td></tr>
+              <tr class="is-featured"><td>bis 150 m² <span class="price-badge">Meistgebucht</span><small>z. B. Restaurant, Wohnung, Ladenlokal</small></td><td>540 €</td></tr>
+              <tr><td>bis 250 m²<small>z. B. Bar mit Eventfläche, Büroetage, Haus</small></td><td>690 €</td></tr>
+              <tr><td>bis 350 m²<small>z. B. Fitnessstudio, Showroom, Hoteletage</small></td><td>810 €</td></tr>
+              <tr><td>bis 500 m²<small>z. B. Eventlocation, Halle, großes Restaurant</small></td><td>950 €</td></tr>
+              <tr><td>über 500 m²<small>z. B. Hotel, Sportanlage, Gewerbekomplex</small></td><td class="price-table__custom">individuelles Angebot</td></tr>
+            </tbody>
+          </table>
+          <p class="price-note">Anfahrt über 30 km: 0,45 € pro Kilometer. Hosting nach 12 Monaten optional 4,99 € pro Monat, monatlich kündbar. Bei besonders aufwändigen Objekten individuelles Angebot.</p>
+        </div>
+        <div class="price-teaser__incl">
+          <h3>Immer dabei</h3>
+          <ul class="incl-grid incl-grid--1">
+            <li>360°-Rundgang in 4K</li>
+            <li>Hochwertige 4K-Bilder mit vollen Nutzungsrechten</li>
+            <li>3D-Modell und Dollhouse-Ansicht *</li>
+            <li>2D-Grundriss *</li>
+            <li>Google Street View-Integration</li>
+            <li>Möbel digital entfernen</li>
+            <li>Info-Hotspots auf Wunsch, ohne Aufpreis</li>
+            <li>Einbindung der fertigen Tour auf deiner Website</li>
+            <li>12 Monate Hosting</li>
+            <li>Anfahrt bis 30 km um Hamburg</li>
+          </ul>
+          <p class="price-note price-note--left">* sofern für das Objekt technisch sinnvoll umsetzbar</p>
+        </div>
+      </div>
+      <div class="price-cta" data-reveal>
+        <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
+        <p class="price-cta__note">Richtpreis und Terminvorschlag innerhalb von 24 Stunden an Werktagen. Oder direkt: <a href="tel:+4917660953701">0176 60953701</a> · <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a></p>
+      </div>
     </div>
   </section>
 
-  <!-- Live-Beispiele: Street View und Möbel digital entfernen nebeneinander -->
-  <section class="section section--soft" id="defurnishing">
+  <section class="section" id="defurnishing">
     <div class="wrap">
       <div class="section__head" data-reveal>
-        <h2>Zwei Extras, beide inklusive</h2>
-        <p>Google Street View und Möbel entfernen per Klick, ohne Aufpreis in jedem Paket.</p>
+        <h2>Auch dabei: Street View und Möbel entfernen</h2>
+        <p>Beides ist in jedem Paket enthalten, ohne Aufpreis. Probier es hier aus.</p>
       </div>
       <div class="demo-grid" data-reveal>
         <div class="demo-col">
@@ -207,52 +258,38 @@
     </div>
   </section>
 
-  <!-- Preistabelle -->
-  <section class="section" id="preise">
-    <div class="wrap">
-      <div class="section__head">
-        <h2>All-in-Preis nach Fläche</h2>
-        <p>Alle Preise sind Endpreise. Tour <strong>und</strong> 4K-Bilder immer enthalten, dazu 12 Monate Hosting.</p>
-      </div>
-      <table class="price-table">
-        <thead>
-          <tr><th scope="col">Fläche</th><th scope="col">Preis</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>bis 80 m²</td><td>430 €</td></tr>
-          <tr class="is-featured"><td>bis 150 m² <span class="price-badge">Meistgebucht</span></td><td>540 €</td></tr>
-          <tr><td>bis 250 m²</td><td>690 €</td></tr>
-          <tr><td>bis 350 m²</td><td>810 €</td></tr>
-          <tr><td>bis 500 m²</td><td>950 €</td></tr>
-          <tr><td>über 500 m²</td><td>individuelles Angebot</td></tr>
-        </tbody>
-      </table>
-      <p class="price-note">Individuelles Angebot bei über 500 m² oder besonders aufwändigen Objekten. Anfahrt bis 30 km inklusive. Hosting nach 12 Monaten optional 4,99 € / Monat, monatlich kündbar.</p>
-      <div style="text-align:center;margin-top:36px">
-        <a class="btn btn--primary btn--lg" href="kontakt.html#kontakt">Unverbindlich anfragen</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Persönlich vor Ort -->
   <section class="section section--soft">
     <div class="wrap">
-      <div class="contact-grid contact-grid--center" data-reveal>
-        <div class="about__text">
-          <h2>Ein Ansprechpartner, von der Anfrage bis zur fertigen Tour</h2>
-          <p>Ich komme zu dir, in Hamburg oder überall sonst in Deutschland, scanne dein Objekt in einem Termin und liefere Tour und 4K-Bilder meist wenige Tage später.</p>
-          <p>Richtpreis und Terminvorschlag bekommst du innerhalb von 24 Stunden an Werktagen.</p>
-        </div>
-        <div class="hero__visual about__photo--sm" style="aspect-ratio:3/2">
-          <picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 440px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1600" height="1067" loading="lazy"></picture>
-        </div>
+      <div class="section__head" data-reveal>
+        <h2>Preise: gut zu wissen</h2>
+      </div>
+      <div class="faq" data-reveal>
+        <details>
+          <summary>Wie schnell bekomme ich einen Richtpreis?</summary>
+          <p>Innerhalb von 24 Stunden an Werktagen. Du nennst mir Objektart und ungefähre Fläche, ich antworte mit Richtpreis und Terminvorschlag.</p>
+        </details>
+        <details>
+          <summary>Was kostet die Anfahrt außerhalb von Hamburg?</summary>
+          <p>Bis 30 km um Hamburg ist die Anfahrt im Preis enthalten. Darüber hinaus berechne ich 0,45 € pro Kilometer, deutschlandweit.</p>
+        </details>
+        <details>
+          <summary>Was passiert nach den 12 Monaten Hosting?</summary>
+          <p>Die Tour bleibt online, wenn du möchtest: Hosting kostet danach 4,99 € pro Monat und ist monatlich kündbar.</p>
+        </details>
+        <details>
+          <summary>Kosten Info-Hotspots extra?</summary>
+          <p>Nein. Hotspots mit Texten, Links oder Bildern an Punkten in der Tour bekommst du auf Wunsch dazu, ohne Aufpreis.</p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- CTA-Band -->
   <section class="cta-band">
     <div class="wrap">
+      <div class="cta-band__person" data-reveal>
+        <img class="cta-band__photo" src="images/opt/saman-portrait-240.jpg" alt="Saman Kaboli, Inhaber von Virtuelle Touren Hamburg" width="240" height="240" loading="lazy">
+        <p class="cta-band__quote">„Ich komme zu dir, scanne dein Objekt in einem Termin und liefere Tour und 4K-Bilder meist wenige Tage später.“<span>Saman Kaboli, Inhaber</span></p>
+      </div>
       <h2>Klingt passend für dein Objekt?</h2>
       <p>Schick mir kurz Objektart und Fläche, du erhältst zeitnah einen konkreten Richtpreis.</p>
       <a class="btn btn--light btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
@@ -261,6 +298,11 @@
 
 </main>
 
+  <!-- Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
+  <div class="mobile-cta" id="mobileCta" aria-hidden="true">
+    <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a>
+    <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  </div>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
