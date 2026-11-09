@@ -46,6 +46,9 @@
   --mw-0:18rem;--mw-1:28rem;--mw-2:36rem;--mw-3:40rem;--mw-4:46rem;--mw-5:55rem;--mw-6:60rem;--mw-7:69rem;
   --wrap:80rem;
   --gutter:clamp(1.125rem,4vw,1.5rem);
+  /* Breakpoint-Skala (Media Queries können keine Variablen lesen, deshalb hier als feste Skala in em, bezogen auf die
+     Standardschrift des Browsers): s 40em (640 px) Handy, m 56.25em (900 px) Tablet hoch, l 68.75em (1100 px) Tablet quer
+     und schmale Laptops, xl 83em (1328 px) große Monitore. Komplemente: 56.3125em und 68.8125em. site.js nutzt dieselben Werte. */
   /* Vertikaler Rhythmus: folgt der Fensterhöhe, damit Abschnitte auf jeden Bildschirm passen */
   --sec:clamp(2.5rem,6vh,5rem);
   --head-mb:clamp(1.25rem,3.5vh,2.25rem);
@@ -186,7 +189,7 @@ html.nav-open .site-header.is-away,.site-header.is-away:has(.navbar.is-mega),.si
 .mega__card strong{padding:0 6px;font:600 var(--fs-s)/1.3 "Inter",sans-serif}
 .mega__card span{padding:0 6px;font:400 var(--fs-xs)/1.35 "Inter",sans-serif;color:var(--muted)}
 
-@media (min-width:68.8125em) and (max-width:78em){.nav__links>li>a,.nav__toggle{padding-inline:var(--s-3)}}
+@media (min-width:68.8125em) and (max-width:83em){.nav__links>li>a,.nav__toggle{padding-inline:var(--s-3)}}
 /* Sicherheitsnetz Desktop-Leiste: Menüpunkte kürzen mit Ellipse statt die Leiste umzubrechen (etwa bei ungewöhnlichen Schriftgrößen) */
 @media (min-width:68.8125em){
   .nav__links{flex:1 1 0;min-width:0;justify-content:flex-end} /* Basis 0: bleibt immer in der ersten Zeile, Menüpunkte schrumpfen mit Ellipse */
@@ -322,7 +325,7 @@ html.has-intro,html.has-intro body{overflow:hidden}
 .tour.is-open .tour__window .chip,.tour.is-open .tour__window .play{display:none}
 .count-tile .arrow{align-self:flex-start;margin-top:auto}
 .count-tile:hover .arrow{transform:translateX(4px)}
-@media (max-width:64em){.tour-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:68.75em){.tour-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:40em){.tour-grid{grid-template-columns:minmax(0,1fr);gap:var(--s-6)}}
 .cursor-label{position:fixed;left:0;top:0;z-index:950;pointer-events:none;padding:var(--s-3) var(--s-4);border-radius:999px;background:var(--ink);color:#fff;font:500 var(--fs-xs)/1 "Inter",sans-serif;opacity:0;scale:.8;transition:opacity var(--t2) var(--ease),scale var(--t2) var(--ease);white-space:nowrap}
 .cursor-label.is-on{opacity:1;scale:1}
@@ -456,7 +459,7 @@ html.has-intro,html.has-intro body{overflow:hidden}
 .footer-bottom a{display:inline-flex;align-items:center;min-height:44px}
 .footer-bottom a:hover{color:var(--text)}
 @media (max-width:56.25em){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-6)}.footer-brand{grid-column:1/-1}}
-@media (max-width:30em){.footer-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:40em){.footer-grid{grid-template-columns:minmax(0,1fr)}}
 
 .mobile-cta{display:none}
 @media (max-width:56.25em){
@@ -639,7 +642,7 @@ a.v:hover{color:var(--muted)}
   .contact-grid{grid-template-columns:minmax(0,1fr);gap:var(--s-7)}
   .form-card{padding:var(--s-5) var(--s-4) var(--s-5);border-radius:24px}
 }
-@media (max-width:35em){.field-row{grid-template-columns:minmax(0,1fr);gap:0}}
+@media (max-width:40em){.field-row{grid-template-columns:minmax(0,1fr);gap:0}}
 
 /* Artikel und Rechtstexte */
 .section--article{padding-top:var(--hero-pt)}
@@ -733,12 +736,12 @@ a.v:hover{color:var(--muted)}
 .empty{display:none;padding:var(--s-7) 0;text-align:center;color:var(--muted);font-size:var(--fs-m)}
 .tour-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .tour-grid--1{grid-template-columns:minmax(0,1fr);max-width:var(--mw-6);margin-inline:auto}
-@media (max-width:64em){.cat .grid,.tour-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:68.75em){.cat .grid,.tour-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:40em){.cat .grid,.tour-grid--2{grid-template-columns:minmax(0,1fr);gap:var(--s-6)}.cat-head h3{font-size:var(--fs-h3)}}
 
 /* Referenzen: 4K-Galerie zweispaltig, Lightbox */
 .gallery--2{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:auto;gap:var(--s-4)}
-@media (max-width:64em){.gallery--2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:68.75em){.gallery--2{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .gallery--2 .shot{aspect-ratio:16/9;cursor:zoom-in;border:0;background:var(--grey);padding:0;text-align:left;font:inherit;color:inherit}
 .lightbox{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;background:rgba(10,10,10,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;transition:opacity var(--t2) var(--ease)}
 .lightbox.show{display:flex;opacity:1}
@@ -873,7 +876,7 @@ a.v:hover{color:var(--muted)}
 .vgal__item picture,.vgal__item img{width:100%;height:100%;object-fit:cover}
 .vgal__item .chip{position:absolute;left:14px;bottom:50%;translate:0 50%;transition:bottom 700ms var(--ease),translate 700ms var(--ease)}
 .vgal__item.is-active .chip{bottom:14px;translate:0 0}
-@media (max-width:64em){.vgal{gap:var(--s-6) var(--s-7)}.vgal__stage{height:480px}}
+@media (max-width:68.75em){.vgal{gap:var(--s-6) var(--s-7)}.vgal__stage{height:480px}}
 @media (max-width:56.25em){
   .vgal{grid-template-columns:minmax(0,1fr);gap:0}
 }
@@ -1065,7 +1068,7 @@ a.v:hover{color:var(--muted)}
 /* ---------- 20  Touch-Ziele und Katalog-Reihen ---------- */
 /* Fließtextlinks: Trefferfläche vertikal auf 44 px vergrößert, ohne den Zeilenabstand zu ändern */
 .footer-brand p a,.prose a,.faq__a a,.price-contact a,.price-note a,.arc__hint a,.point a,.cta-band__note a,.contact-line a.v,.fgal__caption a,.consent a,.notice a{padding:calc((44px - 1.2em) / 2) .2em;margin:calc((1.2em - 44px) / 2) -.2em}
-@media (pointer:coarse){.vgal__item{min-height:44px}}
+@media (min-width:56.3125em){.vgal__item:not(.is-active){pointer-events:none}} /* nur die Begriffe links steuern, der aktive Streifen bleibt verlinkt */
 /* Referenzen-Katalog: Kategorien mit mehr als drei Touren laufen als Reihe (gleiche Komponente wie auf den Branchenseiten) */
 .cat .grid.tour-grid--row{overflow:auto hidden}
 .cat.collapsed .tour-row__nav{display:none}

@@ -446,14 +446,15 @@
     var vItems = Array.prototype.slice.call(vgal.querySelectorAll('.vgal__item'));
     var vStage = vgal.querySelector('.vgal__stage');
     var vN = vItems.length, vCur = 0;
+    var vMobile = window.matchMedia('(max-width: 56.25em)');
     var vSet = function (i) {
       if (i < 0 || i >= vN || i === vCur) return false;
       vCur = i;
       vRows.forEach(function (r, k) { r.classList.toggle('is-active', k === i); });
-      vItems.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+      vItems.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.setAttribute('aria-current', k === i ? 'true' : 'false'); it.tabIndex = (k === i || vMobile.matches) ? 0 : -1; });
       return true;
     };
-    var vMobile = window.matchMedia('(max-width: 56.25em)');
+    vItems.forEach(function (it, k) { it.tabIndex = (k === vCur || vMobile.matches) ? 0 : -1; });
     vRows.forEach(function (r, i) {
       var a = r.querySelector('a'); if (!a) return;
       if (finePointer) r.addEventListener('pointerenter', function () { vSet(i); });
