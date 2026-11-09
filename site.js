@@ -218,6 +218,19 @@
       siteHeader.classList.toggle('is-scrolled', !en[0].isIntersecting);
     }).observe(sentinel);
   }
+  /* ---- Header verschwindet beim Abwärtsscrollen und kommt beim Aufwärtsscrollen zurück (ab 120 px, oben immer sichtbar) ---- */
+  if (siteHeader) {
+    var hdrLastY = window.pageYOffset, hdrTick = false;
+    window.addEventListener('scroll', function () {
+      if (hdrTick) return; hdrTick = true;
+      requestAnimationFrame(function () {
+        hdrTick = false;
+        var y = window.pageYOffset, dy = y - hdrLastY;
+        if (y < 80) { siteHeader.classList.remove('is-away'); hdrLastY = y; return; }
+        if (Math.abs(dy) > 6) { siteHeader.classList.toggle('is-away', dy > 0 && y > 120); hdrLastY = y; }
+      });
+    }, { passive: true });
+  }
 
   /* ---- Hero-Titel: Wörter für die Einblendung aufteilen (Unterseiten, data-split) ----
      Textknoten werden in Wörter zerlegt, Elemente (z. B. .nb) bleiben als ein Wort zusammen. */
