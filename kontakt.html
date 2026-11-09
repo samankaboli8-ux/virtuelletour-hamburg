@@ -31,7 +31,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=52">
+<link rel="stylesheet" href="styles.css?v=56">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -114,34 +114,56 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <header class="site-header" id="siteHeader">
-  <nav class="nav wrap" aria-label="Hauptnavigation">
-    <a class="brand" href="index.html">
-      <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
-    </a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html" data-page="index.html">Start</a></li>
-      <li><a href="leistungen.html" data-page="leistungen.html">Leistungen &amp; Preise</a></li>
-      <li><a href="referenzen.html" data-page="referenzen.html">Referenzen</a></li>
-      <li class="nav__has-sub">
-        <a href="index.html#branchen" data-page="branchen">Branchen <svg class="nav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
-        <ul class="nav__sub">
-          <li><a href="gastronomie.html" data-page="gastronomie.html">Gastronomie</a></li>
-          <li><a href="eventlocations.html" data-page="eventlocations.html">Eventlocations &amp; Hotels</a></li>
-          <li><a href="immobilien.html" data-page="immobilien.html">Immobilien &amp; Wohnen</a></li>
-          <li><a href="gewerbe.html" data-page="gewerbe.html">Gewerbe &amp; Showrooms</a></li>
-          <li><a href="freizeit.html" data-page="freizeit.html">Freizeit &amp; Entertainment</a></li>
-          <li><a href="baubranche.html" data-page="baubranche.html">Baubranche</a></li>
-        </ul>
-      </li>
-      <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="#anfrage">Unverbindlich anfragen</a></li>
-    </ul>
-    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-  </nav>
+  <div class="wrap">
+    <nav class="navbar" id="navbar" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
+        <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="leistungen.html" data-page="leistungen.html">Leistungen &amp; Preise</a></li>
+        <li class="nav__has-sub">
+          <button type="button" class="nav__toggle" id="megaToggle" aria-expanded="false" aria-controls="megaPanel" data-page="branchen">Branchen <svg class="nav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="nav__sub">
+              <li><a href="gastronomie.html" data-page="gastronomie.html">Gastronomie</a></li>
+              <li><a href="eventlocations.html" data-page="eventlocations.html">Eventlocations &amp; Hotels</a></li>
+              <li><a href="immobilien.html" data-page="immobilien.html">Immobilien &amp; Wohnen</a></li>
+              <li><a href="gewerbe.html" data-page="gewerbe.html">Gewerbe &amp; Showrooms</a></li>
+              <li><a href="freizeit.html" data-page="freizeit.html">Freizeit &amp; Entertainment</a></li>
+              <li><a href="baubranche.html" data-page="baubranche.html">Baubranche</a></li>
+          </ul>
+        </li>
+        <li><a href="referenzen.html" data-page="referenzen.html">Referenzen</a></li>
+        <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" href="#anfrage">Unverbindlich anfragen</a></li>
+      </ul>
+      <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+        <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="mega" id="megaPanel">
+        <div class="mega__inner">
+          <div class="mega__col">
+            <p class="mega__label">Branchen</p>
+            <a class="mega__item" href="gastronomie.html" data-page="gastronomie.html"><strong>Gastronomie</strong><span>Restaurants, Cafés &amp; Bars</span></a>
+            <a class="mega__item" href="eventlocations.html" data-page="eventlocations.html"><strong>Eventlocations &amp; Hotels</strong><span>Säle, Suiten &amp; Flächen</span></a>
+            <a class="mega__item" href="immobilien.html" data-page="immobilien.html"><strong>Immobilien &amp; Wohnen</strong><span>Wohnungen &amp; Häuser</span></a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__label" aria-hidden="true">&nbsp;</p>
+            <a class="mega__item" href="gewerbe.html" data-page="gewerbe.html"><strong>Gewerbe &amp; Showrooms</strong><span>Büros, Studios &amp; Läden</span></a>
+            <a class="mega__item" href="freizeit.html" data-page="freizeit.html"><strong>Freizeit &amp; Entertainment</strong><span>Fitness, Sport &amp; Erlebniswelten</span></a>
+            <a class="mega__item" href="baubranche.html" data-page="baubranche.html"><strong>Baubranche</strong><span>Bau, Sanierung &amp; Architektur</span></a>
+          </div>
+          <a class="mega__card" href="referenzen.html">
+            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp"><img src="images/tours/2JgeWuujp21-960.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <strong>Alle Touren ansehen</strong>
+            <span>Echte Rundgänge aus allen Branchen, direkt im Browser.</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <main id="main">
@@ -359,6 +381,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=30" defer></script>
+<script src="site.js?v=32" defer></script>
 </body>
 </html>

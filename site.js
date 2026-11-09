@@ -45,26 +45,31 @@
     });
   }
 
-  // Branchen-Dropdown: beim Verlassen erst nach kurzer Verzögerung schließen,
-  // damit der Mauszeiger in Ruhe nach unten ins Untermenü wandern kann
-  document.querySelectorAll('.nav__has-sub').forEach(function (item) {
-    var timer = null;
-    item.addEventListener('mouseenter', function () {
-      clearTimeout(timer);
-      item.classList.add('is-open');
-    });
-    item.addEventListener('mouseleave', function () {
-      clearTimeout(timer);
-      timer = setTimeout(function () { item.classList.remove('is-open'); }, 350);
-    });
-  });
+  /* Mega-Panel „Branchen“: öffnet per Hover (Maus) oder Klick, schließt beim Verlassen der Leiste, per Escape oder Klick außerhalb */
+  var navbar = document.getElementById('navbar'), megaToggle = document.getElementById('megaToggle'), megaPanel = document.getElementById('megaPanel');
+  if (navbar && megaToggle && megaPanel) {
+    var megaTimer = null, isDesktop = function () { return window.matchMedia('(min-width: 1101px)').matches; };
+    var setMega = function (open) {
+      clearTimeout(megaTimer);
+      navbar.classList.toggle('is-mega', open);
+      megaToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    megaToggle.addEventListener('click', function () { if (isDesktop()) setMega(!navbar.classList.contains('is-mega')); });
+    megaToggle.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse' && isDesktop()) setMega(true); });
+    navbar.addEventListener('pointerleave', function (e) { if (e.pointerType !== 'mouse') return; clearTimeout(megaTimer); megaTimer = setTimeout(function () { setMega(false); }, 260); });
+    navbar.addEventListener('pointerenter', function () { clearTimeout(megaTimer); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setMega(false); megaToggle.blur(); } });
+    document.addEventListener('click', function (e) { if (!navbar.contains(e.target)) setMega(false); });
+    megaPanel.addEventListener('focusout', function (e) { if (!navbar.contains(e.relatedTarget)) setMega(false); });
+  }
 
   // Aktiven Menüpunkt anhand des Dateinamens markieren
   var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   if (page === '') page = 'index.html';
-  document.querySelectorAll('#navLinks a[data-page]').forEach(function (a) {
+  document.querySelectorAll('#navLinks a[data-page], #megaPanel a[data-page]').forEach(function (a) {
     if (a.getAttribute('data-page') === page) a.setAttribute('aria-current', 'page');
   });
+  if (megaToggle && document.querySelector('#megaPanel a[aria-current="page"]')) megaToggle.setAttribute('aria-current', 'page');
 
 
   /* ---- Google Street View: erst nach Klick laden (Datenschutz) ---- */
@@ -453,17 +458,10 @@
       vItems.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.setAttribute('aria-current', k === i ? 'true' : 'false'); });
       return true;
     };
-    var vMobile = window.matchMedia('(max-width: 900px)');
     vRows.forEach(function (r, i) {
       var a = r.querySelector('a'); if (!a) return;
       if (finePointer) r.addEventListener('pointerenter', function () { vSet(i); });
-      a.addEventListener('focus', function () { if (!vMobile.matches) vSet(i); });
-      /* Mobil: Bild der Branche in die Zeile übernehmen, erster Tipp klappt auf, zweiter öffnet die Seite */
-      var pic = vItems[i] && vItems[i].querySelector('picture');
-      if (pic && !a.querySelector('.vgal__thumb')) { var th = document.createElement('span'); th.className = 'vgal__thumb'; th.appendChild(pic.cloneNode(true)); a.appendChild(th); }
-      a.addEventListener('click', function (e) {
-        if (vMobile.matches && !r.classList.contains('is-active')) { e.preventDefault(); vSet(i); }
-      });
+      a.addEventListener('focus', function () { vSet(i); });
     });
     /* Bilder reagieren nicht auf die Maus; ein Tipp auf einen eingeklappten Streifen klappt ihn auf (Touch) */
     vItems.forEach(function (it, i) {
@@ -511,8 +509,12 @@
         if (y > pTop + 1 && y < pEnd - 1) return;
       }
       var limit = vh * (finePointer ? 0.6 : 0.4), best = null; // Desktop zieht großzügiger, Touch zurückhaltender
+      var avail = vh - snapHeader;
       snapEls.forEach(function (el) {
-        var top = Math.round(el.getBoundingClientRect().top + y - (el.classList.contains('flow-scroll') ? 0 : snapHeader));
+        var r = el.getBoundingClientRect(), absTop = r.top + y, top;
+        if (el.classList.contains('flow-scroll')) top = Math.round(absTop);
+        else if (r.height <= avail) top = Math.round(absTop - snapHeader - (avail - r.height) / 2); // Abschnitt mittig im sichtbaren Bereich
+        else top = Math.round(absTop - snapHeader);
         if (snapDir > 0) { if (top > y + 2 && top - y <= limit && (best === null || top < best)) best = top; }
         else { if (top < y - 2 && y - top <= limit && (best === null || top > best)) best = top; }
       });
