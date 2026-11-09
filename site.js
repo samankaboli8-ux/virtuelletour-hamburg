@@ -398,17 +398,17 @@
     var fBounds = []; (function () { var acc = 0; fWeights.forEach(function (w) { acc += w / fSum; fBounds.push(acc); }); })();
     var fIndexAt = function (p) { for (var i = 0; i < fN; i++) { if (p < fBounds[i]) return i; } return fN - 1; };
     var fCenterOf = function (i) { var start = i === 0 ? 0 : fBounds[i - 1]; return (start + fBounds[i]) / 2; };
-    /* Einstiegsstopp: Wer mit Schwung in den gepinnten Bereich hineinscrollt, wird kurz an dessen Oberkante
-       (von unten: Unterkante) festgehalten, damit der erste Punkt nicht übersprungen wird. */
-    var fEntered = false, fLastY = window.pageYOffset;
+    /* Sanfte Bremse: Im gepinnten Bereich wird das Rad leicht gedämpft (Lenis wheelMultiplier), beim
+       Hineinscrollen von oben wird kurz und weich an der Oberkante abgefangen, damit Punkt 1 nicht
+       übersprungen wird; kein harter Stopp, kein Sperren der Eingabe. */
+    var fEntered = false, fLastY = window.pageYOffset, fBrakeUntil = 0, fBaseMult = (window.lenis && window.lenis.options) ? (window.lenis.options.wheelMultiplier || 1) : 1;
     var fEntryGuard = function (y) {
-      var top = fTop(), end = top + fRange();
-      if (!fEntered && fLastY < top - 1 && y > top + 1 && y < end) {
-        fEntered = true;
-        if (window.lenis) window.lenis.scrollTo(top, { duration: 0.6, lock: true }); else window.scrollTo(0, top);
-      } else if (!fEntered && fLastY > end + 1 && y < end - 1 && y > top) {
-        fEntered = true;
-        if (window.lenis) window.lenis.scrollTo(end, { duration: 0.6, lock: true }); else window.scrollTo(0, end);
+      var top = fTop(), end = top + fRange(), inside = y > top - 1 && y < end + 1, now = performance.now();
+      /* leichte Dämpfung im Bereich (0,85), direkt nach dem Einstieg für eine Sekunde etwas stärker (0,5) */
+      if (window.lenis && window.lenis.options) window.lenis.options.wheelMultiplier = inside ? fBaseMult * (now < fBrakeUntil ? 0.5 : 0.85) : fBaseMult;
+      if (!fEntered && fLastY < top - 1 && y > top + 1 && y < end && (y - top) > 24) {
+        fEntered = true; fBrakeUntil = now + 1000;
+        if (window.lenis) window.lenis.scrollTo(top + 2, { duration: 0.35, lock: true }); else window.scrollTo(0, top + 2);
       }
       if (y < top - 40 || y > end + 40) fEntered = false;
       fLastY = y;
