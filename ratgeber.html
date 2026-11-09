@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
+<script>
+/* Intro-Steuerung: Klassen js, has-intro (bei jedem Seitenaufruf, nie bei reduzierter Bewegung), hero-in */
+(function(){var d=document.documentElement,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+d.classList.add('js');if(!rm)d.classList.add('has-intro');window.__vtIntro=!rm;
+setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
+</script>
 <title>Ratgeber: Virtuelle Touren &amp; 3D-Rundgänge | Hamburg</title>
 <meta name="description" content="Alles über virtuelle 3D-Touren: Was eine virtuelle 3D-Tour kostet, wie sie in Google Maps kommt und wie du deine Location auf den Scan vorbereitest.">
 <meta name="keywords" content="3D-Tour Ratgeber, virtuelle Tour Kosten, 3D-Rundgang Google Maps, Location vorbereiten Scan">
@@ -26,7 +31,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=49">
+<link rel="stylesheet" href="styles.css?v=51">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -67,6 +72,24 @@
 </head>
 <body>
 
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__logo"><svg viewBox="8 8 64 64" aria-hidden="true"><path pathLength="1" class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path pathLength="1" class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path pathLength="1" class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path pathLength="1" class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path pathLength="1" class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path pathLength="1" class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path pathLength="1" class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path pathLength="1" class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path pathLength="1" class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path pathLength="1" class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path pathLength="1" class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></div>
+  <span class="preloader__count" id="preCount">00</span>
+  <p class="preloader__line label">Aus Hamburg · Deutschlandweit</p>
+</div>
+<script>
+/* Preloader bei jedem Seitenaufruf: Zähler 00 bis 100 in 0,7 s, Vorhang ab 0,65 s, Entfernen bei 1,0 s. Fester Timer, wartet nie aufs Netz. */
+(function(){var p=document.getElementById('preloader'),c=document.getElementById('preCount'),d=document.documentElement;
+if(!p)return;
+if(!window.__vtIntro){p.parentNode.removeChild(p);return;}
+var t0=performance.now();
+function pad(n){return n<10?'0'+n:''+n;}
+function step(t){var k=Math.min((t-t0)/700,1),e=1-Math.pow(1-k,3);c.textContent=pad(Math.round(100*e));if(k<1)requestAnimationFrame(step);}
+requestAnimationFrame(step);
+setTimeout(function(){d.classList.add('intro-out');},650);
+setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNode)p.parentNode.removeChild(p);},1000);})();
+</script>
+
 <div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
@@ -102,7 +125,6 @@
 </header>
 
 <main id="main">
-
   <section class="page-head page-head--tight">
     <div class="mesh mesh--hero" aria-hidden="true"></div>
     <div class="wrap">
@@ -201,6 +223,6 @@
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=28" defer></script>
+<script src="site.js?v=30" defer></script>
 </body>
 </html>

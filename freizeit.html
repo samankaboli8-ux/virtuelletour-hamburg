@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
+<script>
+/* Intro-Steuerung: Klassen js, has-intro (bei jedem Seitenaufruf, nie bei reduzierter Bewegung), hero-in */
+(function(){var d=document.documentElement,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+d.classList.add('js');if(!rm)d.classList.add('has-intro');window.__vtIntro=!rm;
+setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
+</script>
 <title>Virtuelle Tour Freizeit &amp; Entertainment Hamburg | 3D-Rundgang</title>
 <meta name="description" content="Virtuelle 3D-Touren für Fitnessstudios, Sport- & Freizeitanlagen in Hamburg. Gäste vorab begeistern, rund um die Uhr begehbar. 4K-Bilder ab 430 €.">
 <meta name="keywords" content="virtuelle Tour Fitnessstudio, 3D-Rundgang Freizeit Hamburg, 3D-Tour Sportanlage, virtueller Rundgang Erlebnislocation, Indoor-Aktivitäten 360 Grad, Freizeitpark virtuelle Tour">
@@ -28,7 +33,7 @@
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=49">
+<link rel="stylesheet" href="styles.css?v=51">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -95,6 +100,24 @@
 </head>
 <body>
 
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__logo"><svg viewBox="8 8 64 64" aria-hidden="true"><path pathLength="1" class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path pathLength="1" class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path pathLength="1" class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path pathLength="1" class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path pathLength="1" class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path pathLength="1" class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path pathLength="1" class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path pathLength="1" class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path pathLength="1" class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path pathLength="1" class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path pathLength="1" class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></div>
+  <span class="preloader__count" id="preCount">00</span>
+  <p class="preloader__line label">Aus Hamburg · Deutschlandweit</p>
+</div>
+<script>
+/* Preloader bei jedem Seitenaufruf: Zähler 00 bis 100 in 0,7 s, Vorhang ab 0,65 s, Entfernen bei 1,0 s. Fester Timer, wartet nie aufs Netz. */
+(function(){var p=document.getElementById('preloader'),c=document.getElementById('preCount'),d=document.documentElement;
+if(!p)return;
+if(!window.__vtIntro){p.parentNode.removeChild(p);return;}
+var t0=performance.now();
+function pad(n){return n<10?'0'+n:''+n;}
+function step(t){var k=Math.min((t-t0)/700,1),e=1-Math.pow(1-k,3);c.textContent=pad(Math.round(100*e));if(k<1)requestAnimationFrame(step);}
+requestAnimationFrame(step);
+setTimeout(function(){d.classList.add('intro-out');},650);
+setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNode)p.parentNode.removeChild(p);},1000);})();
+</script>
+
 <div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
@@ -130,7 +153,6 @@
 </header>
 
 <main id="main">
-
   <!-- 1. Hero -->
   <section class="hero hero--sub">
     <div class="mesh mesh--hero" aria-hidden="true"></div>
@@ -161,7 +183,7 @@
   </section>
 
   <!-- Warum als Karten-Flow, scrollgesteuert -->
-  <section class="section flow-scroll" id="warum">
+  <section class="section flow-scroll section--grey" id="warum">
     <div class="flow-sticky">
       <div class="wrap">
         <div class="sec-head sec-head--single" data-reveal>
@@ -195,6 +217,90 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Was besonders zählt -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>Für jedes Erlebnis die richtige Inszenierung</h2>
+        <p>Fitnessstudio, Padelhalle, Indoor-Spielwelt oder Bowlingcenter: Jede Location hat ihre eigene Atmosphäre, darauf stelle ich die Aufnahme ein.</p>
+      </div>
+      <div class="points">
+        <div class="point" data-reveal><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Empfang &amp; Eingangsbereich</h3><p>Der erste Eindruck, begehbar erlebbar.</p></div>
+        <div class="point" data-reveal style="--i:1"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Trainings- &amp; Spielflächen</h3><p>Geräte, Plätze und Platzangebot im Detail.</p></div>
+        <div class="point" data-reveal style="--i:2"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Kurs- &amp; Aktivitätsräume</h3><p>Atmosphäre und Ausstattung im Rundgang.</p></div>
+        <div class="point" data-reveal style="--i:3"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Umkleiden &amp; Wellnessbereich</h3><p>Sauberkeit und Komfort vertrauensbildend zeigen.</p></div>
+      </div>
+      <div class="live" data-reveal>
+        <div class="live__head">
+          <h3>Live-Beispiele: Google Street View</h3>
+          <p>Mit Maus oder Finger umsehen. So sieht deine Anlage bei Google aus.</p>
+        </div>
+        <div class="demo-grid">
+        <div class="demo-col">
+          <h3>Fitnessstudio: Caprice Fitness Club, Hamburg</h3>
+          <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1793010225883!6m8!1m7!1sCAoSHENJQUJJaEQxQVhJb2Nud0RRcnJvMkRueko2dnQ.!2m2!1d53.54263192985098!2d10.09711450028924!3f177.1268552889269!4f-15.834763315502016!5f0.7820865974627469" data-title="Google Street View: Caprice Fitness Club, Hamburg">
+          <picture><source type="image/webp" srcset="images/opt/streetview-caprice-640.webp 640w, images/opt/streetview-caprice-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="sv-embed__poster" src="images/streetview-caprice.jpg" alt="" width="1280" height="800" loading="lazy" decoding="async"></picture>
+          <button type="button" class="sv-embed__btn">Street View laden<small>Beim Laden werden Daten an Google übertragen.</small></button>
+        </div>
+        </div>
+        <div class="demo-col">
+          <h3>Padelhalle: 4PADEL Berlin</h3>
+          <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1793009846653!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRHpxNWZIQlE.!2m2!1d52.59955732736831!2d13.3487946634318!3f322.55630842082667!4f-5.896195480367837!5f0.7820865974627469" data-title="Google Street View: 4PADEL Berlin">
+          <picture><source type="image/webp" srcset="images/opt/streetview-4padel-640.webp 640w, images/opt/streetview-4padel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="sv-embed__poster" src="images/streetview-4padel.jpg" alt="" width="1280" height="800" loading="lazy" decoding="async"></picture>
+          <button type="button" class="sv-embed__btn">Street View laden<small>Beim Laden werden Daten an Google übertragen.</small></button>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ansprechpartner -->
+  <section class="section section--grey">
+    <div class="wrap">
+      <div class="person" data-reveal>
+        <div class="person__photo"><picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 480px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1200" height="800" loading="lazy" decoding="async"></picture></div>
+        <div class="person__text">
+          <blockquote>„Ich scanne selbst vor Ort. Tour und Bilder bekommst du meist wenige Tage später.“</blockquote>
+          <h2>Dein Ansprechpartner aus Hamburg, im Einsatz in ganz Deutschland</h2>
+          <p>Ob Hamburg, Lübeck, Berlin oder Völklingen: Ich scanne dort, wo dein Objekt steht. Anfahrt bis 30 km um Hamburg inklusive.</p>
+          <p>3D-Rundgang und 4K-Fotos aus einer Hand, persönlich und zuverlässig.</p>
+          <div class="person__foot">
+            <span class="label">Saman Kaboli · Inhaber</span>
+            <a class="btn btn--light" href="kontakt.html#ueber-mich">Über mich</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap faq-wrap">
+      <div class="faq-head" data-reveal>
+        <h2>Gut zu wissen</h2>
+      </div>
+      <div class="faq" data-reveal style="--i:1">
+          <details>
+            <summary>Für welche Freizeit- und Entertainment-Anbieter eignet sich eine virtuelle Tour?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Für Fitness- und Yogastudios, Padel- und Boulderhallen, Indoor-Spielplätze, Trampolinparks, Bowlingcenter, Escape Rooms und Erlebnis-Ausstellungen.</p></div></div>
+          </details>
+          <details>
+            <summary>Bringt eine virtuelle Tour mehr Buchungen und Mitgliedschaften?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Wer Geräte, Atmosphäre und Sauberkeit vorab sieht, kommt mit mehr Vertrauen. Das senkt die Hemmschwelle für Probetraining, Buchung und Mitgliedschaft.</p></div></div>
+          </details>
+          <details>
+            <summary>Kann ich die Tour in Social Media und auf Buchungsseiten einbinden?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Die Tour läuft auf deiner Website, in Buchungsportalen und verlinkt aus Instagram und Facebook. Sie wird länger gesehen und öfter geteilt als ein Foto.</p></div></div>
+          </details>
+          <details>
+            <summary>Lässt sich die Tour bei Google einbinden?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Auf Wunsch binde ich die Tour in dein Google-Unternehmensprofil und Street View ein. Interessenten starten den Rundgang direkt aus Suche und Maps.</p></div></div>
+          </details>
       </div>
     </div>
   </section>
@@ -233,63 +339,6 @@
         <a class="btn btn--secondary btn--lg" href="leistungen.html#preise">Alle Leistungen &amp; Preise</a>
       </div>
       <p class="price-contact">Richtpreis und Terminvorschlag innerhalb von 24 Stunden an Werktagen.</p>
-    </div>
-  </section>
-  <!-- Ansprechpartner -->
-  <section class="section">
-    <div class="wrap">
-      <div class="person" data-reveal>
-        <div class="person__photo"><picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 480px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1200" height="800" loading="lazy" decoding="async"></picture></div>
-        <div class="person__text">
-          <blockquote>„Ich scanne selbst vor Ort. Tour und Bilder bekommst du meist wenige Tage später.“</blockquote>
-          <h2>Dein Ansprechpartner aus Hamburg, im Einsatz in ganz Deutschland</h2>
-          <p>Ob Hamburg, Lübeck, Berlin oder Völklingen: Ich scanne dort, wo dein Objekt steht. Anfahrt bis 30 km um Hamburg inklusive.</p>
-          <p>3D-Rundgang und 4K-Fotos aus einer Hand, persönlich und zuverlässig.</p>
-          <div class="person__foot">
-            <span class="label">Saman Kaboli · Inhaber</span>
-            <a class="btn btn--light" href="kontakt.html#ueber-mich">Über mich</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Was besonders zählt -->
-  <section class="section section--grey">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <h2>Für jedes Erlebnis die richtige Inszenierung</h2>
-        <p>Fitnessstudio, Padelhalle, Indoor-Spielwelt oder Bowlingcenter: Jede Location hat ihre eigene Atmosphäre, darauf stelle ich die Aufnahme ein.</p>
-      </div>
-      <div class="points">
-        <div class="point" data-reveal><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Empfang &amp; Eingangsbereich</h3><p>Der erste Eindruck, begehbar erlebbar.</p></div>
-        <div class="point" data-reveal style="--i:1"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Trainings- &amp; Spielflächen</h3><p>Geräte, Plätze und Platzangebot im Detail.</p></div>
-        <div class="point" data-reveal style="--i:2"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Kurs- &amp; Aktivitätsräume</h3><p>Atmosphäre und Ausstattung im Rundgang.</p></div>
-        <div class="point" data-reveal style="--i:3"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Umkleiden &amp; Wellnessbereich</h3><p>Sauberkeit und Komfort vertrauensbildend zeigen.</p></div>
-      </div>
-      <div class="live" data-reveal>
-        <div class="live__head">
-          <h3>Live-Beispiele: Google Street View</h3>
-          <p>Mit Maus oder Finger umsehen. So sieht deine Anlage bei Google aus.</p>
-        </div>
-        <div class="demo-grid">
-        <div class="demo-col">
-          <h3>Fitnessstudio: Caprice Fitness Club, Hamburg</h3>
-          <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1793010225883!6m8!1m7!1sCAoSHENJQUJJaEQxQVhJb2Nud0RRcnJvMkRueko2dnQ.!2m2!1d53.54263192985098!2d10.09711450028924!3f177.1268552889269!4f-15.834763315502016!5f0.7820865974627469" data-title="Google Street View: Caprice Fitness Club, Hamburg">
-          <picture><source type="image/webp" srcset="images/opt/streetview-caprice-640.webp 640w, images/opt/streetview-caprice-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="sv-embed__poster" src="images/streetview-caprice.jpg" alt="" width="1280" height="800" loading="lazy" decoding="async"></picture>
-          <button type="button" class="sv-embed__btn">Street View laden<small>Beim Laden werden Daten an Google übertragen.</small></button>
-        </div>
-        </div>
-        <div class="demo-col">
-          <h3>Padelhalle: 4PADEL Berlin</h3>
-          <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1793009846653!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRHpxNWZIQlE.!2m2!1d52.59955732736831!2d13.3487946634318!3f322.55630842082667!4f-5.896195480367837!5f0.7820865974627469" data-title="Google Street View: 4PADEL Berlin">
-          <picture><source type="image/webp" srcset="images/opt/streetview-4padel-640.webp 640w, images/opt/streetview-4padel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="sv-embed__poster" src="images/streetview-4padel.jpg" alt="" width="1280" height="800" loading="lazy" decoding="async"></picture>
-          <button type="button" class="sv-embed__btn">Street View laden<small>Beim Laden werden Daten an Google übertragen.</small></button>
-        </div>
-        </div>
-      </div>
-      </div>
     </div>
   </section>
 
@@ -364,36 +413,8 @@
     </div>
   </section>
 
-
-  <!-- FAQ -->
-  <section class="section section--grey">
-    <div class="wrap faq-wrap">
-      <div class="faq-head" data-reveal>
-        <h2>Gut zu wissen</h2>
-      </div>
-      <div class="faq" data-reveal style="--i:1">
-          <details>
-            <summary>Für welche Freizeit- und Entertainment-Anbieter eignet sich eine virtuelle Tour?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><div><p>Für Fitness- und Yogastudios, Padel- und Boulderhallen, Indoor-Spielplätze, Trampolinparks, Bowlingcenter, Escape Rooms und Erlebnis-Ausstellungen.</p></div></div>
-          </details>
-          <details>
-            <summary>Bringt eine virtuelle Tour mehr Buchungen und Mitgliedschaften?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><div><p>Ja. Wer Geräte, Atmosphäre und Sauberkeit vorab sieht, kommt mit mehr Vertrauen. Das senkt die Hemmschwelle für Probetraining, Buchung und Mitgliedschaft.</p></div></div>
-          </details>
-          <details>
-            <summary>Kann ich die Tour in Social Media und auf Buchungsseiten einbinden?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><div><p>Ja. Die Tour läuft auf deiner Website, in Buchungsportalen und verlinkt aus Instagram und Facebook. Sie wird länger gesehen und öfter geteilt als ein Foto.</p></div></div>
-          </details>
-          <details>
-            <summary>Lässt sich die Tour bei Google einbinden?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><div><p>Ja. Auf Wunsch binde ich die Tour in dein Google-Unternehmensprofil und Street View ein. Interessenten starten den Rundgang direkt aus Suche und Maps.</p></div></div>
-          </details>
-      </div>
-    </div>
-  </section>
-
   <!-- Weitere Branchen -->
-  <section class="section">
+  <section class="section section--grey">
     <div class="wrap">
       <div class="sec-head sec-head--center sec-head--compact sec-head--single" data-reveal>
         <h2>Lösungen für deine Branche</h2>
@@ -479,6 +500,6 @@
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=28" defer></script>
+<script src="site.js?v=30" defer></script>
 </body>
 </html>

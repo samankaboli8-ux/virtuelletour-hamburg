@@ -4,13 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-/* Intro-Steuerung: Klassen js, has-intro (nur erster Aufruf pro Sitzung, nie bei reduzierter Bewegung), hero-in */
-(function(){var d=document.documentElement,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,intro=false;
-d.classList.add('js');
-try{if(!rm&&!sessionStorage.getItem('vt-intro')){intro=true;sessionStorage.setItem('vt-intro','1');}}catch(e){}
-if(intro)d.classList.add('has-intro');
-window.__vtIntro=intro;
-setTimeout(function(){d.classList.add('hero-in');},intro?1000:30);})();
+/* Intro-Steuerung: Klassen js, has-intro (bei jedem Seitenaufruf, nie bei reduzierter Bewegung), hero-in */
+(function(){var d=document.documentElement,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+d.classList.add('js');if(!rm)d.classList.add('has-intro');window.__vtIntro=!rm;
+setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 </script>
 <title>Virtuelle Touren Hamburg: 3D-Rundgänge & 4K-Fotos</title>
 <meta name="description" content="Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien &amp; Gewerbe. Aus Hamburg, deutschlandweit im Einsatz. Ab 430 €. Jetzt unverbindlich anfragen.">
@@ -37,7 +34,7 @@ setTimeout(function(){d.classList.add('hero-in');},intro?1000:30);})();
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=49">
+<link rel="stylesheet" href="styles.css?v=51">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -168,16 +165,16 @@ setTimeout(function(){d.classList.add('hero-in');},intro?1000:30);})();
   <p class="preloader__line label">Aus Hamburg · Deutschlandweit</p>
 </div>
 <script>
-/* Preloader: Zähler 00 bis 100 in 1,1 s, Vorhang ab 1,0 s, Entfernen bei 1,5 s. Fester Timer, wartet nie aufs Netz. */
+/* Preloader bei jedem Seitenaufruf: Zähler 00 bis 100 in 0,7 s, Vorhang ab 0,65 s, Entfernen bei 1,0 s. Fester Timer, wartet nie aufs Netz. */
 (function(){var p=document.getElementById('preloader'),c=document.getElementById('preCount'),d=document.documentElement;
 if(!p)return;
 if(!window.__vtIntro){p.parentNode.removeChild(p);return;}
 var t0=performance.now();
 function pad(n){return n<10?'0'+n:''+n;}
-function step(t){var k=Math.min((t-t0)/1100,1),e=1-Math.pow(1-k,3);c.textContent=pad(Math.round(100*e));if(k<1)requestAnimationFrame(step);}
+function step(t){var k=Math.min((t-t0)/700,1),e=1-Math.pow(1-k,3);c.textContent=pad(Math.round(100*e));if(k<1)requestAnimationFrame(step);}
 requestAnimationFrame(step);
-setTimeout(function(){d.classList.add('intro-out');},1000);
-setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNode)p.parentNode.removeChild(p);},1500);})();
+setTimeout(function(){d.classList.add('intro-out');},650);
+setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNode)p.parentNode.removeChild(p);},1000);})();
 </script>
 <div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -633,6 +630,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=28" defer></script>
+<script src="site.js?v=30" defer></script>
 </body>
 </html>

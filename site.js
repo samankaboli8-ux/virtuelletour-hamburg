@@ -15,7 +15,7 @@
     /* Während des Preloaders scrollt nichts */
     if (document.documentElement.classList.contains('has-intro')) {
       lenis.stop();
-      setTimeout(function () { lenis.start(); }, 1500);
+      setTimeout(function () { lenis.start(); }, 1000);
     }
   }
 
@@ -510,7 +510,7 @@
         var pTop = snapPinned.getBoundingClientRect().top + y, pEnd = pTop + snapPinned.offsetHeight - vh;
         if (y > pTop + 1 && y < pEnd - 1) return;
       }
-      var limit = vh * 0.36, best = null;
+      var limit = vh * (finePointer ? 0.6 : 0.4), best = null; // Desktop zieht großzügiger, Touch zurückhaltender
       snapEls.forEach(function (el) {
         var top = Math.round(el.getBoundingClientRect().top + y - (el.classList.contains('flow-scroll') ? 0 : snapHeader));
         if (snapDir > 0) { if (top > y + 2 && top - y <= limit && (best === null || top < best)) best = top; }
@@ -518,15 +518,15 @@
       });
       if (best === null) return;
       snapBusy = true;
-      lenis.scrollTo(best, { duration: 0.9, easing: function (t) { return 1 - Math.pow(1 - t, 3); }, onComplete: function () { setTimeout(function () { snapBusy = false; snapLastY = window.pageYOffset; }, 120); } });
-      setTimeout(function () { snapBusy = false; }, 1500);
+      lenis.scrollTo(best, { duration: 1.05, easing: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }, onComplete: function () { setTimeout(function () { snapBusy = false; snapLastY = window.pageYOffset; }, 120); } });
+      setTimeout(function () { snapBusy = false; }, 1700);
     };
     window.addEventListener('scroll', function () {
       var y = window.pageYOffset;
       if (!snapBusy && Math.abs(y - snapLastY) > 1) snapDir = y > snapLastY ? 1 : -1;
       snapLastY = y;
       clearTimeout(snapTimer);
-      if (!snapBusy) snapTimer = setTimeout(trySnap, 150);
+      if (!snapBusy) snapTimer = setTimeout(trySnap, 120);
     }, { passive: true });
   }
 
