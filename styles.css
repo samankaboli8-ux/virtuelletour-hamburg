@@ -550,7 +550,7 @@ a.feat:hover .feat__more svg{transform:translateX(4px)}
 @media (max-width:40em){.feats,.feats--3{grid-template-columns:minmax(0,1fr);gap:var(--s-3)}}
 
 /* Preisstaffel: individuelles Angebot */
-.tiers__price--custom{font:500 var(--fs-m)/1.3 "Inter",sans-serif;letter-spacing:0;color:var(--muted);text-align:right}
+.tiers__price--custom{font:500 var(--fs-m)/1.3 "Inter",sans-serif;letter-spacing:0;color:var(--muted);text-align:right;white-space:normal}
 .price-card__incl .incl-note{margin-top:var(--s-4);font-size:var(--fs-xs);color:var(--muted)}
 .price-contact{margin-top:var(--s-4);text-align:center;color:var(--muted);font-size:var(--fs-m);max-width:var(--mw-2);margin-inline:auto}
 .price-contact a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
