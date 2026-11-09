@@ -57,6 +57,16 @@ const GALLERY = [
   { file:"images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", full:"images/full/New-City-Smash-Burger-Hamburg--12052024_121200.jpg", title:"New City Smash Burger Hamburg" },
   { file:"images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", full:"images/full/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg", title:"Golden Bean Winterhude, Café" },
   { file:"images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", full:"images/full/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg", title:"Golden Bean Eimsbüttel, Barista-Kurse" },
+  { file:"images/strandpauli-eingang.jpg", full:"images/full/strandpauli-eingang.jpg", title:"StrandPauli, Eingang" },
+  { file:"images/strandpauli-strandterrasse.jpg", full:"images/full/strandpauli-strandterrasse.jpg", title:"StrandPauli, Strandterrasse an der Elbe" },
+  { file:"images/machbar-kueche-lounge.jpg", full:"images/full/machbar-kueche-lounge.jpg", title:"Die MachBar Lübeck, Küche & Lounge" },
+  { file:"images/machbar-workshopflaeche.jpg", full:"images/full/machbar-workshopflaeche.jpg", title:"Die MachBar Lübeck, Workshopfläche" },
+  { file:"images/machbar-kreativbereich.jpg", full:"images/full/machbar-kreativbereich.jpg", title:"Die MachBar Lübeck, Kreativbereich" },
+  { file:"images/caspari-terrasse.jpg", full:"images/full/caspari-terrasse.jpg", title:"Restaurant Caspari, Terrasse" },
+  { file:"images/caspari-gastraum.jpg", full:"images/full/caspari-gastraum.jpg", title:"Restaurant Caspari, Gastraum" },
+  { file:"images/devk-horbach-empfang.jpg", full:"images/full/devk-horbach-empfang.jpg", title:"DEVK Team Horbach, Empfang" },
+  { file:"images/devk-horbach-buero-kaffeebar.jpg", full:"images/full/devk-horbach-buero-kaffeebar.jpg", title:"DEVK Team Horbach, Büro & Kaffeebar" },
+  { file:"images/devk-horbach-dollhouse.jpg", full:"images/full/devk-horbach-dollhouse.jpg", title:"DEVK Team Horbach, Dollhouse-Ansicht" },
 ];
 
 const grid = document.getElementById('grid');
