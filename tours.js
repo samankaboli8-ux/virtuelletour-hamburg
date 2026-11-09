@@ -109,7 +109,7 @@ function addCategory(label, items, forceOpen){
   head.type = 'button';
   head.className = 'cat-head';
   head.setAttribute('aria-expanded', sec.classList.contains('collapsed') ? 'false' : 'true');
-  head.innerHTML = `<h3>${label}</h3><span class="cnt">${items.length} ${items.length === 1 ? 'Tour' : 'Touren'}</span>${ICON_CHEV}`;
+  head.innerHTML = `<h2>${label}</h2><span class="cnt">${items.length} ${items.length === 1 ? 'Tour' : 'Touren'}</span>${ICON_CHEV}`;
 
   const body = document.createElement('div');
   body.className = 'grid';

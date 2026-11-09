@@ -176,6 +176,16 @@
       mobileCta.classList.toggle('is-visible', show);
       mobileCta.setAttribute('aria-hidden', show ? 'false' : 'true');
     };
+    /* Beim Abwärtsscrollen verschwindet der Balken, beim Aufwärtsscrollen kommt er zurück */
+    var ctaLastY = window.pageYOffset, ctaTick = false;
+    window.addEventListener('scroll', function () {
+      if (ctaTick) return; ctaTick = true;
+      requestAnimationFrame(function () {
+        ctaTick = false;
+        var y = window.pageYOffset, dy = y - ctaLastY;
+        if (Math.abs(dy) > 6) { mobileCta.classList.toggle('is-hidden', dy > 0); ctaLastY = y; }
+      });
+    }, { passive: true });
     if (heroEl) new IntersectionObserver(function (en) {
       heroGone = !en[0].isIntersecting && en[0].boundingClientRect.bottom < 0; updateCta();
     }, { threshold: 0 }).observe(heroEl);
@@ -344,9 +354,9 @@
     }, { passive: true });
   }
 
-  /* ---- Warum als Karten-Flow, scrollgesteuert: der Abschnitt (.flow-scroll) hält per sticky, die vier
-     Punkte laufen mit dem Scrollfortschritt durch. Segmente, Pfeile, Klick und Wischen scrollen zur passenden
-     Stelle; bei reduzierter Bewegung gibt es kein Pinning, dann schalten sie direkt um. ---- */
+  /* ---- Warum als Karten-Flow: Desktop gepinnt (.flow-scroll hält, vier Punkte laufen mit dem Scrollfortschritt),
+     mobil ohne Pinning als wischbare Kartenreihe mit Scroll-Snap, der Text folgt der sichtbaren Karte.
+     Pfeile und Segmente scrollen zur passenden Stelle; am Anfang und Ende kein Rücksprung. ---- */
   var flow = document.getElementById('flow');
   if (flow) {
     var fCards = Array.prototype.slice.call(flow.querySelectorAll('.flow__card'));
@@ -354,32 +364,41 @@
     var fSegs = Array.prototype.slice.call(flow.querySelectorAll('.flow__seg'));
     var fStage = document.getElementById('flowStage');
     var fWrap = flow.closest('.flow-scroll');
+    var fPrev = document.getElementById('flowPrev'), fNext = document.getElementById('flowNext');
+    var fMobile = window.matchMedia('(max-width: 900px)');
     var fN = fCards.length, fCur = 0, fSwiped = false, fTick = false;
     var fApply = function () {
       fCards.forEach(function (c, i) {
         var d = (i - fCur + fN) % fN;
         c.className = 'flow__card' + (d === 0 ? ' is-active' : d === 1 ? ' is-next' : d === 2 ? ' is-after' : d === fN - 1 ? ' is-prev' : '');
-        c.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+        c.setAttribute('aria-hidden', (d === 0 || fMobile.matches) ? 'false' : 'true');
       });
       fItems.forEach(function (t, i) { t.classList.toggle('is-active', i === fCur); t.setAttribute('aria-hidden', i === fCur ? 'false' : 'true'); });
       fSegs.forEach(function (sg, i) {
         sg.classList.toggle('is-done', i < fCur); sg.classList.toggle('is-active', i === fCur);
         sg.setAttribute('aria-current', i === fCur ? 'true' : 'false');
       });
+      if (fPrev) fPrev.disabled = fCur === 0;
+      if (fNext) fNext.disabled = fCur === fN - 1;
     };
     var fSet = function (i) { i = Math.max(0, Math.min(fN - 1, i)); if (i === fCur) return; fCur = i; fApply(); };
     var fRange = function () { return fWrap ? fWrap.offsetHeight - window.innerHeight : 0; };
     var fTop = function () { return fWrap.getBoundingClientRect().top + window.pageYOffset; };
-    var fPinned = function () { return fWrap && !reduce && fRange() > 0; };
+    var fPinned = function () { return fWrap && !reduce && !fMobile.matches && fRange() > 0; };
     var fFromScroll = function () {
       fTick = false;
-      var range = fRange(); if (range <= 0) return;
+      if (!fPinned()) return;
+      var range = fRange();
       var p = Math.min(1, Math.max(0, (window.pageYOffset - fTop()) / range));
       fSet(Math.min(fN - 1, Math.floor(p * fN)));
     };
     var fGo = function (i) {
-      i = (i + fN) % fN;
-      if (fPinned()) {
+      i = Math.max(0, Math.min(fN - 1, i));
+      if (fMobile.matches && fStage) {
+        var card = fCards[i];
+        fStage.scrollTo({ left: card.offsetLeft - (fStage.clientWidth - card.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+        fSet(i);
+      } else if (fPinned()) {
         var y = fTop() + ((i + 0.5) / fN) * fRange();
         if (window.lenis) window.lenis.scrollTo(y, { duration: 0.9 }); else window.scrollTo({ top: y, behavior: 'smooth' });
       } else fSet(i);
@@ -390,25 +409,33 @@
       window.addEventListener('load', fFromScroll);
       fFromScroll();
     }
+    /* Mobil: sichtbare Karte im Scroller bestimmt den aktiven Punkt */
+    if (fStage && 'IntersectionObserver' in window) {
+      var fIO = new IntersectionObserver(function (entries) {
+        if (!fMobile.matches) return;
+        entries.forEach(function (en) { if (en.isIntersecting && en.intersectionRatio >= 0.6) fSet(fCards.indexOf(en.target)); });
+      }, { root: fStage, threshold: [0.6] });
+      fCards.forEach(function (c) { fIO.observe(c); });
+    }
     fSegs.forEach(function (sg, i) { sg.addEventListener('click', function () { fGo(i); }); });
-    var fPrev = document.getElementById('flowPrev'), fNext = document.getElementById('flowNext');
     if (fPrev) fPrev.addEventListener('click', function () { fGo(fCur - 1); });
     if (fNext) fNext.addEventListener('click', function () { fGo(fCur + 1); });
     if (fStage) {
       var fx0 = 0, fDown = false;
-      fStage.addEventListener('pointerdown', function (e) { fDown = true; fSwiped = false; fx0 = e.clientX; });
+      fStage.addEventListener('pointerdown', function (e) { if (fMobile.matches) return; fDown = true; fSwiped = false; fx0 = e.clientX; });
       fStage.addEventListener('pointerup', function (e) {
         if (!fDown) return; fDown = false;
         var dx = e.clientX - fx0;
         if (Math.abs(dx) > 40) { fSwiped = true; fGo(dx < 0 ? fCur + 1 : fCur - 1); }
       });
       fStage.addEventListener('pointercancel', function () { fDown = false; });
-      fStage.addEventListener('click', function () { if (fSwiped) { fSwiped = false; return; } fGo(fCur + 1); });
+      fStage.addEventListener('click', function () { if (fMobile.matches) return; if (fSwiped) { fSwiped = false; return; } if (fCur < fN - 1) fGo(fCur + 1); });
     }
     flow.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight') { e.preventDefault(); fGo(fCur + 1); }
       else if (e.key === 'ArrowLeft') { e.preventDefault(); fGo(fCur - 1); }
     });
+    fApply();
   }
 
   /* ---- Branchen als vertikale Galerie: Hover oder Klick auf Zeile oder Streifen, Mausrad über dem Stapel
@@ -426,9 +453,17 @@
       vItems.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.setAttribute('aria-current', k === i ? 'true' : 'false'); });
       return true;
     };
+    var vMobile = window.matchMedia('(max-width: 900px)');
     vRows.forEach(function (r, i) {
+      var a = r.querySelector('a'); if (!a) return;
       if (finePointer) r.addEventListener('pointerenter', function () { vSet(i); });
-      var a = r.querySelector('a'); if (a) a.addEventListener('focus', function () { vSet(i); });
+      a.addEventListener('focus', function () { if (!vMobile.matches) vSet(i); });
+      /* Mobil: Bild der Branche in die Zeile übernehmen, erster Tipp klappt auf, zweiter öffnet die Seite */
+      var pic = vItems[i] && vItems[i].querySelector('picture');
+      if (pic && !a.querySelector('.vgal__thumb')) { var th = document.createElement('span'); th.className = 'vgal__thumb'; th.appendChild(pic.cloneNode(true)); a.appendChild(th); }
+      a.addEventListener('click', function (e) {
+        if (vMobile.matches && !r.classList.contains('is-active')) { e.preventDefault(); vSet(i); }
+      });
     });
     /* Bilder reagieren nicht auf die Maus; ein Tipp auf einen eingeklappten Streifen klappt ihn auf (Touch) */
     vItems.forEach(function (it, i) {
