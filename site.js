@@ -393,14 +393,31 @@
     var fTop = function () { return fWrap.getBoundingClientRect().top + window.pageYOffset; };
     var fPinned = function () { return fWrap && !reduce && !fMobile.matches && fRange() > 0; };
     /* Zonen des Scrollwegs: der erste Punkt bekommt mehr Weg (Haltezone beim Einstieg), der letzte etwas weniger */
-    var fWeights = fCards.map(function (_, i) { return i === 0 ? 1.5 : (i === fN - 1 ? 0.8 : 1); });
+    var fWeights = fCards.map(function (_, i) { return i === 0 ? 1.8 : (i === fN - 1 ? 0.8 : 1); });
     var fSum = fWeights.reduce(function (s, w) { return s + w; }, 0);
     var fBounds = []; (function () { var acc = 0; fWeights.forEach(function (w) { acc += w / fSum; fBounds.push(acc); }); })();
     var fIndexAt = function (p) { for (var i = 0; i < fN; i++) { if (p < fBounds[i]) return i; } return fN - 1; };
     var fCenterOf = function (i) { var start = i === 0 ? 0 : fBounds[i - 1]; return (start + fBounds[i]) / 2; };
+    /* Einstiegsstopp: Wer mit Schwung in den gepinnten Bereich hineinscrollt, wird kurz an dessen Oberkante
+       (von unten: Unterkante) festgehalten, damit der erste Punkt nicht übersprungen wird. */
+    var fEntered = false, fLastY = window.pageYOffset;
+    var fEntryGuard = function (y) {
+      var top = fTop(), end = top + fRange();
+      if (!fEntered && fLastY < top - 1 && y > top + 1 && y < end) {
+        fEntered = true;
+        if (window.lenis) window.lenis.scrollTo(top, { duration: 0.6, lock: true }); else window.scrollTo(0, top);
+      } else if (!fEntered && fLastY > end + 1 && y < end - 1 && y > top) {
+        fEntered = true;
+        if (window.lenis) window.lenis.scrollTo(end, { duration: 0.6, lock: true }); else window.scrollTo(0, end);
+      }
+      if (y < top - 40 || y > end + 40) fEntered = false;
+      fLastY = y;
+    };
     var fFromScroll = function () {
       fTick = false;
       if (!fPinned()) return;
+      var y = window.pageYOffset;
+      fEntryGuard(y);
       var range = fRange();
       var p = Math.min(1, Math.max(0, (window.pageYOffset - fTop()) / range));
       fSet(fIndexAt(p));

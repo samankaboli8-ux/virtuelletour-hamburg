@@ -67,6 +67,7 @@ const GALLERY = [
   { file:"images/devk-horbach-empfang.jpg", full:"images/full/devk-horbach-empfang.jpg", title:"DEVK Team Horbach, Empfang" },
   { file:"images/devk-horbach-buero-kaffeebar.jpg", full:"images/full/devk-horbach-buero-kaffeebar.jpg", title:"DEVK Team Horbach, Büro & Kaffeebar" },
   { file:"images/devk-horbach-dollhouse.jpg", full:"images/full/devk-horbach-dollhouse.jpg", title:"DEVK Team Horbach, Dollhouse-Ansicht" },
+
 ];
 
 const grid = document.getElementById('grid');
