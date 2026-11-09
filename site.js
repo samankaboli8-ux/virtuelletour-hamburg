@@ -518,7 +518,8 @@
         var abs = Math.abs(a);
         var dim = Math.min(1, Math.max(0, (abs - 22) / 68));
         c.style.setProperty('--dim', dim.toFixed(3));
-        var hidden = abs > 95;
+        c.style.setProperty('--back', abs > 90 ? '1' : '0'); // Rückseite: kleiner, gedimmt, ohne Chip und Play
+        var hidden = abs > 90;
         c.setAttribute('aria-hidden', hidden ? 'true' : 'false');
         c.tabIndex = hidden ? -1 : 0;
       });

@@ -204,7 +204,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
       <li class="nav__cta"><a class="btn btn--primary btn--sm" href="kontakt.html">Unverbindlich anfragen</a></li>
     </ul>
     <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
@@ -360,15 +359,12 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
   <!-- 4. Warum als Bento -->
   <section class="section" id="warum">
     <div class="wrap">
-      <div class="sec-head sec-head--label">
-        <p class="label" data-reveal>Warum eine Tour</p>
-        <div data-reveal style="--i:1">
-          <h2>Interessenten erkunden deinen Raum, bevor sie kommen</h2>
-          <p class="sec-head__statement">Ein interaktiver 360°-Rundgang, frei begehbar am Desktop, auf dem Handy oder direkt bei Google. So überzeugt deine Location rund um die Uhr.</p>
-        </div>
+      <div class="sec-head" data-reveal>
+        <h2>Interessenten erkunden deinen Raum, bevor sie kommen</h2>
+        <p>Ein interaktiver 360°-Rundgang, frei begehbar am Desktop, auf dem Handy oder direkt bei Google. So überzeugt deine Location rund um die Uhr.</p>
       </div>
       <div class="bento">
-        <article class="tile tile--big" data-reveal>
+        <article class="tile" data-reveal>
           <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/Living-Room-2.jpg" alt="4K-Foto der Restaurant- und Eventfläche Living Room" width="1200" height="675" loading="lazy" decoding="async"></picture></div>
           <div class="tile__body">
             <h3>Vor dem Besuch erkunden</h3>
@@ -376,26 +372,53 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
           </div>
         </article>
         <article class="tile" data-reveal style="--i:1">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/streetview-goldenbean-640.webp 640w, images/opt/streetview-goldenbean-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 300px"><img src="images/streetview-goldenbean.jpg" alt="Street-View-Ansicht des Cafés Golden Bean in Hamburg-Winterhude" width="1280" height="800" loading="lazy" decoding="async"></picture></div>
+          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/streetview-goldenbean-640.webp 640w, images/opt/streetview-goldenbean-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/streetview-goldenbean.jpg" alt="Street-View-Ansicht des Cafés Golden Bean in Hamburg-Winterhude" width="1280" height="800" loading="lazy" decoding="async"></picture></div>
           <div class="tile__body">
             <h3>Sichtbar bei Google Maps</h3>
             <p>Einbindung in Google Maps &amp; Street View: Reichweite genau dort, wo gesucht wird.</p>
           </div>
         </article>
         <article class="tile" data-reveal style="--i:2">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp 640w, images/tours/NsvWLbUKDEX-960.webp 960w" sizes="(max-width: 900px) 100vw, 300px"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="Gastraum des Restaurants Caspari in der virtuellen 3D-Tour" width="960" height="539" loading="lazy" decoding="async"></picture></div>
+          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp 640w, images/tours/NsvWLbUKDEX-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="Gastraum des Restaurants Caspari in der virtuellen 3D-Tour" width="960" height="539" loading="lazy" decoding="async"></picture></div>
           <div class="tile__body">
             <h3>Atmosphäre vermarkten</h3>
             <p>Event- und Gastroflächen wirken im 3D-Rundgang lebendig und hochwertig, perfekt für Anfragen und Vermietung.</p>
           </div>
         </article>
-        <article class="tile tile--wide" data-reveal style="--i:3">
+        <article class="tile" data-reveal style="--i:3">
+          <div class="tile__img"><img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Modell einer Location in der Dollhouse-Ansicht" width="1200" height="800" loading="lazy" decoding="async"></div>
           <div class="tile__body">
             <h3>Vom Wettbewerb abheben</h3>
             <p>Ein begehbares 3D-Modell hebt dich klar von Mitbewerbern mit gewöhnlichen Fotos ab.</p>
           </div>
-          <div class="tile__img"><img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Modell einer Location in der Dollhouse-Ansicht" width="1200" height="800" loading="lazy" decoding="async"></div>
         </article>
+      </div>
+      <div class="live" data-reveal>
+        <div class="live__head">
+          <h3>Auch dabei: Street View und Möbel entfernen</h3>
+          <p>Beides ist in jedem Paket enthalten, ohne Aufpreis. Probier es hier aus.</p>
+        </div>
+        <div class="demo-grid">
+        <div class="demo-col" data-reveal>
+          <h3>Live-Beispiel: Google Street View</h3>
+          <p>StrandPauli an der Hafenkante in der Winteransicht. Mit Maus oder Finger umsehen, so sieht deine Location bei Google aus.</p>
+          <div class="sv-embed" data-src="https://www.google.com/maps/embed?pb=!4v1793805754371!6m8!1m7!1sCAoSHENJQUJJaEM5Qk1XUFppcE1BRFFRaFFFWTR4ZlM.!2m2!1d53.5460043!2d9.9618566!3f166!4f2!5f0.7820865974627469" data-title="Google Street View: StrandPauli Winter, Hamburg">
+            <picture><source type="image/webp" srcset="images/opt/streetview-strandpauli-winter-640.webp 640w, images/opt/streetview-strandpauli-winter-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="sv-embed__poster" src="images/streetview-strandpauli-winter.jpg" alt="" width="1280" height="800" loading="lazy" decoding="async"></picture>
+            <button type="button" class="sv-embed__btn">Street View laden<small>Beim Laden werden Daten an Google übertragen.</small></button>
+          </div>
+        </div>
+        <div class="demo-col" data-reveal style="--i:1">
+          <h3>Möbel digital entfernen</h3>
+          <p>Möbel und Deko auf Wunsch per Klick entfernt, ideal für Immobilien. Zieh den Regler oder nutze die Pfeiltasten.</p>
+          <div class="ba" id="baSlider" role="slider" tabindex="0" aria-label="Vorher-Nachher-Vergleich: möblierter und leerer Raum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <picture><source type="image/webp" srcset="images/opt/defurnish-nachher-flur-640.webp 640w, images/opt/defurnish-nachher-flur-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="ba__img ba__img--after" src="images/defurnish-nachher-flur.jpg" alt="Leerer, digital von Möbeln befreiter Altbau-Flur in Hamburg aus einer virtuellen Tour" loading="lazy"></picture>
+            <picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="ba__img ba__img--before" src="images/defurnish-vorher-flur.jpg" alt="Möblierter Altbau-Flur in Hamburg mit Teppich, Garderobe und Antikmöbeln aus einer virtuellen Tour" loading="lazy"></picture>
+            <span class="ba__label ba__label--before">Möbliert</span>
+            <span class="ba__label ba__label--after">Leer, digital entfernt</span>
+            <div class="ba__handle"><span class="ba__grip"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg></span></div>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </section>
@@ -409,42 +432,42 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
       </div>
       <div class="branches">
         <a class="branch" href="gastronomie.html" data-reveal style="--i:0">
-          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp 640w, images/tours/uDdPTJRfy2R-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Doro Ristorante, italienisches Restaurant, in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">ab 430 €</span></span>
+          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp 640w, images/tours/uDdPTJRfy2R-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Doro Ristorante, italienisches Restaurant, in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></span>
           <span class="branch__body">
             <span class="branch__text"><h3>Gastronomie</h3><p>Restaurants, Cafés &amp; Bars: Atmosphäre, die Gäste vorab spüren.</p></span>
             <span class="arrow arrow--ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
           </span>
         </a>
         <a class="branch" href="eventlocations.html" data-reveal style="--i:1">
-          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Veranstaltungsfläche der MachBar Lübeck in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">ab 430 €</span></span>
+          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Veranstaltungsfläche der MachBar Lübeck in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></span>
           <span class="branch__body">
             <span class="branch__text"><h3>Eventlocations &amp; Hotels</h3><p>Säle, Suiten &amp; Flächen: Anfragen ohne vorherige Besichtigung.</p></span>
             <span class="arrow arrow--ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
           </span>
         </a>
         <a class="branch" href="immobilien.html" data-reveal style="--i:2">
-          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp 640w, images/tours/KNbB5EPAmre-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Wohnung in der Lessingstraße Hamburg in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">ab 430 €</span></span>
+          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp 640w, images/tours/KNbB5EPAmre-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Wohnung in der Lessingstraße Hamburg in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></span>
           <span class="branch__body">
             <span class="branch__text"><h3>Immobilien &amp; Wohnen</h3><p>Wohnungen &amp; Häuser: Vorqualifizierung statt Besichtigungs&shy;tourismus.</p></span>
             <span class="arrow arrow--ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
           </span>
         </a>
         <a class="branch" href="gewerbe.html" data-reveal style="--i:0">
-          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp 640w, images/tours/jW4ha2PrbZB-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Versicherungsbüro der DEVK in Völklingen in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">ab 430 €</span></span>
+          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp 640w, images/tours/jW4ha2PrbZB-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Versicherungsbüro der DEVK in Völklingen in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></span>
           <span class="branch__body">
             <span class="branch__text"><h3>Gewerbe &amp; Showrooms</h3><p>Büros, Studios &amp; Läden: Dein Standort als Aushängeschild, rund um die Uhr.</p></span>
             <span class="arrow arrow--ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
           </span>
         </a>
         <a class="branch" href="freizeit.html" data-reveal style="--i:1">
-          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp 640w, images/tours/t4sME6NCR3Y-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Padelhalle WE ARE PADEL Berlin in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">ab 430 €</span></span>
+          <span class="branch__img"><picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp 640w, images/tours/t4sME6NCR3Y-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Padelhalle WE ARE PADEL Berlin in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></span>
           <span class="branch__body">
             <span class="branch__text"><h3>Freizeit &amp; Entertainment</h3><p>Fitness, Sport &amp; Erlebniswelten: Vorfreude wecken, bevor Gäste kommen.</p></span>
             <span class="arrow arrow--ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
           </span>
         </a>
         <a class="branch" href="baubranche.html" data-reveal style="--i:2">
-          <span class="branch__img"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss aus einem 3D-Scan als Baudokumentation" width="1600" height="1131" loading="lazy" decoding="async"></picture><span class="chip chip--glass">ab 430 € je Aufnahme</span></span>
+          <span class="branch__img"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss aus einem 3D-Scan als Baudokumentation" width="1600" height="1131" loading="lazy" decoding="async"></picture></span>
           <span class="branch__body">
             <span class="branch__text"><h3>Baubranche</h3><p>Bau, Sanierung &amp; Architektur: Bauzustand begehbar dokumentieren.</p></span>
             <span class="arrow arrow--ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
@@ -689,7 +712,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
           <p>Sende mir unverbindlich dein Objekt, du erhältst zeitnah einen Richtpreis und einen Terminvorschlag.</p>
           <div class="cta-band__actions">
             <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
-            <a class="cta-band__tel" href="tel:+4917660953701">0176 60953701</a>
           </div>
         </div>
       </div>
@@ -709,7 +731,7 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 <!-- 15. Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
 <div class="mobile-cta" id="mobileCta" aria-hidden="true">
   <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a>
-  <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
 </div>
 
 <!-- 14. Footer -->
@@ -743,7 +765,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
       <div class="footer-col">
         <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
-        <a href="tel:+4917660953701">0176 60953701</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>

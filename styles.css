@@ -145,10 +145,7 @@ h3{font-size:22px;line-height:1.25;letter-spacing:-.015em}
 .nav__has-sub.is-open .nav__sub,.nav__has-sub:focus-within .nav__sub{opacity:1;visibility:visible;translate:0 0}
 .nav__sub a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:12px;font:500 15px/1 "Inter",sans-serif}
 .nav__sub a:hover{background:var(--grey)}
-.nav__tel{margin-left:auto}
-.nav__tel a{display:inline-flex;align-items:center;min-height:44px;font:500 15px/1 "Inter",sans-serif;color:var(--text)}
-.nav__tel a:hover{color:var(--muted)}
-.nav__cta{margin-left:-12px}
+.nav__cta{margin-left:auto}
 .burger{display:none;margin-left:auto;width:44px;height:44px;border:0;border-radius:50%;background:transparent;cursor:pointer;place-items:center}
 .burger svg{width:24px;height:24px}
 .burger .x{display:none}
@@ -165,8 +162,6 @@ h3{font-size:22px;line-height:1.25;letter-spacing:-.015em}
   .nav__chev{display:none}
   .nav__sub{position:static;opacity:1;visibility:visible;translate:none;box-shadow:none;border:0;background:transparent;padding:0 0 4px 14px;min-width:0}
   .nav__sub a{min-height:44px;color:var(--muted)}
-  .nav__tel{margin:0}
-  .nav__tel a{display:flex;padding:0 14px}
   .nav__cta{margin:8px 0 0}
   .nav__cta .btn{width:100%;height:52px}
 }
@@ -288,15 +283,15 @@ html.has-intro,html.has-intro body{overflow:hidden}
 }
 
 /* Warum: Bento */
-.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .tile{display:flex;flex-direction:column;gap:20px;padding:16px;background:var(--grey);border-radius:var(--r-card);overflow:hidden;transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
 .tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
-.tile__img{border-radius:16px;overflow:hidden;aspect-ratio:16/10;background:#e9eaec}
+.tile__img{border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:#e9eaec}
 .tile__img picture,.tile__img img{width:100%;height:100%;object-fit:cover;transition:transform var(--t3) var(--ease)}
 .tile:hover .tile__img img{transform:scale(1.04)}
-.tile__body{padding:0 8px 8px}
-.tile__body h3{margin-bottom:8px}
-.tile__body p{color:var(--muted);font-size:16px;line-height:1.5}
+.tile__body{padding:4px 10px 10px}
+.tile__body h3{margin-bottom:8px;font-size:clamp(20px,1.8vw,24px)}
+.tile__body p{color:var(--muted);font-size:16px;line-height:1.5;max-width:560px}
 .tile--big{grid-column:span 2;grid-row:span 2}
 .tile--big .tile__img{flex:1;aspect-ratio:auto;min-height:320px}
 .tile--big .tile__body h3{font-size:clamp(24px,2.4vw,30px)}
@@ -812,17 +807,17 @@ a.v:hover{color:var(--muted)}
 /* ---------- 13  Bogen-Karussell im Hero (Prototyp, index-arc.html) ---------- */
 .hero--arc .hero__stage{margin-top:40px}
 .arc-stage{position:relative}
-.arc{position:relative;height:300px;perspective:1600px;perspective-origin:50% 50%;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.arc{position:relative;height:360px;perspective:1500px;perspective-origin:50% 30%;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .arc.is-dragging{cursor:grabbing}
-.arc__ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transform:translateZ(calc(var(--rz,700px) * -1)) rotateY(var(--rot,0deg))}
+.arc__ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transform:translateZ(calc(var(--rz,700px) * -1)) rotateX(-8deg) rotateY(var(--rot,0deg))}
 .arc__card{--cw:400px;position:absolute;left:0;top:0;width:var(--cw);aspect-ratio:16/10;margin:calc(var(--cw) * -.3125) 0 0 calc(var(--cw) / -2);padding:0;border:0;border-radius:var(--r-media);overflow:hidden;background:var(--grey);color:inherit;font:inherit;cursor:inherit;
-  transform:rotateY(var(--a,0deg)) translateZ(var(--rz,700px));backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  box-shadow:0 30px 60px rgba(10,10,10,.14);opacity:calc(1 - var(--dim,0) * .8);filter:brightness(calc(1 - var(--dim,0) * .3))}
+  transform:rotateY(var(--a,0deg)) translateZ(var(--rz,700px));
+  box-shadow:0 30px 60px rgba(10,10,10,.14);opacity:calc(1 - var(--dim,0) * .45 - var(--back,0) * .2);filter:brightness(calc(1 - var(--dim,0) * .3)) blur(calc(var(--back,0) * 1.5px))}
 .arc__card picture,.arc__card img{width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
-.arc__card .chip{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);overflow:hidden;text-overflow:ellipsis;text-align:left}
-.arc__card .play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;opacity:0;transform:scale(.9);transition:opacity var(--t2) var(--ease),transform var(--t2) var(--ease)}
+.arc__card .chip{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);overflow:hidden;text-overflow:ellipsis;text-align:left;opacity:calc(1 - var(--back,0))}
+.arc__card .play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;opacity:calc(1 - var(--back,0));transition:transform var(--t2) var(--ease)}
 .arc__card .play svg{width:22px;height:22px}
-.arc__card:hover .play,.arc__card:focus-visible .play{opacity:1;transform:none}
+.arc__card:hover .play,.arc__card:focus-visible .play{transform:scale(1.08)}
 .arc__card[aria-hidden="true"]{pointer-events:none}
 .arc__edge{position:absolute;top:-10%;bottom:-10%;width:16%;pointer-events:none;z-index:2}
 .arc__edge--l{left:0;background:linear-gradient(90deg,#fff 10%,rgba(255,255,255,0))}
@@ -833,7 +828,7 @@ a.v:hover{color:var(--muted)}
 .arc-stage.is-open .arc,.arc-stage.is-open .arc__hint{display:none}
 .hero--arc .pricebar{margin-top:40px}
 @media (max-width:900px){
-  .arc{height:190px;perspective:1000px}
+  .arc{height:230px;perspective:900px}
   .arc__card{--cw:250px}
   .arc__edge{width:10%}
   .arc-stage .hero-media{aspect-ratio:16/10}
