@@ -33,7 +33,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=56">
+<link rel="stylesheet" href="styles.css?v=57">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -221,13 +221,14 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
           </div>
           <div class="flow__text">
             <div class="flow__texts">
-            <div class="flow__item is-active" aria-hidden="false"><span class="label">01 / 04</span><h3>Räume &amp; Kapazität zeigen</h3><p>Saal, Foyer, Terrasse und Tagungsräume begehbar: Größe, Schnitt und Bestuhlung in Sekunden erfasst.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">02 / 04</span><h3>Mehr qualifizierte Anfragen</h3><p>Wer die Location vorab gesehen hat, fragt gezielter an. Das spart Zeit für unpassende Anfragen.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">03 / 04</span><h3>Hotels: direkt buchen</h3><p>Zimmer, Suiten, Lobby und Wellness vorab erlebbar. Das stärkt Vertrauen und fördert Direktbuchungen.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">04 / 04</span><h3>Info-Hotspots auf Wunsch</h3><p>Auf Wunsch stehen Kapazität, Technik, Catering und Kontakt direkt in der Tour.</p></div>
+            <div class="flow__item is-active" aria-hidden="false"><h3>Räume &amp; Kapazität zeigen</h3><p>Saal, Foyer, Terrasse und Tagungsräume begehbar: Größe, Schnitt und Bestuhlung in Sekunden erfasst.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Mehr qualifizierte Anfragen</h3><p>Wer die Location vorab gesehen hat, fragt gezielter an. Das spart Zeit für unpassende Anfragen.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Hotels: direkt buchen</h3><p>Zimmer, Suiten, Lobby und Wellness vorab erlebbar. Das stärkt Vertrauen und fördert Direktbuchungen.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Info-Hotspots auf Wunsch</h3><p>Auf Wunsch stehen Kapazität, Technik, Catering und Kontakt direkt in der Tour.</p></div>
             </div>
             <div class="flow__nav">
-              <div class="flow__progress">
+              <span class="flow__count" id="flowCount" aria-live="polite">01 / 04</span>
+            <div class="flow__progress">
               <button type="button" class="flow__seg is-active" aria-label="Punkt 1 anzeigen: Räume &amp; Kapazität zeigen" aria-current="true"></button>
               <button type="button" class="flow__seg" aria-label="Punkt 2 anzeigen: Mehr qualifizierte Anfragen" aria-current="false"></button>
               <button type="button" class="flow__seg" aria-label="Punkt 3 anzeigen: Hotels: direkt buchen" aria-current="false"></button>
@@ -514,6 +515,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=32" defer></script>
+<script src="site.js?v=33" defer></script>
 </body>
 </html>

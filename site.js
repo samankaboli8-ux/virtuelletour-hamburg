@@ -383,6 +383,8 @@
         sg.classList.toggle('is-done', i < fCur); sg.classList.toggle('is-active', i === fCur);
         sg.setAttribute('aria-current', i === fCur ? 'true' : 'false');
       });
+      var fCount = document.getElementById('flowCount');
+      if (fCount) fCount.textContent = (fCur + 1 < 10 ? '0' : '') + (fCur + 1) + ' / ' + (fN < 10 ? '0' : '') + fN;
       if (fPrev) fPrev.disabled = fCur === 0;
       if (fNext) fNext.disabled = fCur === fN - 1;
     };

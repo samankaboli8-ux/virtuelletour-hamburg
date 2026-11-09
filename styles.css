@@ -53,6 +53,7 @@
 
 /* ---------- 2  Basis und Typografie ---------- */
 *,*::before,*::after{box-sizing:border-box}
+::selection{background:#CFE8D3;color:#0A0A0A}
 html{scroll-behavior:auto;scroll-padding-top:calc(var(--header) + 16px);-webkit-text-size-adjust:100%}
 body{margin:0;position:relative;background:var(--white);color:var(--text);
   font:400 16px/1.55 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -574,18 +575,16 @@ html.has-intro,html.has-intro body{overflow:hidden}
 @media (max-width:640px){.hero-switch{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 
 /* Punkte (Was besonders zählt, Einsatzgebiet): Karte mit Haken */
-.points{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.point{display:flex;flex-direction:column;gap:14px;padding:26px 24px 28px;background:var(--grey);border-radius:20px;transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
-.section--grey .point{background:#fff}
-.point:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
-.point__icon{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#fff;color:var(--moss)}
-.section--grey .point__icon{background:var(--grey)}
+.points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.point{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;row-gap:4px;padding:22px 0;border-top:1px solid var(--line)}
+.point:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+.point__icon{grid-row:1/3;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--moss-tint);color:var(--moss)}
+.point h3,.point p{grid-column:2}
 .point__icon svg{width:18px;height:18px}
 .point h3{font-size:18px;line-height:1.3}
 .point p{color:var(--muted);font-size:15px;line-height:1.5}
 .point a{text-decoration:underline;text-underline-offset:3px;color:var(--text)}
-@media (max-width:1024px){.points{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.points{grid-template-columns:1fr;gap:12px}}
+@media (max-width:640px){.points{grid-template-columns:1fr}.point:nth-last-child(2){border-bottom:0}}
 
 /* Icon-Karten (Baubranche, Immobilien-Exposé, Berlin) */
 .feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
@@ -842,6 +841,8 @@ a.v:hover{color:var(--muted)}
 .arc__card[aria-hidden="true"]{pointer-events:none}
 .arc__edge{display:none}
 .arc__hint{margin-top:-56px;position:relative;z-index:2;text-align:center;font-size:13px;color:var(--muted)}
+.arc__hint a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+.arc__hint a:hover{color:var(--moss)}
 .arc-stage .hero-media{display:none;max-width:1100px;margin:0 auto}
 .arc-stage.is-open .hero-media{display:block}
 .arc-stage.is-open .arc,.arc-stage.is-open .arc__hint{display:none}
@@ -883,10 +884,10 @@ a.v:hover{color:var(--muted)}
 .flow__texts{display:grid}
 .flow__item{grid-area:1/1;opacity:0;translate:0 14px;visibility:hidden;transition:opacity var(--t3) var(--ease),translate var(--t3) var(--ease),visibility var(--t3)}
 .flow__item.is-active{opacity:1;translate:0 0;visibility:visible;transition-delay:120ms}
-.flow__item .label{display:block;margin-bottom:18px;font-variant-numeric:tabular-nums}
 .flow__item h3{font-size:clamp(24px,2.3vw,32px);line-height:1.12;letter-spacing:-.025em}
 .flow__item p{margin-top:14px;font-size:17px;line-height:1.5;color:var(--muted);max-width:440px}
 .flow__nav{display:flex;align-items:center;gap:24px;margin-top:32px}
+.flow__count{flex:none;font:500 13px/1 "Inter",sans-serif;letter-spacing:.04em;color:var(--muted);font-variant-numeric:tabular-nums}
 .flow__progress{display:flex;flex:1;gap:8px;align-items:center;min-height:44px}
 .flow__seg{position:relative;flex:1;height:44px;border:0;padding:0;background:transparent;cursor:pointer}
 .flow__seg::before{content:"";position:absolute;left:0;right:0;top:20px;height:4px;border-radius:999px;background:var(--line)}

@@ -33,7 +33,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=56">
+<link rel="stylesheet" href="styles.css?v=57">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -231,13 +231,14 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
           </div>
           <div class="flow__text">
             <div class="flow__texts">
-            <div class="flow__item is-active" aria-hidden="false"><span class="label">01 / 04</span><h3>Ortsunabhängig besichtigen</h3><p>Interessenten erkunden die Immobilie jederzeit, auch aus einer anderen Stadt oder dem Ausland.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">02 / 04</span><h3>Weniger Leerlauf-Termine</h3><p>Nur ernsthafte Interessenten fragen einen Termin an. Das spart Zeit und verkürzt die Vermarktung.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">03 / 04</span><h3>Ein Termin, alles drin</h3><p>Rundgang, 3D-Ansicht, Grundriss und Exposébilder aus einem Scan. Kein separater Fototermin.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">04 / 04</span><h3>Im Wettbewerb abheben</h3><p>Ein Exposé mit Tour wirkt hochwertiger als Fotos. Makler gewinnen leichter Objekte, Eigentümer bessere Interessenten.</p></div>
+            <div class="flow__item is-active" aria-hidden="false"><h3>Ortsunabhängig besichtigen</h3><p>Interessenten erkunden die Immobilie jederzeit, auch aus einer anderen Stadt oder dem Ausland.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Weniger Leerlauf-Termine</h3><p>Nur ernsthafte Interessenten fragen einen Termin an. Das spart Zeit und verkürzt die Vermarktung.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Ein Termin, alles drin</h3><p>Rundgang, 3D-Ansicht, Grundriss und Exposébilder aus einem Scan. Kein separater Fototermin.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Im Wettbewerb abheben</h3><p>Ein Exposé mit Tour wirkt hochwertiger als Fotos. Makler gewinnen leichter Objekte, Eigentümer bessere Interessenten.</p></div>
             </div>
             <div class="flow__nav">
-              <div class="flow__progress">
+              <span class="flow__count" id="flowCount" aria-live="polite">01 / 04</span>
+            <div class="flow__progress">
               <button type="button" class="flow__seg is-active" aria-label="Punkt 1 anzeigen: Ortsunabhängig besichtigen" aria-current="true"></button>
               <button type="button" class="flow__seg" aria-label="Punkt 2 anzeigen: Weniger Leerlauf-Termine" aria-current="false"></button>
               <button type="button" class="flow__seg" aria-label="Punkt 3 anzeigen: Ein Termin, alles drin" aria-current="false"></button>
@@ -479,6 +480,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=32" defer></script>
+<script src="site.js?v=33" defer></script>
 </body>
 </html>

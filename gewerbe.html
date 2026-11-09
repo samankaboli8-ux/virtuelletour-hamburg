@@ -33,7 +33,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=56">
+<link rel="stylesheet" href="styles.css?v=57">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -221,13 +221,14 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
           </div>
           <div class="flow__text">
             <div class="flow__texts">
-            <div class="flow__item is-active" aria-hidden="false"><span class="label">01 / 04</span><h3>Standort professionell zeigen</h3><p>Empfang, Büros, Beratungsräume oder Verkaufsfläche begehbar: Dein erster Eindruck wirkt schon vor dem Besuch.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">02 / 04</span><h3>Recruiting stärken</h3><p>Bewerber sehen ihren künftigen Arbeitsplatz vorab. Das macht Stellenanzeigen greifbar.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">03 / 04</span><h3>Gewerbeflächen vermieten</h3><p>Mietinteressenten besichtigen Flächen ortsunabhängig. Weniger Leerlauf-Termine, schnellere Vermietung.</p></div>
-            <div class="flow__item" aria-hidden="true"><span class="label">04 / 04</span><h3>Sichtbar bei Google</h3><p>Tour direkt im Google-Unternehmensprofil und in Street View: Kunden starten den Rundgang aus der Suche.</p></div>
+            <div class="flow__item is-active" aria-hidden="false"><h3>Standort professionell zeigen</h3><p>Empfang, Büros, Beratungsräume oder Verkaufsfläche begehbar: Dein erster Eindruck wirkt schon vor dem Besuch.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Recruiting stärken</h3><p>Bewerber sehen ihren künftigen Arbeitsplatz vorab. Das macht Stellenanzeigen greifbar.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Gewerbeflächen vermieten</h3><p>Mietinteressenten besichtigen Flächen ortsunabhängig. Weniger Leerlauf-Termine, schnellere Vermietung.</p></div>
+            <div class="flow__item" aria-hidden="true"><h3>Sichtbar bei Google</h3><p>Tour direkt im Google-Unternehmensprofil und in Street View: Kunden starten den Rundgang aus der Suche.</p></div>
             </div>
             <div class="flow__nav">
-              <div class="flow__progress">
+              <span class="flow__count" id="flowCount" aria-live="polite">01 / 04</span>
+            <div class="flow__progress">
               <button type="button" class="flow__seg is-active" aria-label="Punkt 1 anzeigen: Standort professionell zeigen" aria-current="true"></button>
               <button type="button" class="flow__seg" aria-label="Punkt 2 anzeigen: Recruiting stärken" aria-current="false"></button>
               <button type="button" class="flow__seg" aria-label="Punkt 3 anzeigen: Gewerbeflächen vermieten" aria-current="false"></button>
@@ -500,6 +501,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=32" defer></script>
+<script src="site.js?v=33" defer></script>
 </body>
 </html>
