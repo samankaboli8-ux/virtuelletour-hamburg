@@ -6,7 +6,7 @@
   var lenis = null;
   if (!reduce && typeof Lenis === 'function') {
     lenis = new Lenis({
-      lerp: 0.18,              // Dämpfung: höher = straffer (Standard 0.1 war zu weich)
+      lerp: 0.09,              // Dämpfung: niedriger = weicher (Nutzerwunsch 09.11.2026: smoother)
       autoRaf: true,           // eigene Animationsschleife
       anchors: true,           // Sprungmarken (#id) weich anfahren, scroll-padding-top wird beachtet
       allowNestedScroll: true  // scrollbare Bereiche (z. B. Mobile-Menü) scrollen weiter für sich
@@ -458,13 +458,15 @@
     fmUpdate();
   }
 
-  /* ---- Sanftes Einrasten: kommt die Seite nahe einem Abschnittsanfang zur Ruhe, rückt sie unauffällig dorthin.
-     Nicht im gepinnten Flow-Bereich, nicht am Seitenanfang oder -ende, nie bei reduzierter Bewegung. ---- */
+  /* ---- Sanftes Einrasten in Scrollrichtung: kommt die Seite zur Ruhe und liegt der nächste Abschnittsanfang
+     in Scrollrichtung näher als etwa ein Drittel Bildschirm, zieht sie weich dorthin. Nach hinten wird nie
+     gezogen, damit Lesen innerhalb langer Abschnitte ungestört bleibt. Nicht im gepinnten Flow, nicht am
+     Seitenanfang oder -ende, nie bei reduzierter Bewegung. ---- */
   if (lenis && !reduce) {
     var snapEls = Array.prototype.slice.call(document.querySelectorAll('main > section'));
     var snapPinned = document.querySelector('.flow-scroll');
     var snapHeader = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header')) || 64;
-    var snapTimer = 0, snapBusy = false;
+    var snapTimer = 0, snapBusy = false, snapLastY = window.pageYOffset, snapDir = 1;
     var trySnap = function () {
       if (snapBusy) return;
       var y = window.pageYOffset, vh = window.innerHeight, maxY = document.documentElement.scrollHeight - vh;
@@ -473,18 +475,24 @@
         var pTop = snapPinned.getBoundingClientRect().top + y, pEnd = pTop + snapPinned.offsetHeight - vh;
         if (y > pTop + 1 && y < pEnd - 1) return;
       }
-      var best = null, bestD = Infinity, limit = Math.min(160, vh * 0.2);
+      var limit = vh * 0.36, best = null;
       snapEls.forEach(function (el) {
-        var top = el.getBoundingClientRect().top + y - (el.classList.contains('flow-scroll') ? 0 : snapHeader);
-        var d = top - y;
-        if (Math.abs(d) > 2 && Math.abs(d) <= limit && Math.abs(d) < Math.abs(bestD)) { best = top; bestD = d; }
+        var top = Math.round(el.getBoundingClientRect().top + y - (el.classList.contains('flow-scroll') ? 0 : snapHeader));
+        if (snapDir > 0) { if (top > y + 2 && top - y <= limit && (best === null || top < best)) best = top; }
+        else { if (top < y - 2 && y - top <= limit && (best === null || top > best)) best = top; }
       });
       if (best === null) return;
       snapBusy = true;
-      lenis.scrollTo(best, { duration: 0.7, onComplete: function () { setTimeout(function () { snapBusy = false; }, 150); } });
-      setTimeout(function () { snapBusy = false; }, 1400);
+      lenis.scrollTo(best, { duration: 0.9, easing: function (t) { return 1 - Math.pow(1 - t, 3); }, onComplete: function () { setTimeout(function () { snapBusy = false; snapLastY = window.pageYOffset; }, 120); } });
+      setTimeout(function () { snapBusy = false; }, 1500);
     };
-    window.addEventListener('scroll', function () { clearTimeout(snapTimer); if (!snapBusy) snapTimer = setTimeout(trySnap, 180); }, { passive: true });
+    window.addEventListener('scroll', function () {
+      var y = window.pageYOffset;
+      if (!snapBusy && Math.abs(y - snapLastY) > 1) snapDir = y > snapLastY ? 1 : -1;
+      snapLastY = y;
+      clearTimeout(snapTimer);
+      if (!snapBusy) snapTimer = setTimeout(trySnap, 150);
+    }, { passive: true });
   }
 
   /* ---- Touren: Klick lädt den Rundgang im Fenster ---- */

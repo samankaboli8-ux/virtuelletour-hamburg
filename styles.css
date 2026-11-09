@@ -961,3 +961,8 @@ a.v:hover{color:var(--muted)}
 .person__foot{margin-top:22px;gap:14px 24px}
 .person .btn{height:44px;padding:0 18px;font-size:14px}
 @media (max-width:900px){.person{grid-template-columns:1fr;gap:20px;padding:14px}.person__photo{aspect-ratio:16/10}.person__text{padding:0 6px 10px}}
+
+/* Klare Abschnitte: Karten auf Hellgrau werden weiß */
+.section--grey .tile,.section--grey .post,.section--grey .vgal__item{background:#fff}
+.section--grey .form-card{background:#fff}
+.hero__lead strong{display:inline-block;margin-top:6px;color:var(--text);font-weight:600}
