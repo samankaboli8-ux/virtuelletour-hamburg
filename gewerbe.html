@@ -28,7 +28,7 @@
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=44">
+<link rel="stylesheet" href="styles.css?v=45">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -159,42 +159,41 @@
     </div>
   </section>
 
-  <!-- 2. Warum -->
-  <section class="section">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <h2>Dein Standort als Aushängeschild, rund um die Uhr</h2>
-        <p>Ob Kundschaft, Bewerber oder Mietinteressenten: Wer deinen Raum vorab erlebt, kommt mit mehr Vertrauen.</p>
-      </div>
-      <div class="bento">
-        <article class="tile" data-reveal>
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp 640w, images/tours/jW4ha2PrbZB-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Beratungsraum des DEVK-Versicherungsbüros Horbach in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Standort professionell zeigen</h3>
-            <p>Empfang, Büros, Beratungsräume oder Verkaufsfläche begehbar: Dein erster Eindruck wirkt schon vor dem Besuch.</p>
+  <!-- Warum als Karten-Flow, scrollgesteuert -->
+  <section class="section flow-scroll" id="warum">
+    <div class="flow-sticky">
+      <div class="wrap">
+        <div class="sec-head sec-head--single" data-reveal>
+          <h2>Dein Standort als Aushängeschild, rund um die Uhr</h2>
+        </div>
+        <div class="flow" id="flow" data-reveal aria-roledescription="Karussell" aria-label="Vorteile einer virtuellen Tour">
+          <div class="flow__stage" id="flowStage" aria-label="Nächster Punkt">
+          <div class="flow__card is-active" aria-hidden="false"><picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp 640w, images/tours/jW4ha2PrbZB-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Beratungsraum des DEVK-Versicherungsbüros Horbach in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Offene Arbeitsfläche der MachBar Lübeck in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss einer Gewerbefläche aus dem 3D-Scan" width="1600" height="1131" loading="lazy" decoding="async"></picture></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/yQSGoSj83NT-640.webp 640w, images/tours/yQSGoSj83NT-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/yQSGoSj83NT-960.jpg" alt="Außenansicht des Restaurants Aspera mit Terrasse in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
           </div>
-        </article>
-        <article class="tile" data-reveal style="--i:1">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Offene Arbeitsfläche der MachBar Lübeck in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Recruiting stärken</h3>
-            <p>Bewerber sehen ihren künftigen Arbeitsplatz vorab. Das macht Stellenanzeigen greifbar.</p>
+          <div class="flow__text">
+            <div class="flow__texts">
+            <div class="flow__item is-active" aria-hidden="false"><span class="label">01 / 04</span><h3>Standort professionell zeigen</h3><p>Empfang, Büros, Beratungsräume oder Verkaufsfläche begehbar: Dein erster Eindruck wirkt schon vor dem Besuch.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">02 / 04</span><h3>Recruiting stärken</h3><p>Bewerber sehen ihren künftigen Arbeitsplatz vorab. Das macht Stellenanzeigen greifbar.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">03 / 04</span><h3>Gewerbeflächen vermieten</h3><p>Mietinteressenten besichtigen Flächen ortsunabhängig. Weniger Leerlauf-Termine, schnellere Vermietung.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">04 / 04</span><h3>Sichtbar bei Google</h3><p>Tour direkt im Google-Unternehmensprofil und in Street View: Kunden starten den Rundgang aus der Suche.</p></div>
+            </div>
+            <div class="flow__nav">
+              <div class="flow__progress">
+              <button type="button" class="flow__seg is-active" aria-label="Punkt 1 anzeigen: Standort professionell zeigen" aria-current="true"></button>
+              <button type="button" class="flow__seg" aria-label="Punkt 2 anzeigen: Recruiting stärken" aria-current="false"></button>
+              <button type="button" class="flow__seg" aria-label="Punkt 3 anzeigen: Gewerbeflächen vermieten" aria-current="false"></button>
+              <button type="button" class="flow__seg" aria-label="Punkt 4 anzeigen: Sichtbar bei Google" aria-current="false"></button>
+              </div>
+              <div class="flow__arrows">
+                <button type="button" class="arrow arrow--ghost" id="flowPrev" aria-label="Vorheriger Punkt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>
+                <button type="button" class="arrow arrow--ghost" id="flowNext" aria-label="Nächster Punkt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </div>
+            </div>
           </div>
-        </article>
-        <article class="tile" data-reveal style="--i:2">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss einer Gewerbefläche aus dem 3D-Scan" width="1600" height="1131" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Gewerbeflächen vermieten</h3>
-            <p>Mietinteressenten besichtigen Flächen ortsunabhängig. Weniger Leerlauf-Termine, schnellere Vermietung.</p>
-          </div>
-        </article>
-        <article class="tile" data-reveal style="--i:3">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/yQSGoSj83NT-640.webp 640w, images/tours/yQSGoSj83NT-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/yQSGoSj83NT-960.jpg" alt="Außenansicht des Restaurants Aspera mit Terrasse in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Sichtbar bei Google</h3>
-            <p>Tour direkt im Google-Unternehmensprofil und in Street View: Kunden starten den Rundgang aus der Suche.</p>
-          </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -451,6 +450,6 @@
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=24" defer></script>
+<script src="site.js?v=25" defer></script>
 </body>
 </html>

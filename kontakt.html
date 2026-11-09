@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=44">
+<link rel="stylesheet" href="styles.css?v=45">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -222,15 +222,21 @@
   </section>
 
   <!-- Ablauf -->
-  <section class="section section--grey">
+  <!-- Ablauf auf dem Verlaufsband -->
+  <section class="section">
     <div class="wrap">
-      <div class="sec-head sec-head--single" data-reveal>
-        <h2>In drei Schritten zur fertigen Tour</h2>
-      </div>
-      <div class="steps">
-        <div class="step" data-reveal><span class="step__n">01</span><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
-        <div class="step" data-reveal style="--i:1"><span class="step__n">02</span><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
-        <div class="step" data-reveal style="--i:2"><span class="step__n">03</span><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
+      <div class="band" data-reveal>
+        <div class="mesh mesh--strong" aria-hidden="true"></div>
+        <div class="band__inner">
+          <div class="sec-head sec-head--single">
+            <h2>In drei Schritten zur fertigen Tour</h2>
+          </div>
+          <div class="steps">
+        <div class="step"><span class="step__n">01</span><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
+        <div class="step"><span class="step__n">02</span><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
+        <div class="step"><span class="step__n">03</span><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -330,6 +336,6 @@
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=24" defer></script>
+<script src="site.js?v=25" defer></script>
 </body>
 </html>

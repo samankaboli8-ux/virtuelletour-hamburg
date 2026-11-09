@@ -418,7 +418,7 @@
     var vRows = Array.prototype.slice.call(vgal.querySelectorAll('.vgal__row'));
     var vItems = Array.prototype.slice.call(vgal.querySelectorAll('.vgal__item'));
     var vStage = vgal.querySelector('.vgal__stage');
-    var vN = vItems.length, vCur = 0, vLock = 0, vy0 = 0, vDown = false, vMoved = false;
+    var vN = vItems.length, vCur = 0;
     var vSet = function (i) {
       if (i < 0 || i >= vN || i === vCur) return false;
       vCur = i;
@@ -430,29 +430,10 @@
       if (finePointer) r.addEventListener('pointerenter', function () { vSet(i); });
       var a = r.querySelector('a'); if (a) a.addEventListener('focus', function () { vSet(i); });
     });
+    /* Bilder reagieren nicht auf die Maus; ein Tipp auf einen eingeklappten Streifen klappt ihn auf (Touch) */
     vItems.forEach(function (it, i) {
-      if (finePointer) it.addEventListener('pointerenter', function () { vSet(i); });
-      it.addEventListener('click', function (e) { if (vMoved) { e.preventDefault(); vMoved = false; return; } if (i !== vCur) { e.preventDefault(); vSet(i); } });
+      it.addEventListener('click', function (e) { if (i !== vCur) { e.preventDefault(); vSet(i); } });
     });
-    if (vStage) {
-      vStage.addEventListener('wheel', function (e) {
-        if (Math.abs(e.deltaY) < 4) return;
-        var now = performance.now();
-        var dir = e.deltaY > 0 ? 1 : -1;
-        var canMove = (dir > 0 && vCur < vN - 1) || (dir < 0 && vCur > 0);
-        if (!canMove) return; // am Rand scrollt die Seite weiter
-        e.preventDefault(); e.stopPropagation();
-        if (now < vLock) return;
-        vSet(vCur + dir); vLock = now + 650;
-      }, { passive: false });
-      vStage.addEventListener('pointerdown', function (e) { vDown = true; vMoved = false; vy0 = e.clientY; });
-      vStage.addEventListener('pointerup', function (e) {
-        if (!vDown) return; vDown = false;
-        var dy = e.clientY - vy0;
-        if (Math.abs(dy) > 40) { vMoved = true; vSet(vCur + (dy < 0 ? 1 : -1)); }
-      });
-      vStage.addEventListener('pointercancel', function () { vDown = false; });
-    }
     vgal.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { if (vSet(vCur + 1)) e.preventDefault(); }
       else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { if (vSet(vCur - 1)) e.preventDefault(); }
@@ -475,6 +456,35 @@
     window.addEventListener('resize', fmUpdate);
     window.addEventListener('load', fmUpdate);
     fmUpdate();
+  }
+
+  /* ---- Sanftes Einrasten: kommt die Seite nahe einem Abschnittsanfang zur Ruhe, rückt sie unauffällig dorthin.
+     Nicht im gepinnten Flow-Bereich, nicht am Seitenanfang oder -ende, nie bei reduzierter Bewegung. ---- */
+  if (lenis && !reduce) {
+    var snapEls = Array.prototype.slice.call(document.querySelectorAll('main > section'));
+    var snapPinned = document.querySelector('.flow-scroll');
+    var snapHeader = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header')) || 64;
+    var snapTimer = 0, snapBusy = false;
+    var trySnap = function () {
+      if (snapBusy) return;
+      var y = window.pageYOffset, vh = window.innerHeight, maxY = document.documentElement.scrollHeight - vh;
+      if (y < 40 || y > maxY - 40) return;
+      if (snapPinned) {
+        var pTop = snapPinned.getBoundingClientRect().top + y, pEnd = pTop + snapPinned.offsetHeight - vh;
+        if (y > pTop + 1 && y < pEnd - 1) return;
+      }
+      var best = null, bestD = Infinity, limit = Math.min(160, vh * 0.2);
+      snapEls.forEach(function (el) {
+        var top = el.getBoundingClientRect().top + y - (el.classList.contains('flow-scroll') ? 0 : snapHeader);
+        var d = top - y;
+        if (Math.abs(d) > 2 && Math.abs(d) <= limit && Math.abs(d) < Math.abs(bestD)) { best = top; bestD = d; }
+      });
+      if (best === null) return;
+      snapBusy = true;
+      lenis.scrollTo(best, { duration: 0.7, onComplete: function () { setTimeout(function () { snapBusy = false; }, 150); } });
+      setTimeout(function () { snapBusy = false; }, 1400);
+    };
+    window.addEventListener('scroll', function () { clearTimeout(snapTimer); if (!snapBusy) snapTimer = setTimeout(trySnap, 180); }, { passive: true });
   }
 
   /* ---- Touren: Klick lädt den Rundgang im Fenster ---- */

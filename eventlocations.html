@@ -28,7 +28,7 @@
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=44">
+<link rel="stylesheet" href="styles.css?v=45">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -159,42 +159,41 @@
     </div>
   </section>
 
-  <!-- 2. Warum -->
-  <section class="section" id="warum">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <h2>Die Entscheidung fällt online, lange vor der Besichtigung</h2>
-        <p>Hochzeiten, Firmenfeiern und Tagungen werden ortsunabhängig geplant. Wer Räume vorab begehbar macht, gewinnt Anfragen, die sonst nie gekommen wären.</p>
-      </div>
-      <div class="bento">
-        <article class="tile" data-reveal>
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/Living-Room-2.jpg" alt="4K-Foto der eingedeckten Eventfläche Living Room" width="1920" height="1080" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Räume &amp; Kapazität zeigen</h3>
-            <p>Saal, Foyer, Terrasse und Tagungsräume begehbar: Größe, Schnitt und Bestuhlung in Sekunden erfasst.</p>
+  <!-- Warum als Karten-Flow, scrollgesteuert -->
+  <section class="section flow-scroll" id="warum">
+    <div class="flow-sticky">
+      <div class="wrap">
+        <div class="sec-head sec-head--single" data-reveal>
+          <h2>Die Entscheidung fällt online, lange vor der Besichtigung</h2>
+        </div>
+        <div class="flow" id="flow" data-reveal aria-roledescription="Karussell" aria-label="Vorteile einer virtuellen Tour">
+          <div class="flow__stage" id="flowStage" aria-label="Nächster Punkt">
+          <div class="flow__card is-active" aria-hidden="false"><picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/Living-Room-2.jpg" alt="4K-Foto der eingedeckten Eventfläche Living Room" width="1920" height="1080" loading="lazy" decoding="async"></picture></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Tagungs- und Eventfläche der MachBar Lübeck in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/zgWUkeHqJUr-640.webp 640w, images/tours/zgWUkeHqJUr-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/zgWUkeHqJUr-960.jpg" alt="Innenhof des Hotels und der Eventlocation Tunici in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/1kCCq3heNPJ-640.webp 640w, images/tours/1kCCq3heNPJ-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/1kCCq3heNPJ-960.jpg" alt="Winterlich eingerichtete Bar StrandPauli in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
           </div>
-        </article>
-        <article class="tile" data-reveal style="--i:1">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Tagungs- und Eventfläche der MachBar Lübeck in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Mehr qualifizierte Anfragen</h3>
-            <p>Wer die Location vorab gesehen hat, fragt gezielter an. Das spart Zeit für unpassende Anfragen.</p>
+          <div class="flow__text">
+            <div class="flow__texts">
+            <div class="flow__item is-active" aria-hidden="false"><span class="label">01 / 04</span><h3>Räume &amp; Kapazität zeigen</h3><p>Saal, Foyer, Terrasse und Tagungsräume begehbar: Größe, Schnitt und Bestuhlung in Sekunden erfasst.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">02 / 04</span><h3>Mehr qualifizierte Anfragen</h3><p>Wer die Location vorab gesehen hat, fragt gezielter an. Das spart Zeit für unpassende Anfragen.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">03 / 04</span><h3>Hotels: direkt buchen</h3><p>Zimmer, Suiten, Lobby und Wellness vorab erlebbar. Das stärkt Vertrauen und fördert Direktbuchungen.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">04 / 04</span><h3>Info-Hotspots auf Wunsch</h3><p>Auf Wunsch stehen Kapazität, Technik, Catering und Kontakt direkt in der Tour.</p></div>
+            </div>
+            <div class="flow__nav">
+              <div class="flow__progress">
+              <button type="button" class="flow__seg is-active" aria-label="Punkt 1 anzeigen: Räume &amp; Kapazität zeigen" aria-current="true"></button>
+              <button type="button" class="flow__seg" aria-label="Punkt 2 anzeigen: Mehr qualifizierte Anfragen" aria-current="false"></button>
+              <button type="button" class="flow__seg" aria-label="Punkt 3 anzeigen: Hotels: direkt buchen" aria-current="false"></button>
+              <button type="button" class="flow__seg" aria-label="Punkt 4 anzeigen: Info-Hotspots auf Wunsch" aria-current="false"></button>
+              </div>
+              <div class="flow__arrows">
+                <button type="button" class="arrow arrow--ghost" id="flowPrev" aria-label="Vorheriger Punkt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>
+                <button type="button" class="arrow arrow--ghost" id="flowNext" aria-label="Nächster Punkt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </div>
+            </div>
           </div>
-        </article>
-        <article class="tile" data-reveal style="--i:2">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/zgWUkeHqJUr-640.webp 640w, images/tours/zgWUkeHqJUr-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/zgWUkeHqJUr-960.jpg" alt="Innenhof des Hotels und der Eventlocation Tunici in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Hotels: direkt buchen</h3>
-            <p>Zimmer, Suiten, Lobby und Wellness vorab erlebbar. Das stärkt Vertrauen und fördert Direktbuchungen.</p>
-          </div>
-        </article>
-        <article class="tile" data-reveal style="--i:3">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/1kCCq3heNPJ-640.webp 640w, images/tours/1kCCq3heNPJ-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/1kCCq3heNPJ-960.jpg" alt="Winterlich eingerichtete Bar StrandPauli in der 3D-Tour" width="960" height="540" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Info-Hotspots auf Wunsch</h3>
-            <p>Auf Wunsch stehen Kapazität, Technik, Catering und Kontakt direkt in der Tour.</p>
-          </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -465,6 +464,6 @@
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=24" defer></script>
+<script src="site.js?v=25" defer></script>
 </body>
 </html>
