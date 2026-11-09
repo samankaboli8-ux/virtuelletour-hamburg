@@ -1,0 +1,159 @@
+/* =====================================================================
+   Galerie-Hero (Prototyp nach Framer „Infinite Exhibition“)
+   Ein Korridor in CSS 3D: Wände, Boden und Decke stehen still (gleichförmige Flächen
+   mit Nebel in der Tiefe), nur die Bilderrahmen samt Spiegelung, Lichtkegel und
+   Deckenspot wandern auf die Kamera zu. Scrollen bewegt die Kamera (gepinnter
+   Abschnitt), ein Klick tritt näher an ein Bild heran, der zweite öffnet die Tour.
+   ===================================================================== */
+
+.hero--gallery{
+  --cw:clamp(560px,97vw,2600px);          /* Korridorbreite in 3D-Einheiten */
+  --ch:900px;                              /* Korridorhöhe, Augenhöhe in der Mitte */
+  --fw:calc(var(--cw) * .46);              /* Rahmenbreite */
+  --fh:calc(var(--fw) * .5625);            /* Rahmenhöhe 16:9 */
+  --ft:26px;                               /* Rahmentiefe */
+  --fb:16px;                               /* Rahmenleiste */
+  --P:1000px;                              /* Perspektive */
+  --track:230vh;                           /* Scrollweg des gepinnten Hero */
+  --g-bg:#2E2F31;--g-floor-rgb:46,47,49;--g-floor-a:.5;
+  --g-wall:#3C3D3F;--g-ceil:#2A2B2D;--g-fog:#151617;--g-mix:#262728;
+  --g-frame:#0E0E0F;--g-side:#080808;
+  --g-text:#fff;--g-lead:#C9CECB;
+  --g-pill-bg:rgba(20,20,22,.58);--g-pill:rgba(255,255,255,.86);
+  --g-glow:.30;--g-pool:.24;--g-mirror:.62;--g-vig:.45;--g-spot:1;--eye:54%;
+  position:relative;margin-top:calc(-1 * var(--header));padding:0;height:calc(100svh + var(--track));
+  color:var(--g-text)}
+.hero--gallery[data-theme="light"]{
+  --g-bg:#E3E3E7;--g-floor-rgb:227,227,231;--g-floor-a:.6;
+  --g-wall:#F1F1F4;--g-ceil:#E8E8EC;--g-fog:#F7F7F9;--g-mix:#F3F3F6;
+  --g-frame:#121212;--g-side:#0A0A0A;
+  --g-text:var(--text);--g-lead:#4E5451;
+  --g-pill-bg:rgba(255,255,255,.72);--g-pill:var(--text);
+  --g-glow:.55;--g-pool:.5;--g-mirror:.32;--g-vig:.10;--g-spot:.9}
+@media (max-width:1024px){.hero--gallery{--track:190vh}}
+@media (max-width:640px){.hero--gallery{--cw:480px;--P:760px;--ch:760px;--ft:16px;--fb:9px;--track:150vh;--fw:calc(var(--cw) * .44);--eye:64%}}
+@media (prefers-reduced-motion:reduce){.hero--gallery{--track:0px}}
+
+.gal-sticky{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden;background:var(--g-bg);isolation:isolate}
+
+/* ---- Szene ---- */
+.gal__view{position:absolute;inset:0;perspective:var(--P);perspective-origin:50% var(--eye);overflow:hidden;background:var(--g-bg);cursor:default}
+.gal__view::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(ellipse 70% 62% at 50% 46%,transparent 40%,rgba(0,0,0,var(--g-vig)) 100%)}
+.gal__space{position:absolute;left:50%;top:var(--eye);width:0;height:0;transform-style:preserve-3d;transform-origin:0 0 var(--P);will-change:transform}
+.gal__world{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d}
+
+/* Raum: Flächen 2,2 Korridorbreiten hinter und 5 vor der Kamera; Verlauf in den Nebel */
+.room{position:absolute;left:0;top:0;backface-visibility:visible;pointer-events:none}
+.room--wall-l,.room--wall-r{width:calc(var(--cw) * 7.2);height:var(--ch);margin:calc(var(--ch) / -2) 0 0 calc(var(--cw) * -3.6)}
+.room--wall-l{transform:translate3d(calc(var(--cw) / -2),0,calc(var(--cw) * -1.4)) rotateY(90deg);
+  background:linear-gradient(270deg,var(--g-fog) 0%,var(--g-mix) 36%,var(--g-wall) 62%,var(--g-wall) 100%)}
+.room--wall-r{transform:translate3d(calc(var(--cw) / 2),0,calc(var(--cw) * -1.4)) rotateY(-90deg);
+  background:linear-gradient(90deg,var(--g-fog) 0%,var(--g-mix) 36%,var(--g-wall) 62%,var(--g-wall) 100%)}
+.room--ceil,.room--floor{width:var(--cw);height:calc(var(--cw) * 7.2);margin:calc(var(--cw) * -3.6) 0 0 calc(var(--cw) / -2)}
+.room--ceil{transform:translate3d(0,calc(var(--ch) / -2),calc(var(--cw) * -1.4)) rotateX(90deg);
+  background:linear-gradient(180deg,var(--g-fog) 0%,var(--g-mix) 36%,var(--g-ceil) 62%,var(--g-ceil) 100%)}
+.room--floor{transform:translate3d(0,calc(var(--ch) / 2),calc(var(--cw) * -1.4)) rotateX(90deg);
+  background:linear-gradient(180deg,var(--g-fog) 0%,var(--g-mix) 34%,rgba(var(--g-floor-rgb),var(--g-floor-a)) 60%,rgba(var(--g-floor-rgb),var(--g-floor-a)) 100%)}
+.room--end{width:var(--cw);height:var(--ch);margin:calc(var(--ch) / -2) 0 0 calc(var(--cw) / -2);transform:translateZ(calc(var(--cw) * -5));background:var(--g-fog)}
+
+/* ---- Rahmen: Gruppe wird per JS an die Wand gesetzt (translate3d + rotateY ±90°) ---- */
+.gf{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;will-change:transform;--fog:0}
+.gf__face{position:absolute;left:0;top:0;width:var(--fw);height:var(--fh);margin:calc(var(--fh) / -2) 0 0 calc(var(--fw) / -2);
+  padding:0;border:var(--fb) solid var(--g-frame);border-radius:2px;background:var(--g-frame);color:#fff;
+  transform:translateZ(var(--ft));cursor:pointer;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.gf__face picture{position:absolute;inset:0;overflow:hidden}
+.gf__face img,.gf__mirror img{width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none;transition:filter var(--t2) var(--ease)}
+.gf__face:hover img{filter:brightness(1.06)}
+.gf__face::after{content:"";position:absolute;inset:calc(-1 * var(--fb));background:var(--g-fog);opacity:var(--fog);pointer-events:none}
+.gf__face .play{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;opacity:0;transform:scale(.9);transition:opacity var(--t2) var(--ease),transform var(--t2) var(--ease)}
+.gf__face .play svg{width:18px;height:18px}
+.gf__face:hover .play,.gf__face:focus-visible .play,.gf.is-focus .play{opacity:1;transform:none}
+.gf__face:focus-visible{outline:2px solid #fff;outline-offset:4px}
+
+/* Sichtbare Rahmenseite zur Kamera hin */
+.gf__side{position:absolute;left:0;top:0;width:var(--ft);height:var(--fh);margin:calc(var(--fh) / -2) 0 0 calc(var(--ft) / -2);
+  background:linear-gradient(180deg,#1a1a1b,var(--g-side));pointer-events:none;opacity:calc(1 - var(--fog))}
+.gf[data-side="l"] .gf__side{transform:translate3d(calc(var(--fw) / -2),0,calc(var(--ft) / 2)) rotateY(-90deg)}
+.gf[data-side="r"] .gf__side{transform:translate3d(calc(var(--fw) / 2),0,calc(var(--ft) / 2)) rotateY(90deg)}
+
+/* Lichtkegel an der Wand, Lichtpfütze auf dem Boden, Spot an der Decke */
+.gf__glow{position:absolute;left:0;top:0;width:calc(var(--fw) * 2.4);height:calc(var(--fh) * 3.2);margin:calc(var(--fh) * -1.3) 0 0 calc(var(--fw) * -1.2);
+  transform:translateZ(1px);pointer-events:none;opacity:calc(var(--g-glow) * (1 - var(--fog)));
+  background:radial-gradient(ellipse 55% 60% at 50% 40%,#fff 0%,rgba(255,255,255,.3) 38%,transparent 70%)}
+.gf__pool{position:absolute;left:0;top:0;width:calc(var(--fw) * 1.7);height:calc(var(--fw) * .9);margin:calc(var(--fw) * -.45) 0 0 calc(var(--fw) * -.85);
+  transform:translate3d(0,calc(var(--ch) / 2 - 1px),calc(var(--fw) * .45)) rotateX(90deg);pointer-events:none;opacity:calc(var(--g-pool) * (1 - var(--fog)));
+  background:radial-gradient(ellipse 50% 100% at 50% 0%,#fff 0%,rgba(255,255,255,.4) 40%,transparent 72%)}
+.gf__spot{position:absolute;left:0;top:0;width:60px;height:30px;margin:-15px 0 0 -30px;border-radius:50%;
+  transform:translate3d(0,calc(var(--ch) / -2 + 1px),150px) rotateX(90deg);pointer-events:none;opacity:calc(var(--g-spot) * (1 - var(--fog)));
+  background:radial-gradient(circle,#fff 0%,rgba(255,255,255,.75) 45%,rgba(255,255,255,.25) 100%);box-shadow:0 0 36px 14px rgba(255,255,255,.28)}
+
+/* Spiegelung im Boden: gespiegelte Kopie unter der Bodenebene, durch den halbtransparenten Boden sichtbar */
+.gf__mirror{position:absolute;left:0;top:0;width:var(--fw);height:var(--fh);margin:calc(var(--fh) / -2) 0 0 calc(var(--fw) / -2);
+  padding:var(--fb);background:var(--g-frame);transform:translate3d(0,var(--ch),var(--ft)) scaleY(-1);
+  opacity:calc(var(--g-mirror) * (1 - var(--fog)));filter:blur(3px);pointer-events:none;
+  -webkit-mask-image:linear-gradient(0deg,rgba(0,0,0,.95),transparent 80%);mask-image:linear-gradient(0deg,rgba(0,0,0,.95),transparent 80%)}
+.gf__mirror picture{position:absolute;inset:var(--fb);overflow:hidden}
+
+/* Museumsschild unter dem Rahmen */
+.gf__plaque{position:absolute;left:0;top:0;transform:translate3d(-50%,calc(var(--fh) / 2 + 22px),3px);white-space:nowrap;
+  height:28px;padding:0 12px;border-radius:999px;font:500 12px/28px "Inter",sans-serif;letter-spacing:.01em;
+  background:rgba(28,28,30,.72);color:rgba(255,255,255,.92);pointer-events:none;opacity:calc(1 - var(--fog))}
+.hero--gallery[data-theme="light"] .gf__plaque{background:rgba(255,255,255,.88);color:var(--text);box-shadow:0 1px 0 rgba(10,10,10,.06)}
+
+/* ---- Text über der Szene ---- */
+.gal__ui{position:absolute;inset:0;z-index:3;display:flex;align-items:flex-start;justify-content:center;padding-top:calc(var(--header) + 64px);pointer-events:none}
+.gal__ui .hero__inner{pointer-events:auto}
+.hero--gallery .hero__title{color:var(--g-text);text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.hero--gallery[data-theme="light"] .hero__title{text-shadow:none}
+.hero--gallery .hero__lead{color:var(--g-lead)}
+.hero--gallery .hero__lead strong{color:var(--g-text)}
+.hero--gallery[data-theme="dark"] .btn--primary{background:#fff;color:var(--ink)}
+.hero--gallery[data-theme="dark"] .btn--primary:hover{background:#ececec}
+.hero--gallery[data-theme="dark"] .btn--secondary{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.hero--gallery[data-theme="dark"] .btn--secondary:hover{background:rgba(255,255,255,.18)}
+.hero--gallery.is-focus .gal__ui{opacity:0;pointer-events:none;transition:opacity var(--t2) var(--ease)}
+.gal__ui{transition:opacity var(--t3) var(--ease)}
+
+/* ---- Hinweis, Umschalter, Fokus-Leiste ---- */
+.gal__hint,.gal__theme,.gal__focus{position:absolute;left:50%;z-index:4;transform:translateX(-50%);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:999px;background:var(--g-pill-bg);color:var(--g-pill)}
+.gal__hint{bottom:26px;margin:0;padding:0 16px;height:36px;line-height:36px;font-size:13px;white-space:nowrap;max-width:calc(100vw - 32px);overflow:hidden;text-overflow:ellipsis;
+  transition:opacity var(--t2) var(--ease),transform var(--t2) var(--ease)}
+.gal__hint a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.hero--gallery.is-focus .gal__hint{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(8px)}
+.gal__theme{top:calc(var(--header) + 10px);display:inline-flex;padding:3px}
+.gal__theme button{height:30px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:inherit;font:500 13px/1 "Inter",sans-serif;cursor:pointer;opacity:.8}
+.gal__theme button[aria-pressed="true"]{background:#fff;color:var(--ink);opacity:1}
+.hero--gallery[data-theme="light"] .gal__theme button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.gal__focus{bottom:26px;display:flex;align-items:center;gap:12px;padding:6px 6px 6px 18px;opacity:0;pointer-events:none;transform:translateX(-50%) translateY(10px);
+  transition:opacity var(--t2) var(--ease),transform var(--t2) var(--ease);max-width:calc(100vw - 32px)}
+.gal__focus-title{font:500 14px/1.2 "Inter",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gal__focus .btn--sm{height:40px;padding:0 16px;gap:8px}
+.gal__focus .iconbtn{width:40px;height:40px}
+.hero--gallery.is-focus .gal__focus{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+.hero--gallery[data-theme="light"] .gal__focus .btn--light{background:var(--ink);color:#fff}
+
+/* ---- Tour-Fenster (Vollbild-Overlay) ---- */
+.gal__viewer{position:fixed;inset:0;z-index:950;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(8,8,9,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.gal__viewer.is-open{display:flex}
+.gal__viewer-box{position:relative;width:min(1280px,100%);aspect-ratio:16/9;max-height:calc(100vh - 48px);border-radius:var(--r-media);overflow:hidden;background:#111;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.gal__viewer-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.gal__viewer-close{position:absolute;right:20px;top:20px}
+html.gal-lock,html.gal-lock body{overflow:hidden}
+
+@media (max-width:640px){
+  .gal__ui{padding-top:calc(var(--header) + 54px)}
+  .gal__hint{font-size:12px;height:34px;line-height:34px;bottom:18px}
+  .gal__theme{top:calc(var(--header) + 6px);padding:2px}
+  .gal__theme button{height:26px;padding:0 12px;font-size:12px}
+  .gf__spot{width:34px;height:17px;margin:-8px 0 0 -17px;box-shadow:0 0 16px 5px rgba(255,255,255,.2)}
+  .hero--gallery{--g-spot:.75}
+  .gal__plaque{display:none}
+  .gf__face .play{width:40px;height:40px;margin:-20px 0 0 -20px}
+  .gal__focus{bottom:18px;padding-left:14px;gap:8px}
+  .gal__focus-title{max-width:34vw}
+  .gal__viewer{padding:12px}
+  .gal__viewer-close{right:14px;top:14px}
+}
+@media (max-width:640px){.gf__plaque{display:none}}

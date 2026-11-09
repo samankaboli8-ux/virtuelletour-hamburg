@@ -35,6 +35,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css?v=62">
+<link rel="stylesheet" href="exhibition.css?v=2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -235,104 +236,195 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 
 <main id="main">
 
-  <!-- 1. Hero -->
-  <section class="hero hero--arc">
-    <div class="mesh mesh--hero" aria-hidden="true"></div>
-    <div class="wrap hero__inner">
-      <h1 class="hero__title"><span class="w"><span style="--w:0">Virtuelle</span></span> <span class="w"><span style="--w:1">3D-Touren</span></span> <span class="w"><span style="--w:2">aus</span></span> <span class="w"><span style="--w:3">Hamburg,</span></span> <br class="br-lg"> <span class="w"><span style="--w:4">für</span></span> <span class="w"><span style="--w:5">ganz</span></span> <span class="w"><span style="--w:6">Deutschland</span></span></h1>
-      <p class="lead hero__lead">Ein Termin vor Ort, alles dabei:<br>360°-Rundgang, 4K-Bilder, 3D-Modell, Grundriss und Google Street&nbsp;View&nbsp;uvm.<br><strong>Festpreis ab 430&nbsp;€</strong></p>
-      <div class="hero__cta">
-        <a class="btn btn--primary btn--lg" id="heroCta" href="kontakt.html">Unverbindlich anfragen</a>
-        <a class="btn btn--secondary btn--lg" href="#preise">Preise ansehen</a>
-      </div>
-    </div>
-
-    <div class="wrap hero__stage">
-      <div class="arc-stage" id="arcStage">
-        <div class="arc" id="arc" role="group" aria-label="Ausgewählte Touren, zum Drehen ziehen">
-          <div class="arc__ring">
-          <button type="button" class="arc__card" data-m="2JgeWuujp21" data-title="StrandPauli" aria-label="Tour starten: StrandPauli">
-            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp"><img src="images/tours/2JgeWuujp21-960.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="640" height="360" loading="eager" decoding="async"></picture>
-            <span class="chip chip--glass">StrandPauli · Hamburg</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="NsvWLbUKDEX" data-title="Restaurant Caspari" aria-label="Tour starten: Restaurant Caspari">
-            <picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="Gastraum des Restaurants Caspari in der virtuellen 3D-Tour" width="640" height="360" loading="eager" decoding="async"></picture>
-            <span class="chip chip--glass">Restaurant Caspari · Hamburg</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="t4sME6NCR3Y" data-title="WE ARE PADEL" aria-label="Tour starten: WE ARE PADEL">
-            <picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Padelhalle WE ARE PADEL Berlin in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
-            <span class="chip chip--glass">WE ARE PADEL · Berlin</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="7CpYpsEXAhs" data-title="Die MachBar" aria-label="Tour starten: Die MachBar">
-            <picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Veranstaltungsfläche der MachBar Lübeck in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
-            <span class="chip chip--glass">Die MachBar · Lübeck</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="d6EKByVzyrT" data-title="Golden Bean" aria-label="Tour starten: Golden Bean">
-            <picture><source type="image/webp" srcset="images/tours/d6EKByVzyrT-640.webp"><img src="images/tours/d6EKByVzyrT-960.jpg" alt="Virtuelle Tour des Cafés Golden Bean in Hamburg-Winterhude" width="640" height="360" loading="eager" decoding="async"></picture>
-            <span class="chip chip--glass">Golden Bean · Hamburg-Winterhude</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="jW4ha2PrbZB" data-title="DEVK Völklingen" aria-label="Tour starten: DEVK Völklingen">
-            <picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Versicherungsbüro der DEVK in Völklingen in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">DEVK Völklingen · Völklingen</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="uDdPTJRfy2R" data-title="Doro Ristorante" aria-label="Tour starten: Doro Ristorante">
-            <picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Doro Ristorante, italienisches Restaurant, in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">Doro Ristorante · Hamburg</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="KNbB5EPAmre" data-title="Lessingstraße 7" aria-label="Tour starten: Lessingstraße 7">
-            <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Wohnung in der Lessingstraße Hamburg in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">Lessingstraße 7 · Hamburg</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="zgWUkeHqJUr" data-title="Tunici" aria-label="Tour starten: Tunici">
-            <picture><source type="image/webp" srcset="images/tours/zgWUkeHqJUr-640.webp"><img src="images/tours/zgWUkeHqJUr-960.jpg" alt="Hotel und Eventlocation Tunici in Hamburg in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">Tunici · Hamburg</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="MbKADxZgAGB" data-title="Caprice Fitness" aria-label="Tour starten: Caprice Fitness">
-            <picture><source type="image/webp" srcset="images/tours/MbKADxZgAGB-640.webp"><img src="images/tours/MbKADxZgAGB-960.jpg" alt="Fitnessclub Caprice in der virtuellen 3D-Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">Caprice Fitness · Fitnessclub</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="C6A8Zt3dq5K" data-title="New City Smash Burger" aria-label="Tour starten: New City Smash Burger">
-            <picture><source type="image/webp" srcset="images/tours/C6A8Zt3dq5K-640.webp"><img src="images/tours/C6A8Zt3dq5K-960.jpg" alt="3D-Tour des Restaurants New City Smash Burger in Hamburg" width="640" height="360" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">New City Smash Burger · Hamburg</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <button type="button" class="arc__card" data-m="ot6rttoEU96" data-title="Flipperhalle" aria-label="Tour starten: Flipperhalle">
-            <picture><source type="image/webp" srcset="images/tours/ot6rttoEU96-640.webp"><img src="images/tours/ot6rttoEU96-960.jpg" alt="Flipperhalle Berlin in der virtuellen 3D-Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">Flipperhalle · Berlin</span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
+  <!-- 1. Hero: Galerie-Korridor (Prototyp nach Framer „Infinite Exhibition“) -->
+  <section class="hero hero--gallery" id="galleryHero" data-theme="dark">
+    <div class="gal-sticky">
+      <div class="gal__view" id="galView" aria-label="Galerie mit ausgewählten virtuellen Touren, zum Durchgehen scrollen">
+        <div class="gal__space" id="galSpace">
+          <div class="room room--wall-l" aria-hidden="true"></div>
+          <div class="room room--wall-r" aria-hidden="true"></div>
+          <div class="room room--ceil" aria-hidden="true"></div>
+          <div class="room room--floor" aria-hidden="true"></div>
+          <div class="room room--end" aria-hidden="true"></div>
+          <div class="gal__world" id="galWorld">
+          <div class="gf" data-side="l">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="2JgeWuujp21" data-title="StrandPauli" data-place="Hamburg" aria-label="Näher treten: StrandPauli">
+              <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp"><img src="images/tours/2JgeWuujp21-960.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">StrandPauli · Hamburg</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp"><img src="images/tours/2JgeWuujp21-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
           </div>
-          <div class="arc__edge arc__edge--l" aria-hidden="true"></div>
-          <div class="arc__edge arc__edge--r" aria-hidden="true"></div>
+          <div class="gf" data-side="r">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="NsvWLbUKDEX" data-title="Restaurant Caspari" data-place="Hamburg" aria-label="Näher treten: Restaurant Caspari">
+              <picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="Gastraum des Restaurants Caspari in der virtuellen 3D-Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Restaurant Caspari · Hamburg</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="l">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="t4sME6NCR3Y" data-title="WE ARE PADEL" data-place="Berlin" aria-label="Näher treten: WE ARE PADEL">
+              <picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Padelhalle WE ARE PADEL Berlin in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">WE ARE PADEL · Berlin</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="r">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="7CpYpsEXAhs" data-title="Die MachBar" data-place="Lübeck" aria-label="Näher treten: Die MachBar">
+              <picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Veranstaltungsfläche der MachBar Lübeck in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Die MachBar · Lübeck</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="l">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="d6EKByVzyrT" data-title="Golden Bean" data-place="Hamburg-Winterhude" aria-label="Näher treten: Golden Bean">
+              <picture><source type="image/webp" srcset="images/tours/d6EKByVzyrT-640.webp"><img src="images/tours/d6EKByVzyrT-960.jpg" alt="Virtuelle Tour des Cafés Golden Bean in Hamburg-Winterhude" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Golden Bean · Hamburg-Winterhude</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/d6EKByVzyrT-640.webp"><img src="images/tours/d6EKByVzyrT-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="r">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="jW4ha2PrbZB" data-title="DEVK Völklingen" data-place="Völklingen" aria-label="Näher treten: DEVK Völklingen">
+              <picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Versicherungsbüro der DEVK in Völklingen in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">DEVK Völklingen · Völklingen</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="l">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="uDdPTJRfy2R" data-title="Doro Ristorante" data-place="Hamburg" aria-label="Näher treten: Doro Ristorante">
+              <picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Doro Ristorante, italienisches Restaurant, in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Doro Ristorante · Hamburg</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="r">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="KNbB5EPAmre" data-title="Lessingstraße 7" data-place="Hamburg" aria-label="Näher treten: Lessingstraße 7">
+              <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Wohnung in der Lessingstraße Hamburg in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Lessingstraße 7 · Hamburg</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="l">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="zgWUkeHqJUr" data-title="Tunici" data-place="Hamburg" aria-label="Näher treten: Tunici">
+              <picture><source type="image/webp" srcset="images/tours/zgWUkeHqJUr-640.webp"><img src="images/tours/zgWUkeHqJUr-960.jpg" alt="Hotel und Eventlocation Tunici in Hamburg in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Tunici · Hamburg</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/zgWUkeHqJUr-640.webp"><img src="images/tours/zgWUkeHqJUr-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="r">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="MbKADxZgAGB" data-title="Caprice Fitness" data-place="Fitnessclub" aria-label="Näher treten: Caprice Fitness">
+              <picture><source type="image/webp" srcset="images/tours/MbKADxZgAGB-640.webp"><img src="images/tours/MbKADxZgAGB-960.jpg" alt="Fitnessclub Caprice in der virtuellen 3D-Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Caprice Fitness · Fitnessclub</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/MbKADxZgAGB-640.webp"><img src="images/tours/MbKADxZgAGB-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="l">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="C6A8Zt3dq5K" data-title="New City Smash Burger" data-place="Hamburg" aria-label="Näher treten: New City Smash Burger">
+              <picture><source type="image/webp" srcset="images/tours/C6A8Zt3dq5K-640.webp"><img src="images/tours/C6A8Zt3dq5K-960.jpg" alt="3D-Tour des Restaurants New City Smash Burger in Hamburg" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">New City Smash Burger · Hamburg</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/C6A8Zt3dq5K-640.webp"><img src="images/tours/C6A8Zt3dq5K-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          <div class="gf" data-side="r">
+            <div class="gf__glow" aria-hidden="true"></div>
+            <button type="button" class="gf__face" data-m="ot6rttoEU96" data-title="Flipperhalle" data-place="Berlin" aria-label="Näher treten: Flipperhalle">
+              <picture><source type="image/webp" srcset="images/tours/ot6rttoEU96-640.webp"><img src="images/tours/ot6rttoEU96-960.jpg" alt="Flipperhalle Berlin in der virtuellen 3D-Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <div class="gf__side" aria-hidden="true"></div>
+            <span class="gf__plaque" aria-hidden="true">Flipperhalle · Berlin</span>
+            <div class="gf__mirror" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/ot6rttoEU96-640.webp"><img src="images/tours/ot6rttoEU96-960.jpg" alt="" width="640" height="360" loading="eager" decoding="async"></picture></div>
+            <div class="gf__pool" aria-hidden="true"></div>
+            <div class="gf__spot" aria-hidden="true"></div>
+          </div>
+          </div>
         </div>
-        <p class="arc__hint">Ziehen zum Drehen, Tour anklicken zum Starten · <a href="referenzen.html">Alle Touren ansehen</a></p>
-      <div class="hero-media" id="heroTour" data-m="2JgeWuujp21">
-        <div class="hero-media__frame" id="heroFrame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli Hamburg starten" data-title="StrandPauli">
-          <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-1280.webp"><img src="images/tours/2JgeWuujp21-1280.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="1280" height="720" fetchpriority="high" decoding="async"></picture>
-          <span class="hero-media__cta" id="heroPlay"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="chip chip--glass">360° Tour starten</span></span>
-        </div>
-        <button type="button" class="iconbtn iconbtn--glass hero-media__close" id="heroClose" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-        <ul class="facts" aria-label="Eckdaten">
-          <li><strong>ab 430&nbsp;€</strong><span>Festpreis</span></li>
-          <li><strong>Alles inklusive</strong><span>Tour, Bilder, Hosting</span></li>
-          <li><strong>Ein Termin</strong><span>vor Ort</span></li>
-          <li><strong>Deutschlandweit</strong><span>Aus Hamburg</span></li>
-        </ul>
-      </div>
       </div>
 
+      <div class="gal__ui">
+        <div class="wrap hero__inner">
+          <h1 class="hero__title"><span class="w"><span style="--w:0">Virtuelle</span></span> <span class="w"><span style="--w:1">3D-Touren</span></span> <span class="w"><span style="--w:2">aus</span></span> <span class="w"><span style="--w:3">Hamburg,</span></span> <br class="br-lg"> <span class="w"><span style="--w:4">für</span></span> <span class="w"><span style="--w:5">ganz</span></span> <span class="w"><span style="--w:6">Deutschland</span></span></h1>
+          <p class="lead hero__lead">Ein Termin vor Ort, alles dabei:<br>360°-Rundgang, 4K-Bilder, 3D-Modell, Grundriss und Google Street&nbsp;View&nbsp;uvm.<br><strong>Festpreis ab 430&nbsp;€</strong></p>
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" id="heroCta" href="kontakt.html">Unverbindlich anfragen</a>
+            <a class="btn btn--secondary btn--lg" href="#preise">Preise ansehen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gal__theme" role="group" aria-label="Darstellung (nur Vorschau)">
+        <button type="button" data-theme="dark" aria-pressed="true">Dunkel</button>
+        <button type="button" data-theme="light" aria-pressed="false">Hell</button>
+      </div>
+
+      <p class="gal__hint" id="galHint">Scrollen, um durch die Galerie zu gehen · Bild anklicken, um näher zu treten · <a href="referenzen.html">Alle Touren</a></p>
+
+      <div class="gal__focus" id="galFocus" aria-live="polite">
+        <span class="gal__focus-title" id="galFocusTitle"></span>
+        <button type="button" class="btn btn--sm btn--light" data-act="start"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="14" height="14"><path d="M8 5v14l11-7z"/></svg>360° Tour starten</button>
+        <button type="button" class="iconbtn iconbtn--glass" data-act="back" aria-label="Zurück in die Galerie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
     </div>
   </section>
+
+  <div class="gal__viewer" id="galViewer" hidden>
+    <div class="gal__viewer-box" id="galViewerBox"></div>
+    <button type="button" class="iconbtn iconbtn--glass gal__viewer-close" id="galViewerClose" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
 
   <!-- 2. Ablauf auf dem Verlaufsband -->
   <section class="section">
@@ -657,6 +749,7 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=39" defer></script>
+<script src="site.js?v=40" defer></script>
+<script src="exhibition.js?v=2" defer></script>
 </body>
 </html>

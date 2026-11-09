@@ -530,6 +530,7 @@
   if (lenis && !reduce) {
     var snapEls = Array.prototype.slice.call(document.querySelectorAll('main > section'));
     var snapPinned = document.querySelector('.flow-scroll');
+    var snapGallery = document.querySelector('.hero--gallery'); // gepinnter Galerie-Hero: kein Einrasten im Korridor
     var snapHeader = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header')) || 64;
     var snapTimer = 0, snapBusy = false, snapLastY = window.pageYOffset, snapDir = 1;
     var trySnap = function () {
@@ -539,6 +540,10 @@
       if (snapPinned) {
         var pTop = snapPinned.getBoundingClientRect().top + y, pEnd = pTop + snapPinned.offsetHeight - vh;
         if (y > pTop + 1 && y < pEnd - 1) return;
+      }
+      if (snapGallery) {
+        var gTop = snapGallery.getBoundingClientRect().top + y, gEnd = gTop + snapGallery.offsetHeight - vh;
+        if (y < gEnd - 1) return;
       }
       var limit = vh * (finePointer ? 0.6 : 0.4), best = null; // Desktop zieht großzügiger, Touch zurückhaltender
       var avail = vh - snapHeader;
