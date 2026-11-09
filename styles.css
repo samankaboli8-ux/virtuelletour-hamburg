@@ -126,7 +126,8 @@ h3{font-size:20px;line-height:1.25;letter-spacing:-.015em}
 .site-header{position:sticky;top:0;z-index:900;height:var(--header);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color var(--t2) var(--ease)}
 .site-header.is-scrolled{border-bottom-color:var(--line)}
 .nav{position:relative;display:flex;align-items:center;justify-content:center;height:100%;gap:36px}
-.brand{display:inline-flex;align-items:center;gap:10px;flex:none;position:absolute;left:var(--gutter);top:50%;translate:0 -50%}
+.brand{display:inline-flex;align-items:center;gap:10px;flex:none}
+.nav .brand{position:absolute;left:var(--gutter);top:50%;translate:0 -50%}
 .brand__mark{width:34px;height:34px;flex:none}
 .brand__mark svg{width:100%;height:100%}
 .lm-l{fill:#4E7B53}.lm-r{fill:#3f6644}.lm-t{fill:#6FA06F}.lm-e{fill:#3f6644}.lm-w{fill:#16242E}
@@ -154,7 +155,7 @@ h3{font-size:20px;line-height:1.25;letter-spacing:-.015em}
 
 @media (max-width:1100px){
   .nav{justify-content:space-between}
-  .brand{position:static;translate:none}
+  .nav .brand{position:static;translate:none}
   .burger{display:grid}
   .nav__links{display:none;position:absolute;left:12px;right:12px;top:calc(var(--header) + 4px);flex-direction:column;align-items:stretch;gap:2px;padding:12px;
     background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-float);max-height:calc(100vh - var(--header) - 24px);overflow:auto}
