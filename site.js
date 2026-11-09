@@ -533,9 +533,11 @@
   var rowMQ = window.matchMedia('(min-width: 56.3125em)');
   var ARROW_L = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>';
   var ARROW_R = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>';
-  Array.prototype.slice.call(document.querySelectorAll('.tour-grid')).forEach(function (grid) {
+  var initTourRow = function (grid) {
+    if (!grid || grid.dataset.row) return;
     var tours = Array.prototype.slice.call(grid.children).filter(function (c) { return c.classList.contains('tour'); });
     if (tours.length <= 3 || grid.classList.contains('tour-grid--1')) return;
+    grid.dataset.row = '1';
     var nav = document.createElement('div'); nav.className = 'tour-row__nav';
     nav.innerHTML = '<button type="button" class="arrow arrow--ghost" aria-label="Vorherige Touren">' + ARROW_L + '</button><button type="button" class="arrow arrow--ghost" aria-label="Weitere Touren">' + ARROW_R + '</button>';
     grid.parentNode.insertBefore(nav, grid.nextSibling);
@@ -560,7 +562,9 @@
     if (rowMQ.addEventListener) rowMQ.addEventListener('change', apply); else rowMQ.addListener(apply);
     window.addEventListener('resize', function () { if (rowMQ.matches) update(); });
     apply();
-  });
+  };
+  window.initTourRows = function (root) { Array.prototype.slice.call((root || document).querySelectorAll('.tour-grid, .cat .grid')).forEach(initTourRow); };
+  window.initTourRows(document);
 
   /* ---- Fokus-Galerie: ein Bild groß im Fokus, Nachbarn kleiner und blasser, horizontal blättern, als Endlosschleife.
      Ziehen, horizontales Wischen am Trackpad, Pfeile, Pfeiltasten; Klick auf einen Nachbarn holt ihn
@@ -804,7 +808,7 @@
         var dim = Math.min(1, Math.max(0, (abs - 22) / 68));
         c.style.setProperty('--dim', dim.toFixed(3));
         c.style.setProperty('--back', abs > 90 ? '1' : '0'); // Rückseite: kleiner, gedimmt, ohne Chip und Play
-        var hidden = abs > 90;
+        var hidden = abs > 50; // nur die vorderen drei Karten sind antippbar; seitliche sind perspektivisch zu schmal // seitliche Karten sind perspektivisch schmal: nicht antippbar, nicht fokussierbar
         c.setAttribute('aria-hidden', hidden ? 'true' : 'false');
         c.tabIndex = hidden ? -1 : 0;
       });

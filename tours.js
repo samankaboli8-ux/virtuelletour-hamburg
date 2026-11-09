@@ -165,6 +165,7 @@ function render(list){
   if(rest.length) addCategory('Weitere Touren', rest);
   const countEl = document.getElementById('tourCount');
   if(countEl) countEl.textContent = list.length + (list.length === 1 ? ' Tour' : ' Touren');
+  if (typeof window.initTourRows === 'function') window.initTourRows(grid);
 }
 
 function openTour(card, t){
