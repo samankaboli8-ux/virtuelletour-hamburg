@@ -51,6 +51,7 @@
      dort als Literale; site.js liest die Tokens hier aus, und werkzeuge/breakpoints-pruefen.py stellt sicher, dass jede
      Media Query genau einen dieser Werte (oder sein Komplement plus 1 px) verwendet. */
   --bp-s:40em;--bp-m:56.25em;--bp-l:68.75em;--bp-xl:83em;
+  --bp-h:46em; /* Fensterhöhe bis 736 px (1280×720 abzüglich Browserleiste): engerer vertikaler Rhythmus */
   /* Vertikaler Rhythmus: folgt der Fensterhöhe, damit Abschnitte auf jeden Bildschirm passen */
   --sec:clamp(2.5rem,6vh,5rem);
   --head-mb:clamp(1.25rem,3.5vh,2.25rem);
@@ -1088,3 +1089,20 @@ a.v:hover{color:var(--muted)}
   .price-note:has(+ .price-contact){margin-right:var(--s-5)}
 }
 @media (max-width:83em){.feat{padding-inline:var(--s-3)}} /* Icon-Karten bis 1328 px: Textspalte hält 50 Zeichen */
+
+/* Niedrige Fenster (bis --bp-h): Rhythmus und Formular enger, damit jeder Abschnitt in den Viewport passt */
+@media (max-height:46em){
+  :root{--sec:clamp(2rem,5vh,5rem);--head-mb:clamp(1rem,3vh,2.25rem)}
+  .form-card{padding:var(--s-5)}
+  .form-card h2{margin-bottom:var(--s-3)}
+  .field{margin-bottom:var(--s-2)}
+  .field input,.field select{min-height:44px}
+  .consent{margin-bottom:var(--s-4)}
+  .post{padding:var(--s-5) var(--s-6)}
+  .vgal__row a{padding:clamp(var(--s-2),1.2vh,var(--s-4)) 0}
+  .vgal__row.is-active .vgal__desc{max-height:3.4em}
+  .feat{padding-block:var(--s-4)}
+  .contact-side .about__img{height:clamp(120px,calc(100vh - 600px),300px)}
+}
+/* Handy: Ablauf-Karten mit schmalerem Innenabstand, mehr Zeichen je Zeile */
+@media (max-width:56.25em){.step{padding:var(--s-5) var(--s-4)}}
