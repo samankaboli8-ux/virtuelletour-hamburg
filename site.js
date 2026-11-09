@@ -392,12 +392,18 @@
     var fRange = function () { return fWrap ? fWrap.offsetHeight - window.innerHeight : 0; };
     var fTop = function () { return fWrap.getBoundingClientRect().top + window.pageYOffset; };
     var fPinned = function () { return fWrap && !reduce && !fMobile.matches && fRange() > 0; };
+    /* Zonen des Scrollwegs: der erste Punkt bekommt mehr Weg (Haltezone beim Einstieg), der letzte etwas weniger */
+    var fWeights = fCards.map(function (_, i) { return i === 0 ? 1.5 : (i === fN - 1 ? 0.8 : 1); });
+    var fSum = fWeights.reduce(function (s, w) { return s + w; }, 0);
+    var fBounds = []; (function () { var acc = 0; fWeights.forEach(function (w) { acc += w / fSum; fBounds.push(acc); }); })();
+    var fIndexAt = function (p) { for (var i = 0; i < fN; i++) { if (p < fBounds[i]) return i; } return fN - 1; };
+    var fCenterOf = function (i) { var start = i === 0 ? 0 : fBounds[i - 1]; return (start + fBounds[i]) / 2; };
     var fFromScroll = function () {
       fTick = false;
       if (!fPinned()) return;
       var range = fRange();
       var p = Math.min(1, Math.max(0, (window.pageYOffset - fTop()) / range));
-      fSet(Math.min(fN - 1, Math.floor(p * fN)));
+      fSet(fIndexAt(p));
     };
     var fGo = function (i) {
       i = Math.max(0, Math.min(fN - 1, i));
@@ -406,7 +412,7 @@
         fStage.scrollTo({ left: card.offsetLeft - (fStage.clientWidth - card.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
         fSet(i);
       } else if (fPinned()) {
-        var y = fTop() + ((i + 0.5) / fN) * fRange();
+        var y = fTop() + fCenterOf(i) * fRange();
         if (window.lenis) window.lenis.scrollTo(y, { duration: 0.9 }); else window.scrollTo({ top: y, behavior: 'smooth' });
       } else fSet(i);
     };
