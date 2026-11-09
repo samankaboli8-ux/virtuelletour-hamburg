@@ -375,13 +375,19 @@ html.has-intro,html.has-intro body{overflow:hidden}
 }
 
 /* Ablauf */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4)}
+.steps{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-4)}
 .step{padding:clamp(var(--s-5),3vh,var(--s-6)) var(--s-6);background:#fff;border-radius:var(--r-card);transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
 .step:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 .step__n{display:block;font:600 calc(var(--fs-h2) * .9)/1 "Inter",sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#D9DBD9;margin-bottom:clamp(var(--s-4),2.5vh,var(--s-6))}
 .step h3{font-size:var(--fs-h3);margin-bottom:var(--s-2)}
+@media (min-width:56.3125em){
+  .step{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s-5);align-items:start}
+  .step__n{grid-row:1/3;margin:0;line-height:1}
+  .step h3{margin:0 0 var(--s-1)}
+  .step p{max-width:var(--mw-2)}
+}
 .step p{color:var(--muted);font-size:var(--fs-m)}
-@media (max-width:56.25em){.steps{grid-template-columns:minmax(0,1fr)}}
+
 
 /* Ansprechpartner: dunkles Band */
 .person{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--s-7);align-items:center;padding:var(--s-6);background:var(--ink);color:#fff;border-radius:28px}
@@ -440,7 +446,7 @@ html.has-intro,html.has-intro body{overflow:hidden}
 
 .site-footer{background:#fff;border-top:1px solid var(--line);padding:var(--s-8) 0 var(--s-6);font-size:var(--fs-s);line-height:1.5}
 .footer-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:var(--s-7)}
-.footer-brand p{margin-top:var(--s-4);color:var(--muted);max-width:var(--mw-0)}
+.footer-brand p{margin-top:var(--s-4);color:var(--muted);max-width:var(--mw-1)}
 .footer-brand p a{text-decoration:underline;text-underline-offset:3px;color:var(--text)}
 .footer-col{display:flex;flex-direction:column;align-items:flex-start}
 .footer-col h3{font:500 var(--fs-xs)/1.3 "Inter",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--s-3)}
@@ -535,18 +541,17 @@ html.has-intro,html.has-intro body{overflow:hidden}
 @media (max-width:40em){.points{grid-template-columns:minmax(0,1fr)}.point:nth-last-child(2){border-bottom:0}}
 
 /* Icon-Karten (Baubranche, Immobilien-Exposé, Berlin) */
-.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-4)}
-.feats--3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.feat{display:flex;flex-direction:column;padding:var(--s-6) var(--s-5) var(--s-6);background:var(--grey);border-radius:var(--r-card);color:var(--text);transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
+.feats,.feats--3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-4)}
+.feat{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s-4);align-items:start;padding:var(--s-5);background:var(--grey);border-radius:var(--r-card);color:var(--text);transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
 .section--grey .feat{background:#fff}
 .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
-.feat__icon{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink)}
+.feat__icon{grid-row:1/3;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink)}
 .section--grey .feat__icon{background:var(--grey)}
 .feat__icon svg{width:22px;height:22px}
-.feat h3{margin:var(--s-5) 0 var(--s-2);font-size:var(--fs-h3)}
-.feat p{color:var(--muted);font-size:var(--fs-m);line-height:1.5;flex:1}
+.feat h3{margin:var(--s-1) 0 var(--s-1);font-size:var(--fs-h3)}
+.feat>*:not(.feat__icon){grid-column:2}
+.feat p{color:var(--muted);font-size:var(--fs-m);line-height:1.5;max-width:var(--mw-2)}
 a.feat:hover .feat__more svg{transform:translateX(4px)}
-@media (max-width:64em){.feats,.feats--3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:40em){.feats,.feats--3{grid-template-columns:minmax(0,1fr);gap:var(--s-3)}}
 
 /* Preisstaffel: individuelles Angebot */
@@ -688,7 +693,7 @@ a.v:hover{color:var(--muted)}
 }
 
 /* Ratgeber-Übersicht: Artikelkarten */
-.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-4)}
+.posts{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-4)}
 .post{display:flex;flex-direction:column;gap:var(--s-4);padding:var(--s-6) var(--s-6) var(--s-6);background:var(--grey);border-radius:var(--r-card);color:var(--text);transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
 .post:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 .post .label{margin-bottom:var(--s-2)}
@@ -698,12 +703,14 @@ a.v:hover{color:var(--muted)}
 .post__more .arrow{width:36px;height:36px}
 .post__more .arrow svg{width:16px;height:16px}
 .post:hover .arrow--ghost{background:var(--ink);color:#fff;box-shadow:none}
-@media (max-width:56.25em){.posts{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:56.3125em){
+  .post{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--s-7);align-items:start}
+  .post .label,.post h2{grid-column:1}
+  .post p{grid-column:2;grid-row:1/3;max-width:var(--mw-2)}
+  .post__more{grid-column:2;margin-top:0}
+}
 
 /* Ablauf mit vier Schritten (Ratgeber Street View) */
-.steps--4{grid-template-columns:repeat(4,minmax(0,1fr))}
-@media (max-width:64em){.steps--4{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:40em){.steps--4{grid-template-columns:minmax(0,1fr)}}
 
 /* Referenzen: Suche, Kategorien, Raster */
 .toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s-4);margin-bottom:var(--s-7)}
@@ -797,10 +804,8 @@ a.v:hover{color:var(--muted)}
 
 /* Nachträge aus dem Rollout: Artikel-Schritte, Checklisten, ausgewogene Zeilenumbrüche */
 .prose li small{display:block;margin-top:2px;font-size:var(--fs-s);color:var(--muted)}
-.prose .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 .prose .step{background:var(--grey)}
 .prose .step__n{color:#CFD2D0}
-@media (max-width:40em){.prose .steps{grid-template-columns:minmax(0,1fr)}}
 .page-head h1,.hero--sub .hero__title,.cta-band h2,.sec-head h2{text-wrap:balance}
 
 /* ---------- 14  Warum als Karten-Flow: gestapelte Karten, Wechsel per Pfeil, Segment, Klick oder Wischen ---------- */
