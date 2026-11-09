@@ -319,7 +319,7 @@ html.has-intro,html.has-intro body{overflow:hidden}
 .tour__meta h3{font-size:var(--fs-h3);letter-spacing:-.01em}
 .tour__meta p{font-size:var(--fs-xs);color:var(--muted);margin-top:2px}
 .tour__actions{display:flex;gap:var(--s-2);margin-top:-6px}
-.tour__actions .iconbtn{width:44px;height:44px;border-color:transparent;background:var(--grey)}
+.tour__actions .iconbtn{flex:none;width:44px;height:44px;min-width:44px;min-height:44px;border-color:transparent;background:var(--grey)}
 .tour__actions .close{display:none}
 .tour.is-open .close{display:grid}
 .tour.is-open{grid-column:1/-1}
