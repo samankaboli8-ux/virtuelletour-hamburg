@@ -483,10 +483,17 @@
       vItems.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.setAttribute('aria-current', k === i ? 'true' : 'false'); });
       return true;
     };
+    var vMobile = window.matchMedia('(max-width: 900px)');
     vRows.forEach(function (r, i) {
       var a = r.querySelector('a'); if (!a) return;
       if (finePointer) r.addEventListener('pointerenter', function () { vSet(i); });
-      a.addEventListener('focus', function () { vSet(i); });
+      a.addEventListener('focus', function () { if (!vMobile.matches) vSet(i); });
+      /* Mobil: Bild der Branche in die Zeile übernehmen, erster Tipp klappt auf, zweiter öffnet die Seite */
+      var pic = vItems[i] && vItems[i].querySelector('picture');
+      if (pic && !a.querySelector('.vgal__thumb')) { var th = document.createElement('span'); th.className = 'vgal__thumb'; th.appendChild(pic.cloneNode(true)); a.appendChild(th); }
+      a.addEventListener('click', function (e) {
+        if (vMobile.matches && !r.classList.contains('is-active')) { e.preventDefault(); vSet(i); }
+      });
     });
     /* Bilder reagieren nicht auf die Maus; ein Tipp auf einen eingeklappten Streifen klappt ihn auf (Touch) */
     vItems.forEach(function (it, i) {
