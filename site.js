@@ -48,7 +48,7 @@
   /* Mega-Panel „Branchen“: öffnet per Hover (Maus) oder Klick, schließt beim Verlassen der Leiste, per Escape oder Klick außerhalb */
   var navbar = document.getElementById('navbar'), megaToggle = document.getElementById('megaToggle'), megaPanel = document.getElementById('megaPanel');
   if (navbar && megaToggle && megaPanel) {
-    var megaTimer = null, isDesktop = function () { return window.matchMedia('(min-width: 1101px)').matches; };
+    var megaTimer = null, isDesktop = function () { return window.matchMedia('(min-width: 68.8125em)').matches; };
     var setMega = function (open) {
       clearTimeout(megaTimer);
       navbar.classList.toggle('is-mega', open);
@@ -382,7 +382,7 @@
     var fSegs = Array.prototype.slice.call(flow.querySelectorAll('.flow__seg'));
     var fStage = document.getElementById('flowStage');
     var fPrev = document.getElementById('flowPrev'), fNext = document.getElementById('flowNext');
-    var fMobile = window.matchMedia('(max-width: 900px)');
+    var fMobile = window.matchMedia('(max-width: 56.25em)');
     var fN = fCards.length, fCur = 0, fSwiped = false;
     var fApply = function () {
       fCards.forEach(function (c, i) {
@@ -453,7 +453,7 @@
       vItems.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.setAttribute('aria-current', k === i ? 'true' : 'false'); });
       return true;
     };
-    var vMobile = window.matchMedia('(max-width: 900px)');
+    var vMobile = window.matchMedia('(max-width: 56.25em)');
     vRows.forEach(function (r, i) {
       var a = r.querySelector('a'); if (!a) return;
       if (finePointer) r.addEventListener('pointerenter', function () { vSet(i); });
@@ -530,7 +530,7 @@
 
   /* ---- Touren-Reihe: mehr als drei Touren auf Unterseiten laufen auf dem Desktop in einer Reihe (drei sichtbar),
      Pfeile, Wischen am Trackpad oder Ziehen mit der Maus; eine geöffnete Tour nimmt die volle Breite ---- */
-  var rowMQ = window.matchMedia('(min-width: 901px)');
+  var rowMQ = window.matchMedia('(min-width: 56.3125em)');
   var ARROW_L = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>';
   var ARROW_R = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>';
   Array.prototype.slice.call(document.querySelectorAll('.tour-grid')).forEach(function (grid) {
@@ -578,7 +578,7 @@
     var dist = function (i) { var d = i - cur; if (loop) { if (d > n / 2) d -= n; else if (d <= -n / 2) d += n; } return d; };
     var titleEl = root.querySelector('.fgal__title'), countEl = root.querySelector('.fgal__count');
     var prev = root.querySelector('.fgal__prev'), next = root.querySelector('.fgal__next');
-    var mobile = function () { return window.matchMedia('(max-width: 900px)').matches; };
+    var mobile = function () { return window.matchMedia('(max-width: 56.25em)').matches; };
     var scaleFor = function (d) { return d === 0 ? 1 : (d === 1 ? 0.68 : 0.56); };
     var alphaFor = function (d) { return d === 0 ? 1 : (d === 1 ? 0.55 : (d === 2 ? 0.3 : 0)); };
     var layout = function () {
