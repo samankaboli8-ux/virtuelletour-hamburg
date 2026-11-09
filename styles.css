@@ -821,10 +821,10 @@ a.v:hover{color:var(--muted)}
 .flow__item.is-active{opacity:1;translate:0 0;visibility:visible;transition-delay:120ms}
 .flow__item h3{font-size:var(--fs-h2s);line-height:1.12;letter-spacing:-.025em}
 .flow__item p{margin-top:var(--s-4);font-size:var(--fs-m);line-height:1.5;color:var(--muted);max-width:var(--mw-1)}
-.flow__nav{display:flex;align-items:center;gap:var(--s-5);margin-top:var(--s-6)}
+.flow__nav{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-5);margin-top:var(--s-6)}
 .flow__count{flex:none;font:500 var(--fs-xs)/1 "Inter",sans-serif;letter-spacing:.04em;color:var(--muted);font-variant-numeric:tabular-nums}
-.flow__progress{display:flex;flex:1;gap:var(--s-2);align-items:center;min-height:44px}
-.flow__seg{position:relative;flex:1;height:44px;border:0;padding:0;background:transparent;cursor:pointer}
+.flow__progress{display:flex;flex:1 1 13rem;gap:var(--s-2);align-items:center;min-height:44px} /* rückt in eine eigene Zeile, sobald die Segmente unter 44 px fielen */
+.flow__seg{position:relative;flex:1;min-width:44px;height:44px;border:0;padding:0;background:transparent;cursor:pointer}
 .flow__seg::before{content:"";position:absolute;left:0;right:0;top:20px;height:4px;border-radius:999px;background:var(--line)}
 .flow__seg::after{content:"";position:absolute;left:0;right:0;top:20px;height:4px;border-radius:999px;background:var(--ink);transform:scaleX(0);transform-origin:0 50%}
 .flow__seg.is-done::after{transform:scaleX(1)}
