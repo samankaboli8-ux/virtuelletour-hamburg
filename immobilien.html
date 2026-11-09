@@ -33,7 +33,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles.css?v=62">
+<link rel="stylesheet" href="styles.css?v=63">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -215,10 +215,9 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
     </div>
   </section>
 
-  <!-- Warum als Karten-Flow, scrollgesteuert -->
-  <section class="section flow-scroll section--grey" id="warum">
-    <div class="flow-sticky">
-      <div class="wrap">
+  <!-- Warum als Karten-Flow -->
+  <section class="section section--grey" id="warum">
+    <div class="wrap">
         <div class="sec-head sec-head--single" data-reveal>
           <h2>Besichtigen ohne Termin, verkaufen mit Vorsprung</h2>
         </div>
@@ -251,7 +250,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
             </div>
           </div>
         </div>
-      </div>
     </div>
   </section>
 
@@ -270,6 +268,15 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
         <article class="feat" data-reveal style="--i:4"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3c-.4.4-1 .4-1.4 0l-4.6-4.6c-.4-.4-.4-1 0-1.4L15.3 2.7c.4-.4 1-.4 1.4 0l4.6 4.6c.4.4.4 1 0 1.4z"/><path d="m14.5 5.5 2 2M11.5 8.5l2 2M8.5 11.5l2 2M5.5 14.5l2 2"/></svg></span><h3>Messen direkt in der Tour</h3><p>Wandlängen, Raumhöhen, Türbreiten: Interessenten prüfen selbst, ob Küche oder Sofa passen.</p></article>
         <article class="feat" data-reveal style="--i:5"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><h3>Exposébilder in 4K</h3><p>Scharfe Fotos aus derselben Aufnahme für Portale, Exposé und Website, mit vollen Nutzungsrechten.</p></article>
       </div>
+    </div>
+  </section>
+  <!-- Grundriss und 3D-Modell -->
+  <section class="section section--grey" id="grundriss-3d">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>Grundriss und 3D-Modell, direkt aus dem Scan</h2>
+        <p>Maßstäblicher 2D-Grundriss und drehbares Dollhouse-Modell, beides aus demselben Termin: fertig für Exposé, Portale und Planung.</p>
+      </div>
       <div class="gallery gallery--2" data-reveal>
         <div class="shot">
           <picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 600px"><img src="images/grundriss-beispiel.png" alt="Maßstäblicher 2D-Grundriss einer Wohnung mit Raummaßen aus dem 3D-Scan" width="1600" height="1131" loading="lazy" decoding="async"></picture>
@@ -283,7 +290,7 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
     </div>
   </section>
   <!-- Möbel digital entfernen -->
-  <section class="section section--grey" id="defurnishing">
+  <section class="section" id="defurnishing">
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <h2>Möbel digital entfernen: Räume per Klick leeren</h2>
@@ -303,7 +310,7 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
   </section>
 
   <!-- Preis -->
-  <section class="section" id="preise">
+  <section class="section section--grey" id="preise">
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <h2>Tour &amp; <span class="nb">4K-Bilder</span>: alles inklusive ab 430&nbsp;€</h2>
@@ -340,7 +347,7 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
   </section>
 
   <!-- Weitere Branchen -->
-  <section class="section section--grey">
+  <section class="section">
     <div class="wrap">
       <div class="sec-head sec-head--center sec-head--compact sec-head--single" data-reveal>
         <h2>Lösungen für deine Branche</h2>
@@ -480,6 +487,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=39" defer></script>
+<script src="site.js?v=40" defer></script>
 </body>
 </html>

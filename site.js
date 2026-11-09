@@ -359,19 +359,18 @@
     }, { passive: true });
   }
 
-  /* ---- Warum als Karten-Flow: Desktop gepinnt (.flow-scroll hält, vier Punkte laufen mit dem Scrollfortschritt),
-     mobil ohne Pinning als wischbare Kartenreihe mit Scroll-Snap, der Text folgt der sichtbaren Karte.
-     Pfeile und Segmente scrollen zur passenden Stelle; am Anfang und Ende kein Rücksprung. ---- */
+  /* ---- Warum als Karten-Flow: Desktop gestapelte Karten, Wechsel per Pfeil, Segment, Klick auf den Stapel,
+     Ziehen oder Pfeiltasten; mobil als wischbare Kartenreihe mit Scroll-Snap, der Text folgt der sichtbaren Karte.
+     Keine Scroll-Steuerung, die Seite scrollt normal durch den Abschnitt. ---- */
   var flow = document.getElementById('flow');
   if (flow) {
     var fCards = Array.prototype.slice.call(flow.querySelectorAll('.flow__card'));
     var fItems = Array.prototype.slice.call(flow.querySelectorAll('.flow__item'));
     var fSegs = Array.prototype.slice.call(flow.querySelectorAll('.flow__seg'));
     var fStage = document.getElementById('flowStage');
-    var fWrap = flow.closest('.flow-scroll');
     var fPrev = document.getElementById('flowPrev'), fNext = document.getElementById('flowNext');
     var fMobile = window.matchMedia('(max-width: 900px)');
-    var fN = fCards.length, fCur = 0, fSwiped = false, fTick = false;
+    var fN = fCards.length, fCur = 0, fSwiped = false;
     var fApply = function () {
       fCards.forEach(function (c, i) {
         var d = (i - fCur + fN) % fN;
@@ -389,56 +388,14 @@
       if (fNext) fNext.disabled = fCur === fN - 1;
     };
     var fSet = function (i) { i = Math.max(0, Math.min(fN - 1, i)); if (i === fCur) return; fCur = i; fApply(); };
-    var fRange = function () { return fWrap ? fWrap.offsetHeight - window.innerHeight : 0; };
-    var fTop = function () { return fWrap.getBoundingClientRect().top + window.pageYOffset; };
-    var fPinned = function () { return fWrap && !reduce && !fMobile.matches && fRange() > 0; };
-    /* Zonen des Scrollwegs: der erste Punkt bekommt mehr Weg (Haltezone beim Einstieg), der letzte etwas weniger */
-    var fWeights = fCards.map(function (_, i) { return i === 0 ? 1.8 : (i === fN - 1 ? 0.8 : 1); });
-    var fSum = fWeights.reduce(function (s, w) { return s + w; }, 0);
-    var fBounds = []; (function () { var acc = 0; fWeights.forEach(function (w) { acc += w / fSum; fBounds.push(acc); }); })();
-    var fIndexAt = function (p) { for (var i = 0; i < fN; i++) { if (p < fBounds[i]) return i; } return fN - 1; };
-    var fCenterOf = function (i) { var start = i === 0 ? 0 : fBounds[i - 1]; return (start + fBounds[i]) / 2; };
-    /* Sanfte Bremse: Im gepinnten Bereich wird das Rad leicht gedämpft (Lenis wheelMultiplier), beim
-       Hineinscrollen von oben wird kurz und weich an der Oberkante abgefangen, damit Punkt 1 nicht
-       übersprungen wird; kein harter Stopp, kein Sperren der Eingabe. */
-    var fEntered = false, fLastY = window.pageYOffset, fBrakeUntil = 0, fBaseMult = (window.lenis && window.lenis.options) ? (window.lenis.options.wheelMultiplier || 1) : 1;
-    var fEntryGuard = function (y) {
-      var top = fTop(), end = top + fRange(), inside = y > top - 1 && y < end + 1, now = performance.now();
-      /* leichte Dämpfung im Bereich (0,85), direkt nach dem Einstieg für eine Sekunde etwas stärker (0,5) */
-      if (window.lenis && window.lenis.options) window.lenis.options.wheelMultiplier = inside ? fBaseMult * (now < fBrakeUntil ? 0.5 : 0.85) : fBaseMult;
-      if (!fEntered && fLastY < top - 1 && y > top + 1 && y < end && (y - top) > 24) {
-        fEntered = true; fBrakeUntil = now + 1000;
-        if (window.lenis) window.lenis.scrollTo(top + 2, { duration: 0.35, lock: true }); else window.scrollTo(0, top + 2);
-      }
-      if (y < top - 40 || y > end + 40) fEntered = false;
-      fLastY = y;
-    };
-    var fFromScroll = function () {
-      fTick = false;
-      if (!fPinned()) return;
-      var y = window.pageYOffset;
-      fEntryGuard(y);
-      var range = fRange();
-      var p = Math.min(1, Math.max(0, (window.pageYOffset - fTop()) / range));
-      fSet(fIndexAt(p));
-    };
     var fGo = function (i) {
       i = Math.max(0, Math.min(fN - 1, i));
       if (fMobile.matches && fStage) {
         var card = fCards[i];
         fStage.scrollTo({ left: card.offsetLeft - (fStage.clientWidth - card.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
-        fSet(i);
-      } else if (fPinned()) {
-        var y = fTop() + fCenterOf(i) * fRange();
-        if (window.lenis) window.lenis.scrollTo(y, { duration: 0.9 }); else window.scrollTo({ top: y, behavior: 'smooth' });
-      } else fSet(i);
+      }
+      fSet(i);
     };
-    if (fWrap && !reduce) {
-      window.addEventListener('scroll', function () { if (!fTick) { fTick = true; requestAnimationFrame(fFromScroll); } }, { passive: true });
-      window.addEventListener('resize', fFromScroll);
-      window.addEventListener('load', fFromScroll);
-      fFromScroll();
-    }
     /* Mobil: sichtbare Karte im Scroller bestimmt den aktiven Punkt */
     if (fStage && 'IntersectionObserver' in window) {
       var fIO = new IntersectionObserver(function (entries) {
@@ -525,27 +482,21 @@
 
   /* ---- Sanftes Einrasten in Scrollrichtung: kommt die Seite zur Ruhe und liegt der nächste Abschnittsanfang
      in Scrollrichtung näher als etwa ein Drittel Bildschirm, zieht sie weich dorthin. Nach hinten wird nie
-     gezogen, damit Lesen innerhalb langer Abschnitte ungestört bleibt. Nicht im gepinnten Flow, nicht am
-     Seitenanfang oder -ende, nie bei reduzierter Bewegung. ---- */
+     gezogen, damit Lesen innerhalb langer Abschnitte ungestört bleibt. Nicht am Seitenanfang oder -ende,
+     nie bei reduzierter Bewegung. ---- */
   if (lenis && !reduce) {
     var snapEls = Array.prototype.slice.call(document.querySelectorAll('main > section'));
-    var snapPinned = document.querySelector('.flow-scroll');
     var snapHeader = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header')) || 64;
     var snapTimer = 0, snapBusy = false, snapLastY = window.pageYOffset, snapDir = 1;
     var trySnap = function () {
       if (snapBusy) return;
       var y = window.pageYOffset, vh = window.innerHeight, maxY = document.documentElement.scrollHeight - vh;
       if (y < 40 || y > maxY - 40) return;
-      if (snapPinned) {
-        var pTop = snapPinned.getBoundingClientRect().top + y, pEnd = pTop + snapPinned.offsetHeight - vh;
-        if (y > pTop + 1 && y < pEnd - 1) return;
-      }
       var limit = vh * (finePointer ? 0.6 : 0.4), best = null; // Desktop zieht großzügiger, Touch zurückhaltender
       var avail = vh - snapHeader;
       snapEls.forEach(function (el) {
         var r = el.getBoundingClientRect(), absTop = r.top + y, top;
-        if (el.classList.contains('flow-scroll')) top = Math.round(absTop);
-        else if (r.height <= avail) top = Math.round(absTop - snapHeader - (avail - r.height) / 2); // Abschnitt mittig im sichtbaren Bereich
+        if (r.height <= avail) top = Math.round(absTop - snapHeader - (avail - r.height) / 2); // Abschnitt mittig im sichtbaren Bereich
         else top = Math.round(absTop - snapHeader);
         if (snapDir > 0) { if (top > y + 2 && top - y <= limit && (best === null || top < best)) best = top; }
         else { if (top < y - 2 && y - top <= limit && (best === null || top > best)) best = top; }
@@ -563,6 +514,129 @@
       if (!snapBusy) snapTimer = setTimeout(trySnap, 120);
     }, { passive: true });
   }
+
+  /* ---- Touren-Reihe: mehr als drei Touren auf Unterseiten laufen auf dem Desktop in einer Reihe (drei sichtbar),
+     Pfeile, Wischen am Trackpad oder Ziehen mit der Maus; eine geöffnete Tour nimmt die volle Breite ---- */
+  var rowMQ = window.matchMedia('(min-width: 901px)');
+  var ARROW_L = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>';
+  var ARROW_R = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>';
+  Array.prototype.slice.call(document.querySelectorAll('.tour-grid')).forEach(function (grid) {
+    var tours = Array.prototype.slice.call(grid.children).filter(function (c) { return c.classList.contains('tour'); });
+    if (tours.length <= 3 || grid.classList.contains('tour-grid--1')) return;
+    var nav = document.createElement('div'); nav.className = 'tour-row__nav';
+    nav.innerHTML = '<button type="button" class="arrow arrow--ghost" aria-label="Vorherige Touren">' + ARROW_L + '</button><button type="button" class="arrow arrow--ghost" aria-label="Weitere Touren">' + ARROW_R + '</button>';
+    grid.parentNode.insertBefore(nav, grid.nextSibling);
+    var prev = nav.children[0], next = nav.children[1];
+    var stepW = function () { return tours[0].offsetWidth + 24; };
+    var update = function () { var max = grid.scrollWidth - grid.clientWidth - 2; prev.disabled = grid.scrollLeft <= 2; next.disabled = grid.scrollLeft >= max; };
+    var apply = function () { var on = rowMQ.matches; grid.classList.toggle('tour-grid--row', on); nav.hidden = !on; if (on) update(); };
+    prev.addEventListener('click', function () { grid.scrollBy({ left: -stepW(), behavior: reduce ? 'auto' : 'smooth' }); });
+    next.addEventListener('click', function () { grid.scrollBy({ left: stepW(), behavior: reduce ? 'auto' : 'smooth' }); });
+    grid.addEventListener('scroll', update, { passive: true });
+    var dx0 = 0, sl0 = 0, dragging = false, dragged = false;
+    grid.addEventListener('pointerdown', function (e) { if (!rowMQ.matches || e.pointerType !== 'mouse' || e.button !== 0) return; dragging = true; dragged = false; dx0 = e.clientX; sl0 = grid.scrollLeft; });
+    window.addEventListener('pointermove', function (e) { if (!dragging) return; var d = e.clientX - dx0; if (Math.abs(d) > 6 && !dragged) { dragged = true; grid.classList.add('is-dragging'); } if (dragged) grid.scrollLeft = sl0 - d; });
+    var end = function () { if (!dragging) return; dragging = false; grid.classList.remove('is-dragging'); if (dragged) { var w = stepW(); grid.scrollTo({ left: Math.round(grid.scrollLeft / w) * w, behavior: 'smooth' }); } };
+    window.addEventListener('pointerup', end); window.addEventListener('pointercancel', end);
+    grid.addEventListener('click', function (e) { if (dragged) { e.stopPropagation(); e.preventDefault(); dragged = false; } }, true);
+    grid.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    grid.addEventListener('click', function (e) {
+      var t = e.target.closest('.tour'); if (!t || !rowMQ.matches) return;
+      requestAnimationFrame(function () { if (t.classList.contains('is-open')) grid.scrollTo({ left: t.offsetLeft - grid.offsetLeft, behavior: 'smooth' }); });
+    });
+    if (rowMQ.addEventListener) rowMQ.addEventListener('change', apply); else rowMQ.addListener(apply);
+    window.addEventListener('resize', function () { if (rowMQ.matches) update(); });
+    apply();
+  });
+
+  /* ---- Fokus-Galerie: ein Bild groß im Fokus, Nachbarn kleiner und blasser, horizontal blättern, als Endlosschleife.
+     Ziehen, horizontales Wischen am Trackpad, Pfeile, Pfeiltasten; Klick auf einen Nachbarn holt ihn
+     in den Fokus, Klick auf das Fokusbild öffnet die Lightbox (Referenzen) oder den Link (Startseite). ---- */
+  var setVW = function () { document.documentElement.style.setProperty('--vw', document.documentElement.clientWidth + 'px'); };
+  setVW(); window.addEventListener('resize', setVW);
+  window.initFocusGallery = function (root) {
+    if (!root || root.dataset.ready) return;
+    var stage = root.querySelector('.fgal__stage');
+    var items = Array.prototype.slice.call(stage.children);
+    if (!items.length) return;
+    root.dataset.ready = '1';
+    var n = items.length, cur = 0, fw = 600, loop = n >= 6;
+    /* Abstand im Ring: bei Endlosschleife der kürzere Weg, damit links und rechts immer Nachbarn stehen */
+    var dist = function (i) { var d = i - cur; if (loop) { if (d > n / 2) d -= n; else if (d <= -n / 2) d += n; } return d; };
+    var titleEl = root.querySelector('.fgal__title'), countEl = root.querySelector('.fgal__count');
+    var prev = root.querySelector('.fgal__prev'), next = root.querySelector('.fgal__next');
+    var mobile = function () { return window.matchMedia('(max-width: 900px)').matches; };
+    var scaleFor = function (d) { return d === 0 ? 1 : (d === 1 ? 0.68 : 0.56); };
+    var alphaFor = function (d) { return d === 0 ? 1 : (d === 1 ? 0.55 : (d === 2 ? 0.3 : 0)); };
+    var layout = function () {
+      var W = stage.clientWidth;
+      fw = mobile() ? Math.round(W * 0.8) : Math.max(560, Math.min(Math.round(W * 0.5), 820));
+      if (!mobile()) fw = Math.min(fw, Math.round(Math.max(220, Math.min(520, window.innerHeight - 400)) * 16 / 9)); /* passt mit Überschrift auf einen Screen */
+      var gap = mobile() ? 10 : 20;
+      stage.style.height = Math.round(fw * 9 / 16) + 'px';
+      items.forEach(function (it, i) {
+        var d = dist(i), ad = Math.abs(d), sign = d < 0 ? -1 : 1;
+        var jump = typeof it._d === 'number' && Math.abs(d - it._d) > 1; it._d = d;
+        if (jump) it.style.transition = 'none'; /* Bild wandert unsichtbar von einer Seite auf die andere */
+        var x = 0;
+        for (var k = 1; k <= Math.min(ad, 3); k++) x += fw * scaleFor(k - 1) / 2 + fw * scaleFor(k) / 2 + gap;
+        if (ad > 3) x += (ad - 3) * fw * 0.3;
+        it.style.width = fw + 'px';
+        it.style.transform = 'translate(-50%, -50%) translateX(' + (sign * x).toFixed(1) + 'px) scale(' + scaleFor(Math.min(ad, 2)) + ')';
+        it.style.opacity = alphaFor(ad);
+        it.style.zIndex = String(10 - Math.min(ad, 9));
+        it.style.pointerEvents = ad > 2 ? 'none' : 'auto';
+        it.classList.toggle('is-focus', d === 0);
+        it.setAttribute('aria-hidden', ad > 2 ? 'true' : 'false');
+        if (jump) { void it.offsetWidth; it.style.transition = ''; }
+      });
+      if (titleEl) titleEl.textContent = items[cur].dataset.title || '';
+      if (countEl) countEl.textContent = (cur + 1 < 10 ? '0' : '') + (cur + 1) + ' / ' + (n < 10 ? '0' : '') + n;
+      if (prev) prev.disabled = !loop && cur === 0;
+      if (next) next.disabled = !loop && cur === n - 1;
+    };
+    var go = function (i) { cur = loop ? ((i % n) + n) % n : Math.max(0, Math.min(n - 1, i)); layout(); };
+    var openFocused = function () {
+      var it = items[cur];
+      if (typeof window.openLightbox === 'function' && it.dataset.full) window.openLightbox(cur);
+      else if (root.dataset.link) location.href = root.dataset.link;
+    };
+    var moved = 0, x0 = 0, down = false;
+    stage.addEventListener('pointerdown', function (e) { if (e.button !== 0 && e.pointerType === 'mouse') return; down = true; moved = 0; x0 = e.clientX; stage.classList.add('is-dragging'); });
+    stage.addEventListener('pointermove', function (e) { if (down) moved = e.clientX - x0; });
+    var suppress = false;
+    var up = function () { if (!down) return; down = false; stage.classList.remove('is-dragging'); if (Math.abs(moved) > 40) { go(cur + (moved < 0 ? 1 : -1)); suppress = true; setTimeout(function () { suppress = false; }, 0); } };
+    stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up); stage.addEventListener('pointerleave', up);
+    stage.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    items.forEach(function (it, i) {
+      it.addEventListener('click', function (e) {
+        if (suppress) { e.preventDefault(); return; }
+        if (i !== cur) { e.preventDefault(); go(i); } else { openFocused(); }
+      });
+    });
+    /* Eine Wischgeste am Trackpad blättert genau ein Bild weiter, egal wie kräftig; erst nach einer Pause zählt die nächste Geste */
+    var wheelAcc = 0, wheelLocked = false, wheelQuiet = 0;
+    stage.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // vertikal scrollt die Seite
+      e.preventDefault(); e.stopPropagation();
+      clearTimeout(wheelQuiet);
+      wheelQuiet = setTimeout(function () { wheelLocked = false; wheelAcc = 0; }, 180);
+      if (wheelLocked) return;
+      wheelAcc += e.deltaX;
+      if (Math.abs(wheelAcc) > 40) { go(cur + (wheelAcc > 0 ? 1 : -1)); wheelAcc = 0; wheelLocked = true; }
+    }, { passive: false });
+    if (prev) prev.addEventListener('click', function () { go(cur - 1); });
+    if (next) next.addEventListener('click', function () { go(cur + 1); });
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+      else if (e.key === 'Enter' && e.target === stage) { openFocused(); }
+    });
+    window.addEventListener('resize', layout);
+    layout();
+    requestAnimationFrame(function () { root.classList.add('is-ready'); });
+  };
+  document.querySelectorAll('.fgal').forEach(function (r) { if (r.querySelector('.fgal__stage').children.length) window.initFocusGallery(r); });
 
   /* ---- Touren: Klick lädt den Rundgang im Fenster ---- */
   var tourGrid = document.getElementById('tourGrid');

@@ -34,7 +34,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=62">
+<link rel="stylesheet" href="styles.css?v=63">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -354,9 +354,8 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
   </section>
 
   <!-- 3. Warum als Karten-Flow, scrollgesteuert -->
-  <section class="section flow-scroll section--grey" id="warum">
-    <div class="flow-sticky">
-      <div class="wrap">
+  <section class="section section--grey" id="warum">
+    <div class="wrap">
       <div class="sec-head sec-head--single" data-reveal>
         <h2>Interessenten erkunden deinen Raum, bevor sie kommen</h2>
       </div>
@@ -389,7 +388,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
           </div>
         </div>
       </div>
-      </div>
     </div>
   </section>
   <!-- 8. 4K-Galerie -->
@@ -399,32 +397,30 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
         <h2>Hochwertige <span class="nb">4K-Fotos</span>, bei jeder Tour dabei</h2>
         <p>Aus jedem Scan entstehen scharfe 4K-Bilder für Website, Google, Social Media und Speisekarte, mit vollen Nutzungsrechten.</p>
       </div>
-      <div class="gallery">
-        <a class="shot gal__tall" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen: Living Room, Restaurant &amp; Eventfläche" data-reveal>
-          <picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 640px"><img src="images/Living-Room-2.jpg" alt="4K-Innenaufnahme einer Restaurant- und Eventfläche in Hamburg" width="1920" height="1080" loading="lazy" decoding="async"></picture>
-          <span class="chip chip--glass shot__tag">4K</span>
-          <span class="chip chip--glass shot__name">Living Room, Restaurant &amp; Eventfläche</span>
-        </a>
-        <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen: Restaurant Caspari, Terrasse" data-reveal style="--i:1">
-          <picture><source type="image/webp" srcset="images/opt/caspari-terrasse-640.webp 640w, images/opt/caspari-terrasse-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 640px"><img src="images/caspari-terrasse.jpg" alt="4K-Foto der Terrasse des Restaurants Caspari in Hamburg" width="1920" height="1080" loading="lazy" decoding="async"></picture>
-          <span class="chip chip--glass shot__tag">4K</span>
-          <span class="chip chip--glass shot__name">Restaurant Caspari, Terrasse</span>
-        </a>
-        <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen: StrandPauli, Strandterrasse" data-reveal style="--i:2">
-          <picture><source type="image/webp" srcset="images/opt/strandpauli-strandterrasse-640.webp 640w, images/opt/strandpauli-strandterrasse-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 640px"><img src="images/strandpauli-strandterrasse.jpg" alt="4K-Foto der Strandterrasse des StrandPauli an der Hamburger Hafenkante" width="1920" height="1080" loading="lazy" decoding="async"></picture>
-          <span class="chip chip--glass shot__tag">4K</span>
-          <span class="chip chip--glass shot__name">StrandPauli, Strandterrasse</span>
-        </a>
-        <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen: Die MachBar Lübeck, Küche &amp; Lounge" data-reveal style="--i:3">
-          <picture><source type="image/webp" srcset="images/opt/machbar-kueche-lounge-640.webp 640w, images/opt/machbar-kueche-lounge-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 640px"><img src="images/machbar-kueche-lounge.jpg" alt="4K-Foto von Küche und Lounge der MachBar Lübeck" width="1920" height="1079" loading="lazy" decoding="async"></picture>
-          <span class="chip chip--glass shot__tag">4K</span>
-          <span class="chip chip--glass shot__name">Die MachBar Lübeck, Küche &amp; Lounge</span>
-        </a>
-        <a class="shot" href="referenzen.html#galerie" aria-label="4K-Galerie ansehen: DEVK Horbach, Empfang" data-reveal style="--i:4">
-          <picture><source type="image/webp" srcset="images/opt/devk-horbach-empfang-640.webp 640w, images/opt/devk-horbach-empfang-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 640px"><img src="images/devk-horbach-empfang.jpg" alt="4K-Foto des Empfangs der DEVK-Agentur Horbach in Völklingen" width="1920" height="1080" loading="lazy" decoding="async"></picture>
-          <span class="chip chip--glass shot__tag">4K</span>
-          <span class="chip chip--glass shot__name">DEVK Horbach, Empfang</span>
-        </a>
+      <div class="fgal" id="fgal" data-link="referenzen.html#galerie" data-reveal aria-roledescription="Galerie" aria-label="4K-Fotos">
+        <div class="fgal__stage" tabindex="0" aria-label="4K-Fotos durchblättern, Pfeiltasten wechseln, Enter öffnet die Galerie">
+          <figure class="fgal__item" data-i="0" data-title="Living Room, Restaurant &amp; Eventfläche"><picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/Living-Room-2.jpg" alt="4K-Foto aus virtueller Tour: Living Room, Restaurant &amp; Eventfläche" width="1920" height="1080" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="1" data-title="New City Smash Burger Hamburg"><picture><source type="image/webp" srcset="images/opt/New-City-Smash-Burger-Hamburg--12052024_121200-640.webp 640w, images/opt/New-City-Smash-Burger-Hamburg--12052024_121200-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/New-City-Smash-Burger-Hamburg--12052024_121200.jpg" alt="4K-Foto aus virtueller Tour: New City Smash Burger Hamburg" width="1920" height="1080" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="2" data-title="Golden Bean Winterhude, Café"><picture><source type="image/webp" srcset="images/opt/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150-640.webp 640w, images/opt/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/Golden-Bean-Winterhude-Dein-Cafe-in-der-Gertigstrae-04142026_155150.jpg" alt="4K-Foto aus virtueller Tour: Golden Bean Winterhude, Café" width="1920" height="1080" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="3" data-title="Golden Bean Eimsbüttel, Barista-Kurse"><picture><source type="image/webp" srcset="images/opt/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046-640.webp 640w, images/opt/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/Golden-Bean-Eimsbuttel-Kaffee-Geback-Barista-Kurse-04102026_130046.jpg" alt="4K-Foto aus virtueller Tour: Golden Bean Eimsbüttel, Barista-Kurse" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="4" data-title="StrandPauli, Eingang"><picture><source type="image/webp" srcset="images/opt/strandpauli-eingang-640.webp 640w, images/opt/strandpauli-eingang-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/strandpauli-eingang.jpg" alt="4K-Foto aus virtueller Tour: StrandPauli, Eingang" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="5" data-title="StrandPauli, Strandterrasse an der Elbe"><picture><source type="image/webp" srcset="images/opt/strandpauli-strandterrasse-640.webp 640w, images/opt/strandpauli-strandterrasse-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/strandpauli-strandterrasse.jpg" alt="4K-Foto aus virtueller Tour: StrandPauli, Strandterrasse an der Elbe" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="6" data-title="Die MachBar Lübeck, Küche &amp; Lounge"><picture><source type="image/webp" srcset="images/opt/machbar-kueche-lounge-640.webp 640w, images/opt/machbar-kueche-lounge-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/machbar-kueche-lounge.jpg" alt="4K-Foto aus virtueller Tour: Die MachBar Lübeck, Küche &amp; Lounge" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="7" data-title="Die MachBar Lübeck, Workshopfläche"><picture><source type="image/webp" srcset="images/opt/machbar-workshopflaeche-640.webp 640w, images/opt/machbar-workshopflaeche-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/machbar-workshopflaeche.jpg" alt="4K-Foto aus virtueller Tour: Die MachBar Lübeck, Workshopfläche" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="8" data-title="Die MachBar Lübeck, Kreativbereich"><picture><source type="image/webp" srcset="images/opt/machbar-kreativbereich-640.webp 640w, images/opt/machbar-kreativbereich-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/machbar-kreativbereich.jpg" alt="4K-Foto aus virtueller Tour: Die MachBar Lübeck, Kreativbereich" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="9" data-title="Restaurant Caspari, Terrasse"><picture><source type="image/webp" srcset="images/opt/caspari-terrasse-640.webp 640w, images/opt/caspari-terrasse-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/caspari-terrasse.jpg" alt="4K-Foto aus virtueller Tour: Restaurant Caspari, Terrasse" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="10" data-title="Restaurant Caspari, Gastraum"><picture><source type="image/webp" srcset="images/opt/caspari-gastraum-640.webp 640w, images/opt/caspari-gastraum-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/caspari-gastraum.jpg" alt="4K-Foto aus virtueller Tour: Restaurant Caspari, Gastraum" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="11" data-title="DEVK Team Horbach, Empfang"><picture><source type="image/webp" srcset="images/opt/devk-horbach-empfang-640.webp 640w, images/opt/devk-horbach-empfang-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/devk-horbach-empfang.jpg" alt="4K-Foto aus virtueller Tour: DEVK Team Horbach, Empfang" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="12" data-title="DEVK Team Horbach, Büro &amp; Kaffeebar"><picture><source type="image/webp" srcset="images/opt/devk-horbach-buero-kaffeebar-640.webp 640w, images/opt/devk-horbach-buero-kaffeebar-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/devk-horbach-buero-kaffeebar.jpg" alt="4K-Foto aus virtueller Tour: DEVK Team Horbach, Büro &amp; Kaffeebar" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+          <figure class="fgal__item" data-i="13" data-title="DEVK Team Horbach, Dollhouse-Ansicht"><picture><source type="image/webp" srcset="images/opt/devk-horbach-dollhouse-640.webp 640w, images/opt/devk-horbach-dollhouse-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="images/devk-horbach-dollhouse.jpg" alt="4K-Foto aus virtueller Tour: DEVK Team Horbach, Dollhouse-Ansicht" width="1920" height="1080" loading="lazy" decoding="async"></picture><span class="chip chip--glass">4K</span></figure>
+        </div>
+        <div class="fgal__bar">
+          <div class="fgal__caption"><span class="chip chip--ink">4K</span><span class="fgal__title" aria-live="polite"></span></div>
+          <div class="fgal__arrows">
+            <button type="button" class="arrow arrow--ghost fgal__prev" aria-label="Vorheriges Foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>
+            <button type="button" class="arrow arrow--ghost fgal__next" aria-label="Nächstes Foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -657,6 +653,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=39" defer></script>
+<script src="site.js?v=40" defer></script>
 </body>
 </html>

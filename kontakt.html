@@ -31,7 +31,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=62">
+<link rel="stylesheet" href="styles.css?v=63">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -190,20 +190,20 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
           <input type="hidden" name="subject" value="Neue Tour-Anfrage über virtuelletour-hamburg.de">
           <p class="hp"><label>Bitte leer lassen: <input name="bot-field"></label></p>
 
+          <div class="field">
+            <label for="f-name">Name <span class="req">*</span></label>
+            <input type="text" id="f-name" name="name" required autocomplete="name">
+          </div>
+
           <div class="field-row">
             <div class="field">
-              <label for="f-name">Name <span class="req">*</span></label>
-              <input type="text" id="f-name" name="name" required autocomplete="name">
+              <label for="f-email">E-Mail <span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" required autocomplete="email">
             </div>
             <div class="field">
               <label for="f-phone">Telefon</label>
               <input type="tel" id="f-phone" name="telefon" autocomplete="tel">
             </div>
-          </div>
-
-          <div class="field">
-            <label for="f-email">E-Mail <span class="req">*</span></label>
-            <input type="email" id="f-email" name="email" required autocomplete="email">
           </div>
 
           <div class="field-row">
@@ -382,6 +382,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=39" defer></script>
+<script src="site.js?v=40" defer></script>
 </body>
 </html>

@@ -31,7 +31,7 @@ setTimeout(function(){d.classList.add('hero-in');},rm?30:700);})();
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=62">
+<link rel="stylesheet" href="styles.css?v=63">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -176,7 +176,16 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
         <h2>Zusätzlich: professionelle <span class="nb">4K-Bilder</span></h2>
         <p>Zu jeder Tour gibt es 4K-Bilder für Exposé, Social Media, Website oder Druck. Rundgang und Fotos aus einer Hand.</p>
       </div>
-      <div class="gallery gallery--2" id="gallery"></div>
+      <div class="fgal" id="fgal" data-reveal aria-roledescription="Galerie" aria-label="4K-Fotos">
+        <div class="fgal__stage" id="gallery" tabindex="0" aria-label="4K-Fotos durchblättern, Pfeiltasten wechseln, Enter öffnet das Bild groß"></div>
+        <div class="fgal__bar">
+          <div class="fgal__caption"><span class="chip chip--ink">4K</span><span class="fgal__title" aria-live="polite"></span></div>
+          <div class="fgal__arrows">
+            <button type="button" class="arrow arrow--ghost fgal__prev" aria-label="Vorheriges Foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>
+            <button type="button" class="arrow arrow--ghost fgal__next" aria-label="Nächstes Foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -253,8 +262,8 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=39" defer></script>
-<script src="tours.js?v=8" defer></script>
+<script src="site.js?v=40" defer></script>
+<script src="tours.js?v=9" defer></script>
 <script src="sort-mode.js?v=1" defer></script>
 </body>
 </html>

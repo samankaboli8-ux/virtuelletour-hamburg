@@ -240,19 +240,18 @@ function webp(file, w){ return file.replace(/^images\//, 'images/opt/').replace(
 function renderGallery(){
   galleryEl.innerHTML = '';
   GALLERY.forEach((g, i) => {
-    const el = document.createElement('button');
-    el.type = 'button';
-    el.className = 'shot';
-    el.setAttribute('aria-label', '4K-Bild groß ansehen: ' + g.title);
+    const el = document.createElement('figure');
+    el.className = 'fgal__item';
+    el.dataset.i = i; el.dataset.title = g.title; el.dataset.full = g.full || g.file;
     el.innerHTML = `
-      <picture><source type="image/webp" srcset="${webp(g.file,640)} 640w, ${webp(g.file,1200)} 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 620px"><img src="${g.file}" alt="4K-Foto aus virtueller Tour: ${g.title}" loading="lazy" decoding="async" width="1920" height="1080"></picture>
-      <span class="chip chip--glass shot__tag">4K</span>
-      <span class="chip chip--glass shot__name">${g.title}</span>`;
-    el.addEventListener('click', () => openLightbox(i));
+      <picture><source type="image/webp" srcset="${webp(g.file,640)} 640w, ${webp(g.file,1200)} 1200w" sizes="(max-width: 900px) 80vw, 760px"><img src="${g.file}" alt="4K-Foto aus virtueller Tour: ${g.title}" loading="lazy" decoding="async" width="1920" height="1080"></picture>
+      <span class="chip chip--glass">4K</span>`;
     galleryEl.appendChild(el);
   });
+  if (typeof window.initFocusGallery === 'function') window.initFocusGallery(document.getElementById('fgal'));
 }
 
+window.openLightbox = openLightbox;
 function openLightbox(i){
   lbIndex = i;
   lbImg.src = GALLERY[i].full || GALLERY[i].file;
