@@ -344,16 +344,17 @@
     }, { passive: true });
   }
 
-  /* ---- Warum als Karten-Flow: Bildstapel, Textwechsel, Autolauf über die Fortschrittsanimation ----
-     Der aktive Fortschrittsbalken läuft per CSS (6 s); sein animationend schaltet weiter. Pause bei Hover,
-     außerhalb des Sichtbereichs und bei verstecktem Tab. Pfeile, Segmente, Wischen und Pfeiltasten. */
+  /* ---- Warum als Karten-Flow, scrollgesteuert: der Abschnitt (.flow-scroll) hält per sticky, die vier
+     Punkte laufen mit dem Scrollfortschritt durch. Segmente, Pfeile, Klick und Wischen scrollen zur passenden
+     Stelle; bei reduzierter Bewegung gibt es kein Pinning, dann schalten sie direkt um. ---- */
   var flow = document.getElementById('flow');
   if (flow) {
     var fCards = Array.prototype.slice.call(flow.querySelectorAll('.flow__card'));
     var fItems = Array.prototype.slice.call(flow.querySelectorAll('.flow__item'));
     var fSegs = Array.prototype.slice.call(flow.querySelectorAll('.flow__seg'));
     var fStage = document.getElementById('flowStage');
-    var fN = fCards.length, fCur = 0, fSwiped = false;
+    var fWrap = flow.closest('.flow-scroll');
+    var fN = fCards.length, fCur = 0, fSwiped = false, fTick = false;
     var fApply = function () {
       fCards.forEach(function (c, i) {
         var d = (i - fCur + fN) % fN;
@@ -362,17 +363,34 @@
       });
       fItems.forEach(function (t, i) { t.classList.toggle('is-active', i === fCur); t.setAttribute('aria-hidden', i === fCur ? 'false' : 'true'); });
       fSegs.forEach(function (sg, i) {
-        sg.classList.remove('is-active', 'is-done');
-        if (i < fCur) sg.classList.add('is-done');
-        if (i === fCur) { void sg.offsetWidth; sg.classList.add('is-active'); }
+        sg.classList.toggle('is-done', i < fCur); sg.classList.toggle('is-active', i === fCur);
         sg.setAttribute('aria-current', i === fCur ? 'true' : 'false');
       });
     };
-    var fGo = function (i) { fCur = (i + fN) % fN; fApply(); };
-    fSegs.forEach(function (sg, i) {
-      sg.addEventListener('click', function () { fGo(i); });
-      sg.addEventListener('animationend', function () { if (sg.classList.contains('is-active')) fGo(fCur + 1); });
-    });
+    var fSet = function (i) { i = Math.max(0, Math.min(fN - 1, i)); if (i === fCur) return; fCur = i; fApply(); };
+    var fRange = function () { return fWrap ? fWrap.offsetHeight - window.innerHeight : 0; };
+    var fTop = function () { return fWrap.getBoundingClientRect().top + window.pageYOffset; };
+    var fPinned = function () { return fWrap && !reduce && fRange() > 0; };
+    var fFromScroll = function () {
+      fTick = false;
+      var range = fRange(); if (range <= 0) return;
+      var p = Math.min(1, Math.max(0, (window.pageYOffset - fTop()) / range));
+      fSet(Math.min(fN - 1, Math.floor(p * fN)));
+    };
+    var fGo = function (i) {
+      i = (i + fN) % fN;
+      if (fPinned()) {
+        var y = fTop() + ((i + 0.5) / fN) * fRange();
+        if (window.lenis) window.lenis.scrollTo(y, { duration: 0.9 }); else window.scrollTo({ top: y, behavior: 'smooth' });
+      } else fSet(i);
+    };
+    if (fWrap && !reduce) {
+      window.addEventListener('scroll', function () { if (!fTick) { fTick = true; requestAnimationFrame(fFromScroll); } }, { passive: true });
+      window.addEventListener('resize', fFromScroll);
+      window.addEventListener('load', fFromScroll);
+      fFromScroll();
+    }
+    fSegs.forEach(function (sg, i) { sg.addEventListener('click', function () { fGo(i); }); });
     var fPrev = document.getElementById('flowPrev'), fNext = document.getElementById('flowNext');
     if (fPrev) fPrev.addEventListener('click', function () { fGo(fCur - 1); });
     if (fNext) fNext.addEventListener('click', function () { fGo(fCur + 1); });
@@ -391,18 +409,54 @@
       if (e.key === 'ArrowRight') { e.preventDefault(); fGo(fCur + 1); }
       else if (e.key === 'ArrowLeft') { e.preventDefault(); fGo(fCur - 1); }
     });
-    var fPause = function (on) { flow.classList.toggle('is-paused', !!on); };
-    var fHover = false, fOut = false;
-    flow.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { fHover = true; fPause(true); } });
-    flow.addEventListener('pointerleave', function () { fHover = false; fPause(fOut || document.hidden); });
-    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { fOut = !en[0].isIntersecting; fPause(fHover || fOut || document.hidden); }).observe(flow);
-    document.addEventListener('visibilitychange', function () { fPause(fHover || fOut || document.hidden); });
-    /* Startzustand erst setzen, wenn der Abschnitt eingeblendet ist, damit der erste Balken nicht unsichtbar abläuft */
-    fPause(true);
-    if ('IntersectionObserver' in window) {
-      var fFirst = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { fOut = false; fPause(fHover); fFirst.disconnect(); } }, { threshold: 0.3 });
-      fFirst.observe(flow);
-    } else fPause(false);
+  }
+
+  /* ---- Branchen als vertikale Galerie: Hover oder Klick auf Zeile oder Streifen, Mausrad über dem Stapel
+     (am Anfang und Ende scrollt die Seite normal weiter), Pfeiltasten, vertikales Wischen ---- */
+  var vgal = document.getElementById('vgal');
+  if (vgal) {
+    var vRows = Array.prototype.slice.call(vgal.querySelectorAll('.vgal__row'));
+    var vItems = Array.prototype.slice.call(vgal.querySelectorAll('.vgal__item'));
+    var vStage = vgal.querySelector('.vgal__stage');
+    var vN = vItems.length, vCur = 0, vLock = 0, vy0 = 0, vDown = false, vMoved = false;
+    var vSet = function (i) {
+      if (i < 0 || i >= vN || i === vCur) return false;
+      vCur = i;
+      vRows.forEach(function (r, k) { r.classList.toggle('is-active', k === i); });
+      vItems.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+      return true;
+    };
+    vRows.forEach(function (r, i) {
+      if (finePointer) r.addEventListener('pointerenter', function () { vSet(i); });
+      var a = r.querySelector('a'); if (a) a.addEventListener('focus', function () { vSet(i); });
+    });
+    vItems.forEach(function (it, i) {
+      if (finePointer) it.addEventListener('pointerenter', function () { vSet(i); });
+      it.addEventListener('click', function (e) { if (vMoved) { e.preventDefault(); vMoved = false; return; } if (i !== vCur) { e.preventDefault(); vSet(i); } });
+    });
+    if (vStage) {
+      vStage.addEventListener('wheel', function (e) {
+        if (Math.abs(e.deltaY) < 4) return;
+        var now = performance.now();
+        var dir = e.deltaY > 0 ? 1 : -1;
+        var canMove = (dir > 0 && vCur < vN - 1) || (dir < 0 && vCur > 0);
+        if (!canMove) return; // am Rand scrollt die Seite weiter
+        e.preventDefault(); e.stopPropagation();
+        if (now < vLock) return;
+        vSet(vCur + dir); vLock = now + 650;
+      }, { passive: false });
+      vStage.addEventListener('pointerdown', function (e) { vDown = true; vMoved = false; vy0 = e.clientY; });
+      vStage.addEventListener('pointerup', function (e) {
+        if (!vDown) return; vDown = false;
+        var dy = e.clientY - vy0;
+        if (Math.abs(dy) > 40) { vMoved = true; vSet(vCur + (dy < 0 ? 1 : -1)); }
+      });
+      vStage.addEventListener('pointercancel', function () { vDown = false; });
+    }
+    vgal.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { if (vSet(vCur + 1)) e.preventDefault(); }
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { if (vSet(vCur - 1)) e.preventDefault(); }
+    });
   }
 
   /* ---- Touren: Klick lädt den Rundgang im Fenster ---- */
