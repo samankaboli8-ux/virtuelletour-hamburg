@@ -37,8 +37,7 @@ setTimeout(function(){d.classList.add('hero-in');},intro?1000:30);})();
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="images/tours/2JgeWuujp21-1280.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=41">
+<link rel="stylesheet" href="styles.css?v=42">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,7 +216,7 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 <main id="main">
 
   <!-- 1. Hero -->
-  <section class="hero">
+  <section class="hero hero--arc">
     <div class="mesh mesh--hero" aria-hidden="true"></div>
     <div class="wrap hero__inner">
       <h1 class="hero__title"><span class="w"><span style="--w:0">Virtuelle</span></span> <span class="w"><span style="--w:1">3D-Touren</span></span> <span class="w"><span style="--w:2">aus</span></span> <span class="w"><span style="--w:3">Hamburg,</span></span> <br class="br-lg"> <span class="w"><span style="--w:4">für</span></span> <span class="w"><span style="--w:5">ganz</span></span> <span class="w"><span style="--w:6">Deutschland</span></span></h1>
@@ -229,103 +228,138 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
     </div>
 
     <div class="wrap hero__stage">
-      <div class="hero__zoom" id="heroZoom">
-        <div class="hero-media" id="heroTour" data-m="2JgeWuujp21">
-          <div class="hero-media__frame" id="heroFrame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli Hamburg starten" data-title="StrandPauli">
-            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-1280.webp"><img src="images/tours/2JgeWuujp21-1280.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="1280" height="720" fetchpriority="high" decoding="async"></picture>
-            <span class="hero-media__cta" id="heroPlay"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="chip chip--glass">360° Tour starten</span></span>
+      <div class="arc-stage" id="arcStage">
+        <div class="arc" id="arc" role="group" aria-label="Ausgewählte Touren, zum Drehen ziehen">
+          <div class="arc__ring">
+          <button type="button" class="arc__card" data-m="2JgeWuujp21" data-title="StrandPauli" aria-label="Tour starten: StrandPauli">
+            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp"><img src="images/tours/2JgeWuujp21-960.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="640" height="360" loading="eager" decoding="async"></picture>
+            <span class="chip chip--glass">StrandPauli · Hamburg</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="NsvWLbUKDEX" data-title="Restaurant Caspari" aria-label="Tour starten: Restaurant Caspari">
+            <picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="Gastraum des Restaurants Caspari in der virtuellen 3D-Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+            <span class="chip chip--glass">Restaurant Caspari · Hamburg</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="t4sME6NCR3Y" data-title="WE ARE PADEL" aria-label="Tour starten: WE ARE PADEL">
+            <picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Padelhalle WE ARE PADEL Berlin in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+            <span class="chip chip--glass">WE ARE PADEL · Berlin</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="7CpYpsEXAhs" data-title="Die MachBar" aria-label="Tour starten: Die MachBar">
+            <picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Veranstaltungsfläche der MachBar Lübeck in der virtuellen Tour" width="640" height="360" loading="eager" decoding="async"></picture>
+            <span class="chip chip--glass">Die MachBar · Lübeck</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="d6EKByVzyrT" data-title="Golden Bean" aria-label="Tour starten: Golden Bean">
+            <picture><source type="image/webp" srcset="images/tours/d6EKByVzyrT-640.webp"><img src="images/tours/d6EKByVzyrT-960.jpg" alt="Virtuelle Tour des Cafés Golden Bean in Hamburg-Winterhude" width="640" height="360" loading="eager" decoding="async"></picture>
+            <span class="chip chip--glass">Golden Bean · Hamburg-Winterhude</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="jW4ha2PrbZB" data-title="DEVK Völklingen" aria-label="Tour starten: DEVK Völklingen">
+            <picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Versicherungsbüro der DEVK in Völklingen in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">DEVK Völklingen · Völklingen</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="uDdPTJRfy2R" data-title="Doro Ristorante" aria-label="Tour starten: Doro Ristorante">
+            <picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Doro Ristorante, italienisches Restaurant, in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">Doro Ristorante · Hamburg</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="KNbB5EPAmre" data-title="Lessingstraße 7" aria-label="Tour starten: Lessingstraße 7">
+            <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Wohnung in der Lessingstraße Hamburg in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">Lessingstraße 7 · Hamburg</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="zgWUkeHqJUr" data-title="Tunici" aria-label="Tour starten: Tunici">
+            <picture><source type="image/webp" srcset="images/tours/zgWUkeHqJUr-640.webp"><img src="images/tours/zgWUkeHqJUr-960.jpg" alt="Hotel und Eventlocation Tunici in Hamburg in der virtuellen Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">Tunici · Hamburg</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="MbKADxZgAGB" data-title="Caprice Fitness" aria-label="Tour starten: Caprice Fitness">
+            <picture><source type="image/webp" srcset="images/tours/MbKADxZgAGB-640.webp"><img src="images/tours/MbKADxZgAGB-960.jpg" alt="Fitnessclub Caprice in der virtuellen 3D-Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">Caprice Fitness · Fitnessclub</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="C6A8Zt3dq5K" data-title="New City Smash Burger" aria-label="Tour starten: New City Smash Burger">
+            <picture><source type="image/webp" srcset="images/tours/C6A8Zt3dq5K-640.webp"><img src="images/tours/C6A8Zt3dq5K-960.jpg" alt="3D-Tour des Restaurants New City Smash Burger in Hamburg" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">New City Smash Burger · Hamburg</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <button type="button" class="arc__card" data-m="ot6rttoEU96" data-title="Flipperhalle" aria-label="Tour starten: Flipperhalle">
+            <picture><source type="image/webp" srcset="images/tours/ot6rttoEU96-640.webp"><img src="images/tours/ot6rttoEU96-960.jpg" alt="Flipperhalle Berlin in der virtuellen 3D-Tour" width="640" height="360" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">Flipperhalle · Berlin</span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
           </div>
-          <button type="button" class="iconbtn iconbtn--glass hero-media__close" id="heroClose" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-          <ul class="facts" aria-label="Eckdaten">
-            <li><strong>ab 430 €</strong><span>Festpreis</span></li>
-            <li><strong>Alles inklusive</strong><span>Tour, Bilder, Hosting</span></li>
-            <li><strong>Ein Termin</strong><span>vor Ort</span></li>
-            <li><strong>Deutschlandweit</strong><span>Aus Hamburg</span></li>
-          </ul>
+          <div class="arc__edge arc__edge--l" aria-hidden="true"></div>
+          <div class="arc__edge arc__edge--r" aria-hidden="true"></div>
         </div>
+        <p class="arc__hint">Ziehen zum Drehen, Tour anklicken zum Starten · <a href="referenzen.html">Alle Touren ansehen</a></p>
+      <div class="hero-media" id="heroTour" data-m="2JgeWuujp21">
+        <div class="hero-media__frame" id="heroFrame" role="button" tabindex="0" aria-label="Virtuelle Tour StrandPauli Hamburg starten" data-title="StrandPauli">
+          <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-1280.webp"><img src="images/tours/2JgeWuujp21-1280.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="1280" height="720" fetchpriority="high" decoding="async"></picture>
+          <span class="hero-media__cta" id="heroPlay"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="chip chip--glass">360° Tour starten</span></span>
+        </div>
+        <button type="button" class="iconbtn iconbtn--glass hero-media__close" id="heroClose" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <ul class="facts" aria-label="Eckdaten">
+          <li><strong>ab 430 €</strong><span>Festpreis</span></li>
+          <li><strong>Alles inklusive</strong><span>Tour, Bilder, Hosting</span></li>
+          <li><strong>Ein Termin</strong><span>vor Ort</span></li>
+          <li><strong>Deutschlandweit</strong><span>Aus Hamburg</span></li>
+        </ul>
+      </div>
       </div>
 
-      <!-- 2. Festpreis-Leiste -->
-      <form class="pricebar" id="pricebar" action="kontakt.html" method="get" aria-label="Festpreis berechnen">
-        <div class="pricebar__grid">
-          <div class="pricebar__cell">
-            <label for="pb-branche">Branche</label>
-            <div class="select"><select id="pb-branche" name="branche">
-              <option value="gastronomie">Gastronomie</option>
-              <option value="eventlocations">Eventlocations &amp; Hotels</option>
-              <option value="immobilien">Immobilien &amp; Wohnen</option>
-              <option value="gewerbe">Gewerbe &amp; Showrooms</option>
-              <option value="freizeit">Freizeit &amp; Entertainment</option>
-              <option value="baubranche">Baubranche</option>
-            </select></div>
+      <!-- 2. Ablauf als Karte -->
+      <div class="stepsbar" data-reveal>
+        <div class="stepsbar__grid">
+          <div class="stepsbar__cell stepsbar__cell--title">
+            <h2>In drei Schritten zur fertigen Tour</h2>
+            <p>Von der Anfrage bis zur Lieferung, alles aus einer Hand.</p>
           </div>
-          <div class="pricebar__cell">
-            <label for="pb-flaeche">Fläche</label>
-            <div class="select"><select id="pb-flaeche" name="flaeche">
-              <option value="80">bis 80 m²</option>
-              <option value="150">bis 150 m²</option>
-              <option value="250">bis 250 m²</option>
-              <option value="350">bis 350 m²</option>
-              <option value="500">bis 500 m²</option>
-              <option value="ueber500">über 500 m²</option>
-            </select></div>
-          </div>
-          <div class="pricebar__cell pricebar__cell--price">
-            <span class="pricebar__label" id="pb-price-label">Dein Festpreis</span>
-            <output class="pricebar__price" id="pb-price" aria-live="polite" aria-labelledby="pb-price-label">ab 430 €</output>
-            <span class="pricebar__note">Alles inklusive, keine Aufpreise</span>
-          </div>
-          <div class="pricebar__cell pricebar__cell--cta">
-            <a class="btn btn--primary btn--lg" id="pb-cta" href="kontakt.html">Unverbindlich anfragen</a>
-          </div>
+          <div class="stepsbar__cell"><span class="stepsbar__n">01</span><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
+          <div class="stepsbar__cell"><span class="stepsbar__n">02</span><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
+          <div class="stepsbar__cell"><span class="stepsbar__n">03</span><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
         </div>
-        <ul class="pricebar__chips" aria-label="Im Festpreis enthalten">
-          <li class="chip">4K-Bilder</li>
-          <li class="chip">3D-Modell</li>
-          <li class="chip">2D-Grundriss</li>
-          <li class="chip">Street View auf Wunsch</li>
-          <li class="chip">12 Monate Hosting</li>
-        </ul>
-      </form>
+      </div>
     </div>
   </section>
 
-  <!-- 4. Warum als Bento -->
+  <!-- 3. Warum als Karten-Flow -->
   <section class="section" id="warum">
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <h2>Interessenten erkunden deinen Raum, bevor sie kommen</h2>
         <p>Ein interaktiver 360°-Rundgang, frei begehbar am Desktop, auf dem Handy oder direkt bei Google. So überzeugt deine Location rund um die Uhr.</p>
       </div>
-      <div class="bento">
-        <article class="tile" data-reveal>
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/Living-Room-2.jpg" alt="4K-Foto der Restaurant- und Eventfläche Living Room" width="1200" height="675" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Vor dem Besuch erkunden</h3>
-            <p>Gäste und Interessenten bekommen vorab einen echten Eindruck und kommen mit mehr Vertrauen.</p>
+      <div class="flow" id="flow" data-reveal aria-roledescription="Karussell" aria-label="Vorteile einer virtuellen Tour">
+        <div class="flow__stage" id="flowStage" aria-label="Nächster Vorteil">
+          <div class="flow__card is-active" aria-hidden="false"><picture><source type="image/webp" srcset="images/opt/Living-Room-2-640.webp 640w, images/opt/Living-Room-2-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/Living-Room-2.jpg" alt="4K-Foto der Restaurant- und Eventfläche Living Room" width="1200" height="675" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Living Room, Hamburg</span></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/opt/streetview-goldenbean-640.webp 640w, images/opt/streetview-goldenbean-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/streetview-goldenbean.jpg" alt="Street-View-Ansicht des Cafés Golden Bean in Hamburg-Winterhude" width="1280" height="800" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Golden Bean bei Google</span></div>
+          <div class="flow__card" aria-hidden="true"><picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp 640w, images/tours/NsvWLbUKDEX-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="Gastraum des Restaurants Caspari in der virtuellen 3D-Tour" width="960" height="539" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Restaurant Caspari, 3D-Tour</span></div>
+          <div class="flow__card" aria-hidden="true"><img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Modell einer Location in der Dollhouse-Ansicht" width="1200" height="800" loading="lazy" decoding="async"><span class="chip chip--glass">3D-Modell, Dollhouse-Ansicht</span></div>
+        </div>
+        <div class="flow__text">
+          <div class="flow__texts">
+            <div class="flow__item is-active" aria-hidden="false"><span class="label">01 / 04</span><h3>Vor dem Besuch erkunden</h3><p>Gäste und Interessenten bekommen vorab einen echten Eindruck und kommen mit mehr Vertrauen.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">02 / 04</span><h3>Sichtbar bei Google Maps</h3><p>Einbindung in Google Maps &amp; Street View: Reichweite genau dort, wo gesucht wird.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">03 / 04</span><h3>Atmosphäre vermarkten</h3><p>Event- und Gastroflächen wirken im 3D-Rundgang lebendig und hochwertig, perfekt für Anfragen und Vermietung.</p></div>
+            <div class="flow__item" aria-hidden="true"><span class="label">04 / 04</span><h3>Vom Wettbewerb abheben</h3><p>Ein begehbares 3D-Modell hebt dich klar von Mitbewerbern mit gewöhnlichen Fotos ab.</p></div>
           </div>
-        </article>
-        <article class="tile" data-reveal style="--i:1">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/streetview-goldenbean-640.webp 640w, images/opt/streetview-goldenbean-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/streetview-goldenbean.jpg" alt="Street-View-Ansicht des Cafés Golden Bean in Hamburg-Winterhude" width="1280" height="800" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Sichtbar bei Google Maps</h3>
-            <p>Einbindung in Google Maps &amp; Street View: Reichweite genau dort, wo gesucht wird.</p>
+          <div class="flow__nav">
+            <div class="flow__progress">
+              <button type="button" class="flow__seg is-active" aria-label="Vorteil 1 anzeigen: Vor dem Besuch erkunden" aria-current="true"></button>
+              <button type="button" class="flow__seg" aria-label="Vorteil 2 anzeigen: Sichtbar bei Google Maps" aria-current="false"></button>
+              <button type="button" class="flow__seg" aria-label="Vorteil 3 anzeigen: Atmosphäre vermarkten" aria-current="false"></button>
+              <button type="button" class="flow__seg" aria-label="Vorteil 4 anzeigen: Vom Wettbewerb abheben" aria-current="false"></button>
+            </div>
+            <div class="flow__arrows">
+              <button type="button" class="arrow arrow--ghost" id="flowPrev" aria-label="Vorheriger Vorteil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>
+              <button type="button" class="arrow arrow--ghost" id="flowNext" aria-label="Nächster Vorteil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+            </div>
           </div>
-        </article>
-        <article class="tile" data-reveal style="--i:2">
-          <div class="tile__img"><picture><source type="image/webp" srcset="images/tours/NsvWLbUKDEX-640.webp 640w, images/tours/NsvWLbUKDEX-960.webp 960w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/tours/NsvWLbUKDEX-960.jpg" alt="Gastraum des Restaurants Caspari in der virtuellen 3D-Tour" width="960" height="539" loading="lazy" decoding="async"></picture></div>
-          <div class="tile__body">
-            <h3>Atmosphäre vermarkten</h3>
-            <p>Event- und Gastroflächen wirken im 3D-Rundgang lebendig und hochwertig, perfekt für Anfragen und Vermietung.</p>
-          </div>
-        </article>
-        <article class="tile" data-reveal style="--i:3">
-          <div class="tile__img"><img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Modell einer Location in der Dollhouse-Ansicht" width="1200" height="800" loading="lazy" decoding="async"></div>
-          <div class="tile__body">
-            <h3>Vom Wettbewerb abheben</h3>
-            <p>Ein begehbares 3D-Modell hebt dich klar von Mitbewerbern mit gewöhnlichen Fotos ab.</p>
-          </div>
-        </article>
+        </div>
       </div>
       <div class="live" data-reveal>
         <div class="live__head">
@@ -411,97 +445,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
     </div>
   </section>
 
-  <!-- 6. Touren -->
-  <section class="section section--tight-top" id="referenzen-teaser">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <h2>Ausgewählte virtuelle Touren</h2>
-        <p>Realisierte Rundgänge aus Gastronomie, Events, Gewerbe und Wohnen. Tour anklicken, sie startet direkt hier.</p>
-      </div>
-      <div class="tour-grid" id="tourGrid">
-        <article class="tour" data-m="2JgeWuujp21" data-reveal style="--i:0">
-          <div class="tour__window" role="button" tabindex="0" aria-label="Tour starten: StrandPauli" data-title="StrandPauli">
-            <picture><source type="image/webp" srcset="images/tours/2JgeWuujp21-640.webp 640w, images/tours/2JgeWuujp21-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/2JgeWuujp21-960.jpg" alt="Virtuelle 3D-Tour der Eventlocation StrandPauli an der Hamburger Hafenkante" width="960" height="540" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">360° Tour</span>
-            <span class="play play--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </div>
-          <div class="tour__meta">
-            <div><h3>StrandPauli</h3><p>Bar &amp; Eventlocation · Hamburg</p></div>
-            <div class="tour__actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=2JgeWuujp21" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="Tour in neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button type="button" class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
-        <article class="tour" data-m="7CpYpsEXAhs" data-reveal style="--i:1">
-          <div class="tour__window" role="button" tabindex="0" aria-label="Tour starten: Die MachBar Lübeck" data-title="Die MachBar Lübeck">
-            <picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="3D-Rundgang der MachBar Lübeck für Workshops, Tagungen und Teamevents" width="960" height="540" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">360° Tour</span>
-            <span class="play play--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </div>
-          <div class="tour__meta">
-            <div><h3>Die MachBar Lübeck</h3><p>Workshops &amp; Events · Lübeck</p></div>
-            <div class="tour__actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=7CpYpsEXAhs" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="Tour in neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button type="button" class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
-        <article class="tour" data-m="t4sME6NCR3Y" data-reveal style="--i:2">
-          <div class="tour__window" role="button" tabindex="0" aria-label="Tour starten: WE ARE PADEL Berlin" data-title="WE ARE PADEL Berlin">
-            <picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp 640w, images/tours/t4sME6NCR3Y-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Virtuelle 3D-Tour der Padel-Anlage WE ARE PADEL in Berlin" width="960" height="540" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">360° Tour</span>
-            <span class="play play--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </div>
-          <div class="tour__meta">
-            <div><h3>WE ARE PADEL Berlin</h3><p>Sport- &amp; Freizeitanlage · Berlin</p></div>
-            <div class="tour__actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=t4sME6NCR3Y" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="Tour in neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button type="button" class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
-        <article class="tour" data-m="C6A8Zt3dq5K" data-reveal style="--i:0">
-          <div class="tour__window" role="button" tabindex="0" aria-label="Tour starten: New City Smash Burger" data-title="New City Smash Burger">
-            <picture><source type="image/webp" srcset="images/tours/C6A8Zt3dq5K-640.webp 640w, images/tours/C6A8Zt3dq5K-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/C6A8Zt3dq5K-960.jpg" alt="3D-Tour des Restaurants New City Smash Burger in Hamburg" width="960" height="540" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">360° Tour</span>
-            <span class="play play--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </div>
-          <div class="tour__meta">
-            <div><h3>New City Smash Burger</h3><p>Restaurant · Hamburg</p></div>
-            <div class="tour__actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=C6A8Zt3dq5K" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="Tour in neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button type="button" class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
-        <article class="tour" data-m="d6EKByVzyrT" data-reveal style="--i:1">
-          <div class="tour__window" role="button" tabindex="0" aria-label="Tour starten: Golden Bean" data-title="Golden Bean">
-            <picture><source type="image/webp" srcset="images/tours/d6EKByVzyrT-640.webp 640w, images/tours/d6EKByVzyrT-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/d6EKByVzyrT-960.jpg" alt="Virtuelle Tour des Cafés Golden Bean in der Gertigstraße in Hamburg-Winterhude" width="960" height="540" loading="lazy" decoding="async"></picture>
-            <span class="chip chip--glass">360° Tour</span>
-            <span class="play play--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          </div>
-          <div class="tour__meta">
-            <div><h3>Golden Bean</h3><p>Café · Hamburg-Winterhude</p></div>
-            <div class="tour__actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=d6EKByVzyrT" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="Tour in neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button type="button" class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-            </div>
-          </div>
-        </article>
-        <a class="count-tile" href="referenzen.html" data-reveal style="--i:2">
-          <span class="count-tile__num">17</span>
-          <span class="count-tile__text">Touren online, aus Gastronomie, Events, Freizeit und Gewerbe</span>
-          <span class="arrow arrow--light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <span class="sr-only">Alle Touren ansehen</span>
-        </a>
-      </div>
-      <div class="center" data-reveal>
-        <a class="btn btn--secondary btn--lg" href="referenzen.html">Alle Touren ansehen</a>
-      </div>
-    </div>
-  </section>
-
   <!-- 7. Preis -->
   <section class="section section--grey" id="preise">
     <div class="wrap">
@@ -572,22 +515,8 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
     </div>
   </section>
 
-  <!-- 9. Ablauf -->
-  <section class="section section--grey">
-    <div class="wrap">
-      <div class="sec-head sec-head--single" data-reveal>
-        <h2>In drei Schritten zur fertigen Tour</h2>
-      </div>
-      <div class="steps">
-        <div class="step" data-reveal><span class="step__n">01</span><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
-        <div class="step" data-reveal style="--i:1"><span class="step__n">02</span><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
-        <div class="step" data-reveal style="--i:2"><span class="step__n">03</span><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
-      </div>
-    </div>
-  </section>
-
   <!-- 10. Ansprechpartner -->
-  <section class="section">
+  <section class="section section--tight-top">
     <div class="wrap">
       <div class="person" data-reveal>
         <div class="person__photo"><picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 480px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1200" height="800" loading="lazy" decoding="async"></picture></div>
@@ -712,6 +641,6 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=21" defer></script>
+<script src="site.js?v=22" defer></script>
 </body>
 </html>

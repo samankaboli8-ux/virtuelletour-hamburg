@@ -344,26 +344,65 @@
     }, { passive: true });
   }
 
-  /* ---- Festpreis-Leiste: Preis folgt der Fläche, Link trägt die Auswahl ---- */
-  var pricebar = document.getElementById('pricebar');
-  if (pricebar) {
-    var selB = document.getElementById('pb-branche');
-    var selF = document.getElementById('pb-flaeche');
-    var out = document.getElementById('pb-price');
-    var cta = document.getElementById('pb-cta');
-    var PRICES = { '80': '430 €', '150': '540 €', '250': '690 €', '350': '810 €', '500': '950 €', 'ueber500': 'auf Anfrage' };
-    var updatePricebar = function (animate) {
-      out.textContent = PRICES[selF.value] || 'auf Anfrage';
-      cta.href = 'kontakt.html?branche=' + encodeURIComponent(selB.value) + '&flaeche=' + encodeURIComponent(selF.value) + '#anfrage';
-      if (animate && !reduce) {
-        out.classList.remove('is-changing');
-        void out.offsetWidth;
-        out.classList.add('is-changing');
-      }
+  /* ---- Warum als Karten-Flow: Bildstapel, Textwechsel, Autolauf über die Fortschrittsanimation ----
+     Der aktive Fortschrittsbalken läuft per CSS (6 s); sein animationend schaltet weiter. Pause bei Hover,
+     außerhalb des Sichtbereichs und bei verstecktem Tab. Pfeile, Segmente, Wischen und Pfeiltasten. */
+  var flow = document.getElementById('flow');
+  if (flow) {
+    var fCards = Array.prototype.slice.call(flow.querySelectorAll('.flow__card'));
+    var fItems = Array.prototype.slice.call(flow.querySelectorAll('.flow__item'));
+    var fSegs = Array.prototype.slice.call(flow.querySelectorAll('.flow__seg'));
+    var fStage = document.getElementById('flowStage');
+    var fN = fCards.length, fCur = 0, fSwiped = false;
+    var fApply = function () {
+      fCards.forEach(function (c, i) {
+        var d = (i - fCur + fN) % fN;
+        c.className = 'flow__card' + (d === 0 ? ' is-active' : d === 1 ? ' is-next' : d === 2 ? ' is-after' : d === fN - 1 ? ' is-prev' : '');
+        c.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+      });
+      fItems.forEach(function (t, i) { t.classList.toggle('is-active', i === fCur); t.setAttribute('aria-hidden', i === fCur ? 'false' : 'true'); });
+      fSegs.forEach(function (sg, i) {
+        sg.classList.remove('is-active', 'is-done');
+        if (i < fCur) sg.classList.add('is-done');
+        if (i === fCur) { void sg.offsetWidth; sg.classList.add('is-active'); }
+        sg.setAttribute('aria-current', i === fCur ? 'true' : 'false');
+      });
     };
-    selB.addEventListener('change', function () { updatePricebar(false); });
-    selF.addEventListener('change', function () { updatePricebar(true); });
-    updatePricebar(false);
+    var fGo = function (i) { fCur = (i + fN) % fN; fApply(); };
+    fSegs.forEach(function (sg, i) {
+      sg.addEventListener('click', function () { fGo(i); });
+      sg.addEventListener('animationend', function () { if (sg.classList.contains('is-active')) fGo(fCur + 1); });
+    });
+    var fPrev = document.getElementById('flowPrev'), fNext = document.getElementById('flowNext');
+    if (fPrev) fPrev.addEventListener('click', function () { fGo(fCur - 1); });
+    if (fNext) fNext.addEventListener('click', function () { fGo(fCur + 1); });
+    if (fStage) {
+      var fx0 = 0, fDown = false;
+      fStage.addEventListener('pointerdown', function (e) { fDown = true; fSwiped = false; fx0 = e.clientX; });
+      fStage.addEventListener('pointerup', function (e) {
+        if (!fDown) return; fDown = false;
+        var dx = e.clientX - fx0;
+        if (Math.abs(dx) > 40) { fSwiped = true; fGo(dx < 0 ? fCur + 1 : fCur - 1); }
+      });
+      fStage.addEventListener('pointercancel', function () { fDown = false; });
+      fStage.addEventListener('click', function () { if (fSwiped) { fSwiped = false; return; } fGo(fCur + 1); });
+    }
+    flow.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); fGo(fCur + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); fGo(fCur - 1); }
+    });
+    var fPause = function (on) { flow.classList.toggle('is-paused', !!on); };
+    var fHover = false, fOut = false;
+    flow.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { fHover = true; fPause(true); } });
+    flow.addEventListener('pointerleave', function () { fHover = false; fPause(fOut || document.hidden); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { fOut = !en[0].isIntersecting; fPause(fHover || fOut || document.hidden); }).observe(flow);
+    document.addEventListener('visibilitychange', function () { fPause(fHover || fOut || document.hidden); });
+    /* Startzustand erst setzen, wenn der Abschnitt eingeblendet ist, damit der erste Balken nicht unsichtbar abläuft */
+    fPause(true);
+    if ('IntersectionObserver' in window) {
+      var fFirst = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { fOut = false; fPause(fHover); fFirst.disconnect(); } }, { threshold: 0.3 });
+      fFirst.observe(flow);
+    } else fPause(false);
   }
 
   /* ---- Touren: Klick lädt den Rundgang im Fenster ---- */
