@@ -934,3 +934,20 @@ a.v:hover{color:var(--muted)}
   .vgal__desc{font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){.vgal__item,.vgal__item .chip,.vgal__desc,.vgal__row .arrow{transition:none}}
+
+/* ---------- 16  Abschnittskopf gestapelt, Verlaufsband für den Ablauf, Footer-Wordmark ---------- */
+.sec-head--stack{grid-template-columns:1fr;gap:14px}
+.sec-head--stack>p{justify-self:start;max-width:560px}
+.band{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;background:#fff}
+.band__inner{position:relative;z-index:1;padding:64px 48px}
+.band .sec-head{margin-bottom:36px}
+.band .step{background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.band .step__n{color:#B9C8BC}
+@media (max-width:900px){.band{border-radius:24px}.band__inner{padding:40px 20px}.band .sec-head{margin-bottom:24px}}
+
+.site-footer{padding-bottom:0}
+.footer-mark{overflow:hidden;margin-top:48px;height:.62em;font-size:clamp(44px,11.5vw,180px);line-height:1}
+.footer-mark__inner{display:flex;align-items:center;gap:.14em;font:700 1em/1 "Urbanist","Inter",sans-serif;letter-spacing:-.045em;color:var(--text);white-space:nowrap;transform:translateY(var(--reveal,0%));will-change:transform}
+.footer-mark svg{width:.86em;height:.86em;flex:none}
+@media (max-width:900px){.site-footer{padding-bottom:0}.footer-mark{margin-top:36px}}
+@media (prefers-reduced-motion:reduce){.footer-mark__inner{transform:none!important}}

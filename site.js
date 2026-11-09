@@ -459,6 +459,24 @@
     });
   }
 
+  /* ---- Footer-Wordmark: fährt beim letzten Scrollen von unten hoch und bleibt halb angeschnitten stehen ---- */
+  var fmInner = document.querySelector('.footer-mark__inner');
+  var fmFooter = document.querySelector('.site-footer');
+  if (fmInner && fmFooter && !reduce) {
+    var fmTick = false;
+    var fmUpdate = function () {
+      fmTick = false;
+      var r = fmFooter.getBoundingClientRect();
+      var p = Math.min(1, Math.max(0, (window.innerHeight - r.top) / Math.max(1, r.height)));
+      var eased = 1 - Math.pow(1 - p, 2);
+      fmInner.style.setProperty('--reveal', ((1 - eased) * 100).toFixed(2) + '%');
+    };
+    window.addEventListener('scroll', function () { if (!fmTick) { fmTick = true; requestAnimationFrame(fmUpdate); } }, { passive: true });
+    window.addEventListener('resize', fmUpdate);
+    window.addEventListener('load', fmUpdate);
+    fmUpdate();
+  }
+
   /* ---- Touren: Klick lädt den Rundgang im Fenster ---- */
   var tourGrid = document.getElementById('tourGrid');
   if (tourGrid) {

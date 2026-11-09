@@ -37,7 +37,7 @@ setTimeout(function(){d.classList.add('hero-in');},intro?1000:30);})();
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=43">
+<link rel="stylesheet" href="styles.css?v=44">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -314,16 +314,21 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
     </div>
   </section>
 
-  <!-- 2. Ablauf -->
-  <section class="section section--grey">
+  <!-- 2. Ablauf auf dem Verlaufsband -->
+  <section class="section section--tight-top">
     <div class="wrap">
-      <div class="sec-head sec-head--single" data-reveal>
+      <div class="band" data-reveal>
+        <div class="mesh mesh--strong" aria-hidden="true"></div>
+        <div class="band__inner">
+      <div class="sec-head sec-head--single">
         <h2>In drei Schritten zur fertigen Tour</h2>
       </div>
       <div class="steps">
-        <div class="step" data-reveal><span class="step__n">01</span><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
-        <div class="step" data-reveal style="--i:1"><span class="step__n">02</span><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
-        <div class="step" data-reveal style="--i:2"><span class="step__n">03</span><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
+        <div class="step"><span class="step__n">01</span><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
+        <div class="step"><span class="step__n">02</span><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
+        <div class="step"><span class="step__n">03</span><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
+      </div>
+        </div>
       </div>
     </div>
   </section>
@@ -332,9 +337,8 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
   <section class="section flow-scroll" id="warum">
     <div class="flow-sticky">
       <div class="wrap">
-      <div class="sec-head" data-reveal>
+      <div class="sec-head sec-head--single" data-reveal>
         <h2>Interessenten erkunden deinen Raum, bevor sie kommen</h2>
-        <p>Ein interaktiver 360°-Rundgang, frei begehbar am Desktop, auf dem Handy oder direkt bei Google. So überzeugt deine Location rund um die Uhr.</p>
       </div>
       <div class="flow" id="flow" data-reveal aria-roledescription="Karussell" aria-label="Vorteile einer virtuellen Tour">
         <div class="flow__stage" id="flowStage" aria-label="Nächster Vorteil">
@@ -371,9 +375,8 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
   <!-- 4. Demos -->
   <section class="section section--grey" id="demos">
     <div class="wrap">
-      <div class="sec-head" data-reveal>
+      <div class="sec-head sec-head--single" data-reveal>
         <h2>Auch dabei: Street View und Möbel entfernen</h2>
-        <p>Beides ist in jedem Paket enthalten, ohne Aufpreis. Probier es hier aus.</p>
       </div>
       <div class="demo-grid">
         <div class="demo-col" data-reveal>
@@ -402,7 +405,7 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
   <!-- 5. Branchen -->
   <section class="section" id="branchen">
     <div class="wrap">
-      <div class="sec-head" data-reveal>
+      <div class="sec-head sec-head--stack" data-reveal>
         <h2>Virtuelle Touren, passend zu dir</h2>
         <p>Wähle deine Branche und sieh, wie ein 3D-Rundgang dort wirkt.</p>
       </div>
@@ -416,12 +419,12 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
         <li class="vgal__row" data-i="5"><a href="baubranche.html"><span class="vgal__idx">06</span><span class="vgal__name">Baubranche</span><span class="vgal__desc">Bau, Sanierung &amp; Architektur: Bauzustand begehbar dokumentieren.</span><span class="arrow arrow--ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
         </ol>
         <div class="vgal__stage" tabindex="0" role="group" aria-label="Branchen durchblättern, Pfeiltasten wechseln">
-        <a class="vgal__item is-active" href="gastronomie.html" data-i="0" aria-label="Gastronomie: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp 640w, images/tours/uDdPTJRfy2R-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Doro Ristorante, italienisches Restaurant, in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Gastronomie</span></a>
-        <a class="vgal__item" href="eventlocations.html" data-i="1" aria-label="Eventlocations &amp; Hotels: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Veranstaltungsfläche der MachBar Lübeck in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Eventlocations &amp; Hotels</span></a>
-        <a class="vgal__item" href="immobilien.html" data-i="2" aria-label="Immobilien &amp; Wohnen: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp 640w, images/tours/KNbB5EPAmre-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Wohnung in der Lessingstraße Hamburg in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Immobilien &amp; Wohnen</span></a>
-        <a class="vgal__item" href="gewerbe.html" data-i="3" aria-label="Gewerbe &amp; Showrooms: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp 640w, images/tours/jW4ha2PrbZB-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Versicherungsbüro der DEVK in Völklingen in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Gewerbe &amp; Showrooms</span></a>
-        <a class="vgal__item" href="freizeit.html" data-i="4" aria-label="Freizeit &amp; Entertainment: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp 640w, images/tours/t4sME6NCR3Y-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Padelhalle WE ARE PADEL Berlin in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Freizeit &amp; Entertainment</span></a>
-        <a class="vgal__item" href="baubranche.html" data-i="5" aria-label="Baubranche: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss aus einem 3D-Scan als Baudokumentation" width="1600" height="1131" loading="lazy" decoding="async"></picture><span class="chip chip--glass">Baubranche</span></a>
+        <a class="vgal__item is-active" href="gastronomie.html" data-i="0" aria-label="Gastronomie: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/uDdPTJRfy2R-640.webp 640w, images/tours/uDdPTJRfy2R-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/uDdPTJRfy2R-960.jpg" alt="Doro Ristorante, italienisches Restaurant, in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></a>
+        <a class="vgal__item" href="eventlocations.html" data-i="1" aria-label="Eventlocations &amp; Hotels: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/7CpYpsEXAhs-640.webp 640w, images/tours/7CpYpsEXAhs-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/7CpYpsEXAhs-960.jpg" alt="Veranstaltungsfläche der MachBar Lübeck in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></a>
+        <a class="vgal__item" href="immobilien.html" data-i="2" aria-label="Immobilien &amp; Wohnen: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp 640w, images/tours/KNbB5EPAmre-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Wohnung in der Lessingstraße Hamburg in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></a>
+        <a class="vgal__item" href="gewerbe.html" data-i="3" aria-label="Gewerbe &amp; Showrooms: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/jW4ha2PrbZB-640.webp 640w, images/tours/jW4ha2PrbZB-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/jW4ha2PrbZB-960.jpg" alt="Versicherungsbüro der DEVK in Völklingen in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></a>
+        <a class="vgal__item" href="freizeit.html" data-i="4" aria-label="Freizeit &amp; Entertainment: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/tours/t4sME6NCR3Y-640.webp 640w, images/tours/t4sME6NCR3Y-960.webp 960w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/tours/t4sME6NCR3Y-960.jpg" alt="Padelhalle WE ARE PADEL Berlin in der virtuellen Tour" width="960" height="540" loading="lazy" decoding="async"></picture></a>
+        <a class="vgal__item" href="baubranche.html" data-i="5" aria-label="Baubranche: Branchenseite öffnen"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 720px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss aus einem 3D-Scan als Baudokumentation" width="1600" height="1131" loading="lazy" decoding="async"></picture></a>
         </div>
       </div>
     </div>
@@ -619,10 +622,13 @@ setTimeout(function(){d.classList.remove('has-intro','intro-out');if(p.parentNod
       <span>© <span id="year"></span> Virtuelle Touren Hamburg</span>
       <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
     </div>
+    <div class="footer-mark" aria-hidden="true">
+      <div class="footer-mark__inner"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg><span>Virtuelle Touren</span></div>
+    </div>
   </div>
 </footer>
 
 <script src="lenis.min.js?v=1" defer></script>
-<script src="site.js?v=23" defer></script>
+<script src="site.js?v=24" defer></script>
 </body>
 </html>
