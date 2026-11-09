@@ -3,6 +3,13 @@
   /* ---- Smooth Scroll mit Lenis (lenis.min.js, lokal gehostet) ----
      Bei "Bewegung reduzieren" bleibt Lenis aus, dann scrollt alles nativ. */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Breakpoint-Tokens aus styles.css (:root --bp-*), Komplement für min-width ist der Wert plus 1 px (0,0625em) */
+  var BP = (function () {
+    var cs = getComputedStyle(document.documentElement), read = function (n, fb) { var v = cs.getPropertyValue(n).trim(); return v || fb; };
+    var up = function (v) { return (parseFloat(v) + 0.0625) + 'em'; };
+    var m = read('--bp-m', '56.25em'), l = read('--bp-l', '68.75em');
+    return { s: read('--bp-s', '40em'), m: m, mUp: up(m), l: l, lUp: up(l), xl: read('--bp-xl', '83em') };
+  })();
   var lenis = null;
   if (!reduce && typeof Lenis === 'function') {
     lenis = new Lenis({
@@ -48,7 +55,7 @@
   /* Mega-Panel „Branchen“: öffnet per Hover (Maus) oder Klick, schließt beim Verlassen der Leiste, per Escape oder Klick außerhalb */
   var navbar = document.getElementById('navbar'), megaToggle = document.getElementById('megaToggle'), megaPanel = document.getElementById('megaPanel');
   if (navbar && megaToggle && megaPanel) {
-    var megaTimer = null, isDesktop = function () { return window.matchMedia('(min-width: 68.8125em)').matches; };
+    var megaTimer = null, isDesktop = function () { return window.matchMedia('(min-width: ' + BP.lUp + ')').matches; };
     var setMega = function (open) {
       clearTimeout(megaTimer);
       navbar.classList.toggle('is-mega', open);
@@ -382,7 +389,7 @@
     var fSegs = Array.prototype.slice.call(flow.querySelectorAll('.flow__seg'));
     var fStage = document.getElementById('flowStage');
     var fPrev = document.getElementById('flowPrev'), fNext = document.getElementById('flowNext');
-    var fMobile = window.matchMedia('(max-width: 56.25em)');
+    var fMobile = window.matchMedia('(max-width: ' + BP.m + ')');
     var fN = fCards.length, fCur = 0, fSwiped = false;
     var fApply = function () {
       fCards.forEach(function (c, i) {
@@ -446,7 +453,7 @@
     var vItems = Array.prototype.slice.call(vgal.querySelectorAll('.vgal__item'));
     var vStage = vgal.querySelector('.vgal__stage');
     var vN = vItems.length, vCur = 0;
-    var vMobile = window.matchMedia('(max-width: 56.25em)');
+    var vMobile = window.matchMedia('(max-width: ' + BP.m + ')');
     var vSet = function (i) {
       if (i < 0 || i >= vN || i === vCur) return false;
       vCur = i;
@@ -531,7 +538,7 @@
 
   /* ---- Touren-Reihe: mehr als drei Touren auf Unterseiten laufen auf dem Desktop in einer Reihe (drei sichtbar),
      Pfeile, Wischen am Trackpad oder Ziehen mit der Maus; eine geöffnete Tour nimmt die volle Breite ---- */
-  var rowMQ = window.matchMedia('(min-width: 56.3125em)');
+  var rowMQ = window.matchMedia('(min-width: ' + BP.mUp + ')');
   var ARROW_L = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>';
   var ARROW_R = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>';
   var initTourRow = function (grid) {
@@ -583,7 +590,7 @@
     var dist = function (i) { var d = i - cur; if (loop) { if (d > n / 2) d -= n; else if (d <= -n / 2) d += n; } return d; };
     var titleEl = root.querySelector('.fgal__title'), countEl = root.querySelector('.fgal__count');
     var prev = root.querySelector('.fgal__prev'), next = root.querySelector('.fgal__next');
-    var mobile = function () { return window.matchMedia('(max-width: 56.25em)').matches; };
+    var mobile = function () { return window.matchMedia('(max-width: ' + BP.m + ')').matches; };
     var scaleFor = function (d) { return d === 0 ? 1 : (d === 1 ? 0.68 : 0.56); };
     var alphaFor = function (d) { return d === 0 ? 1 : (d === 1 ? 0.55 : (d === 2 ? 0.3 : 0)); };
     var layout = function () {

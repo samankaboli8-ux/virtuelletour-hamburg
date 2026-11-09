@@ -43,12 +43,14 @@
   --fs-h2:clamp(1.75rem,min(3.4vw,5.4vh),2.875rem);         /* 28 bis 46  Abschnittstitel */
   --fs-h1:clamp(2rem,min(4vw,6vh),3.5rem);                  /* 32 bis 56  Unterseiten, Seitenkopf, Artikel; Startseite ×1.2 */
   /* Maße: Zeilenlängen und Container in rem */
-  --mw-0:18rem;--mw-1:28rem;--mw-2:36rem;--mw-3:40rem;--mw-4:46rem;--mw-5:55rem;--mw-6:60rem;--mw-7:69rem;
+  --mw-0:18rem;--mw-1:28rem;--mw-2:34rem;--mw-3:40rem;--mw-4:46rem;--mw-5:55rem;--mw-6:60rem;--mw-7:69rem; /* --mw-2 = 544 px: bei 16 px Inter rund 72 echte Zeichen je Zeile */
   --wrap:80rem;
   --gutter:clamp(1.125rem,4vw,1.5rem);
-  /* Breakpoint-Skala (Media Queries können keine Variablen lesen, deshalb hier als feste Skala in em, bezogen auf die
-     Standardschrift des Browsers): s 40em (640 px) Handy, m 56.25em (900 px) Tablet hoch, l 68.75em (1100 px) Tablet quer
-     und schmale Laptops, xl 83em (1328 px) große Monitore. Komplemente: 56.3125em und 68.8125em. site.js nutzt dieselben Werte. */
+  /* Breakpoint-Tokens: s 40em (640 px) Handy, m 56.25em (900 px) Tablet hoch, l 68.75em (1100 px) Tablet quer und schmale
+     Laptops, xl 83em (1328 px) große Monitore. Media Queries können keine Custom Properties lesen, deshalb stehen die Werte
+     dort als Literale; site.js liest die Tokens hier aus, und werkzeuge/breakpoints-pruefen.py stellt sicher, dass jede
+     Media Query genau einen dieser Werte (oder sein Komplement plus 1 px) verwendet. */
+  --bp-s:40em;--bp-m:56.25em;--bp-l:68.75em;--bp-xl:83em;
   /* Vertikaler Rhythmus: folgt der Fensterhöhe, damit Abschnitte auf jeden Bildschirm passen */
   --sec:clamp(2.5rem,6vh,5rem);
   --head-mb:clamp(1.25rem,3.5vh,2.25rem);
@@ -88,7 +90,7 @@ button,select,input{font:inherit;color:inherit}
 h1,h2,h3{font-weight:600;color:var(--text)}
 h2{font-size:var(--fs-h2);line-height:1.08;letter-spacing:-.03em}
 h3{font-size:var(--fs-h3);line-height:1.25;letter-spacing:-.015em}
-.lead{font-size:var(--fs-l);line-height:1.5;color:var(--muted);max-width:var(--mw-2)}
+.lead{font-size:var(--fs-l);line-height:1.5;color:var(--muted);max-width:var(--mw-3)}
 .label{font:500 var(--fs-xs)/1.3 "Inter",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 
 .section{padding-block:var(--sec);position:relative}
@@ -434,7 +436,7 @@ html.has-intro,html.has-intro body{overflow:hidden}
 .cta-band{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;background:#fff;text-align:center}
 .cta-band__inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding:clamp(var(--s-7),7vh,var(--s-9)) var(--s-5)}
 .cta-band h2{font-size:var(--fs-h2);max-width:var(--mw-4)}
-.cta-band p{margin-top:var(--s-4);font-size:var(--fs-l);color:#3f4642;max-width:var(--mw-2)}
+.cta-band p{margin-top:var(--s-4);font-size:var(--fs-l);color:#3f4642;max-width:var(--mw-3)}
 .cta-band__actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--s-3) var(--s-6);margin-top:var(--s-6)}
 @media (max-width:40em){.cta-band{border-radius:24px}}
 
@@ -545,7 +547,7 @@ html.has-intro,html.has-intro body{overflow:hidden}
 
 /* Icon-Karten (Baubranche, Immobilien-Exposé, Berlin) */
 .feats,.feats--3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-4)}
-.feat{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s-4);align-items:start;padding:var(--s-5);background:var(--grey);border-radius:var(--r-card);color:var(--text);transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
+.feat{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s-4);align-items:start;padding:var(--s-5) var(--s-4);background:var(--grey);border-radius:var(--r-card);color:var(--text);transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
 .section--grey .feat{background:#fff}
 .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 .feat__icon{grid-row:1/3;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink)}
@@ -555,7 +557,7 @@ html.has-intro,html.has-intro body{overflow:hidden}
 .feat>*:not(.feat__icon){grid-column:2}
 .feat p{color:var(--muted);font-size:var(--fs-m);line-height:1.5;max-width:var(--mw-2)}
 a.feat:hover .feat__more svg{transform:translateX(4px)}
-@media (max-width:40em){.feats,.feats--3{grid-template-columns:minmax(0,1fr);gap:var(--s-3)}}
+@media (max-width:56.25em){.feats,.feats--3{grid-template-columns:minmax(0,1fr);gap:var(--s-3)}}
 
 /* Preisstaffel: individuelles Angebot */
 .tiers__price--custom{font:500 var(--fs-m)/1.3 "Inter",sans-serif;letter-spacing:0;color:var(--muted);text-align:right;white-space:normal}
@@ -637,7 +639,7 @@ a.v:hover{color:var(--muted)}
 .about__img{border-radius:var(--r-media);overflow:hidden;aspect-ratio:16/10;background:var(--grey);margin-bottom:var(--s-5)}
 .about__img img{width:100%;height:100%;object-fit:cover}
 .about h2{font-size:var(--fs-h4);letter-spacing:-.02em;margin-bottom:var(--s-3)}
-.about p{color:var(--muted);font-size:var(--fs-m)}
+.about p{color:var(--muted);font-size:var(--fs-m);max-width:var(--mw-2)}
 @media (max-width:56.25em){
   .contact-grid{grid-template-columns:minmax(0,1fr);gap:var(--s-7)}
   .form-card{padding:var(--s-5) var(--s-4) var(--s-5);border-radius:24px}
@@ -701,7 +703,7 @@ a.v:hover{color:var(--muted)}
 .post:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 .post .label{margin-bottom:var(--s-2)}
 .post h2{font-size:var(--fs-h4);line-height:1.2;letter-spacing:-.02em}
-.post p{color:var(--muted);font-size:var(--fs-m);line-height:1.5;flex:1}
+.post p{color:var(--muted);font-size:var(--fs-m);line-height:1.5;flex:1;max-width:var(--mw-2)}
 .post__more{display:inline-flex;align-items:center;gap:var(--s-3);margin-top:var(--s-3);font:500 var(--fs-s)/1 "Inter",sans-serif}
 .post__more .arrow{width:36px;height:36px}
 .post__more .arrow svg{width:16px;height:16px}
@@ -812,7 +814,7 @@ a.v:hover{color:var(--muted)}
 .page-head h1,.hero--sub .hero__title,.cta-band h2,.sec-head h2{text-wrap:balance}
 
 /* ---------- 14  Warum als Karten-Flow: gestapelte Karten, Wechsel per Pfeil, Segment, Klick oder Wischen ---------- */
-.flow{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s-7) var(--s-8);align-items:center}
+.flow{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:var(--s-7) var(--s-8);align-items:center}
 .flow__stage{position:relative;aspect-ratio:4/3;cursor:pointer;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .flow__card{position:absolute;inset:0;border-radius:var(--r-card);overflow:hidden;background:var(--grey);box-shadow:0 30px 60px rgba(10,10,10,.12);transform-origin:50% 100%;
   opacity:0;transform:translate3d(10%,-7%,0) scale(.86) rotate(4deg);pointer-events:none;
@@ -828,7 +830,7 @@ a.v:hover{color:var(--muted)}
 .flow__item{grid-area:1/1;opacity:0;translate:0 14px;visibility:hidden;transition:opacity var(--t3) var(--ease),translate var(--t3) var(--ease),visibility var(--t3)}
 .flow__item.is-active{opacity:1;translate:0 0;visibility:visible;transition-delay:120ms}
 .flow__item h3{font-size:var(--fs-h2s);line-height:1.12;letter-spacing:-.025em}
-.flow__item p{margin-top:var(--s-4);font-size:var(--fs-m);line-height:1.5;color:var(--muted);max-width:var(--mw-1)}
+.flow__item p{margin-top:var(--s-4);font-size:var(--fs-m);line-height:1.5;color:var(--muted);max-width:var(--mw-2)}
 .flow__nav{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-5);margin-top:var(--s-6)}
 .flow__count{flex:none;font:500 var(--fs-xs)/1 "Inter",sans-serif;letter-spacing:.04em;color:var(--muted);font-variant-numeric:tabular-nums}
 .flow__progress{display:flex;flex:1 1 13rem;gap:var(--s-2);align-items:center;min-height:44px} /* rückt in eine eigene Zeile, sobald die Segmente unter 44 px fielen */
@@ -1075,7 +1077,14 @@ a.v:hover{color:var(--muted)}
 
 /* Tablet quer und schmale Laptops: Textspalten mindestens 50 Zeichen breit */
 @media (min-width:56.3125em) and (max-width:68.75em){
-  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--s-6) var(--s-7)}
   .vgal{grid-template-columns:repeat(2,minmax(0,1fr))}
   .feats,.feats--3{grid-template-columns:minmax(0,1fr)}
 }
+
+/* Zwei Hinweise direkt untereinander (Leistungen): am Desktop nebeneinander in zwei Lesespalten */
+@media (min-width:56.3125em){
+  .price-note:has(+ .price-contact),.price-note + .price-contact{display:inline-block;width:calc(50% - var(--s-3));max-width:var(--mw-2);margin-top:var(--s-4);text-align:left;vertical-align:top}
+  .price-note:has(+ .price-contact){margin-right:var(--s-5)}
+}
+@media (max-width:83em){.feat{padding-inline:var(--s-3)}} /* Icon-Karten bis 1328 px: Textspalte hält 50 Zeichen */
