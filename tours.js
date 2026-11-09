@@ -75,33 +75,27 @@ function thumbBase(id){ return 'images/tours/' + id; }
 const DEFAULT_OPEN = false;
 
 function makeCard(t){
-  const card = document.createElement('div');
-  card.className = 'card';
+  const card = document.createElement('article');
+  card.className = 'tour';
   card.dataset.id = t.id;
+  card.dataset.m = t.id;
   card.innerHTML = `
-    <div class="frame" role="button" tabindex="0" aria-label="Tour starten: ${t.title}" data-title="${t.title}">
-      <picture><source type="image/webp" srcset="${thumbBase(t.id)}-640.webp 640w, ${thumbBase(t.id)}-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="${thumbBase(t.id)}-960.jpg" alt="Vorschau der virtuellen Tour: ${t.title}" width="960" height="540" loading="lazy"
-           onerror="this.style.display='none'"></picture>
-      <div class="scrim"></div>
-      <div class="play">
-        <div class="btn-play">${ICON_PLAY}</div>
-        <span class="label">Tour starten</span>
-      </div>
+    <div class="tour__window" role="button" tabindex="0" aria-label="Tour starten: ${t.title}" data-title="${t.title}">
+      <picture><source type="image/webp" srcset="${thumbBase(t.id)}-640.webp 640w, ${thumbBase(t.id)}-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="${thumbBase(t.id)}-960.jpg" alt="Vorschau der virtuellen Tour: ${t.title}" width="960" height="540" loading="lazy" decoding="async"></picture>
+      <span class="chip chip--glass">360° Tour</span>
+      <span class="play play--sm" aria-hidden="true">${ICON_PLAY}</span>
     </div>
-    <div class="meta">
-      <div>
-        <h3>${t.title}</h3>
-        <div class="sub">Virtueller Rundgang</div>
-      </div>
-      <div class="actions">
-        <a class="iconbtn" href="${tourUrl(t.id)}" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen">${ICON_OPEN}</a>
-        <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="${tourUrl(t.id)}">${ICON_LINK}</button>
-        <button class="iconbtn close" title="Tour schließen" aria-label="Tour schließen">${ICON_CLOSE}</button>
+    <div class="tour__meta">
+      <div><h3>${t.title}</h3><p>${t.sub || 'Virtueller Rundgang'}</p></div>
+      <div class="tour__actions">
+        <a class="iconbtn" href="${tourUrl(t.id)}" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="Tour in neuem Tab öffnen">${ICON_OPEN}</a>
+        <button type="button" class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="${tourUrl(t.id)}">${ICON_LINK}</button>
+        <button type="button" class="iconbtn close" title="Tour schließen" aria-label="Tour schließen">${ICON_CLOSE}</button>
       </div>
     </div>`;
-  const frame = card.querySelector('.frame');
-  frame.addEventListener('click', () => openTour(card, t));
-  frame.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openTour(card, t);} });
+  const win = card.querySelector('.tour__window');
+  win.addEventListener('click', () => openTour(card, t));
+  win.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openTour(card, t);} });
   card.querySelector('.close').addEventListener('click', () => closeTour(card));
   card.querySelector('.copy').addEventListener('click', e => copyLink(e.currentTarget.dataset.url));
   return card;
@@ -112,9 +106,10 @@ function addCategory(label, items, forceOpen){
   sec.className = 'cat' + ((forceOpen || DEFAULT_OPEN) ? '' : ' collapsed');
 
   const head = document.createElement('button');
+  head.type = 'button';
   head.className = 'cat-head';
   head.setAttribute('aria-expanded', sec.classList.contains('collapsed') ? 'false' : 'true');
-  head.innerHTML = `${ICON_CHEV}<h3>${label}</h3><span class="cnt">${items.length}</span><span class="line"></span>`;
+  head.innerHTML = `<h3>${label}</h3><span class="cnt">${items.length} ${items.length === 1 ? 'Tour' : 'Touren'}</span>${ICON_CHEV}`;
 
   const body = document.createElement('div');
   body.className = 'grid';
@@ -157,40 +152,46 @@ function render(list){
   });
   const rest = list.filter(t => !CATEGORIES.some(c => c.key === t.cat));
   if(rest.length) addCategory('Weitere Touren', rest);
+  const countEl = document.getElementById('tourCount');
+  if(countEl) countEl.textContent = list.length + (list.length === 1 ? ' Tour' : ' Touren');
 }
 
 function openTour(card, t){
   if(card.classList.contains('is-open')) return;
-  const frame = card.querySelector('.frame');
+  const win = card.querySelector('.tour__window');
   card.classList.add('is-open');
-  frame.querySelector('.play').style.display = 'none';
+  win.removeAttribute('role'); win.removeAttribute('tabindex');
   const spin = document.createElement('div');
   spin.className = 'spinner';
-  frame.appendChild(spin);
+  win.appendChild(spin);
   const iframe = document.createElement('iframe');
   iframe.src = tourUrl(t.id) + '&play=1';
   iframe.title = 'Virtuelle Tour: ' + t.title;
   iframe.allow = 'autoplay; fullscreen; web-share; xr-spatial-tracking;';
   iframe.allowFullscreen = true;
-  iframe.loading = 'lazy';
   iframe.addEventListener('load', () => spin.remove());
-  frame.appendChild(iframe);
-  window.scrollToCenter(card);
+  win.appendChild(iframe);
+  const cat = card.closest('.cat');
+  if(cat){ const body = cat.querySelector('.grid'); if(body && body.style.maxHeight !== 'none') body.style.maxHeight = 'none'; }
+  if(window.scrollToCenter) window.scrollToCenter(card); else card.scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 function closeTour(card){
-  const frame = card.querySelector('.frame');
+  const win = card.querySelector('.tour__window');
   card.classList.remove('is-open');
-  frame.querySelectorAll('iframe,.spinner').forEach(el => el.remove());
-  frame.querySelector('.play').style.display = '';
+  win.querySelectorAll('iframe,.spinner').forEach(el => el.remove());
+  win.setAttribute('role', 'button'); win.setAttribute('tabindex', '0');
+  win.focus();
 }
 
 function copyLink(url){
-  navigator.clipboard?.writeText(url).then(showToast).catch(() => {
+  const fallback = () => {
     const ta = document.createElement('textarea');
     ta.value = url; document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); ta.remove(); showToast();
-  });
+    try { document.execCommand('copy'); } catch (e) {}
+    ta.remove(); showToast();
+  };
+  if(navigator.clipboard) navigator.clipboard.writeText(url).then(showToast).catch(fallback); else fallback();
 }
 let toastTimer;
 function showToast(){
@@ -198,8 +199,9 @@ function showToast(){
   if(!toast){
     toast = document.createElement('div');
     toast.id = 'toast';
+    toast.setAttribute('role', 'status');
     toast.textContent = 'Link kopiert';
-    toast.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#4E7B53;color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 10px 40px rgba(22,36,46,.18);opacity:0;pointer-events:none;transition:all .25s;z-index:300';
+    toast.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#0A0A0A;color:#fff;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:950';
     document.body.appendChild(toast);
   }
   requestAnimationFrame(() => { toast.style.opacity='1'; toast.style.transform='translateX(-50%) translateY(0)'; });
@@ -221,22 +223,20 @@ const galleryEl = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbCap = document.getElementById('lbCap');
-const ICON_ZOOM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>';
 let lbIndex = 0;
 
 function webp(file, w){ return file.replace(/^images\//, 'images/opt/').replace(/\.(jpg|png)$/, '-' + w + '.webp'); }
 function renderGallery(){
   galleryEl.innerHTML = '';
   GALLERY.forEach((g, i) => {
-    const el = document.createElement('div');
+    const el = document.createElement('button');
+    el.type = 'button';
     el.className = 'shot';
+    el.setAttribute('aria-label', '4K-Bild groß ansehen: ' + g.title);
     el.innerHTML = `
-      <picture><source type="image/webp" srcset="${webp(g.file,640)} 640w, ${webp(g.file,1200)} 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 420px"><img src="${g.file}" alt="4K-Foto aus virtueller Tour: ${g.title}" loading="lazy" decoding="async" width="1920" height="1080"></picture>
-      <span class="tag badge-4k">4K</span>
-      <div class="overlay">
-        <span class="name">${g.title}</span>
-        <span class="zoom">${ICON_ZOOM}</span>
-      </div>`;
+      <picture><source type="image/webp" srcset="${webp(g.file,640)} 640w, ${webp(g.file,1200)} 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 620px"><img src="${g.file}" alt="4K-Foto aus virtueller Tour: ${g.title}" loading="lazy" decoding="async" width="1920" height="1080"></picture>
+      <span class="chip chip--glass shot__tag">4K</span>
+      <span class="chip chip--glass shot__name">${g.title}</span>`;
     el.addEventListener('click', () => openLightbox(i));
     galleryEl.appendChild(el);
   });
@@ -251,6 +251,7 @@ function openLightbox(i){
   lightbox.setAttribute('aria-hidden','false');
   document.body.style.overflow = 'hidden';
   if(window.lenis) window.lenis.stop();
+  document.getElementById('lbClose').focus();
 }
 function closeLightbox(){
   lightbox.classList.remove('show');

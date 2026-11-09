@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
 <title>Virtuelle Tour in Google Maps &amp; Street View einbinden</title>
 <meta name="description" content="So kommt dein 3D-Rundgang in den Google-Unternehmenseintrag und in Street View: Voraussetzungen, Ablauf und was das für lokale Sichtbarkeit bringt.">
 <meta name="keywords" content="virtuelle Tour Google Maps, Street View Rundgang, Google Unternehmensprofil 360 Grad, 3D-Tour Google">
@@ -25,8 +25,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles-legacy.css?v=27">
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=41">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,11 +57,14 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="index.html" data-page="index.html">Start</a></li>
@@ -79,26 +82,28 @@
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a></li>
+      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
+      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="kontakt.html">Unverbindlich anfragen</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </nav>
 </header>
 
-<main>
-  <div class="wrap">
-    <div class="legal">
+<main id="main">
 
-      <p class="crumbs"><a href="ratgeber.html">Ratgeber</a> &rsaquo; Sichtbarkeit</p>
+  <section class="section section--article">
+    <div class="wrap">
+      <article class="prose">
+        <p class="crumbs"><a href="ratgeber.html">Ratgeber</a> &rsaquo; Sichtbarkeit</p>
 
       <h1>Virtuelle Tour in Google Maps und Street View einbinden</h1>
 
-      <p style="font-size:18px">Eine virtuelle Tour auf der eigenen Website ist gut. Eine virtuelle Tour im Google-Unternehmenseintrag ist besser, weil sie dort auftaucht, wo Menschen tatsächlich nach dir suchen, bevor sie deine Website überhaupt kennen.</p>
+      <p class="intro">Eine virtuelle Tour auf der eigenen Website ist gut. Eine virtuelle Tour im Google-Unternehmenseintrag ist besser, weil sie dort auftaucht, wo Menschen tatsächlich nach dir suchen, bevor sie deine Website überhaupt kennen.</p>
 
-      <picture><source type="image/webp" srcset="images/opt/streetview-beispiel-640.webp 640w, images/opt/streetview-beispiel-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/streetview-beispiel.jpg" alt="Beispiel einer virtuellen Tour, eingebunden in Google Street View" width="1600" height="900" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);margin:24px 0"></picture>
+      <picture><source type="image/webp" srcset="images/opt/streetview-beispiel-640.webp 640w, images/opt/streetview-beispiel-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/streetview-beispiel.jpg" alt="Beispiel einer virtuellen Tour, eingebunden in Google Street View" width="1600" height="900" loading="lazy"></picture>
 
       <h2>Warum die Google-Einbindung den Unterschied macht</h2>
 
@@ -120,30 +125,14 @@
 
       <h2>Der Ablauf in der Praxis</h2>
 
-      <div class="steps" style="margin:28px 0">
-        <div class="step">
-          <div class="n">1</div>
-          <h3>Profil prüfen</h3>
-          <p>Wir schauen gemeinsam, ob dein Unternehmensprofil bestätigt ist und ob Adresse, Öffnungszeiten und Kategorie stimmen. Fehlerhafte Grunddaten schwächen die gesamte lokale Sichtbarkeit.</p>
-        </div>
-        <div class="step">
-          <div class="n">2</div>
-          <h3>Aufnahme</h3>
-          <p>Der Scan vor Ort ist derselbe wie für die reguläre Tour. Es braucht keinen zweiten Termin und keine separate Technik.</p>
-        </div>
-        <div class="step">
-          <div class="n">3</div>
-          <h3>Aufbereitung &amp; Upload</h3>
-          <p>Die Panoramen werden aus dem 3D-Modell abgeleitet, korrekt verortet und in das Profil hochgeladen. Die Zuordnung zur Adresse erfolgt über die Geokoordinaten.</p>
-        </div>
-        <div class="step">
-          <div class="n">4</div>
-          <h3>Freigabe durch Google</h3>
-          <p>Google prüft die Inhalte automatisiert. Bis der Rundgang öffentlich sichtbar ist, vergehen üblicherweise einige Tage.</p>
-        </div>
+            <div class="steps steps--4">
+        <div class="step" data-reveal><span class="step__n">01</span><h3>Profil prüfen</h3><p>Wir schauen gemeinsam, ob dein Unternehmensprofil bestätigt ist und ob Adresse, Öffnungszeiten und Kategorie stimmen. Fehlerhafte Grunddaten schwächen die gesamte lokale Sichtbarkeit.</p></div>
+        <div class="step" data-reveal style="--i:1"><span class="step__n">02</span><h3>Aufnahme</h3><p>Der Scan vor Ort ist derselbe wie für die reguläre Tour. Es braucht keinen zweiten Termin und keine separate Technik.</p></div>
+        <div class="step" data-reveal style="--i:2"><span class="step__n">03</span><h3>Aufbereitung &amp; Upload</h3><p>Die Panoramen werden aus dem 3D-Modell abgeleitet, korrekt verortet und in das Profil hochgeladen. Die Zuordnung zur Adresse erfolgt über die Geokoordinaten.</p></div>
+        <div class="step" data-reveal style="--i:3"><span class="step__n">04</span><h3>Freigabe durch Google</h3><p>Google prüft die Inhalte automatisiert. Bis der Rundgang öffentlich sichtbar ist, vergehen üblicherweise einige Tage.</p></div>
       </div>
 
-      <h2>Was die Einbindung nicht leistet</h2>
+<h2>Was die Einbindung nicht leistet</h2>
 
       <p>Ehrlichkeitshalber: Eine 360-Grad-Tour im Google-Profil ist kein direkter Ranking-Faktor. Google stuft dich nicht allein deshalb höher ein, weil ein Rundgang hinterlegt ist. Die Wirkung ist indirekter, aber deswegen nicht kleiner:</p>
 
@@ -169,16 +158,25 @@
 
       <p>Wenn du wissen willst, ob dein Google-Profil die Voraussetzungen erfüllt: Schick mir den Namen deines Betriebs über das <a href="kontakt.html">Kontaktformular</a>, ich schaue kurz nach und sage dir, was zu tun wäre.</p>
 
-      <p style="margin-top:36px"><a href="ratgeber.html">&larr; Zurück zum Ratgeber</a></p>
-
+      <p><a href="ratgeber.html">&larr; Zurück zum Ratgeber</a></p>
+      </article>
     </div>
-  </div>
+  </section>
 
-  <section class="cta-band">
+  <!-- CTA-Band -->
+  <section class="section section--cta">
     <div class="wrap">
-      <h2>Tour bei Google sichtbar machen?</h2>
-      <p>Ich prüfe dein Unternehmensprofil und sage dir, was für die Einbindung nötig ist.</p>
-      <a class="btn btn--light btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
+      <div class="cta-band" data-reveal>
+        <div class="mesh mesh--strong" aria-hidden="true"></div>
+        <div class="cta-band__inner">
+          <h2>Tour bei Google sichtbar machen?</h2>
+          <p>Ich prüfe dein Unternehmensprofil und sage dir, was für die Einbindung nötig ist.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="kontakt.html#anfrage">Unverbindlich anfragen</a>
+            <a class="cta-band__tel" href="tel:+4917660953701">0176 60953701</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -187,12 +185,12 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-          <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+          <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
         </a>
-        <p>Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
+        <p>Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
         <h3>Navigation</h3>
@@ -214,6 +212,7 @@
       <div class="footer-col">
         <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
+        <a href="tel:+4917660953701">0176 60953701</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -226,7 +225,7 @@
   </div>
 </footer>
 
-<script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=11"></script>
+<script src="lenis.min.js?v=1" defer></script>
+<script src="site.js?v=21" defer></script>
 </body>
 </html>

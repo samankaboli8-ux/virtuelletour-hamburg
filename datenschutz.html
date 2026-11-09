@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
 <title>Datenschutzerklärung | Virtuelle Touren Hamburg</title>
 <meta name="description" content="Datenschutzerklärung von Virtuelle Touren Hamburg.">
 <link rel="canonical" href="https://virtuelletour-hamburg.de/datenschutz.html">
@@ -13,16 +13,19 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles-legacy.css?v=27">
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=41">
 </head>
 <body>
 
-<header class="site-header">
+<div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="index.html" data-page="index.html">Start</a></li>
@@ -40,19 +43,22 @@
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a></li>
+      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
+      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="kontakt.html">Unverbindlich anfragen</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </nav>
 </header>
 
-<main>
-  <div class="wrap">
-    <div class="legal">
-      <h1>Datenschutzerklärung</h1>
+<main id="main">
+
+  <section class="section section--article">
+    <div class="wrap">
+      <div class="prose">
+        <h1>Datenschutzerklärung</h1>
 
       <h2>1. Verantwortlicher</h2>
       <p>
@@ -87,22 +93,58 @@
       <h2>9. SSL-/TLS-Verschlüsselung</h2>
       <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL-/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du an „https://“ in der Adresszeile.</p>
 
-      <p style="margin-top:18px;color:var(--muted);font-size:14px">Stand: 26. Oktober 2026</p>
-      <p style="margin-top:18px"><a href="index.html">&larr; Zurück zur Startseite</a></p>
+      <p>Stand: 26. Oktober 2026</p>
+      <p><a href="index.html">&larr; Zurück zur Startseite</a></p>
+      </div>
     </div>
-  </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-bottom" style="border-top:0;padding-top:0">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
+          <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+        </a>
+        <p>Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Navigation</h3>
+        <a href="index.html">Start</a>
+        <a href="leistungen.html">Leistungen &amp; Preise</a>
+        <a href="referenzen.html">Referenzen</a>
+        <a href="ratgeber.html">Ratgeber</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h3>Branchen</h3>
+        <a href="gastronomie.html">Gastronomie</a>
+        <a href="eventlocations.html">Eventlocations &amp; Hotels</a>
+        <a href="immobilien.html">Immobilien &amp; Wohnen</a>
+        <a href="gewerbe.html">Gewerbe &amp; Showrooms</a>
+        <a href="freizeit.html">Freizeit &amp; Entertainment</a>
+        <a href="baubranche.html">Baubranche</a>
+      </div>
+      <div class="footer-col">
+        <h3>Kontakt</h3>
+        <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
+        <a href="tel:+4917660953701">0176 60953701</a>
+        <a href="kontakt.html">Anfrageformular</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <span>© <span id="year"></span> Virtuelle Touren Hamburg</span>
       <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
     </div>
   </div>
 </footer>
 
-<script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=11"></script>
+<script src="lenis.min.js?v=1" defer></script>
+<script src="site.js?v=21" defer></script>
 </body>
 </html>

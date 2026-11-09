@@ -204,6 +204,28 @@
     }).observe(sentinel);
   }
 
+  /* ---- Hero-Titel: Wörter für die Einblendung aufteilen (Unterseiten, data-split) ----
+     Textknoten werden in Wörter zerlegt, Elemente (z. B. .nb) bleiben als ein Wort zusammen. */
+  document.querySelectorAll('.hero__title[data-split]').forEach(function (h) {
+    var idx = 0, frag = document.createDocumentFragment();
+    var wrapWord = function (content) {
+      var w = document.createElement('span'); w.className = 'w';
+      var inner = document.createElement('span'); inner.style.setProperty('--w', idx++);
+      if (typeof content === 'string') inner.textContent = content; else inner.appendChild(content);
+      w.appendChild(inner); return w;
+    };
+    Array.prototype.slice.call(h.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        n.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(' ')); else frag.appendChild(wrapWord(part));
+        });
+      } else if (n.nodeType === 1 && n.tagName === 'BR') { frag.appendChild(n); }
+      else if (n.nodeType === 1) { frag.appendChild(wrapWord(n)); }
+    });
+    h.textContent = ''; h.appendChild(frag); h.classList.add('is-split');
+  });
+
   /* ---- Hero-Medium: Klick lädt den Rundgang im Medium ---- */
   var heroCard = document.getElementById('heroTour');
   var heroFrame = document.getElementById('heroFrame');
@@ -218,7 +240,7 @@
       heroFrame.appendChild(spin);
       var f = document.createElement('iframe');
       f.src = EMBED + heroCard.dataset.m + '&play=1';
-      f.title = 'Virtuelle Tour: StrandPauli Hamburg';
+      f.title = 'Virtuelle Tour: ' + (heroFrame.dataset.title || '');
       f.allow = 'autoplay; fullscreen; web-share; xr-spatial-tracking;';
       f.allowFullscreen = true;
       f.addEventListener('load', function () { spin.remove(); });
@@ -235,6 +257,49 @@
       if ((e.key === 'Enter' || e.key === ' ') && e.target === heroFrame) { e.preventDefault(); openHero(); }
     });
     if (heroClose) heroClose.addEventListener('click', closeHero);
+  }
+
+  /* ---- Umschalter unter dem Hero-Medium: Poster, Tour-ID und Beschriftung wechseln ---- */
+  var switchBtns = document.querySelectorAll('.hero-switch__btn[data-m]');
+  if (heroCard && heroFrame && switchBtns.length) {
+    switchBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.getAttribute('aria-pressed') === 'true') return;
+        switchBtns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        var m = btn.dataset.m, name = btn.dataset.name || '';
+        heroCard.dataset.m = m;
+        heroFrame.dataset.title = name;
+        heroFrame.setAttribute('aria-label', 'Virtuelle Tour ' + name + ' starten');
+        var src = heroFrame.querySelector('picture source'), img = heroFrame.querySelector('img');
+        if (src) src.srcset = 'images/tours/' + m + '-1280.webp';
+        if (img) { img.src = 'images/tours/' + m + '-1280.jpg'; img.alt = btn.dataset.alt || ('Virtuelle 3D-Tour: ' + name); }
+        var f = heroFrame.querySelector('iframe');
+        if (f) { f.src = EMBED + m + '&play=1'; f.title = 'Virtuelle Tour: ' + name; }
+        var nameEl = document.getElementById('heroTourName');
+        if (nameEl) nameEl.textContent = name;
+      });
+    });
+  }
+
+  /* ---- Kontaktformular: Auswahl aus der Festpreis-Leiste übernehmen, Erfolgsmeldung zeigen ---- */
+  var anfrage = document.querySelector('form[name="anfrage"]');
+  if (anfrage && 'URLSearchParams' in window) {
+    var qs = new URLSearchParams(location.search);
+    var BRANCHE = { gastronomie: 'Gastronomie / Café / Bar', eventlocations: 'Eventlocation / Hotel', immobilien: 'Immobilie / Wohnung', gewerbe: 'Gewerbe / Showroom', freizeit: 'Freizeit / Sport', baubranche: 'Bauprojekt' };
+    var typeSel = document.getElementById('f-type'), areaIn = document.getElementById('f-area'), msgIn = document.getElementById('f-msg');
+    var br = qs.get('branche');
+    if (br && BRANCHE[br] && typeSel) {
+      Array.prototype.forEach.call(typeSel.options, function (o) { if (o.text === BRANCHE[br]) typeSel.value = o.value; });
+    }
+    var fl = qs.get('flaeche');
+    if (fl && areaIn) {
+      if (/^\d+$/.test(fl)) areaIn.value = fl;
+      else if (fl === 'ueber500' && msgIn && !msgIn.value) msgIn.value = 'Fläche: über 500 m²\n';
+    }
+    if (qs.get('anfrage') === 'ok') {
+      var notice = document.getElementById('formNotice');
+      if (notice) { notice.hidden = false; notice.setAttribute('tabindex', '-1'); notice.focus({ preventScroll: true }); }
+    }
   }
 
   /* ---- Scroll-Zoom des Hero-Mediums: Breite wächst von 88 % auf 100 % (nur transform) ---- */
@@ -409,4 +474,126 @@
       }
     });
   });
+  /* =====================================================================
+     Bogen-Karussell im Hero (Prototyp): Tour-Poster auf einem Zylinder.
+     Ziehen mit Schwung, horizontales Mausrad, Pfeiltasten, langsamer Autolauf.
+     Tipp oder Klick auf eine Karte öffnet die Tour im Hero-Medium. Bei reduzierter
+     Bewegung bleibt es eine flache, scrollbare Reihe (nur CSS).
+     ===================================================================== */
+  var arc = document.querySelector('.arc');
+  if (arc) {
+    var ring = arc.querySelector('.arc__ring');
+    var cards = Array.prototype.slice.call(ring.children);
+    var stage = arc.closest('.arc-stage');
+    var N = cards.length, step = 360 / N;
+    var rot = 0, vel = 0, cw = 400, degPerPx = 0.1, dragging = false, lastX = 0, moved = 0, pauseUntil = 0, hover = false, inView = true, rafId = 0;
+    var downCard = null, suppressClick = false;
+    var AUTO = 0.035; // Grad pro Frame, etwa 2 Grad pro Sekunde
+
+    var openCard = function (c) {
+      if (!heroCard || !heroFrame || !stage) return;
+      var id = c.dataset.m, name = c.dataset.title || '';
+      heroCard.dataset.m = id; heroFrame.dataset.title = name;
+      heroFrame.setAttribute('aria-label', 'Virtuelle Tour ' + name + ' starten');
+      var src = heroFrame.querySelector('picture source'), img = heroFrame.querySelector('img'), cimg = c.querySelector('img');
+      /* 960er-Poster gibt es für jede Tour, 1280 nur für Hero-Touren */
+      if (src) src.srcset = 'images/tours/' + id + '-960.webp';
+      if (img) { img.src = 'images/tours/' + id + '-960.jpg'; if (cimg) img.alt = cimg.alt; }
+      stage.classList.add('is-open');
+      heroFrame.click();
+      if (window.scrollToCenter) window.scrollToCenter(heroCard);
+    };
+
+    var measure = function () {
+      cw = parseFloat(getComputedStyle(cards[0]).width) || 400;
+      var radius = ((cw * 1.08) / 2) / Math.tan(Math.PI / N);
+      degPerPx = step / cw;
+      ring.style.setProperty('--rz', radius.toFixed(1) + 'px'); // Ring nach hinten, Frontkarte steht in Originalgröße
+      cards.forEach(function (c, i) { c.style.setProperty('--a', (i * step) + 'deg'); c.style.setProperty('--rz', radius.toFixed(1) + 'px'); });
+    };
+    var paint = function () {
+      ring.style.setProperty('--rot', rot.toFixed(3) + 'deg');
+      cards.forEach(function (c, i) {
+        var a = ((i * step + rot) % 360 + 540) % 360 - 180; // -180..180, 0 = vorne
+        var abs = Math.abs(a);
+        var dim = Math.min(1, Math.max(0, (abs - 22) / 68));
+        c.style.setProperty('--dim', dim.toFixed(3));
+        var hidden = abs > 95;
+        c.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+        c.tabIndex = hidden ? -1 : 0;
+      });
+    };
+    var tick = function () {
+      if (!dragging) {
+        if (!hover && performance.now() > pauseUntil) rot -= AUTO;
+        rot += vel; vel *= 0.93;
+        if (Math.abs(vel) < 0.002) vel = 0;
+      }
+      paint();
+      rafId = inView ? requestAnimationFrame(tick) : 0;
+    };
+    var start = function () { if (!rafId && !reduce) rafId = requestAnimationFrame(tick); };
+
+    if (!reduce) {
+      measure(); paint(); start();
+      window.addEventListener('resize', function () { measure(); paint(); });
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { inView = en[0].isIntersecting; if (inView) start(); }).observe(arc);
+
+      arc.addEventListener('pointerenter', function () { hover = true; });
+      arc.addEventListener('pointerleave', function () { hover = false; });
+
+      /* Ziehen: Bewegung und Loslassen am Fenster verfolgen, damit auch außerhalb weitergezogen wird.
+         Kein setPointerCapture, sonst käme der Klick nie bei der Karte an. */
+      var onMove = function (e) {
+        if (!dragging) return;
+        var dx = e.clientX - lastX; lastX = e.clientX; moved += Math.abs(dx);
+        rot += dx * degPerPx; vel = dx * degPerPx * 0.9;
+      };
+      var onUp = function (e) {
+        if (!dragging) return;
+        dragging = false; arc.classList.remove('is-dragging');
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        window.removeEventListener('pointercancel', onUp);
+        pauseUntil = performance.now() + 5000;
+        if (e.type === 'pointerup' && moved <= 6 && downCard && downCard.getAttribute('aria-hidden') !== 'true') {
+          suppressClick = true; openCard(downCard);
+          setTimeout(function () { suppressClick = false; }, 0);
+        }
+        downCard = null;
+      };
+      arc.addEventListener('pointerdown', function (e) {
+        if (e.button !== 0 && e.pointerType === 'mouse') return;
+        dragging = true; moved = 0; vel = 0; lastX = e.clientX;
+        downCard = e.target.closest ? e.target.closest('.arc__card') : null;
+        arc.classList.add('is-dragging');
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp);
+        window.addEventListener('pointercancel', onUp);
+      });
+      arc.addEventListener('dragstart', function (e) { e.preventDefault(); });
+      arc.addEventListener('wheel', function (e) {
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // vertikal scrollt die Seite
+        e.preventDefault();
+        rot -= e.deltaX * degPerPx * 0.6; vel = 0;
+        pauseUntil = performance.now() + 5000;
+      }, { passive: false });
+      arc.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        e.preventDefault();
+        rot += e.key === 'ArrowLeft' ? step : -step; vel = 0;
+        pauseUntil = performance.now() + 8000;
+      });
+    }
+
+    /* Klick per Tastatur (Enter, Leertaste) oder ohne Bewegungssystem */
+    cards.forEach(function (c) {
+      c.addEventListener('click', function (e) {
+        if (suppressClick || moved > 6) { e.preventDefault(); return; }
+        openCard(c);
+      });
+    });
+    var arcClose = document.getElementById('heroClose');
+    if (arcClose && stage) arcClose.addEventListener('click', function () { stage.classList.remove('is-open'); pauseUntil = performance.now() + 3000; });
+  }
 })();

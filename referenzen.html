@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
 <title>Referenzen: Virtuelle Touren & 4K-Bilder | Hamburg</title>
 <meta name="description" content="Realisierte virtuelle 3D-Touren für Restaurants, Eventlocations, Cafés und Gewerbe aus Hamburg und ganz Deutschland, inklusive 4K-Bildergalerie. Jetzt entdecken.">
 <meta name="keywords" content="virtuelle Tour Referenzen, 3D-Tour Beispiele Hamburg, 3D-Rundgang Restaurant, 4K Bildergalerie">
@@ -25,8 +25,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles-legacy.css?v=27">
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=41">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -66,11 +66,14 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="index.html" data-page="index.html">Start</a></li>
@@ -88,35 +91,36 @@
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a></li>
+      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
+      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="kontakt.html">Unverbindlich anfragen</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </nav>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- Intro -->
-  <section class="page-head">
+  <!-- Seitenkopf -->
+  <section class="page-head page-head--tight">
+    <div class="mesh mesh--hero" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="section__head">
-        <h1>Virtuelle Touren zum Selbst-Erkunden</h1>
-        <p>Kachel anklicken, die Tour startet direkt hier. Rundgänge aus Gastronomie, Events, Gewerbe und Wohnen, aus Hamburg und darüber hinaus.</p>
-      </div>
+      <h1 class="hero__title" data-split>Virtuelle Touren zum Selbst-Erkunden</h1>
+      <p class="lead hero__lead">Kachel anklicken, die Tour startet direkt hier. Rundgänge aus Gastronomie, Events, Gewerbe und Wohnen, aus Hamburg und darüber hinaus.</p>
     </div>
   </section>
 
   <!-- Touren -->
-  <section class="section">
+  <section class="section section--tight-top">
     <div class="wrap">
-      <div class="toolbar">
+      <div class="toolbar" data-reveal>
         <div class="search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="text" id="search" placeholder="Tour suchen …" aria-label="Tour suchen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" id="search" placeholder="Tour suchen …" aria-label="Tour suchen">
         </div>
+        <span class="toolbar__count" id="tourCount"></span>
       </div>
       <div id="grid"></div>
       <div class="empty" id="empty">Keine Tour gefunden.</div>
@@ -124,9 +128,9 @@
   </section>
 
   <!-- 4K Galerie -->
-  <section class="section section--soft" id="galerie">
+  <section class="section section--grey" id="galerie">
     <div class="wrap">
-      <div class="section__head">
+      <div class="sec-head" data-reveal>
         <h2>Zusätzlich: professionelle <span class="nb">4K-Bilder</span></h2>
         <p>Zu jeder Tour gibt es 4K-Bilder für Exposé, Social Media, Website oder Druck. Rundgang und Fotos aus einer Hand.</p>
       </div>
@@ -135,34 +139,41 @@
   </section>
 
   <!-- CTA-Band -->
-  <section class="cta-band">
+  <section class="section section--cta">
     <div class="wrap">
-      <h2>Soll deine Location als Nächstes hier stehen?</h2>
-      <p>Sende mir unverbindlich dein Objekt, du bekommst Richtpreis und Terminvorschlag.</p>
-      <a class="btn btn--light btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
+      <div class="cta-band" data-reveal>
+        <div class="mesh mesh--strong" aria-hidden="true"></div>
+        <div class="cta-band__inner">
+          <h2>Soll deine Location als Nächstes hier stehen?</h2>
+          <p>Sende mir unverbindlich dein Objekt, du bekommst Richtpreis und Terminvorschlag.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="kontakt.html#anfrage">Unverbindlich anfragen</a>
+            <a class="cta-band__tel" href="tel:+4917660953701">0176 60953701</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
-
 <!-- Lightbox -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lb-close" id="lbClose" aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Zurück"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="4K-Bild">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Zurück"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
   <img id="lbImg" src="" alt="">
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Weiter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Weiter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
   <div class="lb-cap"><span class="badge-4k">4K</span><span id="lbCap"></span></div>
 </div>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-          <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+          <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
         </a>
-        <p>Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
+        <p>Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
         <h3>Navigation</h3>
@@ -184,6 +195,7 @@
       <div class="footer-col">
         <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
+        <a href="tel:+4917660953701">0176 60953701</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -196,9 +208,9 @@
   </div>
 </footer>
 
-<script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=11"></script>
-<script src="tours.js?v=6"></script>
-<script src="sort-mode.js?v=1"></script>
+<script src="lenis.min.js?v=1" defer></script>
+<script src="site.js?v=21" defer></script>
+<script src="tours.js?v=7" defer></script>
+<script src="sort-mode.js?v=1" defer></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
 <title>Kontakt & Anfrage | Virtuelle Touren Hamburg</title>
 <meta name="description" content="Jetzt unverbindlich eine virtuelle 3D-Tour für dein Objekt anfragen, aus Hamburg und deutschlandweit. Du erhältst zeitnah einen Richtpreis und einen Terminvorschlag.">
 <meta name="keywords" content="virtuelle Tour anfragen Hamburg, 3D-Tour Kontakt, 3D-Rundgang Angebot">
@@ -25,8 +25,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles-legacy.css?v=27">
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=41">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,11 +87,14 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="index.html" data-page="index.html">Start</a></li>
@@ -109,136 +112,126 @@
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary" href="#kontakt">Unverbindlich anfragen</a></li>
+      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
+      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="#anfrage">Unverbindlich anfragen</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </nav>
 </header>
 
-<main>
+<main id="main">
 
-  <section class="page-head">
+  <!-- Seitenkopf -->
+  <section class="page-head page-head--tight">
+    <div class="mesh mesh--hero" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="section__head">
-        <h1>Unverbindlich anfragen</h1>
-        <p>Schick mir kurz Objektart und ungefähre Fläche. Du bekommst zeitnah Richtpreis und Terminvorschlag.</p>
-      </div>
+      <h1 class="hero__title" data-split>Unverbindlich anfragen</h1>
+      <p class="lead hero__lead">Schick mir kurz Objektart und ungefähre Fläche. Du bekommst zeitnah Richtpreis und Terminvorschlag.</p>
     </div>
   </section>
 
-  <section class="section" id="kontakt"><span id="anfrage"></span>
-    <div class="wrap">
-      <div class="contact-grid">
+  <!-- Formular und Kontakt -->
+  <section class="section section--tight-top" id="kontakt"><span id="anfrage"></span>
+    <div class="wrap contact-grid">
 
-        <!-- Formular -->
-        <div class="form-card">
-          <h2 style="font-size:22px;margin-bottom:20px">Anfrage senden</h2>
-          <form name="anfrage" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?anfrage=ok#kontakt">
-            <input type="hidden" name="form-name" value="anfrage">
-            <input type="hidden" name="subject" value="Neue Tour-Anfrage über virtuelletour-hamburg.de">
-            <p class="hp"><label>Bitte leer lassen: <input name="bot-field"></label></p>
+      <div class="form-card" data-reveal>
+        <h2>Anfrage senden</h2>
+        <div class="notice" id="formNotice" role="status" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><strong>Danke, deine Anfrage ist angekommen.</strong>Ich melde mich zeitnah mit Richtpreis und Terminvorschlag.</div></div>
+        <form name="anfrage" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="kontakt.html?anfrage=ok#anfrage">
+          <input type="hidden" name="form-name" value="anfrage">
+          <input type="hidden" name="subject" value="Neue Tour-Anfrage über virtuelletour-hamburg.de">
+          <p class="hp"><label>Bitte leer lassen: <input name="bot-field"></label></p>
 
-            <div class="field-row">
-              <div class="field">
-                <label for="f-name">Name <span class="req">*</span></label>
-                <input type="text" id="f-name" name="name" required autocomplete="name">
-              </div>
-              <div class="field">
-                <label for="f-phone">Telefon</label>
-                <input type="tel" id="f-phone" name="telefon" autocomplete="tel">
-              </div>
-            </div>
-
+          <div class="field-row">
             <div class="field">
-              <label for="f-email">E-Mail <span class="req">*</span></label>
-              <input type="email" id="f-email" name="email" required autocomplete="email">
+              <label for="f-name">Name <span class="req">*</span></label>
+              <input type="text" id="f-name" name="name" required autocomplete="name">
             </div>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="f-type">Objektart</label>
-                <select id="f-type" name="objektart">
-                  <option value="">Bitte wählen …</option>
-                  <option>Gastronomie / Café / Bar</option>
-                  <option>Eventlocation / Hotel</option>
-                  <option>Immobilie / Wohnung</option>
-                  <option>Gewerbe / Showroom</option>
-                  <option>Freizeit / Sport</option>
-                  <option>Bauprojekt</option>
-                  <option>Sonstiges</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="f-area">Fläche (ca. m²)</label>
-                <input type="number" id="f-area" name="flaeche" min="10" max="5000" step="5" inputmode="numeric">
-              </div>
-            </div>
-
             <div class="field">
-              <label for="f-msg">Nachricht</label>
-              <textarea id="f-msg" name="nachricht" placeholder="Beschreibe kurz dein Objekt und deinen Wunschtermin …"></textarea>
-            </div>
-
-            <label class="consent">
-              <input type="checkbox" name="datenschutz" required>
-              <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden. <span class="req">*</span></span>
-            </label>
-
-            <button type="submit" class="btn btn--primary btn--lg" style="width:100%;justify-content:center">Anfrage absenden</button>
-          </form>
-        </div>
-
-        <!-- Kontaktinfos + Über mich -->
-        <div>
-          <h2 style="font-size:22px;margin-bottom:20px">Direkter Kontakt</h2>
-          <div class="contact-info">
-            <div class="contact-line">
-              <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
-              <div>
-                <div class="t">E-Mail</div>
-                <a class="v" href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
-              </div>
-            </div>
-            <div class="contact-line">
-              <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></div>
-              <div>
-                <div class="t">Telefon</div>
-                <a class="v" href="tel:+4917660953701">0176 60953701</a>
-              </div>
-            </div>
-            <div class="contact-line">
-              <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.7-9-10a6 6 0 0 1 9-7 6 6 0 0 1 9 7c-3 4.3-9 10-9 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
-              <div>
-                <div class="t">Einsatzgebiet</div>
-                <div class="v">Deutschlandweit, Anfahrt bis 30 km um Hamburg inkl.</div>
-              </div>
+              <label for="f-phone">Telefon</label>
+              <input type="tel" id="f-phone" name="telefon" autocomplete="tel">
             </div>
           </div>
 
-          <div style="margin-top:34px;padding-top:30px;border-top:1px solid var(--line)">
-            <picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1600" height="1067" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px"></picture>
-            <h2 id="ueber-mich" style="font-size:22px;margin-bottom:14px">Über mich</h2>
-            <p style="color:var(--muted);font-size:16px">3D-Touren und 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz. Persönlich, zuverlässig, aus einer Hand.</p>
+          <div class="field">
+            <label for="f-email">E-Mail <span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" required autocomplete="email">
           </div>
-        </div>
 
+          <div class="field-row">
+            <div class="field">
+              <label for="f-type">Objektart</label>
+              <select id="f-type" name="objektart">
+                <option value="">Bitte wählen …</option>
+                <option>Gastronomie / Café / Bar</option>
+                <option>Eventlocation / Hotel</option>
+                <option>Immobilie / Wohnung</option>
+                <option>Gewerbe / Showroom</option>
+                <option>Freizeit / Sport</option>
+                <option>Bauprojekt</option>
+                <option>Sonstiges</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-area">Fläche (ca. m²)</label>
+              <input type="number" id="f-area" name="flaeche" min="10" max="5000" step="5" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-msg">Nachricht</label>
+            <textarea id="f-msg" name="nachricht" placeholder="Beschreibe kurz dein Objekt und deinen Wunschtermin …"></textarea>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="datenschutz" required>
+            <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden. <span class="req">*</span></span>
+          </label>
+
+          <button type="submit" class="btn btn--primary btn--lg">Anfrage absenden</button>
+        </form>
       </div>
+
+      <div class="contact-side" data-reveal style="--i:1">
+        <h2>Direkter Kontakt</h2>
+        <div class="contact-info">
+          <div class="contact-line">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+            <div><div class="t">E-Mail</div><a class="v" href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a></div>
+          </div>
+          <div class="contact-line">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></div>
+            <div><div class="t">Telefon</div><a class="v" href="tel:+4917660953701">0176 60953701</a></div>
+          </div>
+          <div class="contact-line">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.7-9-10a6 6 0 0 1 9-7 6 6 0 0 1 9 7c-3 4.3-9 10-9 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+            <div><div class="t">Einsatzgebiet</div><div class="v">Deutschlandweit, Anfahrt bis 30 km um Hamburg inklusive</div></div>
+          </div>
+        </div>
+
+        <div class="about" id="ueber-mich">
+          <div class="about__img"><picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 480px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1600" height="1067" loading="lazy" decoding="async"></picture></div>
+          <h2>Über mich</h2>
+          <p>Saman Kaboli, Inhaber. 3D-Touren und 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz. Persönlich, zuverlässig, aus einer Hand.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- Ablauf -->
-  <section class="section section--soft">
+  <section class="section section--grey">
     <div class="wrap">
-      <div class="section__head">
+      <div class="sec-head sec-head--single" data-reveal>
         <h2>In drei Schritten zur fertigen Tour</h2>
       </div>
       <div class="steps">
-        <div class="step"><div class="n">1</div><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
-        <div class="step"><div class="n">2</div><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
-        <div class="step"><div class="n">3</div><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
+        <div class="step" data-reveal><span class="step__n">01</span><h3>Anfragen &amp; Termin</h3><p>Du schilderst dein Objekt, ich melde mich mit Richtpreis und Terminvorschlag.</p></div>
+        <div class="step" data-reveal style="--i:1"><span class="step__n">02</span><h3>Aufnahme vor Ort</h3><p>Ich scanne deine Räume und fotografiere alles in 4K.</p></div>
+        <div class="step" data-reveal style="--i:2"><span class="step__n">03</span><h3>Tour &amp; Bilder erhalten</h3><p>Du bekommst den fertigen 3D-Rundgang zum Einbinden plus alle 4K-Bilder mit vollen Nutzungsrechten.</p></div>
       </div>
     </div>
   </section>
@@ -246,54 +239,46 @@
   <!-- Einsatzgebiet -->
   <section class="section">
     <div class="wrap">
-      <div class="section__head">
+      <div class="sec-head" data-reveal>
         <h2>Vor Ort in Hamburg und deutschlandweit</h2>
         <p>Basis Hamburg, Anfahrt bis 30 km inklusive. Darüber hinaus komme ich überall in Deutschland zu dir.</p>
       </div>
-      <ul class="incl-grid">
-        <li>Hamburg
-          <small>Alle Stadtteile, von der HafenCity bis Blankenese</small>
-        </li>
-        <li>Hamburger Umland
-          <small>Norderstedt, Pinneberg, Wedel, Ahrensburg, Buxtehude: Anfahrt inklusive</small>
-        </li>
-        <li>Norddeutschland
-          <small>Lübeck, Kiel, Bremen, Hannover, Rostock</small>
-        </li>
-        <li>Deutschlandweit
-          <small>Realisiert unter anderem in Cuxhaven, Völklingen und <a href="virtuelle-tour-berlin.html">Berlin</a></small>
-        </li>
-      </ul>
+      <div class="points">
+        <div class="point" data-reveal><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Hamburg</h3><p>Alle Stadtteile, von der HafenCity bis Blankenese.</p></div>
+        <div class="point" data-reveal style="--i:1"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Hamburger Umland</h3><p>Norderstedt, Pinneberg, Wedel, Ahrensburg, Buxtehude: Anfahrt inklusive.</p></div>
+        <div class="point" data-reveal style="--i:2"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Norddeutschland</h3><p>Lübeck, Kiel, Bremen, Hannover, Rostock.</p></div>
+        <div class="point" data-reveal style="--i:3"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Deutschlandweit</h3><p>Realisiert unter anderem in Cuxhaven, Völklingen und <a href="virtuelle-tour-berlin.html">Berlin</a>.</p></div>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section section--soft">
-    <div class="wrap">
-      <div class="section__head">
+  <section class="section section--grey">
+    <div class="wrap faq-wrap">
+      <div class="faq-head" data-reveal>
         <h2>Das wird vor der Buchung am häufigsten gefragt</h2>
       </div>
-      <div class="faq">
-        <details>
-          <summary>Wie schnell bekomme ich eine Antwort auf meine Anfrage?</summary>
-          <p>In der Regel innerhalb von 24 Stunden an Werktagen, mit Richtpreis und Terminvorschlag. Ohne Verkaufsgespräch, ohne Verpflichtung.</p>
-        </details>
-        <details>
-          <summary>Wie lange dauert die Aufnahme vor Ort?</summary>
-          <p>Ein Café oder eine Wohnung bis 150 m² meist in zwei bis drei Stunden, größere Flächen einen halben Tag. Der Betrieb muss nicht komplett pausieren.</p>
-        </details>
-        <details>
-          <summary>Muss ich für die Aufnahme geschlossen haben?</summary>
-          <p>Nein, aber die Räume sollten möglichst frei von Personen sein, sonst erscheinen sie im 3D-Modell. Randzeiten wie vormittags vor Öffnung oder ein Ruhetag eignen sich gut.</p>
-        </details>
-        <details>
-          <summary>Wann ist die fertige Tour online?</summary>
-          <p>Meist wenige Tage nach der Aufnahme, mit Tour-Link, Einbettungscode und allen 4K-Bildern zum Download.</p>
-        </details>
-        <details>
-          <summary>Was muss ich vorbereiten?</summary>
-          <p>Wenig: aufgeräumte Räume, Licht an, persönliche Gegenstände aus dem Bild. Den Rest übernehme ich vor Ort. Checkliste im <a href="ratgeber-location-vorbereiten.html">Ratgeber zur Vorbereitung</a>.</p>
-        </details>
+      <div class="faq" data-reveal style="--i:1">
+          <details>
+            <summary>Wie schnell bekomme ich eine Antwort auf meine Anfrage?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>In der Regel innerhalb von 24 Stunden an Werktagen, mit Richtpreis und Terminvorschlag. Ohne Verkaufsgespräch, ohne Verpflichtung.</p></div></div>
+          </details>
+          <details>
+            <summary>Wie lange dauert die Aufnahme vor Ort?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ein Café oder eine Wohnung bis 150 m² meist in zwei bis drei Stunden, größere Flächen einen halben Tag. Der Betrieb muss nicht komplett pausieren.</p></div></div>
+          </details>
+          <details>
+            <summary>Muss ich für die Aufnahme geschlossen haben?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Nein, aber die Räume sollten möglichst frei von Personen sein, sonst erscheinen sie im 3D-Modell. Randzeiten wie vormittags vor Öffnung oder ein Ruhetag eignen sich gut.</p></div></div>
+          </details>
+          <details>
+            <summary>Wann ist die fertige Tour online?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Meist wenige Tage nach der Aufnahme, mit Tour-Link, Einbettungscode und allen 4K-Bildern zum Download.</p></div></div>
+          </details>
+          <details>
+            <summary>Was muss ich vorbereiten?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Wenig: aufgeräumte Räume, Licht an, persönliche Gegenstände aus dem Bild. Den Rest übernehme ich vor Ort. Checkliste im <a href="ratgeber-location-vorbereiten.html">Ratgeber zur Vorbereitung</a>.</p></div></div>
+          </details>
       </div>
     </div>
   </section>
@@ -303,12 +288,12 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-          <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+          <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
         </a>
-        <p>Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
+        <p>Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
         <h3>Navigation</h3>
@@ -330,6 +315,7 @@
       <div class="footer-col">
         <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
+        <a href="tel:+4917660953701">0176 60953701</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -342,7 +328,7 @@
   </div>
 </footer>
 
-<script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=11"></script>
+<script src="lenis.min.js?v=1" defer></script>
+<script src="site.js?v=21" defer></script>
 </body>
 </html>

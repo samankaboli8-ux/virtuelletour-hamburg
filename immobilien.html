@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
 <title>Virtuelle Tour Immobilien Hamburg | 3D-Rundgang &amp; 4K-Exposébilder</title>
 <meta name="description" content="Virtuelle 3D-Tour für Immobilien in Hamburg: Rundgang, 3D-Ansicht, Grundriss, Messen, Möbel digital entfernen und 4K-Exposébilder aus einem Scan. Ab 430 €.">
 <meta name="keywords" content="virtuelle Tour Immobilien, 3D-Rundgang Wohnung Hamburg, 3D-Tour Immobilie, Möbel digital entfernen, virtuelle Besichtigung, Exposé Bilder 4K, Grundriss aus 3D-Scan, Immobilienfotos Hamburg">
@@ -25,10 +25,10 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles-legacy.css?v=27">
+<link rel="stylesheet" href="styles.css?v=41">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -105,11 +105,14 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="index.html" data-page="index.html">Start</a></li>
@@ -127,279 +130,278 @@
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a></li>
+      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
+      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="kontakt.html">Unverbindlich anfragen</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </nav>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- Hero -->
-  <section class="hero hero--tourfirst">
+  <!-- 1. Hero -->
+  <section class="hero hero--sub">
+    <div class="mesh mesh--hero" aria-hidden="true"></div>
     <div class="wrap hero__inner">
-      <div>
-        <h1>Virtuelle Touren für Immobilien &amp; Wohnungen</h1>
-        <p class="lead">Interessenten besichtigen rund um die Uhr, von überall. Aus einem Scan entsteht alles, was dein Exposé braucht.</p>
-        <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
-          <a class="btn btn--ghost btn--lg" href="#preise">Preise ansehen</a>
-        </div>
-        <div class="hero__trust">
-          <span class="is-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Alles inklusive zum Festpreis, <strong>ab 430 €</strong></span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rundgang, 3D-Ansicht, Grundriss &amp; Messen</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Möbel digital entfernen</span>
-        </div>
-      </div>
-      <div class="hero__visual" id="heroTour" data-m="KNbB5EPAmre">
-        <div class="hero__frame" role="button" tabindex="0" aria-label="Virtuelle Tour einer Hamburger Wohnung starten">
-          <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-1280.webp"><img src="images/tours/KNbB5EPAmre-1280.jpg" alt="Virtuelle 3D-Tour einer Wohnung in der Lessingstraße in Hamburg" width="1280" height="720" fetchpriority="high" onerror="this.style.display='none'"></picture>
-          <span class="hero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </div>
-        <span class="hero__badge"><span class="dot"></span>Wohnung · Begehbar in 3D</span>
+      <h1 class="hero__title" data-split>Virtuelle Touren für Immobilien &amp; Wohnungen</h1>
+      <p class="lead hero__lead">Interessenten besichtigen rund um die Uhr, von überall. Aus einem Scan entsteht alles, was dein Exposé braucht.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" id="heroCta" href="kontakt.html?branche=immobilien#anfrage">Unverbindlich anfragen</a>
+        <a class="btn btn--secondary btn--lg" href="#preise">Preise ansehen</a>
       </div>
     </div>
-    <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#FFFFFF" d="M0,40 C360,0 1080,80 1440,30 L1440,60 L0,60 Z"></path></svg></div>
+
+    <div class="wrap hero__stage">
+      <div class="hero__zoom" id="heroZoom">
+        <div class="hero-media" id="heroTour" data-m="KNbB5EPAmre">
+          <div class="hero-media__frame" id="heroFrame" role="button" tabindex="0" aria-label="Virtuelle Tour Wohnung Lessingstraße 7 starten" data-title="Wohnung Lessingstraße 7">
+            <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-1280.webp"><img src="images/tours/KNbB5EPAmre-1280.jpg" alt="Virtuelle 3D-Tour einer Wohnung in der Lessingstraße in Hamburg" width="1280" height="720" fetchpriority="high" decoding="async"></picture>
+            <span class="hero-media__cta"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="chip chip--glass">360° Tour starten</span></span>
+          </div>
+          <button type="button" class="iconbtn iconbtn--glass hero-media__close" id="heroClose" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+          <ul class="facts" aria-label="Eckdaten">
+            <li><strong>ab 430 €</strong><span>Festpreis, alles inklusive</span></li><li><strong>Rundgang &amp; 3D</strong><span>Grundriss und Messen dabei</span></li><li><strong>Möbel digital</strong><span>auf Wunsch entfernen</span></li><li><strong>Ein Termin</strong><span>vor Ort, meist wenige Stunden</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Warum für Immobilien -->
-  <section class="section">
+  <!-- Warum -->
+  <section class="section" id="warum">
     <div class="wrap">
-      <div class="section__head" data-reveal>
-        <h2>Besichtigen ohne Termin, verkaufen mit Vorsprung</h2>
-        <p>Käufer und Mieter suchen online. Eine begehbare 3D-Tour hebt sich vom Foto-Exposé ab, erreicht auch ortsferne Interessenten und filtert unpassende Anfragen vor dem ersten Termin.</p>
+      <div class="sec-head sec-head--label">
+        <p class="label" data-reveal>Warum eine Tour</p>
+        <div data-reveal style="--i:1">
+          <h2>Besichtigen ohne Termin, verkaufen mit Vorsprung</h2>
+          <p class="sec-head__statement">Käufer und Mieter suchen online. Eine begehbare 3D-Tour hebt sich vom Foto-Exposé ab, erreicht auch ortsferne Interessenten und filtert unpassende Anfragen vor dem ersten Termin.</p>
+        </div>
       </div>
-      <div class="cards cards--media" data-reveal>
-        <article class="card-media">
-          <div class="card-media__img"><picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 640px) 40vw, 280px"><img src="images/defurnish-vorher-flur.jpg" alt="Flur einer möblierten Altbauwohnung in der 3D-Tour" width="1600" height="900" loading="lazy"></picture></div>
-          <div class="card-media__body">
+      <div class="bento">
+        <article class="tile tile--big" data-reveal>
+          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img src="images/defurnish-vorher-flur.jpg" alt="Flur einer möblierten Altbauwohnung in der 3D-Tour" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
+          <div class="tile__body">
             <h3>Ortsunabhängig besichtigen</h3>
             <p>Interessenten erkunden die Immobilie jederzeit, auch aus einer anderen Stadt oder dem Ausland.</p>
           </div>
         </article>
-        <article class="card-media">
-          <div class="card-media__img"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 640px) 40vw, 280px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss mit Raummaßen aus dem 3D-Scan" width="1600" height="1131" loading="lazy"></picture></div>
-          <div class="card-media__body">
+        <article class="tile " data-reveal style="--i:1">
+          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 300px"><img src="images/grundriss-beispiel.png" alt="2D-Grundriss mit Raummaßen aus dem 3D-Scan" width="1600" height="1131" loading="lazy" decoding="async"></picture></div>
+          <div class="tile__body">
             <h3>Weniger Leerlauf-Termine</h3>
             <p>Nur ernsthafte Interessenten fragen einen Termin an. Das spart Zeit und verkürzt die Vermarktung.</p>
           </div>
         </article>
-        <article class="card-media">
-          <div class="card-media__img"><picture><source type="image/webp" srcset="images/opt/ueber-mich-wohnzimmer-640.webp 640w, images/opt/ueber-mich-wohnzimmer-1200.webp 1200w" sizes="(max-width: 640px) 40vw, 280px"><img src="images/ueber-mich-wohnzimmer.jpg" alt="Saman Kaboli mit 3D-Kamera bei der Aufnahme eines Wohnzimmers" width="1200" height="900" loading="lazy" style="object-position:50% 20%"></picture></div>
-          <div class="card-media__body">
+        <article class="tile " data-reveal style="--i:2">
+          <div class="tile__img"><picture><source type="image/webp" srcset="images/opt/ueber-mich-wohnzimmer-640.webp 640w, images/opt/ueber-mich-wohnzimmer-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 300px"><img src="images/ueber-mich-wohnzimmer.jpg" alt="Saman Kaboli mit 3D-Kamera bei der Aufnahme eines Wohnzimmers" width="1200" height="900" loading="lazy" decoding="async"></picture></div>
+          <div class="tile__body">
             <h3>Ein Termin, alles drin</h3>
             <p>Rundgang, 3D-Ansicht, Grundriss und Exposébilder aus einem Scan. Kein separater Fototermin.</p>
           </div>
         </article>
-        <article class="card-media">
-          <div class="card-media__img"><img src="images/dollhouse-modell.webp" alt="Drehbares 3D-Modell einer Immobilie in der Dollhouse-Ansicht" width="1200" height="800" loading="lazy"></div>
-          <div class="card-media__body">
+        <article class="tile tile--wide" data-reveal style="--i:3">
+          <div class="tile__body">
             <h3>Im Wettbewerb abheben</h3>
             <p>Ein Exposé mit Tour wirkt hochwertiger als Fotos. Makler gewinnen leichter Objekte, Eigentümer bessere Interessenten.</p>
           </div>
+          <div class="tile__img"><img src="images/dollhouse-modell.webp" alt="Drehbares 3D-Modell einer Immobilie in der Dollhouse-Ansicht" width="1200" height="800" loading="lazy" decoding="async"></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Preise -->
-  <section class="section section--green" id="preise">
+  <!-- Preis -->
+  <section class="section section--grey" id="preise">
     <div class="wrap">
-      <div class="section__head" data-reveal>
+      <div class="sec-head" data-reveal>
         <h2>Tour &amp; <span class="nb">4K-Bilder</span>: alles inklusive ab 430 €</h2>
         <p>Ein Festpreis nach Fläche. Tour, 4K-Bilder und 12 Monate Hosting immer enthalten, keine versteckten Kosten.</p>
       </div>
-      <div class="price-teaser" data-reveal>
-        <div class="price-teaser__table">
-          <table class="price-table">
-            <thead>
-              <tr><th scope="col">Fläche</th><th scope="col">Festpreis</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>bis 80 m²<small>z. B. 2- bis 3-Zimmer-Wohnung</small></td><td>430 €</td></tr>
-              <tr class="is-featured"><td>bis 150 m² <span class="price-badge">Meistgebucht</span><small>z. B. Große Wohnung, Reihenhaus</small></td><td>540 €</td></tr>
-              <tr><td>bis 250 m²<small>z. B. Einfamilienhaus</small></td><td>690 €</td></tr>
-              <tr><td>bis 350 m²<small>z. B. Villa, Mehrfamilienhaus</small></td><td>810 €</td></tr>
-            </tbody>
-          </table>
-          <p class="price-note">Bis 500 m² 950 €, darüber individuelles Angebot. Anfahrt bis 30 km um Hamburg inklusive.</p>
+      <div class="price-card" data-reveal>
+        <div class="price-card__tiers">
+          <ul class="tiers" aria-label="Festpreis nach Fläche">
+            <li><span class="tiers__area">bis 80 m²<small>z. B. 2- bis 3-Zimmer-Wohnung</small></span><span class="tiers__price">430 €</span></li>
+            <li class="is-featured"><span class="tiers__area">bis 150 m² <span class="chip chip--ink">Meistgebucht</span><small>z. B. Große Wohnung, Reihenhaus</small></span><span class="tiers__price">540 €</span></li>
+            <li><span class="tiers__area">bis 250 m²<small>z. B. Einfamilienhaus</small></span><span class="tiers__price">690 €</span></li>
+            <li><span class="tiers__area">bis 350 m²<small>z. B. Villa, Mehrfamilienhaus</small></span><span class="tiers__price">810 €</span></li>
+          </ul>
         </div>
-        <div class="price-teaser__incl">
+        <div class="price-card__incl">
           <h3>Immer dabei</h3>
-          <ul class="incl-grid incl-grid--1">
-            <li>360°-Rundgang in 4K</li>
-            <li>Hochwertige 4K-Bilder mit vollen Nutzungsrechten</li>
-            <li>Dollhouse- &amp; 3D-Modell</li>
-            <li>2D-Grundriss</li>
-            <li>Google Street View-Integration</li>
-            <li>Möbel digital entfernen</li>
+          <ul class="incl">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>360°-Rundgang in 4K</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hochwertige 4K-Bilder mit vollen Nutzungsrechten</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dollhouse- &amp; 3D-Modell</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2D-Grundriss</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Google Street View-Integration</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Möbel digital entfernen</li>
           </ul>
         </div>
       </div>
-      <div class="price-cta" data-reveal>
-        <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
-        <p class="price-cta__note">Richtpreis und Terminvorschlag innerhalb von 24 Stunden an Werktagen. Details zu allen Leistungen: <a href="leistungen.html#preise">Leistungen &amp; Preise</a></p>
+      <p class="price-note">Bis 500 m² 950 €, darüber individuelles Angebot. Anfahrt bis 30 km um Hamburg inklusive.</p>
+      <div class="center btn-row" data-reveal>
+        <a class="btn btn--primary btn--lg" href="kontakt.html?branche=immobilien#anfrage">Unverbindlich anfragen</a>
+        <a class="btn btn--secondary btn--lg" href="leistungen.html#preise">Alle Leistungen &amp; Preise</a>
       </div>
+      <p class="price-contact">Richtpreis und Terminvorschlag innerhalb von 24 Stunden an Werktagen.</p>
     </div>
   </section>
 
-
   <!-- Alles in einer Tour -->
-  <section class="section section--soft" id="alles-in-einer-tour">
+  <section class="section" id="alles-in-einer-tour">
     <div class="wrap">
-      <div class="section__head" data-reveal>
+      <div class="sec-head" data-reveal>
         <h2>Eine Tour mit allem, was dein Exposé braucht</h2>
         <p>Rundgang, 3D-Ansicht, Grundriss, Messfunktion und 4K-Bilder aus einem Termin. Kein zweiter Fototermin.</p>
       </div>
-      <div class="cards cards--3" data-reveal>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h3>Begehbarer 360°-Rundgang</h3>
-          <p>Frei durch jeden Raum, am Desktop, Smartphone oder Tablet, rund um die Uhr.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg></div>
-          <h3><span class="nb">3D-Ansicht</span> des Objekts</h3>
-          <p>Das ganze Objekt als drehbares Dollhouse-Modell: Aufteilung und Zuschnitt auf einen Blick.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <h3><span class="nb">2D-Grundriss</span></h3>
-          <p>Maßstäblich mit Raummaßen, direkt aus dem Scan, fertig für Exposé und Portale.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7M5 11l9 9"/></svg></div>
-          <h3>Möbel digital entfernen</h3>
-          <p>Möbel und Deko auf Wunsch digital entfernen. Interessenten sehen den Raum neutral und leer.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3c-.4.4-1 .4-1.4 0l-4.6-4.6c-.4-.4-.4-1 0-1.4L15.3 2.7c.4-.4 1-.4 1.4 0l4.6 4.6c.4.4.4 1 0 1.4z"/><path d="m14.5 5.5 2 2M11.5 8.5l2 2M8.5 11.5l2 2M5.5 14.5l2 2"/></svg></div>
-          <h3>Messen direkt in der Tour</h3>
-          <p>Wandlängen, Raumhöhen, Türbreiten: Interessenten prüfen selbst, ob Küche oder Sofa passen.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
-          <h3>Exposébilder in 4K</h3>
-          <p>Scharfe Fotos aus derselben Aufnahme für Portale, Exposé und Website, mit vollen Nutzungsrechten.</p>
-        </article>
+      <div class="feats feats--3">
+        <article class="feat" data-reveal><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Begehbarer 360°-Rundgang</h3><p>Frei durch jeden Raum, am Desktop, Smartphone oder Tablet, rund um die Uhr.</p></article>
+        <article class="feat" data-reveal style="--i:1"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg></span><h3><span class="nb">3D-Ansicht</span> des Objekts</h3><p>Das ganze Objekt als drehbares Dollhouse-Modell: Aufteilung und Zuschnitt auf einen Blick.</p></article>
+        <article class="feat" data-reveal style="--i:2"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><h3><span class="nb">2D-Grundriss</span></h3><p>Maßstäblich mit Raummaßen, direkt aus dem Scan, fertig für Exposé und Portale.</p></article>
+        <article class="feat" data-reveal style="--i:3"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7M5 11l9 9"/></svg></span><h3>Möbel digital entfernen</h3><p>Möbel und Deko auf Wunsch digital entfernen. Interessenten sehen den Raum neutral und leer.</p></article>
+        <article class="feat" data-reveal style="--i:4"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3c-.4.4-1 .4-1.4 0l-4.6-4.6c-.4-.4-.4-1 0-1.4L15.3 2.7c.4-.4 1-.4 1.4 0l4.6 4.6c.4.4.4 1 0 1.4z"/><path d="m14.5 5.5 2 2M11.5 8.5l2 2M8.5 11.5l2 2M5.5 14.5l2 2"/></svg></span><h3>Messen direkt in der Tour</h3><p>Wandlängen, Raumhöhen, Türbreiten: Interessenten prüfen selbst, ob Küche oder Sofa passen.</p></article>
+        <article class="feat" data-reveal style="--i:5"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><h3>Exposébilder in 4K</h3><p>Scharfe Fotos aus derselben Aufnahme für Portale, Exposé und Website, mit vollen Nutzungsrechten.</p></article>
       </div>
-
-
-      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;margin-top:44px">
-        <figure style="margin:0">
-          <picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/grundriss-beispiel.png" alt="Maßstäblicher 2D-Grundriss einer Wohnung mit Raummaßen aus dem 3D-Scan" width="1600" height="1131" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff;border:1px solid var(--line);display:block"></picture>
-          <figcaption style="margin-top:12px;font-size:14px;color:var(--muted);text-align:center">2D-Grundriss: maßstäblich mit Raummaßen, ideal fürs Exposé</figcaption>
-        </figure>
-        <figure style="margin:0">
-          <img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Dollhouse-Modell einer Immobilie aus dem 3D-Scan" width="1200" height="800" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);background:#0f1417;display:block">
-          <figcaption style="margin-top:12px;font-size:14px;color:var(--muted);text-align:center">3D-Ansicht: die ganze Einheit als drehbares Dollhouse-Modell</figcaption>
-        </figure>
+      <div class="gallery gallery--2" data-reveal>
+        <div class="shot">
+          <picture><source type="image/webp" srcset="images/opt/grundriss-beispiel-640.webp 640w, images/opt/grundriss-beispiel-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 600px"><img src="images/grundriss-beispiel.png" alt="Maßstäblicher 2D-Grundriss einer Wohnung mit Raummaßen aus dem 3D-Scan" width="1600" height="1131" loading="lazy" decoding="async"></picture>
+          <span class="chip chip--glass shot__name">2D-Grundriss: maßstäblich mit Raummaßen, ideal fürs Exposé</span>
+        </div>
+        <div class="shot">
+          <img src="images/dollhouse-modell.webp" alt="Begehbares 3D-Dollhouse-Modell einer Immobilie aus dem 3D-Scan" width="1200" height="800" loading="lazy" decoding="async">
+          <span class="chip chip--glass shot__name">3D-Ansicht: die ganze Einheit als drehbares Dollhouse-Modell</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Möbel digital entfernen: Slider -->
-  <section class="section" id="defurnishing">
+  <!-- Möbel digital entfernen -->
+  <section class="section section--grey" id="defurnishing">
     <div class="wrap">
-      <div class="section__head" data-reveal>
+      <div class="sec-head" data-reveal>
         <h2>Möbel digital entfernen: Räume per Klick leeren</h2>
         <p>Fremde Möbel lenken ab. Auf Wunsch entferne ich sie digital aus den Aufnahmen, Interessenten sehen den Raum neutral. Zieh den Regler und sieh den Unterschied.</p>
       </div>
-      <div class="ba" id="baSlider" role="slider" tabindex="0" aria-label="Vorher-Nachher-Vergleich: möblierter und leerer Raum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-reveal>
-        <picture><source type="image/webp" srcset="images/opt/defurnish-nachher-flur-640.webp 640w, images/opt/defurnish-nachher-flur-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img class="ba__img ba__img--after" src="images/defurnish-nachher-flur.jpg" alt="Leerer, digital von Möbeln befreiter Altbau-Flur in Hamburg aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
-        <picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img class="ba__img ba__img--before" src="images/defurnish-vorher-flur.jpg" alt="Möblierter Altbau-Flur in Hamburg mit Teppich, Garderobe und Antikmöbeln aus einer virtuellen Tour" loading="lazy" onerror="this.style.display='none'"></picture>
-        <span class="ba__label ba__label--before">Möbliert</span>
-        <span class="ba__label ba__label--after">Leer · digital entfernt</span>
-        <div class="ba__handle"><span class="ba__grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg></span></div>
+      <div data-reveal>
+        <div class="ba ba--wide" id="baSlider" role="slider" tabindex="0" aria-label="Vorher-Nachher-Vergleich: möblierter und leerer Raum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <picture><source type="image/webp" srcset="images/opt/defurnish-nachher-flur-640.webp 640w, images/opt/defurnish-nachher-flur-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="ba__img ba__img--after" src="images/defurnish-nachher-flur.jpg" alt="Leerer, digital von Möbeln befreiter Altbau-Flur in Hamburg aus einer virtuellen Tour" width="1200" height="675" loading="lazy" decoding="async"></picture>
+          <picture><source type="image/webp" srcset="images/opt/defurnish-vorher-flur-640.webp 640w, images/opt/defurnish-vorher-flur-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 620px"><img class="ba__img ba__img--before" src="images/defurnish-vorher-flur.jpg" alt="Möblierter Altbau-Flur in Hamburg mit Teppich, Garderobe und Antikmöbeln aus einer virtuellen Tour" width="1200" height="675" loading="lazy" decoding="async"></picture>
+          <span class="ba__label ba__label--before">Möbliert</span>
+          <span class="ba__label ba__label--after">Leer, digital entfernt</span>
+          <div class="ba__handle"><span class="ba__grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg></span></div>
+        </div>
+        <p class="ba__hint">Regler ziehen oder mit den Pfeiltasten ← → verschieben</p>
       </div>
-      <p class="ba__hint" data-reveal>Regler ziehen oder mit den Pfeiltasten ← → verschieben</p>
+    </div>
+  </section>
+
+  <!-- Ansprechpartner -->
+  <section class="section">
+    <div class="wrap">
+      <div class="person" data-reveal>
+        <div class="person__photo"><picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 480px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1200" height="800" loading="lazy" decoding="async"></picture></div>
+        <div class="person__text">
+          <blockquote>„Ich scanne selbst vor Ort. Tour und Bilder bekommst du meist wenige Tage später.“</blockquote>
+          <h2>Dein Ansprechpartner aus Hamburg, im Einsatz in ganz Deutschland</h2>
+          <p>Ob Hamburg, Lübeck, Berlin oder Völklingen: Ich scanne dort, wo dein Objekt steht. Anfahrt bis 30 km um Hamburg inklusive.</p>
+          <p>3D-Rundgang und 4K-Fotos aus einer Hand, persönlich und zuverlässig.</p>
+          <div class="person__foot">
+            <span class="label">Saman Kaboli · Inhaber</span>
+            <a class="btn btn--light" href="kontakt.html#ueber-mich">Über mich</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section section--soft">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
+  <section class="section section--tight-top">
+    <div class="wrap faq-wrap">
+      <div class="faq-head" data-reveal>
         <h2>Gut zu wissen</h2>
       </div>
-      <div class="faq" data-reveal>
-        <details>
-          <summary>Wie hilft eine virtuelle Tour beim Verkauf oder der Vermietung?</summary>
-          <p>Interessenten besichtigen rund um die Uhr, nur passende fragen einen Termin an. Das spart Leerlauf und verkürzt die Vermarktung.</p>
-        </details>
-        <details>
-          <summary>Was heißt Möbel digital entfernen?</summary>
-          <p>Möbel und Deko werden digital aus den Aufnahmen entfernt. Interessenten sehen den Raum neutral und leer, ideal bei bewohnten Bestandswohnungen.</p>
-        </details>
-        <details>
-          <summary>Bekomme ich auch einen Grundriss?</summary>
-          <p>Ja. Aus dem Scan entstehen ein maßstäblicher 2D-Grundriss und ein Dollhouse-Modell, beides ideal fürs Exposé.</p>
-        </details>
-        <details>
-          <summary>Kann man in der virtuellen Tour messen?</summary>
-          <p>Ja. Wandlängen, Raumhöhen sowie Fenster- und Türbreiten lassen sich direkt im Rundgang messen.</p>
-        </details>
-        <details>
-          <summary>Bekomme ich aus der Tour auch Bilder für das Exposé?</summary>
-          <p>Ja, ohne separaten Fototermin. Aus demselben Scan entstehen 4K-Bilder mit vollen Nutzungsrechten für Exposé, Portale, Website und Social Media.</p>
-        </details>
-        <details>
-          <summary>Lässt sich die Tour bei ImmoScout24 und Immowelt einbinden?</summary>
-          <p>Ja, per Link oder iFrame, ebenso auf deiner Website und in Social Media. Fürs Exposé gibt es einen QR-Code.</p>
-        </details>
+      <div class="faq" data-reveal style="--i:1">
+          <details>
+            <summary>Wie hilft eine virtuelle Tour beim Verkauf oder der Vermietung?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Interessenten besichtigen rund um die Uhr, nur passende fragen einen Termin an. Das spart Leerlauf und verkürzt die Vermarktung.</p></div></div>
+          </details>
+          <details>
+            <summary>Was heißt Möbel digital entfernen?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Möbel und Deko werden digital aus den Aufnahmen entfernt. Interessenten sehen den Raum neutral und leer, ideal bei bewohnten Bestandswohnungen.</p></div></div>
+          </details>
+          <details>
+            <summary>Bekomme ich auch einen Grundriss?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Aus dem Scan entstehen ein maßstäblicher 2D-Grundriss und ein Dollhouse-Modell, beides ideal fürs Exposé.</p></div></div>
+          </details>
+          <details>
+            <summary>Kann man in der virtuellen Tour messen?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Wandlängen, Raumhöhen sowie Fenster- und Türbreiten lassen sich direkt im Rundgang messen.</p></div></div>
+          </details>
+          <details>
+            <summary>Bekomme ich aus der Tour auch Bilder für das Exposé?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja, ohne separaten Fototermin. Aus demselben Scan entstehen 4K-Bilder mit vollen Nutzungsrechten für Exposé, Portale, Website und Social Media.</p></div></div>
+          </details>
+          <details>
+            <summary>Lässt sich die Tour bei ImmoScout24 und Immowelt einbinden?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja, per Link oder iFrame, ebenso auf deiner Website und in Social Media. Fürs Exposé gibt es einen QR-Code.</p></div></div>
+          </details>
       </div>
     </div>
   </section>
 
   <!-- Weitere Branchen -->
-  <section class="section">
-    <div class="wrap" style="text-align:center">
-      <div class="section__head" data-reveal style="margin-bottom:24px">
+  <section class="section section--tight-top">
+    <div class="wrap">
+      <div class="sec-head sec-head--center sec-head--compact sec-head--single" data-reveal>
         <h2>Lösungen für deine Branche</h2>
       </div>
-      <div class="branch-links" data-reveal>
-        <a class="btn btn--ghost" href="gastronomie.html">Gastronomie</a>
-        <a class="btn btn--ghost" href="eventlocations.html">Eventlocations &amp; Hotels</a>
-        <a class="btn btn--ghost" href="gewerbe.html">Gewerbe &amp; Showrooms</a>
-        <a class="btn btn--ghost" href="freizeit.html">Freizeit &amp; Entertainment</a>
-        <a class="btn btn--ghost" href="baubranche.html">Baubranche</a>
+      <div class="btn-row" data-reveal>
+        <a class="btn btn--secondary" href="gastronomie.html">Gastronomie</a>
+        <a class="btn btn--secondary" href="eventlocations.html">Eventlocations &amp; Hotels</a>
+        <a class="btn btn--secondary" href="gewerbe.html">Gewerbe &amp; Showrooms</a>
+        <a class="btn btn--secondary" href="freizeit.html">Freizeit &amp; Entertainment</a>
+        <a class="btn btn--secondary" href="baubranche.html">Baubranche</a>
       </div>
     </div>
   </section>
 
   <!-- CTA-Band -->
-  <section class="cta-band">
+  <section class="section section--cta">
     <div class="wrap">
-      <div class="cta-band__person" data-reveal>
-        <img class="cta-band__photo" src="images/opt/saman-portrait-240.jpg" alt="Saman Kaboli, Inhaber von Virtuelle Touren Hamburg" width="240" height="240" loading="lazy">
-        <p class="cta-band__quote">„Ich scanne selbst vor Ort. Tour und Bilder bekommst du meist wenige Tage später.“<span>Saman Kaboli, Inhaber</span></p>
+      <div class="cta-band" data-reveal>
+        <div class="mesh mesh--strong" aria-hidden="true"></div>
+        <div class="cta-band__inner">
+          <h2>Bereit, deine Immobilie online begehbar zu machen?</h2>
+          <p>Schreib mir kurz Objektart und Fläche, du bekommst zeitnah einen Richtpreis. Tour und 4K-Exposébilder inklusive, ab 430 €.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="kontakt.html?branche=immobilien#anfrage">Unverbindlich anfragen</a>
+            <a class="cta-band__tel" href="tel:+4917660953701">0176 60953701</a>
+          </div>
+        </div>
       </div>
-      <h2>Bereit, deine Immobilie online begehbar zu machen?</h2>
-      <p>Schreib mir kurz Objektart und Fläche, du bekommst zeitnah einen Richtpreis. Tour und 4K-Exposébilder inklusive, ab 430 €.</p>
-      <a class="btn btn--light btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
     </div>
   </section>
 
 </main>
 
-  <!-- Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
-  <div class="mobile-cta" id="mobileCta" aria-hidden="true">
-    <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a>
-    <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
-  </div>
+<!-- Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
+<div class="mobile-cta" id="mobileCta" aria-hidden="true">
+  <a class="btn btn--primary" href="kontakt.html?branche=immobilien#anfrage">Unverbindlich anfragen</a>
+  <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-          <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+          <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
         </a>
-        <p>Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
+        <p>Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
         <h3>Navigation</h3>
@@ -421,6 +423,7 @@
       <div class="footer-col">
         <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
+        <a href="tel:+4917660953701">0176 60953701</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -433,106 +436,7 @@
   </div>
 </footer>
 
-<script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=11"></script>
-<script>
-/* Hero-Tour inline starten */
-(function(){
-  var hero = document.getElementById('heroTour');
-  if(!hero) return;
-  var frame = hero.querySelector('.hero__frame');
-  function openHero(){
-    if(hero.classList.contains('is-open')) return;
-    hero.classList.add('is-open');
-    var spin = document.createElement('div');
-    spin.className = 'spinner';
-    frame.appendChild(spin);
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://my.matterport.com/show/?m=' + hero.dataset.m + '&play=1';
-    iframe.title = 'Virtuelle Tour';
-    iframe.allow = 'autoplay; fullscreen; web-share; xr-spatial-tracking;';
-    iframe.allowFullscreen = true;
-    iframe.addEventListener('load', function(){ spin.remove(); });
-    frame.appendChild(iframe);
-  }
-  frame.addEventListener('click', openHero);
-  frame.addEventListener('keydown', function(e){
-    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openHero(); }
-  });
-})();
-
-/* Touren-Grid: identisches Verhalten wie auf der Referenzen-Seite */
-(function(){
-  var grid = document.getElementById('tourGrid');
-  if(!grid) return;
-
-  function openTour(card){
-    if(card.classList.contains('is-open')) return;
-    var frame = card.querySelector('.frame');
-    card.classList.add('is-open');
-    frame.querySelector('.play').style.display = 'none';
-    var spin = document.createElement('div');
-    spin.className = 'spinner';
-    frame.appendChild(spin);
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://my.matterport.com/show/?m=' + card.dataset.m + '&play=1';
-    iframe.title = 'Virtuelle Tour: ' + (card.querySelector('h4')||{}).textContent;
-    iframe.allow = 'autoplay; fullscreen; web-share; xr-spatial-tracking;';
-    iframe.allowFullscreen = true;
-    iframe.loading = 'lazy';
-    iframe.addEventListener('load', function(){ spin.remove(); });
-    frame.appendChild(iframe);
-    card.scrollIntoView({behavior:'smooth', block:'center'});
-  }
-  function closeTour(card){
-    var frame = card.querySelector('.frame');
-    card.classList.remove('is-open');
-    frame.querySelectorAll('iframe,.spinner').forEach(function(el){ el.remove(); });
-    frame.querySelector('.play').style.display = '';
-  }
-
-  var toastTimer;
-  function showToast(){
-    var toast = document.getElementById('toast');
-    if(!toast){
-      toast = document.createElement('div');
-      toast.id = 'toast';
-      toast.textContent = 'Link kopiert';
-      toast.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#4E7B53;color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 10px 40px rgba(22,36,46,.18);opacity:0;pointer-events:none;transition:all .25s;z-index:300';
-      document.body.appendChild(toast);
-    }
-    requestAnimationFrame(function(){
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateX(-50%) translateY(0)';
-    });
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function(){
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateX(-50%) translateY(20px)';
-    }, 1800);
-  }
-  function copyLink(url){
-    if(navigator.clipboard){
-      navigator.clipboard.writeText(url).then(showToast).catch(fallback);
-    } else { fallback(); }
-    function fallback(){
-      var ta = document.createElement('textarea');
-      ta.value = url; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); }catch(e){}
-      ta.remove(); showToast();
-    }
-  }
-
-  grid.querySelectorAll('.card').forEach(function(card){
-    var frame = card.querySelector('.frame');
-    frame.addEventListener('click', function(){ openTour(card); });
-    frame.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openTour(card); }
-    });
-    card.querySelector('.close').addEventListener('click', function(){ closeTour(card); });
-    card.querySelector('.copy').addEventListener('click', function(e){ copyLink(e.currentTarget.dataset.url); });
-  });
-})();
-</script>
+<script src="lenis.min.js?v=1" defer></script>
+<script src="site.js?v=21" defer></script>
 </body>
 </html>

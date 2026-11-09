@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
 <title>Baudokumentation in 3D: As-Built &amp; Baufortschritt | Hamburg</title>
 <meta name="description" content="3D-Dokumentation für Bau, Sanierung & Architektur in Hamburg: As-Built-Doku, Aufmaß & Grundriss, Beweissicherung, millimetergenau per 3D-Scan.">
 <meta name="keywords" content="Baudokumentation 3D, As-Built Dokumentation, 3D-Tour Baustelle, Baufortschritt dokumentieren, Aufmaß Scan, Bautenstandsbericht, Sanierung Vorher Nachher">
@@ -25,10 +25,10 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://my.matterport.com">
 <link rel="dns-prefetch" href="https://my.matterport.com">
-<link rel="stylesheet" href="styles-legacy.css?v=27">
+<link rel="stylesheet" href="styles.css?v=41">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -95,11 +95,14 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="index.html" data-page="index.html">Start</a></li>
@@ -117,239 +120,242 @@
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a></li>
+      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
+      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="kontakt.html">Unverbindlich anfragen</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </nav>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- Hero -->
-  <section class="hero hero--tourfirst">
+  <!-- 1. Hero -->
+  <section class="hero hero--sub">
+    <div class="mesh mesh--hero" aria-hidden="true"></div>
     <div class="wrap hero__inner">
-      <div>
-        <h1><span class="nb">3D-Dokumentation</span> für Bau, Sanierung &amp; Architektur</h1>
-        <p class="lead">Der tatsächliche Bauzustand, begehbar festgehalten: As-Built, Baufortschritt, Aufmaß und Grundriss aus einem Scan. Alle Beteiligten stimmen sich ortsunabhängig am selben Abbild ab.</p>
-        <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
-          <a class="btn btn--ghost btn--lg" href="#preise">Preise ansehen</a>
-        </div>
-        <div class="hero__trust">
-          <span class="is-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Festpreis nach Fläche, <strong>ab 430 €</strong></span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>As-Built &amp; Baufortschritt</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Aufmaß &amp; Grundriss aus dem Scan</span>
-        </div>
-      </div>
-      <div class="hero__visual" id="heroTour" data-m="KNbB5EPAmre">
-        <div class="hero__frame" role="button" tabindex="0" aria-label="Begehbare 3D-Objektdokumentation starten">
-          <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-1280.webp"><img src="images/tours/KNbB5EPAmre-1280.jpg" alt="Begehbare 3D-Dokumentation einer Gebäudeeinheit in Hamburg" width="1280" height="720" fetchpriority="high" onerror="this.style.display='none'"></picture>
-          <span class="hero__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </div>
-        <span class="hero__badge"><span class="dot"></span>Objektdokumentation · Begehbar in 3D</span>
+      <h1 class="hero__title" data-split><span class="nb">3D-Dokumentation</span> für Bau, Sanierung &amp; Architektur</h1>
+      <p class="lead hero__lead">Der tatsächliche Bauzustand, begehbar festgehalten: As-Built, Baufortschritt, Aufmaß und Grundriss aus einem Scan. Alle Beteiligten stimmen sich ortsunabhängig am selben Abbild ab.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" id="heroCta" href="kontakt.html?branche=baubranche#anfrage">Unverbindlich anfragen</a>
+        <a class="btn btn--secondary btn--lg" href="#preise">Preise ansehen</a>
       </div>
     </div>
-    <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#FFFFFF" d="M0,40 C360,0 1080,80 1440,30 L1440,60 L0,60 Z"></path></svg></div>
-  </section>
 
-  <!-- Warum für die Baubranche -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
-        <h2>Ein begehbares Abbild spart Wege, Zeit und Streit</h2>
-        <p>Statt vieler Einzelfotos entsteht ein maßhaltiges 3D-Abbild des Bauzustands. Bauherr, Planung, Gewerke und Versicherung greifen jederzeit auf denselben Stand zu.</p>
-      </div>
-      <div class="cards" data-reveal>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M9 11h.01M15 11h.01"/></svg></div>
-          <h3>As-Built-Dokumentation</h3>
-          <p>Der gebaute Zustand, begehbar festgehalten: Grundlage für Abnahme, Bestand und spätere Umbauten.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <h3>Baufortschritt festhalten</h3>
-          <p>Scans in mehreren Bauphasen ergeben eine lückenlose Verlaufsdoku für Bautenstandsberichte und Nachweise.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Remote-Abstimmung</h3>
-          <p>Gewerke, Planer und Bauherren begehen die Baustelle digital. Weniger Vor-Ort-Termine, schnellere Entscheidungen.</p>
-        </article>
-        <article class="card-feat">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-          <h3>Beweissicherung</h3>
-          <p>Ein Scan vor dem Schließen der Wände hält Leitungen fest: belastbarer Nachweis für Versicherung und Gewährleistung.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Preise -->
-  <section class="section section--green" id="preise">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
-        <h2>Festpreis nach Fläche, ab 430 € je Aufnahme</h2>
-        <p>3D-Modell, Grundriss, Maße und 4K-Bilder aus jedem Scan. Mehrere Bauphasen auf Anfrage.</p>
-      </div>
-      <div class="price-teaser" data-reveal>
-        <div class="price-teaser__table">
-          <table class="price-table">
-            <thead>
-              <tr><th scope="col">Fläche</th><th scope="col">Festpreis</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>bis 80 m²<small>z. B. Wohnung, einzelne Etage</small></td><td>430 €</td></tr>
-              <tr class="is-featured"><td>bis 150 m² <span class="price-badge">Meistgebucht</span><small>z. B. Wohnung, Bürofläche</small></td><td>540 €</td></tr>
-              <tr><td>bis 250 m²<small>z. B. Haus, Bauabschnitt</small></td><td>690 €</td></tr>
-              <tr><td>bis 350 m²<small>z. B. Mehrere Etagen, Gewerbeeinheit</small></td><td>810 €</td></tr>
-            </tbody>
-          </table>
-          <p class="price-note">Bis 500 m² 950 €, darüber individuelles Angebot. Anfahrt bis 30 km um Hamburg inklusive.</p>
-        </div>
-        <div class="price-teaser__incl">
-          <h3>Immer dabei</h3>
-          <ul class="incl-grid incl-grid--1">
-            <li>Begehbarer 3D-Rundgang</li>
-            <li>3D-Modell (Dollhouse)</li>
-            <li>2D-Grundriss mit Maßen</li>
-            <li>Messen direkt im Modell</li>
-            <li>4K-Bilder mit vollen Nutzungsrechten</li>
-            <li>12 Monate Hosting</li>
+    <div class="wrap hero__stage">
+      <div class="hero__zoom" id="heroZoom">
+        <div class="hero-media" id="heroTour" data-m="KNbB5EPAmre">
+          <div class="hero-media__frame" id="heroFrame" role="button" tabindex="0" aria-label="Virtuelle Tour der 3D-Objektdokumentation starten" data-title="der 3D-Objektdokumentation">
+            <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-1280.webp"><img src="images/tours/KNbB5EPAmre-1280.jpg" alt="Begehbare 3D-Dokumentation einer Gebäudeeinheit in Hamburg" width="1280" height="720" fetchpriority="high" decoding="async"></picture>
+            <span class="hero-media__cta"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="chip chip--glass">360° Tour starten</span></span>
+          </div>
+          <button type="button" class="iconbtn iconbtn--glass hero-media__close" id="heroClose" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+          <ul class="facts" aria-label="Eckdaten">
+            <li><strong>ab 430 €</strong><span>je Aufnahme, Festpreis nach Fläche</span></li><li><strong>As-Built</strong><span>und Baufortschritt</span></li><li><strong>Aufmaß</strong><span>und Grundriss aus dem Scan</span></li><li><strong>Deutschlandweit</strong><span>aus Hamburg</span></li>
           </ul>
         </div>
       </div>
-      <div class="price-cta" data-reveal>
-        <a class="btn btn--primary btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
-        <p class="price-cta__note">Richtpreis und Terminvorschlag innerhalb von 24 Stunden an Werktagen. Details zu allen Leistungen: <a href="leistungen.html#preise">Leistungen &amp; Preise</a></p>
+    </div>
+  </section>
+
+  <!-- 2. Warum -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>Ein begehbares Abbild spart Wege, Zeit und Streit</h2>
+        <p>Statt vieler Einzelfotos entsteht ein maßhaltiges 3D-Abbild des Bauzustands. Bauherr, Planung, Gewerke und Versicherung greifen jederzeit auf denselben Stand zu.</p>
+      </div>
+      <div class="feats">
+        <article class="feat" data-reveal><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M9 11h.01M15 11h.01"/></svg></span><h3>As-Built-Dokumentation</h3><p>Der gebaute Zustand, begehbar festgehalten: Grundlage für Abnahme, Bestand und spätere Umbauten.</p></article>
+        <article class="feat" data-reveal style="--i:1"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Baufortschritt festhalten</h3><p>Scans in mehreren Bauphasen ergeben eine lückenlose Verlaufsdoku für Bautenstandsberichte und Nachweise.</p></article>
+        <article class="feat" data-reveal style="--i:2"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Remote-Abstimmung</h3><p>Gewerke, Planer und Bauherren begehen die Baustelle digital. Weniger Vor-Ort-Termine, schnellere Entscheidungen.</p></article>
+        <article class="feat" data-reveal style="--i:3"><span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Beweissicherung</h3><p>Ein Scan vor dem Schließen der Wände hält Leitungen fest: belastbarer Nachweis für Versicherung und Gewährleistung.</p></article>
       </div>
     </div>
   </section>
 
-
-  <!-- Einsatzbereiche -->
-  <section class="section section--soft" id="bau-einsatz">
+  <!-- Preis -->
+  <section class="section section--grey" id="preise">
     <div class="wrap">
-      <div class="section__head" data-reveal>
+      <div class="sec-head" data-reveal>
+        <h2>Festpreis nach Fläche, ab 430 € je Aufnahme</h2>
+        <p>3D-Modell, Grundriss, Maße und 4K-Bilder aus jedem Scan. Mehrere Bauphasen auf Anfrage.</p>
+      </div>
+      <div class="price-card" data-reveal>
+        <div class="price-card__tiers">
+          <ul class="tiers" aria-label="Festpreis nach Fläche">
+            <li><span class="tiers__area">bis 80 m²<small>z. B. Wohnung, einzelne Etage</small></span><span class="tiers__price">430 €</span></li>
+            <li class="is-featured"><span class="tiers__area">bis 150 m² <span class="chip chip--ink">Meistgebucht</span><small>z. B. Wohnung, Bürofläche</small></span><span class="tiers__price">540 €</span></li>
+            <li><span class="tiers__area">bis 250 m²<small>z. B. Haus, Bauabschnitt</small></span><span class="tiers__price">690 €</span></li>
+            <li><span class="tiers__area">bis 350 m²<small>z. B. Mehrere Etagen, Gewerbeeinheit</small></span><span class="tiers__price">810 €</span></li>
+          </ul>
+        </div>
+        <div class="price-card__incl">
+          <h3>Immer dabei</h3>
+          <ul class="incl">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Begehbarer 3D-Rundgang</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3D-Modell (Dollhouse)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2D-Grundriss mit Maßen</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Messen direkt im Modell</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>4K-Bilder mit vollen Nutzungsrechten</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>12 Monate Hosting</li>
+          </ul>
+        </div>
+      </div>
+      <p class="price-note">Bis 500 m² 950 €, darüber individuelles Angebot. Anfahrt bis 30 km um Hamburg inklusive.</p>
+      <div class="center btn-row" data-reveal>
+        <a class="btn btn--primary btn--lg" href="kontakt.html?branche=baubranche#anfrage">Unverbindlich anfragen</a>
+        <a class="btn btn--secondary btn--lg" href="leistungen.html#preise">Alle Leistungen &amp; Preise</a>
+      </div>
+      <p class="price-contact">Richtpreis und Terminvorschlag innerhalb von 24 Stunden an Werktagen.</p>
+    </div>
+  </section>
+
+  <!-- 4. Einsatzbereiche -->
+  <section class="section" id="bau-einsatz">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
         <h2>Von der Bestandsaufnahme bis zur Abnahme</h2>
         <p>Neubau, Sanierung, Umbau oder Bestandsverwaltung: Die 3D-Dokumentation passt sich deiner Bauphase an.</p>
       </div>
-      <ul class="incl-grid" data-reveal>
-        <li>As-Built- &amp; Bestandsdokumentation<small>Realitätsgetreues Abbild des gebauten Zustands</small></li>
-        <li>Baufortschritt &amp; Bautenstand<small>Lückenlose Verlaufsdoku über mehrere Phasen</small></li>
-        <li>Aufmaß &amp; 2D-Grundriss<small>Maße und Grundriss direkt aus dem Scan</small></li>
-        <li>Sanierung: Vorher und Nachher<small>Zustände vergleichbar dokumentieren</small></li>
-        <li>Verdeckte Installationen<small>Leitungen vor dem Verschließen festhalten</small></li>
-        <li>Remote-Abnahme &amp; Beweissicherung<small>Nachweis für Bauherr, Gewerke &amp; Versicherung</small></li>
-      </ul>
+      <div class="points">
+        <div class="point" data-reveal><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>As-Built- &amp; Bestandsdokumentation</h3><p>Realitätsgetreues Abbild des gebauten Zustands.</p></div>
+        <div class="point" data-reveal style="--i:1"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Baufortschritt &amp; Bautenstand</h3><p>Lückenlose Verlaufsdoku über mehrere Phasen.</p></div>
+        <div class="point" data-reveal style="--i:2"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Aufmaß &amp; 2D-Grundriss</h3><p>Maße und Grundriss direkt aus dem Scan.</p></div>
+        <div class="point" data-reveal style="--i:3"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Sanierung: Vorher und Nachher</h3><p>Zustände vergleichbar dokumentieren.</p></div>
+        <div class="point" data-reveal style="--i:4"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Verdeckte Installationen</h3><p>Leitungen vor dem Verschließen festhalten.</p></div>
+        <div class="point" data-reveal style="--i:5"><span class="point__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Remote-Abnahme &amp; Beweissicherung</h3><p>Nachweis für Bauherr, Gewerke &amp; Versicherung.</p></div>
+      </div>
     </div>
   </section>
 
-  <!-- Beispiel-Tour -->
-  <section class="section" id="bau-touren">
+  <!-- Touren -->
+  <section class="section section--grey" id="bau-touren">
     <div class="wrap">
-      <div class="section__head" data-reveal>
-        <h2>So sieht eine <span class="nb">3D-Objektdokumentation</span> aus</h2>
+      <div class="sec-head" data-reveal>
+        <h2>So sieht eine 3D-Objektdokumentation aus</h2>
         <p>Begehbarer Rundgang einer Gebäudeeinheit, dasselbe Prinzip gilt für Bau- und Sanierungsobjekte. Tour anklicken, sie startet direkt hier. Baureferenzen auf Anfrage.</p>
       </div>
-      <div class="tour-grid tour-grid--1" id="tourGrid" data-reveal>
-        <article class="card" data-m="KNbB5EPAmre">
-          <div class="frame" role="button" tabindex="0" aria-label="Tour starten: Begehbare 3D-Objektdokumentation" data-title="Begehbare 3D-Objektdokumentation">
-            <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp 640w, images/tours/KNbB5EPAmre-960.webp 960w" sizes="(max-width: 700px) 100vw, 420px"><img class="thumb" src="images/tours/KNbB5EPAmre-960.jpg" alt="Begehbare 3D-Dokumentation einer Gebäudeeinheit in Hamburg" width="960" height="540" loading="lazy" onerror="this.style.display='none'"></picture>
-            <div class="scrim"></div>
-            <div class="play"><div class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><span class="label">Tour starten</span></div>
+      <div class="tour-grid tour-grid--1" id="tourGrid">
+        <article class="tour" data-m="KNbB5EPAmre" data-reveal>
+          <div class="tour__window" role="button" tabindex="0" aria-label="Tour starten: 3D-Objektdokumentation" data-title="3D-Objektdokumentation">
+            <picture><source type="image/webp" srcset="images/tours/KNbB5EPAmre-640.webp 640w, images/tours/KNbB5EPAmre-960.webp 960w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"><img src="images/tours/KNbB5EPAmre-960.jpg" alt="Begehbare 3D-Dokumentation einer Gebäudeeinheit in Hamburg" width="960" height="540" loading="lazy" decoding="async"></picture>
+            <span class="chip chip--glass">360° Tour</span>
+            <span class="play play--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
           </div>
-          <div class="meta">
-            <div><h3>3D-Objektdokumentation</h3><div class="sub">Begehbare Gebäudeeinheit · Hamburg</div></div>
-            <div class="actions">
-              <a class="iconbtn" href="https://my.matterport.com/show/?m=KNbB5EPAmre" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="In neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
-              <button class="iconbtn copy" title="Tour-Link kopieren" aria-label="Tour-Link kopieren" data-url="https://my.matterport.com/show/?m=KNbB5EPAmre"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
-              <button class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+          <div class="tour__meta">
+            <div><h3>3D-Objektdokumentation</h3><p>Begehbare Gebäudeeinheit · Hamburg</p></div>
+            <div class="tour__actions">
+              <a class="iconbtn" href="https://my.matterport.com/show/?m=KNbB5EPAmre" target="_blank" rel="noopener" title="In neuem Tab öffnen" aria-label="Tour in neuem Tab öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
+              <button type="button" class="iconbtn close" title="Tour schließen" aria-label="Tour schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
             </div>
           </div>
         </article>
       </div>
-      <div style="text-align:center;margin-top:44px">
-        <a class="btn btn--primary btn--lg" href="referenzen.html">Alle Touren ansehen</a>
+      <div class="center" data-reveal>
+        <a class="btn btn--secondary btn--lg" href="referenzen.html">Alle Touren ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ansprechpartner -->
+  <section class="section">
+    <div class="wrap">
+      <div class="person" data-reveal>
+        <div class="person__photo"><picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 480px"><img src="images/ueber-mich-scan.jpg" alt="Bei der Aufnahme einer virtuellen Tour mit der 3D-Kamera" width="1200" height="800" loading="lazy" decoding="async"></picture></div>
+        <div class="person__text">
+          <blockquote>„Ich scanne selbst vor Ort. Tour und Bilder bekommst du meist wenige Tage später.“</blockquote>
+          <h2>Dein Ansprechpartner aus Hamburg, im Einsatz in ganz Deutschland</h2>
+          <p>Ob Hamburg, Lübeck, Berlin oder Völklingen: Ich scanne dort, wo dein Objekt steht. Anfahrt bis 30 km um Hamburg inklusive.</p>
+          <p>3D-Rundgang und 4K-Fotos aus einer Hand, persönlich und zuverlässig.</p>
+          <div class="person__foot">
+            <span class="label">Saman Kaboli · Inhaber</span>
+            <a class="btn btn--light" href="kontakt.html#ueber-mich">Über mich</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section section--soft">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
+  <section class="section section--tight-top">
+    <div class="wrap faq-wrap">
+      <div class="faq-head" data-reveal>
         <h2>Gut zu wissen</h2>
       </div>
-      <div class="faq" data-reveal>
-        <details>
-          <summary>Was ist eine As-Built-Dokumentation mit 3D-Scan?</summary>
-          <p>Der tatsächlich gebaute Zustand wird begehbar in 3D festgehalten, vom Rohbau bis zum fertigen Objekt. Ideal für Bestandsaufnahme, Abnahme und spätere Umbauten.</p>
-        </details>
-        <details>
-          <summary>Kann ich den Baufortschritt regelmäßig dokumentieren?</summary>
-          <p>Ja. Ich scanne in definierten Bauphasen, so entsteht eine lückenlose Verlaufsdoku für Bautenstandsberichte, Gewerke-Abstimmung und Nachweise.</p>
-        </details>
-        <details>
-          <summary>Bekomme ich Grundriss und Maße aus dem Scan?</summary>
-          <p>Ja. Aus dem Scan entstehen 2D-Grundriss und Maße, im Modell lässt sich zwischen Punkten messen. Praktisch für Planung, Aufmaß und Materialermittlung.</p>
-        </details>
-        <details>
-          <summary>Lassen sich verdeckte Installationen dokumentieren?</summary>
-          <p>Ja. Ein Scan vor dem Schließen von Wänden und Decken hält Leitungen, Rohre und Elektrik fest. Das verhindert später teure Fehlbohrungen.</p>
-        </details>
+      <div class="faq" data-reveal style="--i:1">
+          <details>
+            <summary>Was ist eine As-Built-Dokumentation mit 3D-Scan?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Der tatsächlich gebaute Zustand wird begehbar in 3D festgehalten, vom Rohbau bis zum fertigen Objekt. Ideal für Bestandsaufnahme, Abnahme und spätere Umbauten.</p></div></div>
+          </details>
+          <details>
+            <summary>Kann ich den Baufortschritt regelmäßig dokumentieren?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Ich scanne in definierten Bauphasen, so entsteht eine lückenlose Verlaufsdoku für Bautenstandsberichte, Gewerke-Abstimmung und Nachweise.</p></div></div>
+          </details>
+          <details>
+            <summary>Bekomme ich Grundriss und Maße aus dem Scan?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Aus dem Scan entstehen 2D-Grundriss und Maße, im Modell lässt sich zwischen Punkten messen. Praktisch für Planung, Aufmaß und Materialermittlung.</p></div></div>
+          </details>
+          <details>
+            <summary>Lassen sich verdeckte Installationen dokumentieren?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><div><p>Ja. Ein Scan vor dem Schließen von Wänden und Decken hält Leitungen, Rohre und Elektrik fest. Das verhindert später teure Fehlbohrungen.</p></div></div>
+          </details>
       </div>
     </div>
   </section>
 
   <!-- Weitere Branchen -->
-  <section class="section">
-    <div class="wrap" style="text-align:center">
-      <div class="section__head" data-reveal style="margin-bottom:24px">
+  <section class="section section--tight-top">
+    <div class="wrap">
+      <div class="sec-head sec-head--center sec-head--compact sec-head--single" data-reveal>
         <h2>Lösungen für deine Branche</h2>
       </div>
-      <div class="branch-links" data-reveal>
-        <a class="btn btn--ghost" href="gastronomie.html">Gastronomie</a>
-        <a class="btn btn--ghost" href="eventlocations.html">Eventlocations &amp; Hotels</a>
-        <a class="btn btn--ghost" href="immobilien.html">Immobilien &amp; Wohnen</a>
-        <a class="btn btn--ghost" href="gewerbe.html">Gewerbe &amp; Showrooms</a>
-        <a class="btn btn--ghost" href="freizeit.html">Freizeit &amp; Entertainment</a>
+      <div class="btn-row" data-reveal>
+        <a class="btn btn--secondary" href="gastronomie.html">Gastronomie</a>
+        <a class="btn btn--secondary" href="eventlocations.html">Eventlocations &amp; Hotels</a>
+        <a class="btn btn--secondary" href="immobilien.html">Immobilien &amp; Wohnen</a>
+        <a class="btn btn--secondary" href="gewerbe.html">Gewerbe &amp; Showrooms</a>
+        <a class="btn btn--secondary" href="freizeit.html">Freizeit &amp; Entertainment</a>
       </div>
     </div>
   </section>
 
   <!-- CTA-Band -->
-  <section class="cta-band">
+  <section class="section section--cta">
     <div class="wrap">
-      <div class="cta-band__person" data-reveal>
-        <img class="cta-band__photo" src="images/opt/saman-portrait-240.jpg" alt="Saman Kaboli, Inhaber von Virtuelle Touren Hamburg" width="240" height="240" loading="lazy">
-        <p class="cta-band__quote">„Ich scanne selbst vor Ort. Tour und Bilder bekommst du meist wenige Tage später.“<span>Saman Kaboli, Inhaber</span></p>
+      <div class="cta-band" data-reveal>
+        <div class="mesh mesh--strong" aria-hidden="true"></div>
+        <div class="cta-band__inner">
+          <h2>Bauzustand begehbar dokumentieren?</h2>
+          <p>Schildere mir kurz Projekt, Fläche und Bauphasen, du bekommst zeitnah ein Angebot. Aus Hamburg, deutschlandweit.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="kontakt.html?branche=baubranche#anfrage">Unverbindlich anfragen</a>
+            <a class="cta-band__tel" href="tel:+4917660953701">0176 60953701</a>
+          </div>
+        </div>
       </div>
-      <h2>Bauzustand begehbar dokumentieren?</h2>
-      <p>Schildere mir kurz Projekt, Fläche und Bauphasen, du bekommst zeitnah ein Angebot. Aus Hamburg, deutschlandweit.</p>
-      <a class="btn btn--light btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
     </div>
   </section>
 
 </main>
 
-  <!-- Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
-  <div class="mobile-cta" id="mobileCta" aria-hidden="true">
-    <a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a>
-    <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
-  </div>
+<!-- Mobiler Anfrage-Balken: erscheint nach dem Hero, verschwindet am CTA-Band -->
+<div class="mobile-cta" id="mobileCta" aria-hidden="true">
+  <a class="btn btn--primary" href="kontakt.html?branche=baubranche#anfrage">Unverbindlich anfragen</a>
+  <a class="mobile-cta__tel" href="tel:+4917660953701" aria-label="Anrufen: 0176 60953701"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-          <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+          <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
         </a>
-        <p>Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
+        <p>Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
         <h3>Navigation</h3>
@@ -371,6 +377,7 @@
       <div class="footer-col">
         <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
+        <a href="tel:+4917660953701">0176 60953701</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -383,106 +390,7 @@
   </div>
 </footer>
 
-<script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=11"></script>
-<script>
-/* Hero-Tour inline starten */
-(function(){
-  var hero = document.getElementById('heroTour');
-  if(!hero) return;
-  var frame = hero.querySelector('.hero__frame');
-  function openHero(){
-    if(hero.classList.contains('is-open')) return;
-    hero.classList.add('is-open');
-    var spin = document.createElement('div');
-    spin.className = 'spinner';
-    frame.appendChild(spin);
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://my.matterport.com/show/?m=' + hero.dataset.m + '&play=1';
-    iframe.title = 'Virtuelle Tour';
-    iframe.allow = 'autoplay; fullscreen; web-share; xr-spatial-tracking;';
-    iframe.allowFullscreen = true;
-    iframe.addEventListener('load', function(){ spin.remove(); });
-    frame.appendChild(iframe);
-  }
-  frame.addEventListener('click', openHero);
-  frame.addEventListener('keydown', function(e){
-    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openHero(); }
-  });
-})();
-
-/* Touren-Grid: identisches Verhalten wie auf der Referenzen-Seite */
-(function(){
-  var grid = document.getElementById('tourGrid');
-  if(!grid) return;
-
-  function openTour(card){
-    if(card.classList.contains('is-open')) return;
-    var frame = card.querySelector('.frame');
-    card.classList.add('is-open');
-    frame.querySelector('.play').style.display = 'none';
-    var spin = document.createElement('div');
-    spin.className = 'spinner';
-    frame.appendChild(spin);
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://my.matterport.com/show/?m=' + card.dataset.m + '&play=1';
-    iframe.title = 'Virtuelle Tour: ' + (card.querySelector('h4')||{}).textContent;
-    iframe.allow = 'autoplay; fullscreen; web-share; xr-spatial-tracking;';
-    iframe.allowFullscreen = true;
-    iframe.loading = 'lazy';
-    iframe.addEventListener('load', function(){ spin.remove(); });
-    frame.appendChild(iframe);
-    card.scrollIntoView({behavior:'smooth', block:'center'});
-  }
-  function closeTour(card){
-    var frame = card.querySelector('.frame');
-    card.classList.remove('is-open');
-    frame.querySelectorAll('iframe,.spinner').forEach(function(el){ el.remove(); });
-    frame.querySelector('.play').style.display = '';
-  }
-
-  var toastTimer;
-  function showToast(){
-    var toast = document.getElementById('toast');
-    if(!toast){
-      toast = document.createElement('div');
-      toast.id = 'toast';
-      toast.textContent = 'Link kopiert';
-      toast.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#4E7B53;color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 10px 40px rgba(22,36,46,.18);opacity:0;pointer-events:none;transition:all .25s;z-index:300';
-      document.body.appendChild(toast);
-    }
-    requestAnimationFrame(function(){
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateX(-50%) translateY(0)';
-    });
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function(){
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateX(-50%) translateY(20px)';
-    }, 1800);
-  }
-  function copyLink(url){
-    if(navigator.clipboard){
-      navigator.clipboard.writeText(url).then(showToast).catch(fallback);
-    } else { fallback(); }
-    function fallback(){
-      var ta = document.createElement('textarea');
-      ta.value = url; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); }catch(e){}
-      ta.remove(); showToast();
-    }
-  }
-
-  grid.querySelectorAll('.card').forEach(function(card){
-    var frame = card.querySelector('.frame');
-    frame.addEventListener('click', function(){ openTour(card); });
-    frame.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openTour(card); }
-    });
-    card.querySelector('.close').addEventListener('click', function(){ closeTour(card); });
-    card.querySelector('.copy').addEventListener('click', function(e){ copyLink(e.currentTarget.dataset.url); });
-  });
-})();
-</script>
+<script src="lenis.min.js?v=1" defer></script>
+<script src="site.js?v=21" defer></script>
 </body>
 </html>

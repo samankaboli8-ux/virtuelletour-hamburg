@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');setTimeout(function(){d.classList.add('hero-in');},30);})();</script>
 <title>Location auf den 3D-Scan vorbereiten: Checkliste</title>
 <meta name="description" content="Checkliste für den Aufnahmetag: Licht, Ordnung, Personen im Bild und die typischen Fehler, die im fertigen 3D-Modell später auffallen.">
 <meta name="keywords" content="3D-Tour Vorbereitung, 3D-Scan Checkliste, virtuelle Tour Aufnahme, Location vorbereiten">
@@ -25,8 +25,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/urbanist-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles-legacy.css?v=27">
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=41">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -80,11 +80,14 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="header-sentinel" id="headerSentinel" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header" id="siteHeader">
   <nav class="nav wrap" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-      <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+      <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="index.html" data-page="index.html">Start</a></li>
@@ -102,26 +105,28 @@
         </ul>
       </li>
       <li><a href="ratgeber.html" data-page="ratgeber.html">Ratgeber</a></li>
-      <li class="nav__cta"><a class="btn btn--primary" href="kontakt.html">Unverbindlich anfragen</a></li>
+      <li class="nav__tel"><a href="tel:+4917660953701">0176 60953701</a></li>
+      <li class="nav__cta"><a class="btn btn--primary btn--sm" href="kontakt.html">Unverbindlich anfragen</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
-      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+      <svg class="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </nav>
 </header>
 
-<main>
-  <div class="wrap">
-    <div class="legal">
+<main id="main">
 
-      <p class="crumbs"><a href="ratgeber.html">Ratgeber</a> &rsaquo; Vorbereitung</p>
+  <section class="section section--article">
+    <div class="wrap">
+      <article class="prose">
+        <p class="crumbs"><a href="ratgeber.html">Ratgeber</a> &rsaquo; Vorbereitung</p>
 
       <h1>Location optimal auf den <span class="nb">3D-Scan</span> vorbereiten</h1>
 
-      <p style="font-size:18px">Eine virtuelle Tour ist gnadenlos ehrlich. Die Kamera erfasst jeden Winkel in 360 Grad, auch den Putzeimer hinter der Theke und den Stapel Kartons in der Ecke. Eine Stunde Vorbereitung entscheidet darüber, ob das Ergebnis einladend oder beliebig wirkt.</p>
+      <p class="intro">Eine virtuelle Tour ist gnadenlos ehrlich. Die Kamera erfasst jeden Winkel in 360 Grad, auch den Putzeimer hinter der Theke und den Stapel Kartons in der Ecke. Eine Stunde Vorbereitung entscheidet darüber, ob das Ergebnis einladend oder beliebig wirkt.</p>
 
-      <picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/ueber-mich-scan.jpg" alt="3D-Kamera auf dem Stativ während der Aufnahme einer virtuellen Tour" width="1600" height="1067" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);margin:24px 0"></picture>
+      <picture><source type="image/webp" srcset="images/opt/ueber-mich-scan-640.webp 640w, images/opt/ueber-mich-scan-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 600px"><img src="images/ueber-mich-scan.jpg" alt="3D-Kamera auf dem Stativ während der Aufnahme einer virtuellen Tour" width="1600" height="1067" loading="lazy"></picture>
 
       <h2>Den richtigen Zeitpunkt wählen</h2>
 
@@ -135,7 +140,7 @@
 
       <h2>Die Checkliste für den Aufnahmetag</h2>
 
-      <ul class="incl-grid" style="margin:26px 0">
+      <ul>
         <li>Alle Lampen einschalten
           <small>Auch dekorative Beleuchtung und Vitrinenlicht</small>
         </li>
@@ -198,16 +203,25 @@
 
       <p>Vor jedem Termin schicke ich diese Punkte noch einmal als kompakte Liste zu, damit nichts untergeht. Fragen zur Vorbereitung deines konkreten Objekts beantworte ich gern vorab, schreib mir einfach über das <a href="kontakt.html">Kontaktformular</a>.</p>
 
-      <p style="margin-top:36px"><a href="ratgeber.html">&larr; Zurück zum Ratgeber</a></p>
-
+      <p><a href="ratgeber.html">&larr; Zurück zum Ratgeber</a></p>
+      </article>
     </div>
-  </div>
+  </section>
 
-  <section class="cta-band">
+  <!-- CTA-Band -->
+  <section class="section section--cta">
     <div class="wrap">
-      <h2>Bereit für die Aufnahme?</h2>
-      <p>Schick mir dein Objekt, wir finden einen Termin, der zu deinem Betrieb passt.</p>
-      <a class="btn btn--light btn--lg" href="kontakt.html">Unverbindlich anfragen</a>
+      <div class="cta-band" data-reveal>
+        <div class="mesh mesh--strong" aria-hidden="true"></div>
+        <div class="cta-band__inner">
+          <h2>Bereit für die Aufnahme?</h2>
+          <p>Schick mir dein Objekt, wir finden einen Termin, der zu deinem Betrieb passt.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="kontakt.html#anfrage">Unverbindlich anfragen</a>
+            <a class="cta-band__tel" href="tel:+4917660953701">0176 60953701</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -216,12 +230,12 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand" href="index.html">
           <span class="brand__mark" aria-hidden="true"><svg viewBox="8 8 64 64" aria-hidden="true"><path class="lm-l" d="M14 51L40 36L40 24L14 39Z"/><path class="lm-r" d="M40 36L66 51L66 39L40 24Z"/><path class="lm-t" d="M40 36L66 51L40 66L14 51Z"/><path class="lm-w" d="M27.88 53L32.2 55.5L32.2 45.5L27.88 43Z"/><path class="lm-w" d="M34.8 57L38.27 59L38.27 49L34.8 47Z"/><path class="lm-e" d="M24.4 33L50.4 48L50.4 50L24.4 35Z"/><path class="lm-e" d="M50.4 48L66 39L66 41L50.4 50Z"/><path class="lm-t" d="M40 24L66 39L50.4 48L24.4 33Z"/><path class="lm-l" d="M24.4 33L40 24L40 12L24.4 21Z"/><path class="lm-r" d="M40 24L66 39L66 27L40 12Z"/><path class="lm-w" d="M54.3 32.25L43.9 38.25L43.9 29.25L54.3 23.25Z"/></svg></span>
-          <span>Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
+          <span class="brand__text">Virtuelle Touren<small>Aus Hamburg · Deutschlandweit</small></span>
         </a>
-        <p>Virtuelle 3D-Touren inkl. 4K-Bilder für Gastronomie, Immobilien und Gewerbe. Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
+        <p>Aus Hamburg, deutschlandweit im Einsatz, zum Beispiel in <a href="virtuelle-tour-berlin.html">Berlin</a>.</p>
       </div>
       <div class="footer-col">
         <h3>Navigation</h3>
@@ -243,6 +257,7 @@
       <div class="footer-col">
         <h3>Kontakt</h3>
         <a href="mailto:Info@virtuelletour-hamburg.de">Info@virtuelletour-hamburg.de</a>
+        <a href="tel:+4917660953701">0176 60953701</a>
         <a href="kontakt.html">Anfrageformular</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -255,7 +270,7 @@
   </div>
 </footer>
 
-<script src="lenis.min.js?v=1"></script>
-<script src="site.js?v=11"></script>
+<script src="lenis.min.js?v=1" defer></script>
+<script src="site.js?v=21" defer></script>
 </body>
 </html>
