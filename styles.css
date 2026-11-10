@@ -1009,7 +1009,7 @@ a.v:hover{color:var(--muted)}
   .hero--arc{--arc-h:clamp(240px,calc(100vh - 520px),530px)}
   .arc{height:var(--arc-h)}
   .arc__card{--cw:clamp(200px,calc(var(--arc-h) * .88),360px)}
-  .arc__hint{margin-top:clamp(calc(-1 * var(--s-8)),calc(var(--arc-h) * -.16 + var(--s-2)),calc(-1 * var(--s-2)))} /* Hinweis bleibt unter der Frontkarte, egal wie hoch das Karussell ist */
+  .arc__hint{margin-top:clamp(calc(-1 * var(--s-8)),calc(var(--arc-h) * -.05),calc(-1 * var(--s-2)))} /* Frontkarte endet in WebKit bei 90 %, in Chromium bei 83 % der Karussellhöhe; Hinweis beginnt bei 95 % */ /* Hinweis bleibt unter der Frontkarte, egal wie hoch das Karussell ist */
   /* Unterseiten: Hero-Medium nach Resthöhe, Breite folgt bis maximal 2,1:1, zentriert */
   .hero--sub .hero__stage{--h:clamp(220px,calc(100vh - var(--hero-rest,512px)),640px)}
   .hero--sub:has(.hero-switch) .hero__stage{--hero-rest:540px}
